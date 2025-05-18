@@ -8,11 +8,14 @@
   "scripts": {
     "dev": "dotenv -- turbo dev",
     "build": "dotenv -- turbo build",
-    "start": "dotenv -- turbo run start",
-    "start:web": "dotenv -- turbo run start --filter=@repo/web",
+    "start": "dotenv -- turbo start",
+    "start:web": "dotenv -- turbo start --filter=@repo/web",
     "lint": "turbo lint",
     "typecheck": "turbo typecheck",
-    "format": "prettier --write \"**/*.{js,jsx,mjs,ts,tsx,mts,md,mdx,json}\""
+    "format": "prettier --write \"**/*.{js,jsx,mjs,ts,tsx,mts,md,mdx,json}\"",
+    "auth:generate": "dotenv -- turbo auth:generate",
+    "db:generate": "dotenv -- turbo db:generate",
+    "db:migrate": "dotenv -- turbo db:migrate"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",

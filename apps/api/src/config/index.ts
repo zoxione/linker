@@ -10,6 +10,10 @@ const config = parseConfig({
 
   webAppUrl: process.env.WEB_APP_URL,
   webAppPort: parseInt(process.env.WEB_APP_PORT ?? "", 10),
+
+  databaseUrl: process.env.DATABASE_URL,
+
+  betterAuthSecret: process.env.BETTER_AUTH_SECRET,
 });
 
 export { config };

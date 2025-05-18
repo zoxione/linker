@@ -8,9 +8,12 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Icons } from "@repo/ui/components/icons";
 import { Input } from "@repo/ui/components/input";
 
+import { SimpleError } from "@/shared/errors/simple-error";
+import { authClient } from "@/shared/lib/auth-client";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { authEmailFormSchema, AuthEmailFormSchema } from "../model/auth.schemas";
+import { useAuthStore } from "../model/auth.stores";
 import { AuthFormStep } from "../model/auth.types";
 
 interface AuthEmailFormProps {
@@ -19,17 +22,26 @@ interface AuthEmailFormProps {
 
 const AuthEmailForm = ({ setStep }: AuthEmailFormProps) => {
   const [loading, setLoading] = useState<boolean>(false);
+  const { formData, updateFormData } = useAuthStore();
 
   const form = useForm<AuthEmailFormSchema>({
     resolver: zodResolver(authEmailFormSchema),
     defaultValues: {
-      email: "",
+      email: formData.email,
     },
   });
 
   const onSubmit = async (values: AuthEmailFormSchema) => {
     try {
       setLoading(true);
+      const { data, error } = await authClient.emailOtp.sendVerificationOtp({
+        email: values.email,
+        type: "sign-in",
+      });
+      if (error) {
+        throw new SimpleError(error.message || "Не удалось отправить код");
+      }
+      updateFormData({ email: values.email });
       setStep("otp");
     } catch (error) {
       // await displayError(error);

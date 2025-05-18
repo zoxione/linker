@@ -10,6 +10,10 @@ const CONFIG_SCHEMA = z.object({
 
   webAppUrl: z.string(),
   webAppPort: z.number(),
+
+  databaseUrl: z.string(),
+
+  betterAuthSecret: z.string(),
 });
 
 type Config = z.infer<typeof CONFIG_SCHEMA>;
