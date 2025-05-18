@@ -1,4 +1,5 @@
 import { auth } from "../../lib/auth";
+import { customerRouter } from "../domain/customer";
 import { Server } from "./build-server";
 
 const buildRoutes = async (server: Server) => {
@@ -7,6 +8,8 @@ const buildRoutes = async (server: Server) => {
   });
 
   server.on(["POST", "GET"], "/api/auth/**", (c) => auth.handler(c.req.raw));
+
+  server.route("/api/customer", customerRouter);
 };
 
 export { buildRoutes };

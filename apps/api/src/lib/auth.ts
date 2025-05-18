@@ -4,17 +4,16 @@ import { emailOTP } from "better-auth/plugins";
 import { customAlphabet } from "nanoid";
 
 import { config } from "../config";
-import { db } from "../persistence/db";
-import { account, session, user, verification } from "../persistence/db/schema";
+import { db, dbSchema } from "../persistence/db";
 
 const auth = betterAuth({
   database: drizzleAdapter(db, {
     provider: "pg",
     schema: {
-      user,
-      session,
-      account,
-      verification,
+      user: dbSchema.user,
+      session: dbSchema.session,
+      account: dbSchema.account,
+      verification: dbSchema.verification,
     },
   }),
   plugins: [

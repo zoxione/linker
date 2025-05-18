@@ -1,4 +1,4 @@
-import { boolean, pgTable, text, timestamp } from "drizzle-orm/pg-core";
+import { boolean, integer, pgEnum, pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
 
 const user = pgTable("user", {
   id: text("id").primaryKey(),
@@ -56,4 +56,23 @@ const verification = pgTable("verification", {
   updatedAt: timestamp("updated_at").$defaultFn(() => /* @__PURE__ */ new Date()),
 });
 
-export { account, session, user, verification };
+const linkStatus = pgEnum("link_status", ["ENABLE", "DISABLE"]);
+
+const link = pgTable("link", {
+  id: uuid().primaryKey().defaultRandom(),
+  userId: text("user_id")
+    .notNull()
+    .references(() => user.id, { onDelete: "cascade" }),
+  status: linkStatus("status").notNull(),
+  name: text("name").notNull(),
+  token: text("token").notNull(),
+  redirectUrl: text("redirect_url").notNull(),
+  redirectCount: integer("redirect_count").notNull(),
+  updatedAt: timestamp("updated_at")
+    .defaultNow()
+    .$onUpdate(() => new Date())
+    .notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export { account, link, linkStatus, session, user, verification };
