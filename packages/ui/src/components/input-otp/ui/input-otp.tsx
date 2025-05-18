@@ -4,9 +4,9 @@ import { OTPInput, OTPInputContext } from "input-otp";
 import { Minus } from "lucide-react";
 import * as React from "react";
 
-import { getByIndexOrFail } from "@repo/ui/libs/utils/get-by-index-or-fail";
+import { getByIndexOrFail } from "@repo/ui/lib/utils/get-by-index-or-fail";
 
-import { cn } from "../../../libs/utils/cn";
+import { cn } from "../../../lib/utils/cn";
 
 const InputOTP = React.forwardRef<React.ElementRef<typeof OTPInput>, React.ComponentPropsWithoutRef<typeof OTPInput>>(
   ({ className, containerClassName, ...props }, ref) => (
