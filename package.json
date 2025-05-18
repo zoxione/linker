@@ -9,6 +9,7 @@
     "dev": "dotenv -- turbo dev",
     "build": "dotenv -- turbo build",
     "start": "dotenv -- turbo start",
+    "start:api": "dotenv -- turbo start --filter=@repo/api",
     "start:web": "dotenv -- turbo start --filter=@repo/web",
     "lint": "turbo lint",
     "typecheck": "turbo typecheck",
