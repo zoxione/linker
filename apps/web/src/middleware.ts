@@ -4,7 +4,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { Session, User } from "@repo/api";
 
 export async function middleware(request: NextRequest) {
-  console.log(request.nextUrl.pathname);
   if (request.nextUrl.pathname !== "/auth") {
     const session = await ky
       .get<{ session: Session; user: User } | null>(`${process.env.API_APP_URL}/api/auth/get-session`, {

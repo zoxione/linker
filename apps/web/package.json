@@ -7,12 +7,15 @@
     "build": "dotenv -- next build",
     "start": "dotenv -- next start -p %WEB_APP_PORT%",
     "lint": "next lint --max-warnings 0",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "typegen": "kubb generate"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
     "@repo/api": "workspace:*",
     "@repo/ui": "workspace:*",
+    "@tanstack/react-query": "^5.76.1",
+    "@tanstack/react-query-devtools": "^5.76.1",
     "better-auth": "^1.2.8",
     "input-otp": "^1.4.2",
     "ky": "^1.8.1",
@@ -21,10 +24,17 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.56.3",
+    "sonner": "^2.0.3",
     "zod": "^3.24.4",
     "zustand": "^5.0.4"
   },
   "devDependencies": {
+    "@kubb/cli": "^3.10.12",
+    "@kubb/core": "^3.10.12",
+    "@kubb/plugin-oas": "^3.10.12",
+    "@kubb/plugin-react-query": "^3.10.12",
+    "@kubb/plugin-ts": "^3.10.12",
+    "@kubb/plugin-zod": "^3.10.12",
     "@repo/eslint-config": "workspace:^",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^20",

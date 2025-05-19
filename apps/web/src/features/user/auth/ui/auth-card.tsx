@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@repo
 import { Icons } from "@repo/ui/components/icons";
 
 import { config } from "@/core/data/config";
+import { displayError } from "@/shared/utils/display-error";
 
 import { AuthFormStep } from "../model/auth.types";
 import { AuthEmailForm } from "./auth-email-form";
@@ -22,7 +23,7 @@ const AuthCard = ({}: AuthCardProps) => {
     try {
       setLoading(true);
     } catch (error) {
-      // await displayError(error);
+      await displayError(error);
     } finally {
       setLoading(false);
     }

@@ -3,15 +3,25 @@
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { ReactNode } from "react";
 
+import { queryClient } from "@/shared/lib/query-client";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+import { Toaster } from "../../toaster";
+
 interface ClientProviderProps {
   children: ReactNode;
 }
 
 const ClientProvider = ({ children }: ClientProviderProps) => {
   return (
-    <NextThemesProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-      {children}
-    </NextThemesProvider>
+    <QueryClientProvider client={queryClient}>
+      <NextThemesProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+        {children}
+        <Toaster />
+        <ReactQueryDevtools initialIsOpen={false} />
+      </NextThemesProvider>
+    </QueryClientProvider>
   );
 };
 

@@ -7,10 +7,12 @@ import { useForm } from "react-hook-form";
 
 import { Button } from "@repo/ui/components/button";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@repo/ui/components/form";
+import { Icons } from "@repo/ui/components/icons";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@repo/ui/components/input-otp";
 
 import { SimpleError } from "@/shared/errors/simple-error";
 import { authClient } from "@/shared/lib/auth-client";
+import { displayError } from "@/shared/utils/display-error";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { authOtpFormSchema, AuthOtpFormSchema } from "../model/auth.schemas";
@@ -46,7 +48,7 @@ const AuthOtpForm = ({ setStep }: AuthOtpFormProps) => {
       resetFormData();
       router.push("/");
     } catch (error) {
-      // await displayError(error);
+      await displayError(error);
     } finally {
       setLoading(false);
     }
@@ -87,6 +89,7 @@ const AuthOtpForm = ({ setStep }: AuthOtpFormProps) => {
           )}
         />
         <Button disabled={loading} type="button" variant="secondary">
+          {loading ? <Icons.loading className="mr-2 h-4 w-4 animate-spin" /> : null}
           Отправить повторно
         </Button>
       </form>

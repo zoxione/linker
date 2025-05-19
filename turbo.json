@@ -20,6 +20,9 @@
     "typecheck": {
       "dependsOn": ["^typecheck"]
     },
+    "typegen": {
+      "cache": false
+    },
     "auth:generate": {
       "cache": false
     },
