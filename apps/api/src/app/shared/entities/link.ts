@@ -1,19 +1,23 @@
 import { z } from "@hono/zod-openapi";
 
-import { dbSchema } from "../../../persistence/db";
 import { BASE_ENTITY_PROPERTIES } from "../base-entity";
 
-const LINK_STATUS_SCHEMA = z.enum(dbSchema.linkStatus.enumValues);
+const LINK_STATUS_SCHEMA = z.enum(["ENABLE", "DISABLE"]);
 
 const LINK_SCHEMA = z
   .object({
-    id: z.string(),
-    userId: z.string(),
+    id: z.string({ message: "Поле должно быть строкой" }),
+    userId: z.string({ message: "Поле должно быть строкой" }),
     status: LINK_STATUS_SCHEMA,
-    name: z.string(),
-    token: z.string(),
-    redirectUrl: z.string(),
-    redirectCount: z.number(),
+    name: z
+      .string({ message: "Поле должно быть строкой" })
+      .min(3, { message: "Минимальное количество символов - 3" })
+      .max(24, { message: "Максимальное количество символов - 24" }),
+    token: z.string({ message: "Поле должно быть строкой" }),
+    redirectUrl: z.string({ message: "Поле должно быть строкой" }).url({
+      message: "Поле должно быть корректным URL",
+    }),
+    redirectCount: z.number({ message: "Поле должно быть числом" }),
   })
   .merge(BASE_ENTITY_PROPERTIES);
 

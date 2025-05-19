@@ -1,18 +1,19 @@
 "use client";
 
-// TODO
 import { Button } from "@repo/ui/components/button";
 
-import { useGetApiCustomerLinks } from "@/shared/api";
+import { useDialog } from "@/core/providers/dialog-provider";
+
+// TODO
 
 export default function Page() {
-  const { data } = useGetApiCustomerLinks();
+  // const { data } = useGetApiCustomerLinks();
+  const { onOpen } = useDialog();
 
   return (
     <div className="flex min-h-svh items-center justify-center">
       <div className="flex flex-col items-center justify-center gap-4">
-        <h1 className="text-2xl font-bold">Hello World</h1>
-        <Button>Button</Button>
+        <Button onClick={() => onOpen({ type: "create-link", props: {} })}>Создать ссылку</Button>
       </div>
     </div>
   );

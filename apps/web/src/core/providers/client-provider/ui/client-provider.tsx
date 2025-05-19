@@ -7,6 +7,7 @@ import { queryClient } from "@/shared/lib/query-client";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
+import { DialogProvider } from "../../dialog-provider";
 import { Toaster } from "../../toaster";
 
 interface ClientProviderProps {
@@ -17,9 +18,11 @@ const ClientProvider = ({ children }: ClientProviderProps) => {
   return (
     <QueryClientProvider client={queryClient}>
       <NextThemesProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-        {children}
-        <Toaster />
-        <ReactQueryDevtools initialIsOpen={false} />
+        <DialogProvider>
+          {children}
+          <Toaster />
+          <ReactQueryDevtools initialIsOpen={false} />
+        </DialogProvider>
       </NextThemesProvider>
     </QueryClientProvider>
   );
