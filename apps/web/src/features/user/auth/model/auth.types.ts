@@ -1,3 +1,8 @@
 type AuthFormStep = "email" | "otp";
 
-export { type AuthFormStep };
+type AuthFormData = {
+  email: string;
+  otp: string;
+};
+
+export { type AuthFormData, type AuthFormStep };

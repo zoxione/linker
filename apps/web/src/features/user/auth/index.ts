@@ -1,1 +1,1 @@
-export * from "./ui/auth-card";
+export * from "./ui/auth-block";

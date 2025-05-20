@@ -6,10 +6,9 @@ import { Button } from "@repo/ui/components/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@repo/ui/components/card";
 import { Icons } from "@repo/ui/components/icons";
 
-import { config } from "@/core/data/config";
 import { displayError } from "@/shared/utils/display-error";
 
-import { AuthFormStep } from "../model/auth.types";
+import { useAuth } from "../model/use-auth";
 import { AuthEmailForm } from "./auth-email-form";
 import { AuthOtpForm } from "./auth-otp-form";
 
@@ -17,7 +16,7 @@ interface AuthCardProps {}
 
 const AuthCard = ({}: AuthCardProps) => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [step, setStep] = useState<AuthFormStep>("email");
+  const { step, setStep } = useAuth();
 
   const onAuthProvider = async (provider: string) => {
     try {
@@ -39,7 +38,7 @@ const AuthCard = ({}: AuthCardProps) => {
       ),
       content: (
         <>
-          <AuthEmailForm setStep={setStep} />
+          <AuthEmailForm />
           <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
             <span className="bg-background text-muted-foreground relative z-10 px-2">Или</span>
           </div>
@@ -87,42 +86,19 @@ const AuthCard = ({}: AuthCardProps) => {
       ),
       content: (
         <>
-          <AuthOtpForm setStep={setStep} />
+          <AuthOtpForm />
         </>
       ),
     },
   };
 
   return (
-    <div className="flex w-full max-w-96 flex-col gap-6">
-      <Card>
-        <CardHeader className="relative flex flex-col items-center text-center">
-          {AUTH_CARD_STEPS[step].header}
-        </CardHeader>
-        <CardContent className="flex flex-col gap-6">{AUTH_CARD_STEPS[step].content}</CardContent>
-      </Card>
-      <div className="text-muted-foreground text-center text-xs">
-        Нажимая продолжить, вы соглашаетесь с нашими{" "}
-        <a
-          href={config.legal.terms}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-primary underline underline-offset-4"
-        >
-          Условиями использования
-        </a>{" "}
-        и{" "}
-        <a
-          href={config.legal.privacy}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-primary underline underline-offset-4"
-        >
-          Политикой конфиденциальности
-        </a>
-        .
-      </div>
-    </div>
+    <Card>
+      <CardHeader className="relative flex flex-col items-center text-center">
+        {AUTH_CARD_STEPS[step].header}
+      </CardHeader>
+      <CardContent className="flex flex-col gap-6">{AUTH_CARD_STEPS[step].content}</CardContent>
+    </Card>
   );
 };
 

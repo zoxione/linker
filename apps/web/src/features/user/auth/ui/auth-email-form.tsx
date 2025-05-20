@@ -14,16 +14,13 @@ import { displayError } from "@/shared/utils/display-error";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { authEmailFormSchema, AuthEmailFormSchema } from "../model/auth.schemas";
-import { useAuthStore } from "../model/auth.stores";
-import { AuthFormStep } from "../model/auth.types";
+import { useAuth } from "../model/use-auth";
 
-interface AuthEmailFormProps {
-  setStep: (step: AuthFormStep) => void;
-}
+interface AuthEmailFormProps {}
 
-const AuthEmailForm = ({ setStep }: AuthEmailFormProps) => {
+const AuthEmailForm = ({}: AuthEmailFormProps) => {
   const [loading, setLoading] = useState<boolean>(false);
-  const { formData, updateFormData } = useAuthStore();
+  const { setStep, formData, setFormData } = useAuth();
 
   const form = useForm<AuthEmailFormSchema>({
     resolver: zodResolver(authEmailFormSchema),
@@ -42,7 +39,7 @@ const AuthEmailForm = ({ setStep }: AuthEmailFormProps) => {
       if (error) {
         throw new SimpleError(error.message || "Не удалось отправить код");
       }
-      updateFormData({ email: values.email });
+      setFormData({ ...formData, email: values.email });
       setStep("otp");
     } catch (error) {
       await displayError(error);

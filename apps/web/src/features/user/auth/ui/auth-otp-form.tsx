@@ -16,17 +16,14 @@ import { displayError } from "@/shared/utils/display-error";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { authOtpFormSchema, AuthOtpFormSchema } from "../model/auth.schemas";
-import { useAuthStore } from "../model/auth.stores";
-import { AuthFormStep } from "../model/auth.types";
+import { useAuth } from "../model/use-auth";
 
-interface AuthOtpFormProps {
-  setStep: (step: AuthFormStep) => void;
-}
+interface AuthOtpFormProps {}
 
-const AuthOtpForm = ({ setStep }: AuthOtpFormProps) => {
+const AuthOtpForm = ({}: AuthOtpFormProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
-  const { formData, resetFormData } = useAuthStore();
+  const { formData, setFormData } = useAuth();
 
   const form = useForm<AuthOtpFormSchema>({
     resolver: zodResolver(authOtpFormSchema),
@@ -45,7 +42,7 @@ const AuthOtpForm = ({ setStep }: AuthOtpFormProps) => {
       if (error) {
         throw new SimpleError(error.message || "Не удалось выполнить вход");
       }
-      resetFormData();
+      setFormData({ ...formData, otp: values.otp });
       router.push("/");
     } catch (error) {
       await displayError(error);
