@@ -1,8 +1,13 @@
 import {
+  ArrowDownIcon,
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  ArrowUpIcon,
   ChevronDownIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
   ChevronUpIcon,
+  ExternalLinkIcon,
   RotateCcwIcon,
   SendHorizonalIcon,
 } from "lucide-react";
@@ -25,6 +30,11 @@ const Icons = {
   up: (props: IconProps) => <ChevronUpIcon {...props} />,
   right: (props: IconProps) => <ChevronRightIcon {...props} />,
   down: (props: IconProps) => <ChevronDownIcon {...props} />,
+  arrowLeft: (props: IconProps) => <ArrowLeftIcon {...props} />,
+  arrowUp: (props: IconProps) => <ArrowUpIcon {...props} />,
+  arrowRight: (props: IconProps) => <ArrowRightIcon {...props} />,
+  arrowDown: (props: IconProps) => <ArrowDownIcon {...props} />,
+  externalLink: (props: IconProps) => <ExternalLinkIcon {...props} />,
 
   // custom
   github: (props: IconProps) => <GithubIcon {...props} />,
