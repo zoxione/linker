@@ -39,7 +39,7 @@ const AuthEmailForm = ({}: AuthEmailFormProps) => {
       if (error) {
         throw new SimpleError(error.message || "Не удалось отправить код");
       }
-      setFormData({ ...formData, email: values.email });
+      setFormData({ ...formData, ...values });
       setStep("otp");
     } catch (error) {
       await displayError(error);

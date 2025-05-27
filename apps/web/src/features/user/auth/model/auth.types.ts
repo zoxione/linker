@@ -1,8 +1,7 @@
+import { AuthEmailFormSchema, AuthOtpFormSchema } from "./auth.schemas";
+
 type AuthFormStep = "email" | "otp";
 
-type AuthFormData = {
-  email: string;
-  otp: string;
-};
+type AuthFormData = AuthEmailFormSchema & AuthOtpFormSchema;
 
 export { type AuthFormData, type AuthFormStep };

@@ -42,7 +42,7 @@ const AuthOtpForm = ({}: AuthOtpFormProps) => {
       if (error) {
         throw new SimpleError(error.message || "Не удалось выполнить вход");
       }
-      setFormData({ ...formData, otp: values.otp });
+      setFormData({ ...formData, ...values });
       router.push("/");
     } catch (error) {
       await displayError(error);

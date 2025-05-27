@@ -9,14 +9,6 @@ type AuthContextType = {
   setFormData: (data: AuthFormData) => void;
 };
 
-const AuthContext = createContext<AuthContextType>({
-  step: "email",
-  setStep: () => {},
-  formData: {
-    email: "",
-    otp: "",
-  },
-  setFormData: () => {},
-});
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export { AuthContext };
