@@ -10,6 +10,7 @@ import { Icons } from "@repo/ui/components/icons";
 import { Input } from "@repo/ui/components/input";
 
 import { QueryKeys } from "@/core/data/constants";
+import { useDialog } from "@/core/providers/dialog-provider";
 import { Link } from "@/entities/link/model/link.types";
 import { usePutApiCustomerLinksId } from "@/shared/api";
 import { displayError } from "@/shared/utils/display-error";
@@ -26,6 +27,7 @@ interface UpdateLinkFormProps {
 const UpdateLinkForm = ({ link, onSuccess }: UpdateLinkFormProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const queryClient = useQueryClient();
+  const { onOpen } = useDialog();
 
   const { mutateAsync: updateLink } = usePutApiCustomerLinksId();
 
@@ -72,10 +74,27 @@ const UpdateLinkForm = ({ link, onSuccess }: UpdateLinkFormProps) => {
             </FormItem>
           )}
         />
-        <Button disabled={loading} type="submit">
-          {loading ? <Icons.loading className="mr-2 h-4 w-4 animate-spin" /> : null}
-          Обновить ссылку
-        </Button>
+        <div className="flex items-center gap-2">
+          <Button disabled={loading} type="submit" className="flex-1">
+            {loading ? <Icons.loading className="mr-2 h-4 w-4 animate-spin" /> : null}
+            Обновить ссылку
+          </Button>
+          <Button
+            onClick={() =>
+              onOpen({
+                type: "delete-link",
+                props: { link },
+              })
+            }
+            disabled={loading}
+            type="button"
+            variant="secondary"
+            size="icon"
+          >
+            {loading ? <Icons.loading className="mr-2 h-4 w-4 animate-spin" /> : null}
+            <Icons.delete />
+          </Button>
+        </div>
       </form>
     </Form>
   );

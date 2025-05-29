@@ -7,10 +7,12 @@ import { DialogContext } from "../lib/dialog-context";
 
 const CreateLinkDialog = dynamic(() => import("@/features/link/create-link").then((mod) => mod.CreateLinkDialog));
 const UpdateLinkDialog = dynamic(() => import("@/features/link/update-link").then((mod) => mod.UpdateLinkDialog));
+const DeleteLinkDialog = dynamic(() => import("@/features/link/delete-link").then((mod) => mod.DeleteLinkDialog));
 
 const dialogs = {
   "create-link": CreateLinkDialog,
   "update-link": UpdateLinkDialog,
+  "delete-link": DeleteLinkDialog,
 } as const;
 
 type DialogState =
