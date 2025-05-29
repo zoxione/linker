@@ -75,8 +75,7 @@ const UpdateLinkForm = ({ link, onSuccess }: UpdateLinkFormProps) => {
           )}
         />
         <div className="flex items-center gap-2">
-          <Button disabled={loading} type="submit" className="flex-1">
-            {loading ? <Icons.loading className="mr-2 h-4 w-4 animate-spin" /> : null}
+          <Button loading={loading} type="submit" className="flex-1">
             Обновить ссылку
           </Button>
           <Button
@@ -86,12 +85,11 @@ const UpdateLinkForm = ({ link, onSuccess }: UpdateLinkFormProps) => {
                 props: { link },
               })
             }
-            disabled={loading}
+            loading={loading}
             type="button"
             variant="secondary"
             size="icon"
           >
-            {loading ? <Icons.loading className="mr-2 h-4 w-4 animate-spin" /> : null}
             <Icons.delete />
           </Button>
         </div>

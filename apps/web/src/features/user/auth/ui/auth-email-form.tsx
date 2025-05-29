@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 
 import { Button } from "@repo/ui/components/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@repo/ui/components/form";
-import { Icons } from "@repo/ui/components/icons";
 import { Input } from "@repo/ui/components/input";
 
 import { SimpleError } from "@/shared/errors/simple-error";
@@ -64,8 +63,7 @@ const AuthEmailForm = ({}: AuthEmailFormProps) => {
             </FormItem>
           )}
         />
-        <Button disabled={loading} type="submit">
-          {loading ? <Icons.loading className="mr-2 h-4 w-4 animate-spin" /> : null}
+        <Button loading={loading} type="submit">
           Войти
         </Button>
       </form>

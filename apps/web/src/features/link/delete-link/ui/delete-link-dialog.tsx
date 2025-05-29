@@ -13,7 +13,6 @@ import {
   DialogMain,
   DialogTitle,
 } from "@repo/ui/components/dialog";
-import { Icons } from "@repo/ui/components/icons";
 
 import { QueryKeys } from "@/core/data/constants";
 import { Link } from "@/entities/link/model/link.types";
@@ -62,12 +61,11 @@ const DeleteLinkDialog = ({ openDialog, setOpenDialog, link }: DeleteLinkDialogP
         </DialogMain>
         <DialogFooter>
           <DialogClose asChild>
-            <Button type="button" variant="secondary" disabled={loading}>
+            <Button loading={loading} type="button" variant="secondary">
               Отмена
             </Button>
           </DialogClose>
-          <Button onClick={onDelete} disabled={loading}>
-            {loading ? <Icons.loading className="mr-2 h-4 w-4 animate-spin" /> : null}
+          <Button onClick={onDelete} loading={loading}>
             Удалить
           </Button>
         </DialogFooter>
