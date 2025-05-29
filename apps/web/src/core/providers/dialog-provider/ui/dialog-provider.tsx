@@ -5,10 +5,12 @@ import { ComponentPropsWithoutRef, createElement, ReactNode, Suspense, useState 
 
 import { DialogContext } from "../lib/dialog-context";
 
-const CreateLinkDialog = dynamic(() => import("@/widgets/link/create-link-dialog").then((mod) => mod.CreateLinkDialog));
+const CreateLinkDialog = dynamic(() => import("@/features/link/create-link").then((mod) => mod.CreateLinkDialog));
+const UpdateLinkDialog = dynamic(() => import("@/features/link/update-link").then((mod) => mod.UpdateLinkDialog));
 
 const dialogs = {
   "create-link": CreateLinkDialog,
+  "update-link": UpdateLinkDialog,
 } as const;
 
 type DialogState =
@@ -47,7 +49,6 @@ const DialogProvider = ({ children }: DialogProviderProps) => {
           createElement(currentDialog as any, {
             openDialog: true,
             setOpenDialog: (value: boolean) => handleOpen(value),
-            // @ts-ignore TODO clear
             ...state.props,
           })
         ) : (

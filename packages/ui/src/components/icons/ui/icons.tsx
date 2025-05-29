@@ -8,8 +8,10 @@ import {
   ChevronRightIcon,
   ChevronUpIcon,
   ExternalLinkIcon,
+  PencilIcon,
   RotateCcwIcon,
   SendHorizonalIcon,
+  Trash2Icon,
 } from "lucide-react";
 
 import { GithubIcon } from "./custom-icons/github";
@@ -35,6 +37,8 @@ const Icons = {
   arrowRight: (props: IconProps) => <ArrowRightIcon {...props} />,
   arrowDown: (props: IconProps) => <ArrowDownIcon {...props} />,
   externalLink: (props: IconProps) => <ExternalLinkIcon {...props} />,
+  update: (props: IconProps) => <PencilIcon {...props} />,
+  delete: (props: IconProps) => <Trash2Icon {...props} />,
 
   // custom
   github: (props: IconProps) => <GithubIcon {...props} />,

@@ -4,12 +4,15 @@ import { toast } from "sonner";
 import { useCopyToClipboard } from "usehooks-ts";
 
 import { Badge } from "@repo/ui/components/badge";
+import { Button } from "@repo/ui/components/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@repo/ui/components/card";
 import { Icons } from "@repo/ui/components/icons";
 import { cn } from "@repo/ui/lib/utils/cn";
 
 import { DATE_FORMAT } from "@/core/data/constants";
+import { useDialog } from "@/core/providers/dialog-provider";
 import { Link } from "@/entities/link/model/link.types";
+import { UpdateStatusLinkSwitch } from "@/features/link/update-status-link";
 import { dayjs } from "@/shared/lib/dayjs";
 import { displayError } from "@/shared/utils/display-error";
 
@@ -19,6 +22,7 @@ interface LinkCardProps {
 }
 
 const LinkCard = ({ link, className }: LinkCardProps) => {
+  const { onOpen } = useDialog();
   const [_, copy] = useCopyToClipboard();
 
   const handleCopy = async (text: string) => {
@@ -32,10 +36,23 @@ const LinkCard = ({ link, className }: LinkCardProps) => {
 
   return (
     <Card className={cn("", className)}>
-      <CardHeader>
+      <CardHeader className="flex flex-row items-center gap-4 space-y-0 pb-4">
+        <UpdateStatusLinkSwitch id={link.id} status={link.status} />
         <CardTitle>{link.name}</CardTitle>
+        <Button
+          onClick={() =>
+            onOpen({
+              type: "update-link",
+              props: { link },
+            })
+          }
+          variant="ghost"
+          size="icon"
+        >
+          <Icons.update />
+        </Button>
       </CardHeader>
-      <CardContent className="flex flex-col items-center gap-2 md:flex-row">
+      <CardContent className="flex flex-col items-center gap-2 pb-4 md:flex-row">
         <Badge onClick={() => handleCopy(link.url)} variant="outline" className="cursor-pointer">
           {link.url}
         </Badge>
