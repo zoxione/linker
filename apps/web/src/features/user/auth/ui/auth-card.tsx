@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 
-import { Button } from "@repo/ui/components/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@repo/ui/components/card";
-import { Icons } from "@repo/ui/components/icons";
+import { Button } from "@repo/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@repo/ui/card";
+import { Icons } from "@repo/ui/icons";
 
 import { displayError } from "@/shared/utils/display-error";
 

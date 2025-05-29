@@ -5,7 +5,9 @@
     "./globals.css": "./src/styles/globals.css",
     "./postcss.config": "./postcss.config.mjs",
     "./*": "./src/components/*/index.ts",
-    "./cn": "./src/utils/cn.ts"
+    "./use-mobile": "./src/lib/hooks/use-mobile.tsx",
+    "./cn": "./src/lib/utils/cn.ts",
+    "./get-by-index-or-fail": "./src/lib/utils/get-by-index-or-fail.ts"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",

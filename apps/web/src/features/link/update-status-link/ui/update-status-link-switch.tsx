@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { toast } from "sonner";
 
-import { Switch } from "@repo/ui/components/switch";
+import { Switch } from "@repo/ui/switch";
 
 import { QueryKeys } from "@/core/data/constants";
 import { Link } from "@/entities/link/model/link.types";

@@ -1,6 +1,6 @@
 "use client";
 
-import { Dialog, DialogContent, DialogHeader, DialogMain, DialogTitle } from "@repo/ui/components/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogMain, DialogTitle } from "@repo/ui/dialog";
 
 import { CreateLinkForm } from "./create-link-form";
 

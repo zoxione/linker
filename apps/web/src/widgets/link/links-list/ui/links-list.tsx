@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@repo/ui/components/button";
+import { Button } from "@repo/ui/button";
 
 import { useDialog } from "@/core/providers/dialog-provider";
 import { LinkCard } from "@/entities/link/ui/link-card";

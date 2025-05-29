@@ -3,11 +3,11 @@
 import { toast } from "sonner";
 import { useCopyToClipboard } from "usehooks-ts";
 
-import { Badge } from "@repo/ui/components/badge";
-import { Button } from "@repo/ui/components/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@repo/ui/components/card";
-import { Icons } from "@repo/ui/components/icons";
-import { cn } from "@repo/ui/lib/utils/cn";
+import { Badge } from "@repo/ui/badge";
+import { Button } from "@repo/ui/button";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@repo/ui/card";
+import { cn } from "@repo/ui/cn";
+import { Icons } from "@repo/ui/icons";
 
 import { DATE_FORMAT } from "@/core/data/constants";
 import { useDialog } from "@/core/providers/dialog-provider";

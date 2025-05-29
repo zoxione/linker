@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-import { Button } from "@repo/ui/components/button";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "@repo/ui/components/form";
-import { InputOTP, InputOTPGroup, InputOTPSlot } from "@repo/ui/components/input-otp";
+import { Button } from "@repo/ui/button";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "@repo/ui/form";
+import { InputOTP, InputOTPGroup, InputOTPSlot } from "@repo/ui/input-otp";
 
 import { SimpleError } from "@/shared/errors/simple-error";
 import { authClient } from "@/shared/lib/auth-client";

@@ -1,7 +1,7 @@
 "use client";
 
-import { Skeleton } from "@repo/ui/components/skeleton";
-import { cn } from "@repo/ui/lib/utils/cn";
+import { cn } from "@repo/ui/cn";
+import { Skeleton } from "@repo/ui/skeleton";
 
 interface LinkCardSkeletonProps {
   className?: string;

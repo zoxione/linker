@@ -1,6 +1,6 @@
 "use client";
 
-import { Dialog, DialogContent, DialogHeader, DialogMain, DialogTitle } from "@repo/ui/components/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogMain, DialogTitle } from "@repo/ui/dialog";
 
 import { Link } from "@/entities/link/model/link.types";
 

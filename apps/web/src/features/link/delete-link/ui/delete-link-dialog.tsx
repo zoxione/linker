@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { toast } from "sonner";
 
-import { Button } from "@repo/ui/components/button";
+import { Button } from "@repo/ui/button";
 import {
   Dialog,
   DialogClose,
@@ -12,7 +12,7 @@ import {
   DialogHeader,
   DialogMain,
   DialogTitle,
-} from "@repo/ui/components/dialog";
+} from "@repo/ui/dialog";
 
 import { QueryKeys } from "@/core/data/constants";
 import { Link } from "@/entities/link/model/link.types";
