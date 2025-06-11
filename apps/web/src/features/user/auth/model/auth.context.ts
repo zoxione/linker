@@ -9,6 +9,6 @@ type AuthContextType = {
   setFormData: (data: AuthFormData) => void;
 };
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+const AuthContext = createContext<AuthContextType | null>(null);
 
 export { AuthContext };

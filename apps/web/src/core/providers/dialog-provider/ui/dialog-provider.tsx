@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { ComponentPropsWithoutRef, createElement, ReactNode, Suspense, useState } from "react";
 
-import { DialogContext } from "../lib/dialog-context";
+import { DialogContext } from "../model/dialog.context";
 
 const CreateLinkDialog = dynamic(() => import("@/features/link/create-link").then((mod) => mod.CreateLinkDialog));
 const UpdateLinkDialog = dynamic(() => import("@/features/link/update-link").then((mod) => mod.UpdateLinkDialog));
@@ -51,7 +51,7 @@ const DialogProvider = ({ children }: DialogProviderProps) => {
           createElement(currentDialog as any, {
             openDialog: true,
             setOpenDialog: (value: boolean) => handleOpen(value),
-            ...state.props,
+            ...(state.props ?? {}),
           })
         ) : (
           <></>

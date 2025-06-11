@@ -1,2 +1,2 @@
-export { useDialog } from "./lib/use-dialog";
-export { DialogProvider } from "./ui/dialog-provider";
+export * from "./model/use-dialog";
+export * from "./ui/dialog-provider";

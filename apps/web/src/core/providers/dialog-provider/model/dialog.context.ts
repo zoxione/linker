@@ -7,6 +7,6 @@ interface DialogContextProps {
   setState: (state: DialogState) => void;
 }
 
-const DialogContext = createContext<DialogContextProps>({} as DialogContextProps);
+const DialogContext = createContext<DialogContextProps | null>(null);
 
 export { DialogContext };
