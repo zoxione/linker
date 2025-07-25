@@ -6,8 +6,8 @@ import { useCopyToClipboard } from "usehooks-ts";
 import { Badge } from "@repo/ui/badge";
 import { Button } from "@repo/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@repo/ui/card";
-import { cn } from "@repo/ui/cn";
 import { Icons } from "@repo/ui/icons";
+import { cn } from "@repo/ui/utils/cn";
 
 import { DATE_FORMAT } from "@/core/data/constants";
 import { useDialog } from "@/core/providers/dialog-provider";

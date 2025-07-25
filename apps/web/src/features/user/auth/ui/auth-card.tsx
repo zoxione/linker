@@ -48,7 +48,7 @@ const AuthCard = ({}: AuthCardProps) => {
               loading={loading}
               type="button"
               variant="outline"
-              className="w-full"
+              className="flex-1"
             >
               <Icons.github />
             </Button>
@@ -57,7 +57,7 @@ const AuthCard = ({}: AuthCardProps) => {
               loading={loading}
               type="button"
               variant="outline"
-              className="w-full"
+              className="flex-1"
             >
               <Icons.google />
             </Button>
@@ -66,7 +66,7 @@ const AuthCard = ({}: AuthCardProps) => {
               loading={loading}
               type="button"
               variant="outline"
-              className="w-full"
+              className="flex-1"
             >
               <Icons.vk />
             </Button>
@@ -79,15 +79,6 @@ const AuthCard = ({}: AuthCardProps) => {
         <>
           <CardTitle className="text-2xl font-bold">Введите код из письма</CardTitle>
           <CardDescription>Мы отправили письмо на введенный вами адрес электронной почты</CardDescription>
-          <Button
-            onClick={() => setStep("email")}
-            loading={loading}
-            variant="ghost"
-            size="icon"
-            className="absolute left-5 top-6"
-          >
-            <Icons.left className="h-4 w-4" />
-          </Button>
         </>
       ),
       content: (

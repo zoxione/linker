@@ -1,5 +1,5 @@
 import { swaggerUI } from "@hono/swagger-ui";
-import { apiReference } from "@scalar/hono-api-reference";
+import { Scalar } from "@scalar/hono-api-reference";
 
 import { Server } from "./build-server";
 
@@ -16,11 +16,9 @@ const buildDocs = async (server: Server) => {
 
   server.get(
     "/docs",
-    apiReference({
+    Scalar({
       pageTitle: "Linker API",
-      spec: {
-        url: "/openapi",
-      },
+      url: "/openapi",
     }),
   );
 };
