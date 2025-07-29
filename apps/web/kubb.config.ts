@@ -13,6 +13,7 @@ const kubbConfig: any = defineConfig(() => {
     output: {
       path: "./src/shared/api",
       clean: true,
+      defaultBanner: false,
       extension: {},
     },
     plugins: [
@@ -44,7 +45,6 @@ const kubbConfig: any = defineConfig(() => {
           type: "tag",
           name: ({ group }) => `${group}`,
         },
-        // parser: "zod",
         client: {
           importPath: "../../../lib/fetch-client",
           dataReturnType: "data",
