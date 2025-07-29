@@ -46,6 +46,7 @@ class CustomerLinkService {
     return {
       limit,
       offset,
+      count: items.length,
       total,
       items: items.map(toCustomerLinkView),
     };

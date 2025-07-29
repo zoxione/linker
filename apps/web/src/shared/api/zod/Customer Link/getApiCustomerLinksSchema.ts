@@ -11,6 +11,10 @@ export const getApiCustomerLinksQueryParamsSchema = z
  * @description Список ссылок
  */
 export const getApiCustomerLinks200Schema = z.object({
+  limit: z.number().min(0).max(100).nullable(),
+  offset: z.number().min(0).max(9007199254740991).nullable(),
+  count: z.number(),
+  total: z.number(),
   items: z.array(
     z.object({
       id: z.string(),
@@ -20,14 +24,11 @@ export const getApiCustomerLinks200Schema = z.object({
       token: z.string(),
       redirectUrl: z.string().url(),
       redirectCount: z.number(),
-      updatedAt: z.string().date(),
-      createdAt: z.string().date(),
-      url: z.string(),
+      updatedAt: z.string().datetime(),
+      createdAt: z.string().datetime(),
+      url: z.string().url(),
     }),
   ),
-  limit: z.number().min(0).max(100).nullable(),
-  offset: z.number().min(0).max(9007199254740991).nullable(),
-  total: z.number().nullable(),
 });
 
 /**

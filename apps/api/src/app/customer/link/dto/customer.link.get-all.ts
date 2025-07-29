@@ -1,8 +1,10 @@
 import { z } from "@hono/zod-openapi";
 
-import { PAGINATION_PROPERTIES } from "../../../shared/pagination";
+import { PAGINATION_SCHEMA } from "../../../shared/pagination";
 
-const CUSTOMER_LINK_GET_ALL = PAGINATION_PROPERTIES.pick({ limit: true, offset: true });
+const CUSTOMER_LINK_GET_ALL = z.object({
+  ...PAGINATION_SCHEMA.pick({ limit: true, offset: true }).shape,
+});
 
 type CustomerLinkGetAll = z.infer<typeof CUSTOMER_LINK_GET_ALL>;
 

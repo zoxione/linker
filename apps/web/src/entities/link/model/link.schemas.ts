@@ -2,7 +2,9 @@ import { z } from "zod";
 
 import { LINK_SCHEMA } from "@repo/api";
 
-const linkSchema = LINK_SCHEMA;
+const linkSchema = z.object({
+  ...LINK_SCHEMA.shape,
+});
 
 type LinkSchema = z.infer<typeof linkSchema>;
 

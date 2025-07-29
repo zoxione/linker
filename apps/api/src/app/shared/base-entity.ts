@@ -1,8 +1,8 @@
 import { z } from "@hono/zod-openapi";
 
-const BASE_ENTITY_PROPERTIES = z.object({
-  updatedAt: z.date(),
-  createdAt: z.date(),
+const BASE_ENTITY_SCHEMA = z.object({
+  updatedAt: z.iso.datetime(),
+  createdAt: z.iso.datetime(),
 });
 
-export { BASE_ENTITY_PROPERTIES };
+export { BASE_ENTITY_SCHEMA };

@@ -11,9 +11,9 @@ export const postApiCustomerLinks200Schema = z.object({
   token: z.string(),
   redirectUrl: z.string().url(),
   redirectCount: z.number(),
-  updatedAt: z.string().date(),
-  createdAt: z.string().date(),
-  url: z.string(),
+  updatedAt: z.string().datetime(),
+  createdAt: z.string().datetime(),
+  url: z.string().url(),
 });
 
 /**

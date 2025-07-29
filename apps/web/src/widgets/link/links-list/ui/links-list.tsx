@@ -6,12 +6,17 @@ import { useDialog } from "@/core/providers/dialog-provider";
 import { LinkCard } from "@/entities/link/ui/link-card";
 import { LinkCardSkeleton } from "@/entities/link/ui/link-card/ui/link-card.skeleton";
 import { useGetApiCustomerLinks } from "@/shared/api";
+import { authClient } from "@/shared/lib/auth-client";
 import { genArray } from "@/shared/utils/gen-array";
 
 interface LinksListProps {}
 
 const LinksList = ({}: LinksListProps) => {
   const { onOpen } = useDialog();
+
+  const { data } = authClient.useSession();
+
+  console.log({ data });
 
   const linksQuery = useGetApiCustomerLinks({ limit: 100, offset: 0 }); // TODO
 

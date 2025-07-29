@@ -20,6 +20,26 @@ export type ItemsStatusEnum = "ENABLE" | "DISABLE";
  */
 export type GetApiCustomerLinks200 = {
   /**
+   * @minLength 0
+   * @maxLength 100
+   * @type number
+   */
+  limit: number | null;
+  /**
+   * @minLength 0
+   * @maxLength 9007199254740991
+   * @type number
+   */
+  offset: number | null;
+  /**
+   * @type number
+   */
+  count: number;
+  /**
+   * @type number
+   */
+  total: number;
+  /**
    * @type array
    */
   items: {
@@ -54,34 +74,18 @@ export type GetApiCustomerLinks200 = {
      */
     redirectCount: number;
     /**
-     * @type string, date
+     * @type string, date-time
      */
     updatedAt: string;
     /**
-     * @type string, date
+     * @type string, date-time
      */
     createdAt: string;
     /**
-     * @type string
+     * @type string, uri
      */
     url: string;
   }[];
-  /**
-   * @minLength 0
-   * @maxLength 100
-   * @type number
-   */
-  limit: number | null;
-  /**
-   * @minLength 0
-   * @maxLength 9007199254740991
-   * @type number
-   */
-  offset: number | null;
-  /**
-   * @type number
-   */
-  total: number | null;
 };
 
 /**

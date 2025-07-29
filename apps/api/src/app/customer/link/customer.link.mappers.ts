@@ -14,8 +14,8 @@ const toCustomerLinkView = (link: Link): CustomerLinkView => {
     redirectUrl,
     redirectCount,
     url: `${config.webAppUrl}/r/${token}`, // TODO
-    updatedAt,
-    createdAt,
+    updatedAt: updatedAt.toISOString(),
+    createdAt: createdAt.toISOString(),
   };
 };
 

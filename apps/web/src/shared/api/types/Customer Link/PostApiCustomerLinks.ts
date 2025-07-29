@@ -35,15 +35,15 @@ export type PostApiCustomerLinks200 = {
    */
   redirectCount: number;
   /**
-   * @type string, date
+   * @type string, date-time
    */
   updatedAt: string;
   /**
-   * @type string, date
+   * @type string, date-time
    */
   createdAt: string;
   /**
-   * @type string
+   * @type string, uri
    */
   url: string;
 };
