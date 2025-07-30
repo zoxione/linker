@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 
-import { config } from "@/core/data/config";
+import { config } from "@/core/config";
 
 import { AuthContext } from "../model/auth.context";
 import { AuthFormData, AuthFormStep } from "../model/auth.types";
@@ -34,7 +34,7 @@ const AuthBlock = ({}: AuthBlockProps) => {
         <div className="text-muted-foreground text-center text-xs">
           Нажимая продолжить, вы соглашаетесь с нашими{" "}
           <a
-            href={config.legal.terms}
+            href={`${config.webAppUrl}/mocks/temp.pdf`}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-primary underline underline-offset-4"
@@ -43,7 +43,7 @@ const AuthBlock = ({}: AuthBlockProps) => {
           </a>{" "}
           и{" "}
           <a
-            href={config.legal.privacy}
+            href={`${config.webAppUrl}/mocks/temp.pdf`}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-primary underline underline-offset-4"

@@ -1,5 +1,7 @@
 import ky from "ky";
 
+import { config as appConfig } from "@/core/config";
+
 /**
  * Subset of FetchRequestConfig
  */
@@ -29,7 +31,7 @@ type ResponseErrorConfig<TError = unknown> = TError;
 const fetchClient = async <TData, TError = unknown, TVariables = unknown>(
   config: RequestConfig<TVariables>,
 ): Promise<ResponseConfig<TData>> => {
-  const url = new URL(`${process.env.API_APP_URL}${config.url}`);
+  const url = new URL(`${appConfig.apiAppUrl}${config.url}`);
 
   Object.entries(config.params || {}).forEach(([key, value]) => {
     if (value !== undefined) {

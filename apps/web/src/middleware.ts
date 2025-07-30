@@ -3,10 +3,12 @@ import { NextRequest, NextResponse } from "next/server";
 
 import { Session, User } from "@repo/api";
 
+import { config as appConfig } from "@/core/config";
+
 export async function middleware(request: NextRequest) {
   if (request.nextUrl.pathname !== "/auth") {
     const session = await ky
-      .get<{ session: Session; user: User } | null>(`${process.env.API_APP_URL}/api/auth/get-session`, {
+      .get<{ session: Session; user: User } | null>(`${appConfig.apiAppUrl}/api/auth/get-session`, {
         headers: {
           cookie: request.headers.get("cookie") || "",
         },

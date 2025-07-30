@@ -1,3 +1,4 @@
+import { config } from "@/core/config";
 import { defineConfig } from "@kubb/core";
 import { pluginOas } from "@kubb/plugin-oas";
 import { pluginReactQuery } from "@kubb/plugin-react-query";
@@ -8,7 +9,7 @@ const kubbConfig: any = defineConfig(() => {
   return {
     root: ".",
     input: {
-      path: `${process.env.API_APP_URL}/openapi`,
+      path: `${config.apiAppUrl}/openapi`,
     },
     output: {
       path: "./src/shared/api",

@@ -1,19 +1,26 @@
 import { parseConfig } from "./parse-config";
 
-const config = parseConfig({
-  production: parseInt(process.env.PRODUCTION ?? "", 10),
+const parsedConfig = parseConfig({
+  production: process.env.PRODUCTION,
 
   domainUrl: process.env.DOMAIN_URL,
 
   apiAppUrl: process.env.API_APP_URL,
-  apiAppPort: parseInt(process.env.API_APP_PORT ?? "", 10),
+  apiAppPort: process.env.API_APP_PORT,
 
   webAppUrl: process.env.WEB_APP_URL,
-  webAppPort: parseInt(process.env.WEB_APP_PORT ?? "", 10),
+  webAppPort: process.env.WEB_APP_PORT,
 
   databaseUrl: process.env.DATABASE_URL,
 
   betterAuthSecret: process.env.BETTER_AUTH_SECRET,
 });
+
+const config = {
+  ...parsedConfig,
+  production: parsedConfig.production === "1",
+  apiAppPort: parseInt(parsedConfig.apiAppPort, 10),
+  webAppPort: parseInt(parsedConfig.webAppPort, 10),
+};
 
 export { config };

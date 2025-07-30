@@ -1,19 +1,9 @@
-import { z } from "@hono/zod-openapi";
+import { z } from "zod";
 
 const CONFIG_SCHEMA = z.object({
   production: z.string(),
-
-  domainUrl: z.string(),
-
   apiAppUrl: z.string(),
-  apiAppPort: z.string(),
-
   webAppUrl: z.string(),
-  webAppPort: z.string(),
-
-  databaseUrl: z.string(),
-
-  betterAuthSecret: z.string(),
 });
 
 type Config = z.infer<typeof CONFIG_SCHEMA>;

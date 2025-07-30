@@ -20,7 +20,7 @@ const auth = betterAuth({
     emailOTP({
       otpLength: 5,
       generateOTP: () => {
-        if (config.production === 0) {
+        if (!config.production) {
           return "11111";
         }
         const otp = customAlphabet("1234567890", 5)();

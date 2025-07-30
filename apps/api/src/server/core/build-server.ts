@@ -10,7 +10,7 @@ const buildServer = async () => {
 
   await buildMiddlewares(server);
   await buildErrors(server);
-  if (config.production === 0) {
+  if (!config.production) {
     await buildDocs(server);
   }
   await buildRoutes(server);
