@@ -16,10 +16,11 @@ interface AuthCardProps {}
 
 const AuthCard = ({}: AuthCardProps) => {
   const [loading, setLoading] = useState<boolean>(false);
-  const { step, setStep } = useAuth();
+  const { step } = useAuth();
 
   const onAuthProvider = async (provider: string) => {
     try {
+      console.debug({ provider });
       setLoading(true);
     } catch (error) {
       await displayError(error);

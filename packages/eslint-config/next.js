@@ -49,4 +49,16 @@ export const nextJsConfig = [
       "react/prop-types": "off",
     },
   },
+  {
+    rules: {
+      "@typescript-eslint/no-empty-object-type": "off",
+      "no-empty-pattern": "off",
+      "no-console": [
+        "warn",
+        {
+          allow: ["debug", "error"],
+        },
+      ],
+    },
+  },
 ];

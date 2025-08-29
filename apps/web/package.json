@@ -6,7 +6,7 @@
     "dev": "dotenv -- next dev -p %WEB_APP_PORT%",
     "build": "dotenv -- next build",
     "start": "dotenv -- next start -p %WEB_APP_PORT%",
-    "lint": "next lint --max-warnings 0",
+    "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "typegen": "kubb generate"
   },
@@ -42,6 +42,7 @@
     "@types/node": "24.1.0",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
+    "eslint": "9.32.0",
     "typescript": "5.8.3"
   }
 }

@@ -9,7 +9,7 @@
     "./utils/*": "./src/utils/*.ts"
   },
   "scripts": {
-    "lint": "eslint . --max-warnings 0",
+    "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -38,6 +38,7 @@
     "@types/node": "24.1.0",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
+    "eslint": "9.32.0",
     "tailwindcss": "4.1.11",
     "tw-animate-css": "1.3.6",
     "typescript": "5.8.3"

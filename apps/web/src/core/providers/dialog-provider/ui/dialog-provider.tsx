@@ -48,6 +48,7 @@ const DialogProvider = ({ children }: DialogProviderProps) => {
       {children}
       <Suspense>
         {currentDialog ? (
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           createElement(currentDialog as any, {
             openDialog: true,
             setOpenDialog: (value: boolean) => handleOpen(value),

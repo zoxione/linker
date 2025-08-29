@@ -31,7 +31,7 @@ const AuthEmailForm = ({}: AuthEmailFormProps) => {
   const onSubmit = async (values: AuthEmailFormSchema) => {
     try {
       setLoading(true);
-      const { data, error } = await authClient.emailOtp.sendVerificationOtp({
+      const { error } = await authClient.emailOtp.sendVerificationOtp({
         email: values.email,
         type: "sign-in",
       });

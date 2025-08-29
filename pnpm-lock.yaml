@@ -172,6 +172,9 @@ importers:
       '@types/react-dom':
         specifier: 19.1.6
         version: 19.1.6(@types/react@19.1.8)
+      eslint:
+        specifier: 9.32.0
+        version: 9.32.0(jiti@2.4.2)
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -292,6 +295,9 @@ importers:
       '@types/react-dom':
         specifier: 19.1.6
         version: 19.1.6(@types/react@19.1.8)
+      eslint:
+        specifier: 9.32.0
+        version: 9.32.0(jiti@2.4.2)
       tailwindcss:
         specifier: 4.1.11
         version: 4.1.11
@@ -664,12 +670,6 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
-
-  '@eslint-community/eslint-utils@4.4.1':
-    resolution: {integrity: sha512-s3O3waFUrMV8P/XaF/+ZTp1X9XBZW1a4B97ZnjQF2KYWaFD2A8KyFBsrsfSjEmjn3RGWAIuvlneuZm3CUK3jbA==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
 
   '@eslint-community/eslint-utils@4.7.0':
     resolution: {integrity: sha512-dyybb3AcajC7uha6CvhdVRJqaKyn7w2YKqKyAN37NKYgZT36w+iRb0Dymmc5qEJ549c/S31cMMSFd75bteCpCw==}
@@ -2365,10 +2365,6 @@ packages:
     resolution: {integrity: sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==}
     engines: {node: '>=0.8.x'}
 
-  execa@9.5.3:
-    resolution: {integrity: sha512-QFNnTvU3UjgWFy8Ef9iDHvIdcgZ344ebkwYx4/KLbR+CKQA4xBaHzv+iRpp86QfMHP8faFQLh8iOc57215y4Rg==}
-    engines: {node: ^18.19.0 || >=20.5.0}
-
   execa@9.6.0:
     resolution: {integrity: sha512-jpWzZ1ZhwUmeWRhS7Qv3mhpOhLfwI+uAX4e5fOcXqwMR7EcJ0pj2kV1CVzHVMX/LphnKWD3LObjZCoJ71lKpHw==}
     engines: {node: ^18.19.0 || >=20.5.0}
@@ -3525,9 +3521,6 @@ packages:
     resolution: {integrity: sha512-+crtS5QjFRqFCoQmvGduwYWEBng99ZvmFvF+cUJkGYF1L1BfU8C6Zp9T7f5vPAwyLkUExpvK+ANVZmGU49qi4Q==}
     engines: {node: '>=12'}
 
-  remeda@2.21.6:
-    resolution: {integrity: sha512-W8G06/lTo6RzCBuMnjzsAi5UwN21+/Ff29HvpnBecvERP5qGw2dOdiXsgzv4jWT2n02mF+HMsmeoOjm5VRK3lw==}
-
   remeda@2.27.0:
     resolution: {integrity: sha512-KWG2qPzprmCGUoWSUSEJPLhczFRXlxh5YJTvQWZoN4hw5EG+nVase5lCVwEsidA7jDV2K5nibr9jpK4eNaOMdw==}
 
@@ -4348,11 +4341,6 @@ snapshots:
   '@esbuild/win32-x64@0.25.4':
     optional: true
 
-  '@eslint-community/eslint-utils@4.4.1(eslint@9.32.0(jiti@2.4.2))':
-    dependencies:
-      eslint: 9.32.0(jiti@2.4.2)
-      eslint-visitor-keys: 3.4.3
-
   '@eslint-community/eslint-utils@4.7.0(eslint@9.32.0(jiti@2.4.2))':
     dependencies:
       eslint: 9.32.0(jiti@2.4.2)
@@ -4615,7 +4603,7 @@ snapshots:
       natural-orderby: 5.0.0
       object-hash: 3.0.0
       p-queue: 8.1.0
-      remeda: 2.21.6
+      remeda: 2.27.0
       seedrandom: 3.0.5
       semver: 7.7.2
 
@@ -4652,7 +4640,7 @@ snapshots:
   '@kubb/parser-ts@3.10.12':
     dependencies:
       prettier: 3.6.2
-      remeda: 2.21.6
+      remeda: 2.27.0
       typescript: 5.8.3
 
   '@kubb/parser-ts@3.16.1':
@@ -4727,7 +4715,7 @@ snapshots:
     dependencies:
       '@kubb/core': 3.10.12
       '@kubb/parser-ts': 3.10.12
-      execa: 9.5.3
+      execa: 9.6.0
       natural-orderby: 5.0.0
       react: 19.1.0
       react-devtools-core: 5.3.2
@@ -6125,7 +6113,7 @@ snapshots:
 
   eslint@9.32.0(jiti@2.4.2):
     dependencies:
-      '@eslint-community/eslint-utils': 4.4.1(eslint@9.32.0(jiti@2.4.2))
+      '@eslint-community/eslint-utils': 4.7.0(eslint@9.32.0(jiti@2.4.2))
       '@eslint-community/regexpp': 4.12.1
       '@eslint/config-array': 0.21.0
       '@eslint/config-helpers': 0.3.0
@@ -6200,21 +6188,6 @@ snapshots:
   eventemitter3@5.0.1: {}
 
   events@3.3.0: {}
-
-  execa@9.5.3:
-    dependencies:
-      '@sindresorhus/merge-streams': 4.0.0
-      cross-spawn: 7.0.6
-      figures: 6.1.0
-      get-stream: 9.0.1
-      human-signals: 8.0.1
-      is-plain-obj: 4.1.0
-      is-stream: 4.0.1
-      npm-run-path: 6.0.0
-      pretty-ms: 9.2.0
-      signal-exit: 4.1.0
-      strip-final-newline: 4.0.0
-      yoctocolors: 2.1.1
 
   execa@9.6.0:
     dependencies:
@@ -7316,10 +7289,6 @@ snapshots:
   registry-url@6.0.1:
     dependencies:
       rc: 1.2.8
-
-  remeda@2.21.6:
-    dependencies:
-      type-fest: 4.41.0
 
   remeda@2.27.0:
     dependencies:

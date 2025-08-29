@@ -36,14 +36,7 @@ const DialogOverlay = ({ className, ...props }: React.ComponentProps<typeof Dial
   );
 };
 
-const DialogContent = ({
-  className,
-  children,
-  showCloseButton = true,
-  ...props
-}: React.ComponentProps<typeof DialogPrimitive.Content> & {
-  showCloseButton?: boolean;
-}) => {
+const DialogContent = ({ className, children, ...props }: React.ComponentProps<typeof DialogPrimitive.Content>) => {
   return (
     <DialogPortal data-slot="dialog-portal">
       <DialogOverlay />

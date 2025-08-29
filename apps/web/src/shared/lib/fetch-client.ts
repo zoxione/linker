@@ -28,7 +28,7 @@ type ResponseConfig<TData = unknown> = {
 
 type ResponseErrorConfig<TError = unknown> = TError;
 
-const fetchClient = async <TData, TError = unknown, TVariables = unknown>(
+const fetchClient = async <TData, TVariables = unknown>(
   config: RequestConfig<TVariables>,
 ): Promise<ResponseConfig<TData>> => {
   const url = new URL(`${appConfig.apiAppUrl}${config.url}`);

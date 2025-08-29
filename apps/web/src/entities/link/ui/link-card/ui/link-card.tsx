@@ -23,7 +23,7 @@ interface LinkCardProps {
 
 const LinkCard = ({ link, className }: LinkCardProps) => {
   const { onOpen } = useDialog();
-  const [_, copy] = useCopyToClipboard();
+  const [, copy] = useCopyToClipboard();
 
   const handleCopy = async (text: string) => {
     try {
