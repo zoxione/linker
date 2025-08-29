@@ -1,3 +1,5 @@
+/* eslint-disable */
+// @ts-nocheck
 import { z } from "zod";
 
 export const deleteApiCustomerLinksIdPathParamsSchema = z.object({

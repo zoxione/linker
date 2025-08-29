@@ -1,3 +1,5 @@
+/* eslint-disable */
+// @ts-nocheck
 import type { UseMutationOptions, QueryClient } from "@tanstack/react-query";
 import { useMutation } from "@tanstack/react-query";
 

@@ -1,11 +1,12 @@
-import { config } from "@/core/config";
 import { defineConfig } from "@kubb/core";
 import { pluginOas } from "@kubb/plugin-oas";
 import { pluginReactQuery } from "@kubb/plugin-react-query";
 import { pluginTs } from "@kubb/plugin-ts";
 import { pluginZod } from "@kubb/plugin-zod";
 
-const kubbConfig: any = defineConfig(() => {
+import { config } from "./src/core/config";
+
+const kubbConfig = defineConfig(() => {
   return {
     root: ".",
     input: {
@@ -22,6 +23,7 @@ const kubbConfig: any = defineConfig(() => {
       pluginZod({
         output: {
           path: "./zod",
+          banner: "/* eslint-disable */ \n // @ts-nocheck",
         },
         group: {
           type: "tag",
@@ -31,6 +33,7 @@ const kubbConfig: any = defineConfig(() => {
       pluginTs({
         output: {
           path: "./types",
+          banner: "/* eslint-disable */ \n // @ts-nocheck",
         },
         group: {
           type: "tag",
@@ -41,6 +44,7 @@ const kubbConfig: any = defineConfig(() => {
       pluginReactQuery({
         output: {
           path: "./hooks",
+          banner: "/* eslint-disable */ \n // @ts-nocheck",
         },
         group: {
           type: "tag",

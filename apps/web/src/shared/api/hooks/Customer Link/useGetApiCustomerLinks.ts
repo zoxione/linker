@@ -1,3 +1,5 @@
+/* eslint-disable */
+// @ts-nocheck
 import type { QueryKey, QueryClient, QueryObserverOptions, UseQueryResult } from "@tanstack/react-query";
 import { queryOptions, useQuery } from "@tanstack/react-query";
 

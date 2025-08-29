@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+
 export type PostApiCustomerLinksIdStatusPathParams = {
   /**
    * @type string
