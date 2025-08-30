@@ -1,3 +1,5 @@
+import { Icons } from "@repo/ui/components/icons";
+
 const QueryKeys = {
   customer: {
     links: { url: "/api/customer/links" },
@@ -6,4 +8,17 @@ const QueryKeys = {
 
 const DATE_FORMAT = "DD.MM.YYYY";
 
-export { DATE_FORMAT, QueryKeys };
+const APP_SIDEBAR_ITEMS = [
+  {
+    title: "Главная",
+    url: "/dashboard",
+    icon: Icons.home,
+  },
+  {
+    title: "Ссылки",
+    url: "/dashboard/links",
+    icon: Icons.links,
+  },
+];
+
+export { APP_SIDEBAR_ITEMS, DATE_FORMAT, QueryKeys };

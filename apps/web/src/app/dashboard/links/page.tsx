@@ -1,6 +1,8 @@
 import { LinksList } from "@/widgets/link/links-list";
 
-export default function Page() {
+interface PageProps {}
+
+export default function Page({}: PageProps) {
   return (
     <div className="">
       <LinksList />

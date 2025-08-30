@@ -7,10 +7,14 @@ import { ClientProvider } from "@/core/providers/client-provider";
 import { inter } from "../core/styles/font";
 import "../core/styles/globals.css";
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+interface RootLayoutProps {
+  children: ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} !m-auto mx-auto max-w-screen-xl !p-4 font-sans antialiased`}>
+    <html lang="ru" suppressHydrationWarning>
+      <body className={`${inter.variable} antialiased`}>
         <ClientProvider>{children}</ClientProvider>
       </body>
     </html>

@@ -6,6 +6,15 @@ const nextConfig = {
     API_APP_URL: process.env.API_APP_URL,
     WEB_APP_URL: process.env.WEB_APP_URL,
   },
+  redirects: async () => {
+    return [
+      {
+        source: "/",
+        destination: "/dashboard",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
