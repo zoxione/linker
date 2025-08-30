@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile
+    restart: always
+    ports:
+      - 8080
+  web:
+    container_name: web
+    build:
+      context: .
+      dockerfile: ./apps/web/Dockerfile
+      args:
+        - PRODUCTION=${PRODUCTION}
+        - API_APP_URL=${API_APP_URL}
+        - WEB_APP_URL=${WEB_APP_URL}
+    restart: always
+    ports:
+      - 3030
+    environment:
+      - PRODUCTION=${PRODUCTION}
+      - API_APP_URL=${API_APP_URL}
+      - WEB_APP_URL=${WEB_APP_URL}
+
+networks:
+  app_network:

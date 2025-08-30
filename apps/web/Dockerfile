@@ -1,0 +1,44 @@
+FROM public.ecr.aws/docker/library/node:22.14.0-alpine AS base
+
+
+ARG PRODUCTION
+ENV PRODUCTION $PRODUCTION
+ARG API_APP_URL
+ENV API_APP_URL $API_APP_URL
+ARG WEB_APP_URL
+ENV WEB_APP_URL $WEB_APP_URL
+
+
+FROM base AS builder
+WORKDIR /app
+
+RUN npm install --g turbo
+
+COPY . .
+
+RUN turbo prune @repo/web --docker
+
+
+FROM base AS installer
+WORKDIR /app
+
+RUN npm install --g pnpm
+
+COPY --from=builder /app/out/json/ .
+RUN pnpm install
+
+COPY --from=builder /app/out/full/ .
+RUN pnpm --filter @repo/api run db:generate
+RUN pnpm turbo build
+
+
+FROM base AS runner
+WORKDIR /app
+
+RUN npm install --g pnpm
+
+COPY --from=installer /app .
+
+EXPOSE 3030
+
+CMD ["pnpm", "start", "--filter=@repo/web"]
