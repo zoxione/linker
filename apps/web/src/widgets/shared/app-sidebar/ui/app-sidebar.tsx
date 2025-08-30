@@ -20,6 +20,7 @@ import {
 
 import { APP_SIDEBAR_ITEMS } from "@/core/data/constants";
 import { authClient } from "@/shared/lib/auth-client";
+import { Logo } from "@/shared/ui/logo";
 
 interface AppSidebarProps {}
 
@@ -34,8 +35,8 @@ const AppSidebar = ({}: AppSidebarProps) => {
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <Link href="/dashboard">
-                <Icons.github />
-                <span className="text-lg font-semibold">Linker</span>
+                <Logo />
+                <span className="font-mono text-lg font-semibold">Linker</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
