@@ -1,5 +1,17 @@
+import { LogoutBlock } from "@/features/user/logout";
+import { UpdateThemeBlock } from "@/features/user/update-theme";
+import { UpdateUserBlock } from "@/features/user/update-user";
+
 interface PageProps {}
 
 export default function Page({}: PageProps) {
-  return <div></div>;
+  return (
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <UpdateUserBlock />
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <UpdateThemeBlock />
+      </div>
+      <LogoutBlock />
+    </div>
+  );
 }

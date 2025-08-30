@@ -64,7 +64,7 @@ const AppSidebar = ({}: AppSidebarProps) => {
         <SidebarMenu>
           <SidebarMenuItem>
             {session ? (
-              <SidebarMenuButton asChild>
+              <SidebarMenuButton isActive={"/dashboard/profile" === pathname} asChild>
                 <Link href="/dashboard/profile">
                   <Icons.user />
                   <span>{session.user.email}</span>

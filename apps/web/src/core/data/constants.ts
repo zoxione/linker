@@ -19,6 +19,7 @@ const APP_SIDEBAR_ITEMS = [
 
 const QUERY_KEYS = {
   LINKS: "links",
+  USERS: "users",
 };
 
 export { APP_SIDEBAR_ITEMS, DATE_FORMAT, LIMIT_DEFAULT, QUERY_KEYS };

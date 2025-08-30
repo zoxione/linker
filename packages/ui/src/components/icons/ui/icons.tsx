@@ -10,6 +10,7 @@ import {
   ExternalLinkIcon,
   HouseIcon,
   ListIcon,
+  LockIcon,
   PencilIcon,
   RotateCcwIcon,
   SendHorizonalIcon,
@@ -43,6 +44,7 @@ const Icons = {
   update: (props: IconProps) => <PencilIcon {...props} />,
   delete: (props: IconProps) => <Trash2Icon {...props} />,
   user: (props: IconProps) => <UserCircle2Icon {...props} />,
+  lock: (props: IconProps) => <LockIcon {...props} />,
 
   // sidebar
   home: (props: IconProps) => <HouseIcon {...props} />,
