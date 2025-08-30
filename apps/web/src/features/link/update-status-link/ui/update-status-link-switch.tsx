@@ -5,7 +5,7 @@ import { toast } from "sonner";
 
 import { Switch } from "@repo/ui/switch";
 
-import { QueryKeys } from "@/core/data/constants";
+import { QUERY_KEYS } from "@/core/data/constants";
 import { Link } from "@/entities/link/model/link.types";
 import { usePostApiCustomerLinksIdStatus } from "@/shared/api";
 import { displayError } from "@/shared/utils/display-error";
@@ -32,7 +32,7 @@ const UpdateStatusLinkSwitch = ({ id, status }: UpdateStatusLinkSwitchProps) => 
         },
       });
       toast.success("Ссылка обновлена");
-      await queryClient.invalidateQueries({ queryKey: [QueryKeys.customer.links] });
+      await queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.LINKS] });
     } catch (error) {
       await displayError(error);
     } finally {

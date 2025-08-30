@@ -6,7 +6,7 @@ const USER_SCHEMA = z.object({
   ...BASE_ENTITY_SCHEMA.shape,
   id: z.string({ error: "Поле должно быть строкой" }).trim(),
   email: z.email({ error: "Неверный формат email" }),
-  emailVerified: z.boolean({ error: "Поле должно быть булевым значением" }),
+  emailVerified: z.coerce.boolean({ error: "Поле должно быть булевым значением" }).openapi({ type: "boolean" }),
   name: z
     .string({ error: "Поле должно быть строкой" })
     .trim()

@@ -18,7 +18,7 @@ export default async function Layout({ children }: LayoutProps) {
     <SidebarProvider defaultOpen={defaultOpen}>
       <AppSidebar />
       <SidebarInset>
-        <main className="flex-1 p-4">
+        <main className="flex-1 space-y-4 p-4">
           <PageHeader />
           {children}
         </main>

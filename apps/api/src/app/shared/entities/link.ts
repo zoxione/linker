@@ -16,7 +16,7 @@ const LINK_SCHEMA = z.object({
     .max(24, { error: "Максимальное количество символов - 24" }),
   token: z.string({ error: "Поле должно быть строкой" }).trim(),
   redirectUrl: z.url({ error: "Поле должно быть корректным URL" }),
-  redirectCount: z.number({ error: "Поле должно быть числом" }),
+  redirectCount: z.coerce.number({ error: "Поле должно быть числом" }).openapi({ type: "number" }),
 });
 
 export { LINK_SCHEMA };

@@ -9,7 +9,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Icons } from "@repo/ui/icons";
 import { Input } from "@repo/ui/input";
 
-import { QueryKeys } from "@/core/data/constants";
+import { QUERY_KEYS } from "@/core/data/constants";
 import { useDialog } from "@/core/providers/dialog-provider";
 import { Link } from "@/entities/link/model/link.types";
 import { usePutApiCustomerLinksId } from "@/shared/api";
@@ -49,7 +49,7 @@ const UpdateLinkForm = ({ link, onSuccess }: UpdateLinkFormProps) => {
       });
       form.reset({ name: res.name });
       toast.success("Ссылка обновлена");
-      await queryClient.invalidateQueries({ queryKey: [QueryKeys.customer.links] });
+      await queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.LINKS] });
       onSuccess();
     } catch (error) {
       await displayError(error);

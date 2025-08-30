@@ -35,8 +35,8 @@ const LinkCard = ({ link, className }: LinkCardProps) => {
   };
 
   return (
-    <Card className={cn("", className)}>
-      <CardHeader className="flex flex-row items-center gap-4 space-y-0 pb-4">
+    <Card className={cn("gap-2", className)}>
+      <CardHeader className="flex flex-row items-center gap-4 space-y-0">
         <UpdateStatusLinkSwitch id={link.id} status={link.status} />
         <CardTitle>{link.name}</CardTitle>
         <Button
@@ -52,7 +52,7 @@ const LinkCard = ({ link, className }: LinkCardProps) => {
           <Icons.update />
         </Button>
       </CardHeader>
-      <CardContent className="flex flex-col items-center gap-2 pb-4 md:flex-row">
+      <CardContent className="flex flex-col items-center gap-2 md:flex-row">
         <Badge onClick={() => handleCopy(link.url)} variant="outline" className="cursor-pointer">
           {link.url}
         </Badge>

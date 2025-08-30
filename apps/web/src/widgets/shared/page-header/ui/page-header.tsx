@@ -26,7 +26,7 @@ const PageHeader = ({}: PageHeaderProps) => {
     <div className="flex items-center gap-2">
       <SidebarTrigger />
       <Separator orientation="vertical" className="mr-2 data-[orientation=vertical]:h-4" />
-      <h1>{currentItem?.title}</h1>
+      {currentItem ? <h1 className="text-lg font-medium">{currentItem.title}</h1> : null}
     </div>
   );
 };

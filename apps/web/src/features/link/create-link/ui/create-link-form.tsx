@@ -8,7 +8,7 @@ import { Button } from "@repo/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@repo/ui/form";
 import { Input } from "@repo/ui/input";
 
-import { QueryKeys } from "@/core/data/constants";
+import { QUERY_KEYS } from "@/core/data/constants";
 import { usePostApiCustomerLinks } from "@/shared/api";
 import { displayError } from "@/shared/utils/display-error";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -45,7 +45,7 @@ const CreateLinkForm = ({ onSuccess }: CreateLinkFormProps) => {
       });
       form.reset();
       toast.success("Ссылка создана");
-      await queryClient.invalidateQueries({ queryKey: [QueryKeys.customer.links] });
+      await queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.LINKS] });
       onSuccess();
     } catch (error) {
       await displayError(error);

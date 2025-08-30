@@ -3,17 +3,13 @@
 
 export type GetApiCustomerLinksQueryParams = {
   /**
-   * @minLength 0
-   * @maxLength 100
-   * @type number
+   * @type number | undefined
    */
-  limit?: number | null;
+  limit?: number;
   /**
-   * @minLength 0
-   * @maxLength 9007199254740991
-   * @type number
+   * @type number | undefined
    */
-  offset?: number | null;
+  offset?: number;
 };
 
 export type ItemsStatusEnum = "ENABLE" | "DISABLE";
@@ -23,17 +19,13 @@ export type ItemsStatusEnum = "ENABLE" | "DISABLE";
  */
 export type GetApiCustomerLinks200 = {
   /**
-   * @minLength 0
-   * @maxLength 100
    * @type number
    */
-  limit: number | null;
+  limit: number;
   /**
-   * @minLength 0
-   * @maxLength 9007199254740991
    * @type number
    */
-  offset: number | null;
+  offset: number;
   /**
    * @type number
    */

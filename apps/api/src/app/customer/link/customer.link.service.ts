@@ -1,4 +1,4 @@
-import { eq, sql } from "drizzle-orm";
+import { desc, eq, sql } from "drizzle-orm";
 import { HTTPException } from "hono/http-exception";
 import { nanoid } from "nanoid";
 
@@ -38,6 +38,7 @@ class CustomerLinkService {
     const result = await db
       .select({ row: dbSchema.link, count: sql<number>`count(*) over()` })
       .from(dbSchema.link)
+      .orderBy(desc(dbSchema.link.createdAt))
       .limit(limit)
       .offset(offset);
 

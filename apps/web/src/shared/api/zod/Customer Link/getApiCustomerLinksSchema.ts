@@ -4,8 +4,8 @@ import { z } from "zod";
 
 export const getApiCustomerLinksQueryParamsSchema = z
   .object({
-    limit: z.coerce.number().min(0).max(100).nullable().nullish(),
-    offset: z.coerce.number().min(0).max(9007199254740991).nullable().nullish(),
+    limit: z.coerce.number().optional(),
+    offset: z.coerce.number().optional(),
   })
   .optional();
 
@@ -13,8 +13,8 @@ export const getApiCustomerLinksQueryParamsSchema = z
  * @description Список ссылок
  */
 export const getApiCustomerLinks200Schema = z.object({
-  limit: z.number().min(0).max(100).nullable(),
-  offset: z.number().min(0).max(9007199254740991).nullable(),
+  limit: z.number(),
+  offset: z.number(),
   count: z.number(),
   total: z.number(),
   items: z.array(

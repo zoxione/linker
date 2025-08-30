@@ -14,7 +14,7 @@ import {
   DialogTitle,
 } from "@repo/ui/dialog";
 
-import { QueryKeys } from "@/core/data/constants";
+import { QUERY_KEYS } from "@/core/data/constants";
 import { Link } from "@/entities/link/model/link.types";
 import { useDeleteApiCustomerLinksId } from "@/shared/api";
 import { displayError } from "@/shared/utils/display-error";
@@ -40,7 +40,7 @@ const DeleteLinkDialog = ({ openDialog, setOpenDialog, link }: DeleteLinkDialogP
       });
       setOpenDialog(false);
       toast.success("Ссылка удалена");
-      await queryClient.invalidateQueries({ queryKey: [QueryKeys.customer.links] });
+      await queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.LINKS] });
     } catch (error) {
       await displayError(error);
     } finally {
