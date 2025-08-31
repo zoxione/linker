@@ -3,9 +3,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "dotenv -- next dev -p %WEB_APP_PORT%",
+    "dev": "dotenv -- next dev -p 3030",
     "build": "dotenv -- next build",
-    "start": "dotenv -- next start -p %WEB_APP_PORT%",
+    "start": "dotenv -- next start -p 3030",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "typegen": "kubb generate"
