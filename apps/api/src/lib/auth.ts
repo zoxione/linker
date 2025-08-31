@@ -5,6 +5,7 @@ import { customAlphabet } from "nanoid";
 
 import { config } from "../config";
 import { db, dbSchema } from "../persistence/db";
+import { OTP_LENGTH } from "./constants";
 
 const auth = betterAuth({
   database: drizzleAdapter(db, {
@@ -18,12 +19,12 @@ const auth = betterAuth({
   }),
   plugins: [
     emailOTP({
-      otpLength: 5,
+      otpLength: OTP_LENGTH,
       generateOTP: () => {
         if (!config.production) {
-          return "11111";
+          return "1".repeat(OTP_LENGTH);
         }
-        const otp = customAlphabet("1234567890", 5)();
+        const otp = customAlphabet("1234567890", OTP_LENGTH)();
         return otp;
       },
       async sendVerificationOTP({ email, otp, type }) {

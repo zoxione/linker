@@ -63,7 +63,7 @@ const AuthEmailForm = ({}: AuthEmailFormProps) => {
             </FormItem>
           )}
         />
-        <Button loading={loading} type="submit">
+        <Button type="submit" loading={loading}>
           Войти
         </Button>
       </form>

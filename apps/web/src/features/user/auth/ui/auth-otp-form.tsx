@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
+import { OTP_LENGTH } from "@repo/api";
 import { Button } from "@repo/ui/button";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@repo/ui/form";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@repo/ui/input-otp";
@@ -12,6 +13,7 @@ import { InputOTP, InputOTPGroup, InputOTPSlot } from "@repo/ui/input-otp";
 import { SimpleError } from "@/shared/errors/simple-error";
 import { authClient } from "@/shared/lib/auth-client";
 import { displayError } from "@/shared/utils/display-error";
+import { genArray } from "@/shared/utils/gen-array";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { authOtpFormSchema, AuthOtpFormSchema } from "../model/auth.schemas";
@@ -60,23 +62,21 @@ const AuthOtpForm = ({}: AuthOtpFormProps) => {
             <FormItem className="w-full">
               <FormControl>
                 <InputOTP
-                  maxLength={5}
+                  maxLength={OTP_LENGTH}
                   pattern={REGEXP_ONLY_DIGITS}
                   containerClassName="w-full"
                   {...field}
                   onChange={(value) => {
                     field.onChange(value);
-                    if (value.length === 5) {
+                    if (value.length === OTP_LENGTH) {
                       form.handleSubmit(onSubmit)();
                     }
                   }}
                 >
                   <InputOTPGroup className="w-full">
-                    <InputOTPSlot className="h-14 w-full text-2xl font-medium" index={0} />
-                    <InputOTPSlot className="h-14 w-full text-2xl font-medium" index={1} />
-                    <InputOTPSlot className="h-14 w-full text-2xl font-medium" index={2} />
-                    <InputOTPSlot className="h-14 w-full text-2xl font-medium" index={3} />
-                    <InputOTPSlot className="h-14 w-full text-2xl font-medium" index={4} />
+                    {genArray(OTP_LENGTH).map((_, index) => (
+                      <InputOTPSlot key={index} index={index} className="h-14 w-full text-2xl font-medium" />
+                    ))}
                   </InputOTPGroup>
                 </InputOTP>
               </FormControl>
@@ -84,7 +84,7 @@ const AuthOtpForm = ({}: AuthOtpFormProps) => {
             </FormItem>
           )}
         />
-        <Button loading={loading} type="button" variant="secondary">
+        <Button type="button" variant="secondary" loading={loading}>
           Отправить повторно
         </Button>
       </form>
