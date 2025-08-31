@@ -31,7 +31,7 @@ const UpdateStatusLinkSwitch = ({ id, status }: UpdateStatusLinkSwitchProps) => 
           status: value ? "ENABLE" : "DISABLE",
         },
       });
-      toast.success("Ссылка обновлена");
+      toast.success("Статус обновлен");
       await queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.LINKS] });
     } catch (error) {
       await displayError(error);

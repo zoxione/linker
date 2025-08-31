@@ -3,6 +3,8 @@
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { ReactNode } from "react";
 
+import { TooltipProvider } from "@repo/ui/components/tooltip";
+
 import { queryClient } from "@/shared/lib/query-client";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
@@ -18,11 +20,13 @@ const ClientProvider = ({ children }: ClientProviderProps) => {
   return (
     <QueryClientProvider client={queryClient}>
       <NextThemesProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-        <DialogProvider>
-          {children}
-          <Toaster />
-          <ReactQueryDevtools initialIsOpen={false} />
-        </DialogProvider>
+        <TooltipProvider>
+          <DialogProvider>
+            {children}
+            <Toaster />
+            <ReactQueryDevtools initialIsOpen={false} buttonPosition="top-right" />
+          </DialogProvider>
+        </TooltipProvider>
       </NextThemesProvider>
     </QueryClientProvider>
   );

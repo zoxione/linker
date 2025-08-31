@@ -11,7 +11,9 @@ import {
   HouseIcon,
   ListIcon,
   LockIcon,
+  MoreVerticalIcon,
   PencilIcon,
+  PlusIcon,
   RotateCcwIcon,
   SendHorizonalIcon,
   Trash2Icon,
@@ -41,10 +43,12 @@ const Icons = {
   arrowRight: (props: IconProps) => <ArrowRightIcon {...props} />,
   arrowDown: (props: IconProps) => <ArrowDownIcon {...props} />,
   externalLink: (props: IconProps) => <ExternalLinkIcon {...props} />,
+  add: (props: IconProps) => <PlusIcon {...props} />,
   update: (props: IconProps) => <PencilIcon {...props} />,
   delete: (props: IconProps) => <Trash2Icon {...props} />,
   user: (props: IconProps) => <UserCircle2Icon {...props} />,
   lock: (props: IconProps) => <LockIcon {...props} />,
+  more: (props: IconProps) => <MoreVerticalIcon {...props} />,
 
   // sidebar
   home: (props: IconProps) => <HouseIcon {...props} />,
