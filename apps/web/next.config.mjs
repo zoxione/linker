@@ -13,6 +13,11 @@ const nextConfig = {
         destination: "/dashboard",
         permanent: true,
       },
+      {
+        source: "/l/:token",
+        destination: `${process.env.API_APP_URL}/api/customer/links/:token/track`,
+        permanent: true,
+      },
     ];
   },
 };

@@ -1,4 +1,4 @@
-import { desc, eq, sql } from "drizzle-orm";
+import { and, desc, eq, sql } from "drizzle-orm";
 import { HTTPException } from "hono/http-exception";
 import { nanoid } from "nanoid";
 
@@ -10,6 +10,7 @@ import { CustomerLinkDelete } from "./dto/customer.link.delete";
 import { CustomerLinkGetAll } from "./dto/customer.link.get-all";
 import { CustomerLinkGetOne } from "./dto/customer.link.get-one";
 import { CustomerLinkList } from "./dto/customer.link.list";
+import { CustomerLinkTrack } from "./dto/customer.link.track";
 import { CustomerLinkUpdate } from "./dto/customer.link.update";
 import { CustomerLinkUpdateStatus } from "./dto/customer.link.update-status";
 import { CustomerLinkView } from "./dto/customer.link.view";
@@ -120,6 +121,23 @@ class CustomerLinkService {
     await this.#checkExists(id);
 
     await db.delete(dbSchema.link).where(eq(dbSchema.link.id, id));
+  }
+
+  async track(dto: CustomerLinkTrack): Promise<CustomerLinkView> {
+    const { token } = dto;
+
+    const [link] = await db
+      .update(dbSchema.link)
+      .set({
+        redirectCount: sql`${dbSchema.link.redirectCount} + 1`,
+      })
+      .where(and(eq(dbSchema.link.token, token), eq(dbSchema.link.status, "ENABLE")))
+      .returning();
+    if (!link) {
+      throw new HTTPException(404, { message: "Ссылка не найдена" });
+    }
+
+    return toCustomerLinkView(link);
   }
 }
 

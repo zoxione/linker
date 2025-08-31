@@ -53,7 +53,7 @@ const LinksList = ({ className }: LinksListProps) => {
               ))}
             </InfiniteScrollContainer>
           ) : (
-            <div className="col-span-full text-center">Ссылки не найдены</div>
+            <div className="text-center text-sm">Ссылки не найдены</div>
           )
         ) : (
           genArray(5).map((i) => <LinkCardSkeleton key={i} />)

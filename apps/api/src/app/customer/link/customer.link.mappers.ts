@@ -13,7 +13,7 @@ const toCustomerLinkView = (link: Link): CustomerLinkView => {
     token,
     redirectUrl,
     redirectCount,
-    url: `${config.webAppUrl}/r/${token}`, // TODO
+    url: `${config.webAppUrl}/l/${token}`,
     updatedAt: updatedAt.toISOString(),
     createdAt: createdAt.toISOString(),
   };
