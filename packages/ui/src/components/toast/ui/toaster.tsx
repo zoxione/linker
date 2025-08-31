@@ -18,9 +18,12 @@ const Toaster = ({ ...props }: ToasterProps) => {
       }}
       toastOptions={{
         classNames: {
-          toast: "!rounded-none !gap-3 data-[swiped=true]:!rounded-lg md:!rounded-lg",
+          toast:
+            "!rounded-none !gap-3 data-[swiped=true]:!rounded-lg md:!rounded-lg !bg-popover dark:!bg-accent !border-border",
           icon: "!size-5 !m-0",
           content: "!gap-0",
+          title: "!text-popover-foreground",
+          description: "!text-popover-foreground/70",
         },
       }}
       className="toaster group"
