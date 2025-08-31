@@ -89,7 +89,7 @@ const UpdateLinkForm = ({ link }: UpdateLinkFormProps) => {
                 URL
               </FormLabel>
               <FormControl>
-                <Input type="text" placeholder="URL" disabled readOnly {...field} />
+                <Input type="url" placeholder="URL" disabled readOnly {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -105,7 +105,7 @@ const UpdateLinkForm = ({ link }: UpdateLinkFormProps) => {
                 URL перенаправления
               </FormLabel>
               <FormControl>
-                <Input type="text" placeholder="URL перенаправления" disabled readOnly {...field} />
+                <Input type="url" placeholder="URL перенаправления" disabled readOnly {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

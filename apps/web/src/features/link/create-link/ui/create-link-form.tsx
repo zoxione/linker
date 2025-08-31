@@ -62,7 +62,7 @@ const CreateLinkForm = ({ onSuccess }: CreateLinkFormProps) => {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Введите название ссылки</FormLabel>
+              <FormLabel>Название</FormLabel>
               <FormControl>
                 <Input type="text" placeholder="Название" {...field} />
               </FormControl>
@@ -75,15 +75,15 @@ const CreateLinkForm = ({ onSuccess }: CreateLinkFormProps) => {
           name="redirectUrl"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Введите URL перенаправления</FormLabel>
+              <FormLabel>URL перенаправления</FormLabel>
               <FormControl>
-                <Input type="url" placeholder="https://example.com" {...field} />
+                <Input type="url" placeholder="URL перенаправления" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button loading={loading} type="submit">
+        <Button type="submit" disabled={!form.formState.isValid} loading={loading}>
           Создать ссылку
         </Button>
       </form>

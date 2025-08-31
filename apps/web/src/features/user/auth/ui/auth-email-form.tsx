@@ -57,7 +57,7 @@ const AuthEmailForm = ({}: AuthEmailFormProps) => {
             <FormItem>
               <FormLabel>Введите электронную почту</FormLabel>
               <FormControl>
-                <Input type="email" placeholder="email@example.com" {...field} />
+                <Input type="email" placeholder="example@example.com" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
