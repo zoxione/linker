@@ -14,6 +14,7 @@ import { SimpleError } from "@/shared/errors/simple-error";
 import { authClient } from "@/shared/lib/auth-client";
 import { displayError } from "@/shared/utils/display-error";
 import { genArray } from "@/shared/utils/gen-array";
+import { getAuthError } from "@/shared/utils/get-auth-error";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { authOtpFormSchema, AuthOtpFormSchema } from "../model/auth.schemas";
@@ -41,7 +42,7 @@ const AuthOtpForm = ({}: AuthOtpFormProps) => {
         otp: values.otp,
       });
       if (error) {
-        throw new SimpleError(error.message || "Не удалось выполнить вход");
+        throw new SimpleError(getAuthError(error.code) ?? "Не удалось выполнить вход");
       }
       setFormData({ ...formData, ...values });
       router.push("/");

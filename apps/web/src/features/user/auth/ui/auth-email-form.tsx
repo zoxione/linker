@@ -10,6 +10,7 @@ import { Input } from "@repo/ui/input";
 import { SimpleError } from "@/shared/errors/simple-error";
 import { authClient } from "@/shared/lib/auth-client";
 import { displayError } from "@/shared/utils/display-error";
+import { getAuthError } from "@/shared/utils/get-auth-error";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { authEmailFormSchema, AuthEmailFormSchema } from "../model/auth.schemas";
@@ -36,7 +37,7 @@ const AuthEmailForm = ({}: AuthEmailFormProps) => {
         type: "sign-in",
       });
       if (error) {
-        throw new SimpleError(error.message || "Не удалось отправить код");
+        throw new SimpleError(getAuthError(error.code) ?? "Не удалось отправить код");
       }
       setFormData({ ...formData, ...values });
       setStep("otp");

@@ -15,6 +15,7 @@ import { SimpleError } from "@/shared/errors/simple-error";
 import { authClient } from "@/shared/lib/auth-client";
 import { Avatar } from "@/shared/ui/avatar";
 import { displayError } from "@/shared/utils/display-error";
+import { getAuthError } from "@/shared/utils/get-auth-error";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useQueryClient } from "@tanstack/react-query";
 
@@ -43,7 +44,7 @@ const UpdateUserForm = ({ user }: UpdateUserFormProps) => {
         name: values.name,
       });
       if (error) {
-        throw new SimpleError(error.message || "Не удалось обновить профиль");
+        throw new SimpleError(getAuthError(error.code) ?? "Не удалось обновить профиль");
       }
       form.reset({ name: values.name, email: values.email });
       toast.success({ description: "Профиль обновлен" });

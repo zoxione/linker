@@ -10,6 +10,7 @@ import { Skeleton } from "@repo/ui/components/skeleton";
 import { SimpleError } from "@/shared/errors/simple-error";
 import { authClient } from "@/shared/lib/auth-client";
 import { displayError } from "@/shared/utils/display-error";
+import { getAuthError } from "@/shared/utils/get-auth-error";
 
 interface LogoutBlockProps {}
 
@@ -23,7 +24,7 @@ const LogoutBlock = ({}: LogoutBlockProps) => {
       setLoading(true);
       const { error } = await authClient.signOut();
       if (error) {
-        throw new SimpleError(error.message || "Не удалось выполнить выход");
+        throw new SimpleError(getAuthError(error.code) ?? "Не удалось выполнить выход");
       }
       router.push("/");
     } catch (error) {

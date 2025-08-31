@@ -6,7 +6,7 @@ import { SimpleError } from "../errors/simple-error";
 import { HTTPErrorData } from "../types/http-error-data";
 
 const displayError = async (error: unknown, message?: string) => {
-  console.error(error); // TODO
+  console.error(error);
   let toastMessage = "";
   if (error instanceof HTTPError) {
     const data: HTTPErrorData = await error.response.json();
