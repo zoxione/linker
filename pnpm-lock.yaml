@@ -132,9 +132,6 @@ importers:
       react-hook-form:
         specifier: 7.61.1
         version: 7.61.1(react@19.1.0)
-      sonner:
-        specifier: 2.0.6
-        version: 2.0.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       usehooks-ts:
         specifier: 3.1.1
         version: 3.1.1(react@19.1.0)
@@ -285,6 +282,9 @@ importers:
       react-intersection-observer:
         specifier: 9.16.0
         version: 9.16.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      sonner:
+        specifier: 2.0.6
+        version: 2.0.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       tailwind-merge:
         specifier: 3.3.1
         version: 3.3.1

@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "sonner";
 
 import { Button } from "@repo/ui/button";
 import { Icons } from "@repo/ui/components/icons";
+import { toast } from "@repo/ui/components/toast";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@repo/ui/form";
 import { Input } from "@repo/ui/input";
 
@@ -54,7 +54,7 @@ const UpdateLinkForm = ({ link }: UpdateLinkFormProps) => {
         url: res.url,
         createdAt: res.createdAt,
       });
-      toast.success("Ссылка обновлена");
+      toast.success({ description: "Ссылка обновлена" });
       await queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.LINKS] });
     } catch (error) {
       await displayError(error);

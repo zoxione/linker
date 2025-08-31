@@ -7,6 +7,9 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   ChevronUpIcon,
+  CircleAlertIcon,
+  CircleCheckIcon,
+  CircleXIcon,
   ExternalLinkIcon,
   HouseIcon,
   ListIcon,
@@ -49,6 +52,9 @@ const Icons = {
   user: (props: IconProps) => <UserCircle2Icon {...props} />,
   lock: (props: IconProps) => <LockIcon {...props} />,
   more: (props: IconProps) => <MoreVerticalIcon {...props} />,
+  success: (props: IconProps) => <CircleCheckIcon {...props} />,
+  info: (props: IconProps) => <CircleAlertIcon {...props} />,
+  error: (props: IconProps) => <CircleXIcon {...props} />,
 
   // sidebar
   home: (props: IconProps) => <HouseIcon {...props} />,

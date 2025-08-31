@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { toast } from "sonner";
 
+import { toast } from "@repo/ui/components/toast";
 import { Switch } from "@repo/ui/switch";
 
 import { QUERY_KEYS } from "@/core/data/constants";
@@ -31,7 +31,7 @@ const UpdateStatusLinkSwitch = ({ id, status }: UpdateStatusLinkSwitchProps) => 
           status: value ? "ENABLE" : "DISABLE",
         },
       });
-      toast.success("Статус обновлен");
+      toast.success({ description: "Статус обновлен" });
       await queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.LINKS] });
     } catch (error) {
       await displayError(error);

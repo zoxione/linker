@@ -1,9 +1,9 @@
 "use client";
 
-import { toast } from "sonner";
 import { useCopyToClipboard } from "usehooks-ts";
 
 import { Badge } from "@repo/ui/components/badge";
+import { toast } from "@repo/ui/components/toast";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@repo/ui/components/tooltip";
 
 import { displayError } from "@/shared/utils/display-error";
@@ -18,7 +18,7 @@ const UrlBadge = ({ url }: UrlBadgeProps) => {
   const handleCopy = async () => {
     try {
       await copy(url);
-      toast.success("Скопировано в буфер обмена");
+      toast.success({ description: "Скопировано в буфер обмена" });
     } catch (error) {
       await displayError(error);
     }

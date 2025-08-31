@@ -1,5 +1,6 @@
 import { HTTPError } from "ky";
-import { toast } from "sonner";
+
+import { toast } from "@repo/ui/components/toast";
 
 import { SimpleError } from "../errors/simple-error";
 import { HTTPErrorData } from "../types/http-error-data";
@@ -17,7 +18,7 @@ const displayError = async (error: unknown, message?: string) => {
   } else {
     toastMessage = "Произошла непредвиденная ошибка";
   }
-  toast.error(toastMessage);
+  toast.error({ description: toastMessage });
 };
 
 export { displayError };

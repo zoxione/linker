@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "sonner";
 
 import { Button } from "@repo/ui/button";
+import { toast } from "@repo/ui/components/toast";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@repo/ui/form";
 import { Input } from "@repo/ui/input";
 
@@ -44,7 +44,7 @@ const CreateLinkForm = ({ onSuccess }: CreateLinkFormProps) => {
         },
       });
       form.reset();
-      toast.success("Ссылка создана");
+      toast.success({ description: "Ссылка создана" });
       await queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.LINKS] });
       onSuccess();
     } catch (error) {

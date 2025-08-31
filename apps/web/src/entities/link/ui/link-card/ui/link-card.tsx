@@ -1,10 +1,10 @@
 "use client";
 
-import { toast } from "sonner";
 import { useCopyToClipboard } from "usehooks-ts";
 
 import { Badge } from "@repo/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@repo/ui/card";
+import { toast } from "@repo/ui/components/toast";
 import { Icons } from "@repo/ui/icons";
 import { cn } from "@repo/ui/utils/cn";
 
@@ -27,7 +27,7 @@ const LinkCard = ({ link, className }: LinkCardProps) => {
   const handleCopy = async (text: string) => {
     try {
       await copy(text);
-      toast.success("Скопировано в буфер обмена");
+      toast.success({ description: "Скопировано в буфер обмена" });
     } catch (error) {
       await displayError(error);
     }

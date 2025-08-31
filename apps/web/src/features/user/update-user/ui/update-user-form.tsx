@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "sonner";
 
 import { User } from "@repo/api";
 import { Button } from "@repo/ui/button";
 import { Icons } from "@repo/ui/components/icons";
+import { toast } from "@repo/ui/components/toast";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@repo/ui/form";
 import { Input } from "@repo/ui/input";
 
@@ -45,7 +45,7 @@ const UpdateUserForm = ({ user }: UpdateUserFormProps) => {
         throw new SimpleError(error.message || "Не удалось обновить профиль");
       }
       form.reset({ name: values.name, email: values.email });
-      toast.success("Профиль обновлён");
+      toast.success({ description: "Профиль обновлен" });
       await queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.USERS] });
     } catch (error) {
       await displayError(error);

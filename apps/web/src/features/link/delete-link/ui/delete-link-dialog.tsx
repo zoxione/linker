@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { toast } from "sonner";
 
 import { Button } from "@repo/ui/button";
+import { toast } from "@repo/ui/components/toast";
 import {
   Dialog,
   DialogClose,
@@ -39,7 +39,7 @@ const DeleteLinkDialog = ({ openDialog, setOpenDialog, link }: DeleteLinkDialogP
         id: link.id,
       });
       setOpenDialog(false);
-      toast.success("Ссылка удалена");
+      toast.success({ description: "Ссылка удалена" });
       await queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.LINKS] });
     } catch (error) {
       await displayError(error);
