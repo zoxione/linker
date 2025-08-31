@@ -3,7 +3,7 @@ import { HTTPException } from "hono/http-exception";
 import { nanoid } from "nanoid";
 
 import { transformGetAllResult } from "../../../lib/utils/transform-get-all-result";
-import { db, dbSchema, Link } from "../../../persistence/db";
+import { db, dbSchema } from "../../../persistence/db";
 import { toCustomerLinkView } from "./customer.link.mappers";
 import { CustomerLinkCreate } from "./dto/customer.link.create";
 import { CustomerLinkDelete } from "./dto/customer.link.delete";
@@ -18,14 +18,8 @@ import { CustomerLinkView } from "./dto/customer.link.view";
 class CustomerLinkService {
   constructor() {}
 
-  async #checkExists(id: string): Promise<Link> {
-    const link = await db.query.link.findFirst({
-      where: eq(dbSchema.link.id, id),
-    });
-    if (!link) {
-      throw new HTTPException(404, { message: "Ссылка не найдена" });
-    }
-    return link;
+  #byIdAndUser(id: string, userId: string) {
+    return and(eq(dbSchema.link.id, id), eq(dbSchema.link.userId, userId));
   }
 
   #generateToken(): string {
@@ -34,11 +28,12 @@ class CustomerLinkService {
   }
 
   async getAll(dto: CustomerLinkGetAll): Promise<CustomerLinkList> {
-    const { limit, offset } = dto;
+    const { userId, limit, offset } = dto;
 
     const result = await db
       .select({ row: dbSchema.link, count: sql<number>`count(*) over()` })
       .from(dbSchema.link)
+      .where(eq(dbSchema.link.userId, userId))
       .orderBy(desc(dbSchema.link.createdAt))
       .limit(limit)
       .offset(offset);
@@ -74,53 +69,52 @@ class CustomerLinkService {
   }
 
   async getOne(dto: CustomerLinkGetOne): Promise<CustomerLinkView> {
-    const { id } = dto;
+    const { id, userId } = dto;
 
-    const link = await this.#checkExists(id);
+    const link = await db.query.link.findFirst({
+      where: this.#byIdAndUser(id, userId),
+    });
+    if (!link) {
+      throw new HTTPException(404, { message: "Ссылка не найдена" });
+    }
 
     return toCustomerLinkView(link);
   }
 
   async update(dto: CustomerLinkUpdate): Promise<CustomerLinkView> {
-    const { id, ...updateDto } = dto;
-
-    await this.#checkExists(id);
+    const { id, userId, ...updateDto } = dto;
 
     const [link] = await db
       .update(dbSchema.link)
       .set({ ...updateDto })
-      .where(eq(dbSchema.link.id, id))
+      .where(this.#byIdAndUser(id, userId))
       .returning();
     if (!link) {
-      throw new HTTPException(500, { message: "Не удалось обновить ссылку" });
+      throw new HTTPException(404, { message: "Ссылка не найдена" });
     }
 
     return toCustomerLinkView(link);
   }
 
   async updateStatus(dto: CustomerLinkUpdateStatus): Promise<CustomerLinkView> {
-    const { id, ...updateDto } = dto;
-
-    await this.#checkExists(id);
+    const { id, userId, ...updateDto } = dto;
 
     const [link] = await db
       .update(dbSchema.link)
       .set({ ...updateDto })
-      .where(eq(dbSchema.link.id, id))
+      .where(this.#byIdAndUser(id, userId))
       .returning();
     if (!link) {
-      throw new HTTPException(500, { message: "Не удалось обновить ссылку" });
+      throw new HTTPException(404, { message: "Ссылка не найдена" });
     }
 
     return toCustomerLinkView(link);
   }
 
   async delete(dto: CustomerLinkDelete): Promise<void> {
-    const { id } = dto;
+    const { id, userId } = dto;
 
-    await this.#checkExists(id);
-
-    await db.delete(dbSchema.link).where(eq(dbSchema.link.id, id));
+    await db.delete(dbSchema.link).where(this.#byIdAndUser(id, userId));
   }
 
   async track(dto: CustomerLinkTrack): Promise<CustomerLinkView> {

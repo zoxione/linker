@@ -27,9 +27,10 @@ const contract = createRoute({
 });
 
 const customerLinksIdDeleteRoute = contracts.serveApi().openapi(contract, async (c) => {
+  const session = c.get("session");
   const { id } = c.req.valid("param");
 
-  await app.customer.link.delete({ id });
+  await app.customer.link.delete({ id, userId: session.userId });
 
   return c.body(null, 204);
 });

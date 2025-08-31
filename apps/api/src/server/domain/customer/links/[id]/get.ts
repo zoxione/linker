@@ -33,9 +33,10 @@ const contract = createRoute({
 });
 
 const customerLinksIdGetRoute = contracts.serveApi().openapi(contract, async (c) => {
+  const session = c.get("session");
   const { id } = c.req.valid("param");
 
-  const link = await app.customer.link.getOne({ id });
+  const link = await app.customer.link.getOne({ id, userId: session.userId });
 
   return c.json(link);
 });

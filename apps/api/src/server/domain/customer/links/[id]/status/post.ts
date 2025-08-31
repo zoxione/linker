@@ -16,7 +16,7 @@ const contract = createRoute({
     body: {
       content: {
         "application/json": {
-          schema: CUSTOMER_LINK_UPDATE_STATUS.omit({ id: true }),
+          schema: CUSTOMER_LINK_UPDATE_STATUS.omit({ id: true, userId: true }),
         },
       },
     },
@@ -37,11 +37,13 @@ const contract = createRoute({
 });
 
 const customerLinksIdStatusPostRoute = contracts.serveApi().openapi(contract, async (c) => {
+  const session = c.get("session");
   const { id } = c.req.valid("param");
   const updateDto = c.req.valid("json");
 
   const link = await app.customer.link.updateStatus({
     id,
+    userId: session.userId,
     ...updateDto,
   });
 

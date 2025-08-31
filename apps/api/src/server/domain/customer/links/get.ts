@@ -12,7 +12,7 @@ const contract = createRoute({
   summary: "Получить ссылки",
   middleware: [contracts.middlewares.auth] as const,
   request: {
-    query: CUSTOMER_LINK_GET_ALL,
+    query: CUSTOMER_LINK_GET_ALL.omit({ userId: true }),
   },
   responses: {
     200: {
@@ -30,9 +30,11 @@ const contract = createRoute({
 });
 
 const customerLinksGetRoute = contracts.serveApi().openapi(contract, async (c) => {
+  const session = c.get("session");
   const { limit, offset } = c.req.valid("query");
 
   const links = await app.customer.link.getAll({
+    userId: session.userId,
     limit,
     offset,
   });

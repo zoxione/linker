@@ -5,6 +5,7 @@ import { LINK_SCHEMA } from "../../../shared/entities/link";
 const CUSTOMER_LINK_UPDATE_STATUS = z.object({
   ...LINK_SCHEMA.pick({
     id: true,
+    userId: true,
     status: true,
   }).shape,
 });
