@@ -6,9 +6,27 @@ services:
     build:
       context: .
       dockerfile: ./apps/api/Dockerfile
+      args:
+        - PRODUCTION=${PRODUCTION}
+        - DOMAIN_URL=${DOMAIN_URL}
+        - API_APP_URL=${API_APP_URL}
+        - API_APP_PORT=${API_APP_PORT}
+        - WEB_APP_URL=${WEB_APP_URL}
+        - WEB_APP_PORT=${WEB_APP_PORT}
+        - DATABASE_URL=${DATABASE_URL}
+        - BETTER_AUTH_SECRET=${BETTER_AUTH_SECRET}
     restart: always
     ports:
       - 8080
+    environment:
+      - PRODUCTION=${PRODUCTION}
+      - DOMAIN_URL=${DOMAIN_URL}
+      - API_APP_URL=${API_APP_URL}
+      - API_APP_PORT=${API_APP_PORT}
+      - WEB_APP_URL=${WEB_APP_URL}
+      - WEB_APP_PORT=${WEB_APP_PORT}
+      - DATABASE_URL=${DATABASE_URL}
+      - BETTER_AUTH_SECRET=${BETTER_AUTH_SECRET}
   web:
     container_name: web
     build:
