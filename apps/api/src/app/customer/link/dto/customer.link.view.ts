@@ -11,10 +11,10 @@ const CUSTOMER_LINK_VIEW = z.object({
     token: true,
     redirectUrl: true,
     redirectCount: true,
+    url: true,
     updatedAt: true,
     createdAt: true,
   }).shape,
-  url: z.url({ error: "Поле должно быть корректным URL" }),
 });
 
 type CustomerLinkView = z.infer<typeof CUSTOMER_LINK_VIEW>;

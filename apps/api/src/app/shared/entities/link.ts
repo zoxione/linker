@@ -17,6 +17,7 @@ const LINK_SCHEMA = z.object({
   token: z.string({ error: "Поле должно быть строкой" }).trim(),
   redirectUrl: z.url({ error: "Поле должно быть корректным URL" }),
   redirectCount: z.coerce.number({ error: "Поле должно быть числом" }).openapi({ type: "number" }),
+  url: z.url({ error: "Поле должно быть корректным URL" }),
 });
 
 export { LINK_SCHEMA };

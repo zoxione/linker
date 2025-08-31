@@ -4,7 +4,6 @@ import { toast } from "sonner";
 import { useCopyToClipboard } from "usehooks-ts";
 
 import { Badge } from "@repo/ui/badge";
-import { Button } from "@repo/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@repo/ui/card";
 import { Icons } from "@repo/ui/icons";
 import { cn } from "@repo/ui/utils/cn";
@@ -39,7 +38,7 @@ const LinkCard = ({ link, className }: LinkCardProps) => {
       <CardHeader className="flex flex-row items-center gap-4 space-y-0">
         <UpdateStatusLinkSwitch id={link.id} status={link.status} />
         <CardTitle>{link.name}</CardTitle>
-        <Button
+        {/* <Button
           onClick={() =>
             onOpen({
               type: "update-link",
@@ -50,7 +49,7 @@ const LinkCard = ({ link, className }: LinkCardProps) => {
           size="icon"
         >
           <Icons.update />
-        </Button>
+        </Button> */}
       </CardHeader>
       <CardContent className="flex flex-col items-center gap-2 md:flex-row">
         <Badge onClick={() => handleCopy(link.url)} variant="outline" className="cursor-pointer">

@@ -17,9 +17,23 @@ const APP_SIDEBAR_ITEMS = [
   },
 ];
 
+const APP_PAGES = APP_SIDEBAR_ITEMS.map((item) => ({
+  title: item.title,
+  url: item.url,
+})).concat([
+  {
+    title: "Профиль",
+    url: "/dashboard/profile",
+  },
+  {
+    title: "Ссылка",
+    url: "/dashboard/links/:id",
+  },
+]);
+
 const QUERY_KEYS = {
   LINKS: "links",
   USERS: "users",
 };
 
-export { APP_SIDEBAR_ITEMS, DATE_FORMAT, LIMIT_DEFAULT, QUERY_KEYS };
+export { APP_PAGES, APP_SIDEBAR_ITEMS, DATE_FORMAT, LIMIT_DEFAULT, QUERY_KEYS };

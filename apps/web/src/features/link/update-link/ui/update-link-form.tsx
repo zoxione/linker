@@ -5,12 +5,11 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
 import { Button } from "@repo/ui/button";
+import { Icons } from "@repo/ui/components/icons";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@repo/ui/form";
-import { Icons } from "@repo/ui/icons";
 import { Input } from "@repo/ui/input";
 
 import { QUERY_KEYS } from "@/core/data/constants";
-import { useDialog } from "@/core/providers/dialog-provider";
 import { Link } from "@/entities/link/model/link.types";
 import { usePutApiCustomerLinksId } from "@/shared/api";
 import { displayError } from "@/shared/utils/display-error";
@@ -21,13 +20,11 @@ import { UpdateLinkFormSchema, updateLinkFormSchema } from "../model/update-link
 
 interface UpdateLinkFormProps {
   link: Link;
-  onSuccess: () => void;
 }
 
-const UpdateLinkForm = ({ link, onSuccess }: UpdateLinkFormProps) => {
+const UpdateLinkForm = ({ link }: UpdateLinkFormProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const queryClient = useQueryClient();
-  const { onOpen } = useDialog();
 
   const { mutateAsync: updateLink } = usePutApiCustomerLinksId();
 
@@ -35,6 +32,9 @@ const UpdateLinkForm = ({ link, onSuccess }: UpdateLinkFormProps) => {
     resolver: zodResolver(updateLinkFormSchema),
     defaultValues: {
       name: link.name,
+      redirectUrl: link.redirectUrl,
+      url: link.url,
+      createdAt: link.createdAt,
     },
   });
 
@@ -47,10 +47,15 @@ const UpdateLinkForm = ({ link, onSuccess }: UpdateLinkFormProps) => {
           name: values.name,
         },
       });
-      form.reset({ name: res.name });
+      // TODO: добавить мапперы
+      form.reset({
+        name: res.name,
+        redirectUrl: res.redirectUrl,
+        url: res.url,
+        createdAt: res.createdAt,
+      });
       toast.success("Ссылка обновлена");
       await queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.LINKS] });
-      onSuccess();
     } catch (error) {
       await displayError(error);
     } finally {
@@ -66,7 +71,7 @@ const UpdateLinkForm = ({ link, onSuccess }: UpdateLinkFormProps) => {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Введите название ссылки</FormLabel>
+              <FormLabel>Название</FormLabel>
               <FormControl>
                 <Input type="text" placeholder="Название" {...field} />
               </FormControl>
@@ -74,25 +79,57 @@ const UpdateLinkForm = ({ link, onSuccess }: UpdateLinkFormProps) => {
             </FormItem>
           )}
         />
-        <div className="flex items-center gap-2">
-          <Button loading={loading} type="submit" className="flex-1">
-            Обновить ссылку
-          </Button>
-          <Button
-            onClick={() =>
-              onOpen({
-                type: "delete-link",
-                props: { link },
-              })
-            }
-            loading={loading}
-            type="button"
-            variant="secondary"
-            size="icon"
-          >
-            <Icons.delete />
-          </Button>
-        </div>
+        <FormField
+          control={form.control}
+          name="url"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="flex items-center gap-1.5">
+                <Icons.lock className="size-3" />
+                URL
+              </FormLabel>
+              <FormControl>
+                <Input type="text" placeholder="URL" disabled readOnly {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="redirectUrl"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="flex items-center gap-1.5">
+                <Icons.lock className="size-3" />
+                URL перенаправления
+              </FormLabel>
+              <FormControl>
+                <Input type="text" placeholder="URL перенаправления" disabled readOnly {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="createdAt"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="flex items-center gap-1.5">
+                <Icons.lock className="size-3" />
+                Дата создания
+              </FormLabel>
+              <FormControl>
+                <Input type="text" placeholder="Дата создания" disabled readOnly {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit" disabled={!form.formState.isDirty} loading={loading} className="w-fit">
+          Сохранить изменения
+        </Button>
       </form>
     </Form>
   );
