@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { Icons } from "@repo/ui/components/icons";
 import {
   Sidebar,
   SidebarContent,
@@ -20,6 +19,7 @@ import {
 
 import { APP_SIDEBAR_ITEMS } from "@/core/data/constants";
 import { authClient } from "@/shared/lib/auth-client";
+import { Avatar } from "@/shared/ui/avatar";
 import { Logo } from "@/shared/ui/logo";
 
 interface AppSidebarProps {}
@@ -61,13 +61,14 @@ const AppSidebar = ({}: AppSidebarProps) => {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarSeparator />
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
             {session ? (
               <SidebarMenuButton isActive={"/dashboard/profile" === pathname} asChild>
                 <Link href="/dashboard/profile">
-                  <Icons.user />
+                  <Avatar name={session.user.email} />
                   <span>{session.user.email}</span>
                 </Link>
               </SidebarMenuButton>

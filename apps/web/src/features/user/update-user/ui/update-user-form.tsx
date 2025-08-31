@@ -13,6 +13,7 @@ import { Input } from "@repo/ui/input";
 import { QUERY_KEYS } from "@/core/data/constants";
 import { SimpleError } from "@/shared/errors/simple-error";
 import { authClient } from "@/shared/lib/auth-client";
+import { Avatar } from "@/shared/ui/avatar";
 import { displayError } from "@/shared/utils/display-error";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useQueryClient } from "@tanstack/react-query";
@@ -57,6 +58,7 @@ const UpdateUserForm = ({ user }: UpdateUserFormProps) => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4">
+        <Avatar name={user.email} className="size-40" />
         <FormField
           control={form.control}
           name="name"
