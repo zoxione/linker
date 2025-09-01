@@ -6,6 +6,7 @@ import { Skeleton } from "@repo/ui/components/skeleton";
 import { QUERY_KEYS } from "@/core/data/constants";
 import { Link } from "@/entities/link/model/link.types";
 import { useGetApiCustomerLinksId } from "@/shared/api";
+import { formatNumber } from "@/shared/utils/format-number";
 
 interface LinkRedirectCounterProps {
   id: Link["id"];
@@ -25,7 +26,7 @@ const LinkRedirectCounter = ({ id }: LinkRedirectCounterProps) => {
       </CardHeader>
       <CardContent className="flex items-center justify-center">
         {linkQuery.status === "success" ? (
-          <div className="text-center text-5xl font-semibold">{linkQuery.data.redirectCount}</div>
+          <div className="text-center text-5xl font-semibold">{formatNumber(linkQuery.data.redirectCount)}</div>
         ) : (
           <Skeleton className="h-12 w-40" />
         )}

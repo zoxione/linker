@@ -24,9 +24,10 @@ interface DeleteLinkDialogProps {
   openDialog: boolean;
   setOpenDialog: (openDialog: boolean) => void;
   link: Link;
+  onSuccess?: () => void;
 }
 
-const DeleteLinkDialog = ({ openDialog, setOpenDialog, link }: DeleteLinkDialogProps) => {
+const DeleteLinkDialog = ({ openDialog, setOpenDialog, link, onSuccess }: DeleteLinkDialogProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const queryClient = useQueryClient();
 
@@ -41,6 +42,7 @@ const DeleteLinkDialog = ({ openDialog, setOpenDialog, link }: DeleteLinkDialogP
       setOpenDialog(false);
       toast.success({ description: "Ссылка удалена" });
       await queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.LINKS] });
+      onSuccess?.();
     } catch (error) {
       await displayError(error);
     } finally {
