@@ -27,6 +27,8 @@ services:
       - WEB_APP_PORT=${WEB_APP_PORT}
       - DATABASE_URL=${DATABASE_URL}
       - BETTER_AUTH_SECRET=${BETTER_AUTH_SECRET}
+    networks:
+      - app_network
   web:
     container_name: web
     build:
@@ -43,6 +45,9 @@ services:
       - PRODUCTION=${PRODUCTION}
       - API_APP_URL=${API_APP_URL}
       - WEB_APP_URL=${WEB_APP_URL}
+    networks:
+      - app_network
 
 networks:
   app_network:
+    external: true

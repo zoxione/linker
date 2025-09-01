@@ -1,24 +1,19 @@
-import ky from "ky";
 import { NextRequest, NextResponse } from "next/server";
 
-import { Session, User } from "@repo/api";
-
-import { config as appConfig } from "@/core/config";
-
 export async function middleware(request: NextRequest) {
-  if (request.nextUrl.pathname !== "/auth") {
-    const session = await ky
-      .get<{ session: Session; user: User } | null>(`${appConfig.apiAppUrl}/api/auth/get-session`, {
-        headers: {
-          cookie: request.headers.get("cookie") || "",
-        },
-      })
-      .json();
+  // if (request.nextUrl.pathname !== "/auth") {
+  //   const session = await ky
+  //     .get<{ session: Session; user: User } | null>(`${appConfig.apiAppUrl}/api/auth/get-session`, {
+  //       headers: {
+  //         cookie: request.headers.get("cookie") || "",
+  //       },
+  //     })
+  //     .json();
 
-    if (!session) {
-      return NextResponse.redirect(new URL("/auth", request.url));
-    }
-  }
+  //   if (!session) {
+  //     return NextResponse.redirect(new URL("/auth", request.url));
+  //   }
+  // }
 
   return NextResponse.next();
 }
