@@ -118,7 +118,7 @@ class CustomerLinkService {
   }
 
   async track(dto: CustomerLinkTrack): Promise<CustomerLinkView> {
-    const { token } = dto;
+    const { token, ...linkVisitDto } = dto;
 
     const [link] = await db
       .update(dbSchema.link)
@@ -130,6 +130,12 @@ class CustomerLinkService {
     if (!link) {
       throw new HTTPException(404, { message: "Ссылка не найдена" });
     }
+
+    // TODO: в отдельный сервис
+    await db.insert(dbSchema.linkVisit).values({
+      linkId: link.id,
+      ...linkVisitDto,
+    });
 
     return toCustomerLinkView(link);
   }

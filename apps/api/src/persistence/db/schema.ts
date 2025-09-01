@@ -75,4 +75,25 @@ const link = pgTable("link", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
-export { account, link, linkStatus, session, user, verification };
+const linkVisit = pgTable("link_visit", {
+  id: uuid().primaryKey().defaultRandom(),
+  linkId: uuid("link_id")
+    .notNull()
+    .references(() => link.id, { onDelete: "cascade" }),
+  ip: text("ip"),
+  language: text("language"),
+  browser: text("browser"),
+  cpu: text("cpu"),
+  device: text("device"),
+  engine: text("engine"),
+  os: text("os"),
+  referer: text("referer"),
+  headers: text("headers").notNull(),
+  updatedAt: timestamp("updated_at")
+    .defaultNow()
+    .$onUpdate(() => new Date())
+    .notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export { account, link, linkStatus, linkVisit, session, user, verification };

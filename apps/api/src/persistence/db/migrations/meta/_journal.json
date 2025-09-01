@@ -15,6 +15,13 @@
       "when": 1747605429714,
       "tag": "0001_blushing_joshua_kane",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1756748249474,
+      "tag": "0002_exotic_doorman",
+      "breakpoints": true
     }
   ]
 }

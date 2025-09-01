@@ -15,5 +15,6 @@ type Session = typeof dbSchema.session.$inferSelect;
 type Account = typeof dbSchema.account.$inferSelect;
 type Verification = typeof dbSchema.verification.$inferSelect;
 type Link = typeof dbSchema.link.$inferSelect;
+type LinkVisit = typeof dbSchema.linkVisit.$inferSelect;
 
-export { db, dbSchema, type Account, type Link, type Session, type User, type Verification };
+export { db, dbSchema, type Account, type Link, type LinkVisit, type Session, type User, type Verification };
