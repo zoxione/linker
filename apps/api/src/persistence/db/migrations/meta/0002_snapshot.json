@@ -93,12 +93,8 @@
           "name": "account_user_id_user_id_fk",
           "tableFrom": "account",
           "tableTo": "user",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -178,12 +174,8 @@
           "name": "link_user_id_user_id_fk",
           "tableFrom": "link",
           "tableTo": "user",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -286,12 +278,8 @@
           "name": "link_visit_link_id_link_id_fk",
           "tableFrom": "link_visit",
           "tableTo": "link",
-          "columnsFrom": [
-            "link_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["link_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -361,12 +349,8 @@
           "name": "session_user_id_user_id_fk",
           "tableFrom": "session",
           "tableTo": "user",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -376,9 +360,7 @@
         "session_token_unique": {
           "name": "session_token_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "token"
-          ]
+          "columns": ["token"]
         }
       },
       "policies": {},
@@ -439,9 +421,7 @@
         "user_email_unique": {
           "name": "user_email_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "email"
-          ]
+          "columns": ["email"]
         }
       },
       "policies": {},
@@ -502,10 +482,7 @@
     "public.link_status": {
       "name": "link_status",
       "schema": "public",
-      "values": [
-        "ENABLE",
-        "DISABLE"
-      ]
+      "values": ["ENABLE", "DISABLE"]
     }
   },
   "schemas": {},

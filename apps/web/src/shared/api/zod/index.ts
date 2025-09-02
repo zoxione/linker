@@ -4,33 +4,40 @@ export {
   deleteApiCustomerLinksId400Schema,
   deleteApiCustomerLinksId404Schema,
   deleteApiCustomerLinksIdMutationResponseSchema,
-} from "./Customer Link/deleteApiCustomerLinksIdSchema";
+} from "./Customer.Link/deleteApiCustomerLinksIdSchema";
 export {
   getApiCustomerLinksIdPathParamsSchema,
   getApiCustomerLinksId200Schema,
   getApiCustomerLinksId400Schema,
   getApiCustomerLinksId404Schema,
   getApiCustomerLinksIdQueryResponseSchema,
-} from "./Customer Link/getApiCustomerLinksIdSchema";
+} from "./Customer.Link/getApiCustomerLinksIdSchema";
 export {
   getApiCustomerLinksQueryParamsSchema,
   getApiCustomerLinks200Schema,
   getApiCustomerLinks400Schema,
   getApiCustomerLinksQueryResponseSchema,
-} from "./Customer Link/getApiCustomerLinksSchema";
+} from "./Customer.Link/getApiCustomerLinksSchema";
+export {
+  getApiCustomerLinksTokenTrackPathParamsSchema,
+  getApiCustomerLinksTokenTrack302Schema,
+  getApiCustomerLinksTokenTrack400Schema,
+  getApiCustomerLinksTokenTrack404Schema,
+  getApiCustomerLinksTokenTrackQueryResponseSchema,
+} from "./Customer.Link/getApiCustomerLinksTokenTrackSchema";
 export {
   postApiCustomerLinksIdStatusPathParamsSchema,
   postApiCustomerLinksIdStatus200Schema,
   postApiCustomerLinksIdStatus400Schema,
   postApiCustomerLinksIdStatusMutationRequestSchema,
   postApiCustomerLinksIdStatusMutationResponseSchema,
-} from "./Customer Link/postApiCustomerLinksIdStatusSchema";
+} from "./Customer.Link/postApiCustomerLinksIdStatusSchema";
 export {
   postApiCustomerLinks200Schema,
   postApiCustomerLinks400Schema,
   postApiCustomerLinksMutationRequestSchema,
   postApiCustomerLinksMutationResponseSchema,
-} from "./Customer Link/postApiCustomerLinksSchema";
+} from "./Customer.Link/postApiCustomerLinksSchema";
 export {
   putApiCustomerLinksIdPathParamsSchema,
   putApiCustomerLinksId200Schema,
@@ -38,4 +45,10 @@ export {
   putApiCustomerLinksId404Schema,
   putApiCustomerLinksIdMutationRequestSchema,
   putApiCustomerLinksIdMutationResponseSchema,
-} from "./Customer Link/putApiCustomerLinksIdSchema";
+} from "./Customer.Link/putApiCustomerLinksIdSchema";
+export {
+  getApiCustomerLinkVisitsQueryParamsSchema,
+  getApiCustomerLinkVisits200Schema,
+  getApiCustomerLinkVisits400Schema,
+  getApiCustomerLinkVisitsQueryResponseSchema,
+} from "./Customer.LinkVisit/getApiCustomerLinkVisitsSchema";

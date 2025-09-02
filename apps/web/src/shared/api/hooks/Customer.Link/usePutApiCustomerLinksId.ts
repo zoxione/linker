@@ -11,7 +11,7 @@ import type {
   PutApiCustomerLinksIdPathParams,
   PutApiCustomerLinksId400,
   PutApiCustomerLinksId404,
-} from "../../types/Customer Link/PutApiCustomerLinksId";
+} from "../../types/Customer.Link/PutApiCustomerLinksId";
 
 export const putApiCustomerLinksIdMutationKey = () => [{ url: "/api/customer/links/{id}" }] as const;
 

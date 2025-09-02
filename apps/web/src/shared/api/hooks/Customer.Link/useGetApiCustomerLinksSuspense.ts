@@ -9,7 +9,7 @@ import type {
   GetApiCustomerLinksQueryResponse,
   GetApiCustomerLinksQueryParams,
   GetApiCustomerLinks400,
-} from "../../types/Customer Link/GetApiCustomerLinks";
+} from "../../types/Customer.Link/GetApiCustomerLinks";
 
 export const getApiCustomerLinksSuspenseQueryKey = (params?: GetApiCustomerLinksQueryParams) =>
   [{ url: "/api/customer/links" }, ...(params ? [params] : [])] as const;

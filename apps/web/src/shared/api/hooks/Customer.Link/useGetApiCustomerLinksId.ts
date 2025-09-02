@@ -10,7 +10,7 @@ import type {
   GetApiCustomerLinksIdPathParams,
   GetApiCustomerLinksId400,
   GetApiCustomerLinksId404,
-} from "../../types/Customer Link/GetApiCustomerLinksId";
+} from "../../types/Customer.Link/GetApiCustomerLinksId";
 
 export const getApiCustomerLinksIdQueryKey = (id: GetApiCustomerLinksIdPathParams["id"]) =>
   [{ url: "/api/customer/links/:id", params: { id: id } }] as const;

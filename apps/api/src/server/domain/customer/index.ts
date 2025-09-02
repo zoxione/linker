@@ -1,4 +1,5 @@
 import { contracts } from "../../contracts";
+import { customerLinkVisitsGetRoute } from "./link-visits/get";
 import { customerLinksIdDeleteRoute } from "./links/[id]/delete";
 import { customerLinksIdGetRoute } from "./links/[id]/get";
 import { customerLinksIdPutRoute } from "./links/[id]/put";
@@ -9,6 +10,7 @@ import { customerLinksPostRoute } from "./links/post";
 
 const customerRouter = contracts.serveApi();
 
+customerRouter.route("/link-visits", customerLinkVisitsGetRoute);
 customerRouter.route("/links", customerLinksGetRoute);
 customerRouter.route("/links", customerLinksPostRoute);
 customerRouter.route("/links", customerLinksIdGetRoute);

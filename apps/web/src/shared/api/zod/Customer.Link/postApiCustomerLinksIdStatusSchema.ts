@@ -2,14 +2,14 @@
 // @ts-nocheck
 import { z } from "zod";
 
-export const getApiCustomerLinksIdPathParamsSchema = z.object({
+export const postApiCustomerLinksIdStatusPathParamsSchema = z.object({
   id: z.string(),
 });
 
 /**
  * @description Объект ссылки
  */
-export const getApiCustomerLinksId200Schema = z.object({
+export const postApiCustomerLinksIdStatus200Schema = z.object({
   id: z.string(),
   userId: z.string(),
   status: z.enum(["ENABLE", "DISABLE"]),
@@ -17,19 +17,18 @@ export const getApiCustomerLinksId200Schema = z.object({
   token: z.string(),
   redirectUrl: z.string().url(),
   redirectCount: z.number(),
+  url: z.string().url(),
   updatedAt: z.string().datetime(),
   createdAt: z.string().datetime(),
-  url: z.string().url(),
 });
 
 /**
  * @description Неверные входные данные
  */
-export const getApiCustomerLinksId400Schema = z.any();
+export const postApiCustomerLinksIdStatus400Schema = z.any();
 
-/**
- * @description Ссылка не найдена
- */
-export const getApiCustomerLinksId404Schema = z.any();
+export const postApiCustomerLinksIdStatusMutationRequestSchema = z.object({
+  status: z.enum(["ENABLE", "DISABLE"]),
+});
 
-export const getApiCustomerLinksIdQueryResponseSchema = z.lazy(() => getApiCustomerLinksId200Schema);
+export const postApiCustomerLinksIdStatusMutationResponseSchema = z.lazy(() => postApiCustomerLinksIdStatus200Schema);

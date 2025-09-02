@@ -10,7 +10,7 @@ import type {
   PostApiCustomerLinksIdStatusMutationResponse,
   PostApiCustomerLinksIdStatusPathParams,
   PostApiCustomerLinksIdStatus400,
-} from "../../types/Customer Link/PostApiCustomerLinksIdStatus";
+} from "../../types/Customer.Link/PostApiCustomerLinksIdStatus";
 
 export const postApiCustomerLinksIdStatusMutationKey = () => [{ url: "/api/customer/links/{id}/status" }] as const;
 

@@ -10,7 +10,7 @@ import type {
   DeleteApiCustomerLinksIdPathParams,
   DeleteApiCustomerLinksId400,
   DeleteApiCustomerLinksId404,
-} from "../../types/Customer Link/DeleteApiCustomerLinksId";
+} from "../../types/Customer.Link/DeleteApiCustomerLinksId";
 
 export const deleteApiCustomerLinksIdMutationKey = () => [{ url: "/api/customer/links/{id}" }] as const;
 

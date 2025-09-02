@@ -45,6 +45,10 @@ export type PutApiCustomerLinksId200 = {
    */
   redirectCount: number;
   /**
+   * @type string, uri
+   */
+  url: string;
+  /**
    * @type string, date-time
    */
   updatedAt: string;
@@ -52,10 +56,6 @@ export type PutApiCustomerLinksId200 = {
    * @type string, date-time
    */
   createdAt: string;
-  /**
-   * @type string, uri
-   */
-  url: string;
 };
 
 /**

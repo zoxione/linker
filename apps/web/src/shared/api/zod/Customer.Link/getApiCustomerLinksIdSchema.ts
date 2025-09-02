@@ -2,10 +2,14 @@
 // @ts-nocheck
 import { z } from "zod";
 
+export const getApiCustomerLinksIdPathParamsSchema = z.object({
+  id: z.string(),
+});
+
 /**
  * @description Объект ссылки
  */
-export const postApiCustomerLinks200Schema = z.object({
+export const getApiCustomerLinksId200Schema = z.object({
   id: z.string(),
   userId: z.string(),
   status: z.enum(["ENABLE", "DISABLE"]),
@@ -13,19 +17,19 @@ export const postApiCustomerLinks200Schema = z.object({
   token: z.string(),
   redirectUrl: z.string().url(),
   redirectCount: z.number(),
+  url: z.string().url(),
   updatedAt: z.string().datetime(),
   createdAt: z.string().datetime(),
-  url: z.string().url(),
 });
 
 /**
  * @description Неверные входные данные
  */
-export const postApiCustomerLinks400Schema = z.any();
+export const getApiCustomerLinksId400Schema = z.any();
 
-export const postApiCustomerLinksMutationRequestSchema = z.object({
-  name: z.string().min(3).max(24),
-  redirectUrl: z.string().url(),
-});
+/**
+ * @description Ссылка не найдена
+ */
+export const getApiCustomerLinksId404Schema = z.any();
 
-export const postApiCustomerLinksMutationResponseSchema = z.lazy(() => postApiCustomerLinks200Schema);
+export const getApiCustomerLinksIdQueryResponseSchema = z.lazy(() => getApiCustomerLinksId200Schema);

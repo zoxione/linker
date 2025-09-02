@@ -9,7 +9,7 @@ import type {
   PostApiCustomerLinksMutationRequest,
   PostApiCustomerLinksMutationResponse,
   PostApiCustomerLinks400,
-} from "../../types/Customer Link/PostApiCustomerLinks";
+} from "../../types/Customer.Link/PostApiCustomerLinks";
 
 export const postApiCustomerLinksMutationKey = () => [{ url: "/api/customer/links" }] as const;
 
