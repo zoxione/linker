@@ -1,20 +1,20 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@repo/ui/components/card";
 
-import { UpdateThemeSelect } from "./update-theme-select";
+import { ToggleThemeSelect } from "./toggle-theme-select";
 
-interface UpdateThemeBlockProps {}
+interface ToggleThemeBlockProps {}
 
-const UpdateThemeBlock = ({}: UpdateThemeBlockProps) => {
+const ToggleThemeBlock = ({}: ToggleThemeBlockProps) => {
   return (
     <Card className="h-fit">
       <CardHeader>
         <CardTitle>Тема</CardTitle>
       </CardHeader>
       <CardContent>
-        <UpdateThemeSelect />
+        <ToggleThemeSelect />
       </CardContent>
     </Card>
   );
 };
 
-export { UpdateThemeBlock };
+export { ToggleThemeBlock };
