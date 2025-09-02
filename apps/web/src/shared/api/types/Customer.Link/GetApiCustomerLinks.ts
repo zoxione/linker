@@ -86,12 +86,35 @@ export type GetApiCustomerLinks200 = {
 /**
  * @description Неверные входные данные
  */
-export type GetApiCustomerLinks400 = any;
+export type GetApiCustomerLinks400 = {
+  /**
+   * @type number
+   */
+  statusCode: number;
+  /**
+   * @type string
+   */
+  message: string;
+};
+
+/**
+ * @description Неизвестная ошибка
+ */
+export type GetApiCustomerLinks500 = {
+  /**
+   * @type number
+   */
+  statusCode: number;
+  /**
+   * @type string
+   */
+  message: string;
+};
 
 export type GetApiCustomerLinksQueryResponse = GetApiCustomerLinks200;
 
 export type GetApiCustomerLinksQuery = {
   Response: GetApiCustomerLinks200;
   QueryParams: GetApiCustomerLinksQueryParams;
-  Errors: GetApiCustomerLinks400;
+  Errors: GetApiCustomerLinks400 | GetApiCustomerLinks500;
 };

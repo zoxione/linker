@@ -5,8 +5,8 @@ export type { GetApiCustomerLinksIdStatsQueryKey } from "./Customer.Link/useGetA
 export type { GetApiCustomerLinksIdStatsSuspenseQueryKey } from "./Customer.Link/useGetApiCustomerLinksIdStatsSuspense";
 export type { GetApiCustomerLinksIdSuspenseQueryKey } from "./Customer.Link/useGetApiCustomerLinksIdSuspense";
 export type { GetApiCustomerLinksSuspenseQueryKey } from "./Customer.Link/useGetApiCustomerLinksSuspense";
-export type { GetApiCustomerLinksTokenTrackQueryKey } from "./Customer.Link/useGetApiCustomerLinksTokenTrack";
-export type { GetApiCustomerLinksTokenTrackSuspenseQueryKey } from "./Customer.Link/useGetApiCustomerLinksTokenTrackSuspense";
+export type { GetApiCustomerLinksTokenVisitQueryKey } from "./Customer.Link/useGetApiCustomerLinksTokenVisit";
+export type { GetApiCustomerLinksTokenVisitSuspenseQueryKey } from "./Customer.Link/useGetApiCustomerLinksTokenVisitSuspense";
 export type { PostApiCustomerLinksMutationKey } from "./Customer.Link/usePostApiCustomerLinks";
 export type { PostApiCustomerLinksIdStatusMutationKey } from "./Customer.Link/usePostApiCustomerLinksIdStatus";
 export type { PutApiCustomerLinksIdMutationKey } from "./Customer.Link/usePutApiCustomerLinksId";
@@ -54,17 +54,17 @@ export {
   useGetApiCustomerLinksSuspense,
 } from "./Customer.Link/useGetApiCustomerLinksSuspense";
 export {
-  getApiCustomerLinksTokenTrackQueryKey,
-  getApiCustomerLinksTokenTrack,
-  getApiCustomerLinksTokenTrackQueryOptions,
-  useGetApiCustomerLinksTokenTrack,
-} from "./Customer.Link/useGetApiCustomerLinksTokenTrack";
+  getApiCustomerLinksTokenVisitQueryKey,
+  getApiCustomerLinksTokenVisit,
+  getApiCustomerLinksTokenVisitQueryOptions,
+  useGetApiCustomerLinksTokenVisit,
+} from "./Customer.Link/useGetApiCustomerLinksTokenVisit";
 export {
-  getApiCustomerLinksTokenTrackSuspenseQueryKey,
-  getApiCustomerLinksTokenTrackSuspense,
-  getApiCustomerLinksTokenTrackSuspenseQueryOptions,
-  useGetApiCustomerLinksTokenTrackSuspense,
-} from "./Customer.Link/useGetApiCustomerLinksTokenTrackSuspense";
+  getApiCustomerLinksTokenVisitSuspenseQueryKey,
+  getApiCustomerLinksTokenVisitSuspense,
+  getApiCustomerLinksTokenVisitSuspenseQueryOptions,
+  useGetApiCustomerLinksTokenVisitSuspense,
+} from "./Customer.Link/useGetApiCustomerLinksTokenVisitSuspense";
 export {
   postApiCustomerLinksMutationKey,
   postApiCustomerLinks,

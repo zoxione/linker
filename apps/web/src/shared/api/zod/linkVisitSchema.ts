@@ -1,0 +1,24 @@
+/* eslint-disable */
+// @ts-nocheck
+import { z } from "zod";
+
+/**
+ * @description Посещение ссылки
+ */
+export const linkVisitSchema = z
+  .object({
+    updatedAt: z.string().datetime(),
+    createdAt: z.string().datetime(),
+    id: z.string(),
+    linkId: z.string(),
+    ip: z.string().nullable(),
+    language: z.string().nullable(),
+    browser: z.string().nullable(),
+    cpu: z.string().nullable(),
+    device: z.string().nullable(),
+    engine: z.string().nullable(),
+    os: z.string().nullable(),
+    referer: z.string().nullable(),
+    headers: z.string(),
+  })
+  .describe("Посещение ссылки");

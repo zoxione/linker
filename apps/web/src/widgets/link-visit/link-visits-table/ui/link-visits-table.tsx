@@ -12,7 +12,7 @@ const LinkVisitsTable = ({}: LinkVisitsTableProps) => {
   return (
     <DataTable
       columns={linkVisitsTableColumns}
-      useQuery={useGetApiCustomerLinkVisits}
+      useQuery={useGetApiCustomerLinkVisits as any}
       queryKey={[QUERY_KEYS.LINK_VISITS]}
       filter={{}}
       defaultLimit={100}

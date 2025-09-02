@@ -9,6 +9,7 @@ import type {
   PostApiCustomerLinksMutationRequest,
   PostApiCustomerLinksMutationResponse,
   PostApiCustomerLinks400,
+  PostApiCustomerLinks500,
 } from "../../types/Customer.Link/PostApiCustomerLinks";
 
 export const postApiCustomerLinksMutationKey = () => [{ url: "/api/customer/links" }] as const;
@@ -28,14 +29,9 @@ export async function postApiCustomerLinks(
   const requestData = data;
   const res = await request<
     PostApiCustomerLinksMutationResponse,
-    ResponseErrorConfig<PostApiCustomerLinks400>,
+    ResponseErrorConfig<PostApiCustomerLinks400 | PostApiCustomerLinks500>,
     PostApiCustomerLinksMutationRequest
-  >({
-    method: "POST",
-    url: `/api/customer/links`,
-    data: requestData,
-    ...requestConfig,
-  });
+  >({ method: "POST", url: `/api/customer/links`, data: requestData, ...requestConfig });
   return res.data;
 }
 
@@ -47,7 +43,7 @@ export function usePostApiCustomerLinks<TContext>(
   options: {
     mutation?: UseMutationOptions<
       PostApiCustomerLinksMutationResponse,
-      ResponseErrorConfig<PostApiCustomerLinks400>,
+      ResponseErrorConfig<PostApiCustomerLinks400 | PostApiCustomerLinks500>,
       { data: PostApiCustomerLinksMutationRequest },
       TContext
     > & { client?: QueryClient };
@@ -60,7 +56,7 @@ export function usePostApiCustomerLinks<TContext>(
 
   return useMutation<
     PostApiCustomerLinksMutationResponse,
-    ResponseErrorConfig<PostApiCustomerLinks400>,
+    ResponseErrorConfig<PostApiCustomerLinks400 | PostApiCustomerLinks500>,
     { data: PostApiCustomerLinksMutationRequest },
     TContext
   >(

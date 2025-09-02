@@ -10,6 +10,7 @@ import type {
   GetApiCustomerLinksIdPathParams,
   GetApiCustomerLinksId400,
   GetApiCustomerLinksId404,
+  GetApiCustomerLinksId500,
 } from "../../types/Customer.Link/GetApiCustomerLinksId";
 
 export const getApiCustomerLinksIdSuspenseQueryKey = (id: GetApiCustomerLinksIdPathParams["id"]) =>
@@ -29,13 +30,9 @@ export async function getApiCustomerLinksIdSuspense(
 
   const res = await request<
     GetApiCustomerLinksIdQueryResponse,
-    ResponseErrorConfig<GetApiCustomerLinksId400 | GetApiCustomerLinksId404>,
+    ResponseErrorConfig<GetApiCustomerLinksId400 | GetApiCustomerLinksId404 | GetApiCustomerLinksId500>,
     unknown
-  >({
-    method: "GET",
-    url: `/api/customer/links/${id}`,
-    ...requestConfig,
-  });
+  >({ method: "GET", url: `/api/customer/links/${id}`, ...requestConfig });
   return res.data;
 }
 
@@ -46,7 +43,7 @@ export function getApiCustomerLinksIdSuspenseQueryOptions(
   const queryKey = getApiCustomerLinksIdSuspenseQueryKey(id);
   return queryOptions<
     GetApiCustomerLinksIdQueryResponse,
-    ResponseErrorConfig<GetApiCustomerLinksId400 | GetApiCustomerLinksId404>,
+    ResponseErrorConfig<GetApiCustomerLinksId400 | GetApiCustomerLinksId404 | GetApiCustomerLinksId500>,
     GetApiCustomerLinksIdQueryResponse,
     typeof queryKey
   >({
@@ -72,7 +69,7 @@ export function useGetApiCustomerLinksIdSuspense<
     query?: Partial<
       UseSuspenseQueryOptions<
         GetApiCustomerLinksIdQueryResponse,
-        ResponseErrorConfig<GetApiCustomerLinksId400 | GetApiCustomerLinksId404>,
+        ResponseErrorConfig<GetApiCustomerLinksId400 | GetApiCustomerLinksId404 | GetApiCustomerLinksId500>,
         TData,
         TQueryKey
       >
@@ -90,7 +87,10 @@ export function useGetApiCustomerLinksIdSuspense<
       ...queryOptions,
     } as unknown as UseSuspenseQueryOptions,
     queryClient,
-  ) as UseSuspenseQueryResult<TData, ResponseErrorConfig<GetApiCustomerLinksId400 | GetApiCustomerLinksId404>> & {
+  ) as UseSuspenseQueryResult<
+    TData,
+    ResponseErrorConfig<GetApiCustomerLinksId400 | GetApiCustomerLinksId404 | GetApiCustomerLinksId500>
+  > & {
     queryKey: TQueryKey;
   };
 

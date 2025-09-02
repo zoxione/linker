@@ -11,6 +11,7 @@ import type {
   GetApiCustomerLinksIdStatsQueryParams,
   GetApiCustomerLinksIdStats400,
   GetApiCustomerLinksIdStats404,
+  GetApiCustomerLinksIdStats500,
 } from "../../types/Customer.Link/GetApiCustomerLinksIdStats";
 
 export const getApiCustomerLinksIdStatsQueryKey = (
@@ -21,7 +22,7 @@ export const getApiCustomerLinksIdStatsQueryKey = (
 export type GetApiCustomerLinksIdStatsQueryKey = ReturnType<typeof getApiCustomerLinksIdStatsQueryKey>;
 
 /**
- * @summary Получить статистику ссылки
+ * @summary Получить статистику ссылки по id
  * {@link /api/customer/links/:id/stats}
  */
 export async function getApiCustomerLinksIdStats(
@@ -33,7 +34,7 @@ export async function getApiCustomerLinksIdStats(
 
   const res = await request<
     GetApiCustomerLinksIdStatsQueryResponse,
-    ResponseErrorConfig<GetApiCustomerLinksIdStats400 | GetApiCustomerLinksIdStats404>,
+    ResponseErrorConfig<GetApiCustomerLinksIdStats400 | GetApiCustomerLinksIdStats404 | GetApiCustomerLinksIdStats500>,
     unknown
   >({ method: "GET", url: `/api/customer/links/${id}/stats`, params, ...requestConfig });
   return res.data;
@@ -47,7 +48,7 @@ export function getApiCustomerLinksIdStatsQueryOptions(
   const queryKey = getApiCustomerLinksIdStatsQueryKey(id, params);
   return queryOptions<
     GetApiCustomerLinksIdStatsQueryResponse,
-    ResponseErrorConfig<GetApiCustomerLinksIdStats400 | GetApiCustomerLinksIdStats404>,
+    ResponseErrorConfig<GetApiCustomerLinksIdStats400 | GetApiCustomerLinksIdStats404 | GetApiCustomerLinksIdStats500>,
     GetApiCustomerLinksIdStatsQueryResponse,
     typeof queryKey
   >({
@@ -61,7 +62,7 @@ export function getApiCustomerLinksIdStatsQueryOptions(
 }
 
 /**
- * @summary Получить статистику ссылки
+ * @summary Получить статистику ссылки по id
  * {@link /api/customer/links/:id/stats}
  */
 export function useGetApiCustomerLinksIdStats<
@@ -75,7 +76,9 @@ export function useGetApiCustomerLinksIdStats<
     query?: Partial<
       QueryObserverOptions<
         GetApiCustomerLinksIdStatsQueryResponse,
-        ResponseErrorConfig<GetApiCustomerLinksIdStats400 | GetApiCustomerLinksIdStats404>,
+        ResponseErrorConfig<
+          GetApiCustomerLinksIdStats400 | GetApiCustomerLinksIdStats404 | GetApiCustomerLinksIdStats500
+        >,
         TData,
         TQueryData,
         TQueryKey
@@ -94,7 +97,10 @@ export function useGetApiCustomerLinksIdStats<
       ...queryOptions,
     } as unknown as QueryObserverOptions,
     queryClient,
-  ) as UseQueryResult<TData, ResponseErrorConfig<GetApiCustomerLinksIdStats400 | GetApiCustomerLinksIdStats404>> & {
+  ) as UseQueryResult<
+    TData,
+    ResponseErrorConfig<GetApiCustomerLinksIdStats400 | GetApiCustomerLinksIdStats404 | GetApiCustomerLinksIdStats500>
+  > & {
     queryKey: TQueryKey;
   };
 

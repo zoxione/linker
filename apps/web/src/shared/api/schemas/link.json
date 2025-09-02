@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "id": { "type": "string" },
+    "userId": { "type": "string" },
+    "status": { "type": "string", "enum": ["ENABLE", "DISABLE"] },
+    "name": { "type": "string", "minLength": 3, "maxLength": 24 },
+    "token": { "type": "string" },
+    "redirectUrl": { "type": "string", "format": "uri" },
+    "redirectCount": { "type": "number" },
+    "url": { "type": "string", "format": "uri" }
+  },
+  "required": [
+    "updatedAt",
+    "createdAt",
+    "id",
+    "userId",
+    "status",
+    "name",
+    "token",
+    "redirectUrl",
+    "redirectCount",
+    "url"
+  ],
+  "description": "Ссылка",
+  "x-readme-ref-name": "Link"
+}

@@ -11,6 +11,7 @@ import type {
   PutApiCustomerLinksIdPathParams,
   PutApiCustomerLinksId400,
   PutApiCustomerLinksId404,
+  PutApiCustomerLinksId500,
 } from "../../types/Customer.Link/PutApiCustomerLinksId";
 
 export const putApiCustomerLinksIdMutationKey = () => [{ url: "/api/customer/links/{id}" }] as const;
@@ -31,7 +32,7 @@ export async function putApiCustomerLinksId(
   const requestData = data;
   const res = await request<
     PutApiCustomerLinksIdMutationResponse,
-    ResponseErrorConfig<PutApiCustomerLinksId400 | PutApiCustomerLinksId404>,
+    ResponseErrorConfig<PutApiCustomerLinksId400 | PutApiCustomerLinksId404 | PutApiCustomerLinksId500>,
     PutApiCustomerLinksIdMutationRequest
   >({ method: "PUT", url: `/api/customer/links/${id}`, data: requestData, ...requestConfig });
   return res.data;
@@ -45,7 +46,7 @@ export function usePutApiCustomerLinksId<TContext>(
   options: {
     mutation?: UseMutationOptions<
       PutApiCustomerLinksIdMutationResponse,
-      ResponseErrorConfig<PutApiCustomerLinksId400 | PutApiCustomerLinksId404>,
+      ResponseErrorConfig<PutApiCustomerLinksId400 | PutApiCustomerLinksId404 | PutApiCustomerLinksId500>,
       { id: PutApiCustomerLinksIdPathParams["id"]; data: PutApiCustomerLinksIdMutationRequest },
       TContext
     > & { client?: QueryClient };
@@ -58,7 +59,7 @@ export function usePutApiCustomerLinksId<TContext>(
 
   return useMutation<
     PutApiCustomerLinksIdMutationResponse,
-    ResponseErrorConfig<PutApiCustomerLinksId400 | PutApiCustomerLinksId404>,
+    ResponseErrorConfig<PutApiCustomerLinksId400 | PutApiCustomerLinksId404 | PutApiCustomerLinksId500>,
     { id: PutApiCustomerLinksIdPathParams["id"]; data: PutApiCustomerLinksIdMutationRequest },
     TContext
   >(

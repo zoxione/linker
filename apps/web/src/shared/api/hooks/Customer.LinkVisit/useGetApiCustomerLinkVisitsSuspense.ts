@@ -9,6 +9,7 @@ import type {
   GetApiCustomerLinkVisitsQueryResponse,
   GetApiCustomerLinkVisitsQueryParams,
   GetApiCustomerLinkVisits400,
+  GetApiCustomerLinkVisits500,
 } from "../../types/Customer.LinkVisit/GetApiCustomerLinkVisits";
 
 export const getApiCustomerLinkVisitsSuspenseQueryKey = (params?: GetApiCustomerLinkVisitsQueryParams) =>
@@ -28,7 +29,7 @@ export async function getApiCustomerLinkVisitsSuspense(
 
   const res = await request<
     GetApiCustomerLinkVisitsQueryResponse,
-    ResponseErrorConfig<GetApiCustomerLinkVisits400>,
+    ResponseErrorConfig<GetApiCustomerLinkVisits400 | GetApiCustomerLinkVisits500>,
     unknown
   >({
     method: "GET",
@@ -46,7 +47,7 @@ export function getApiCustomerLinkVisitsSuspenseQueryOptions(
   const queryKey = getApiCustomerLinkVisitsSuspenseQueryKey(params);
   return queryOptions<
     GetApiCustomerLinkVisitsQueryResponse,
-    ResponseErrorConfig<GetApiCustomerLinkVisits400>,
+    ResponseErrorConfig<GetApiCustomerLinkVisits400 | GetApiCustomerLinkVisits500>,
     GetApiCustomerLinkVisitsQueryResponse,
     typeof queryKey
   >({
@@ -71,13 +72,11 @@ export function useGetApiCustomerLinkVisitsSuspense<
     query?: Partial<
       UseSuspenseQueryOptions<
         GetApiCustomerLinkVisitsQueryResponse,
-        ResponseErrorConfig<GetApiCustomerLinkVisits400>,
+        ResponseErrorConfig<GetApiCustomerLinkVisits400 | GetApiCustomerLinkVisits500>,
         TData,
         TQueryKey
       >
-    > & {
-      client?: QueryClient;
-    };
+    > & { client?: QueryClient };
     client?: Partial<RequestConfig> & { client?: typeof fetch };
   } = {},
 ) {
@@ -91,7 +90,9 @@ export function useGetApiCustomerLinkVisitsSuspense<
       ...queryOptions,
     } as unknown as UseSuspenseQueryOptions,
     queryClient,
-  ) as UseSuspenseQueryResult<TData, ResponseErrorConfig<GetApiCustomerLinkVisits400>> & { queryKey: TQueryKey };
+  ) as UseSuspenseQueryResult<TData, ResponseErrorConfig<GetApiCustomerLinkVisits400 | GetApiCustomerLinkVisits500>> & {
+    queryKey: TQueryKey;
+  };
 
   query.queryKey = queryKey as TQueryKey;
 

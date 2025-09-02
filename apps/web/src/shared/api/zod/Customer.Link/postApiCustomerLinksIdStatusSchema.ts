@@ -25,7 +25,26 @@ export const postApiCustomerLinksIdStatus200Schema = z.object({
 /**
  * @description Неверные входные данные
  */
-export const postApiCustomerLinksIdStatus400Schema = z.any();
+export const postApiCustomerLinksIdStatus400Schema = z.object({
+  statusCode: z.number(),
+  message: z.string(),
+});
+
+/**
+ * @description Ресурс не найден
+ */
+export const postApiCustomerLinksIdStatus404Schema = z.object({
+  statusCode: z.number(),
+  message: z.string(),
+});
+
+/**
+ * @description Неизвестная ошибка
+ */
+export const postApiCustomerLinksIdStatus500Schema = z.object({
+  statusCode: z.number(),
+  message: z.string(),
+});
 
 export const postApiCustomerLinksIdStatusMutationRequestSchema = z.object({
   status: z.enum(["ENABLE", "DISABLE"]),

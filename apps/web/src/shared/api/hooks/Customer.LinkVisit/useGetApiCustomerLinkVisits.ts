@@ -9,6 +9,7 @@ import type {
   GetApiCustomerLinkVisitsQueryResponse,
   GetApiCustomerLinkVisitsQueryParams,
   GetApiCustomerLinkVisits400,
+  GetApiCustomerLinkVisits500,
 } from "../../types/Customer.LinkVisit/GetApiCustomerLinkVisits";
 
 export const getApiCustomerLinkVisitsQueryKey = (params?: GetApiCustomerLinkVisitsQueryParams) =>
@@ -28,7 +29,7 @@ export async function getApiCustomerLinkVisits(
 
   const res = await request<
     GetApiCustomerLinkVisitsQueryResponse,
-    ResponseErrorConfig<GetApiCustomerLinkVisits400>,
+    ResponseErrorConfig<GetApiCustomerLinkVisits400 | GetApiCustomerLinkVisits500>,
     unknown
   >({
     method: "GET",
@@ -46,7 +47,7 @@ export function getApiCustomerLinkVisitsQueryOptions(
   const queryKey = getApiCustomerLinkVisitsQueryKey(params);
   return queryOptions<
     GetApiCustomerLinkVisitsQueryResponse,
-    ResponseErrorConfig<GetApiCustomerLinkVisits400>,
+    ResponseErrorConfig<GetApiCustomerLinkVisits400 | GetApiCustomerLinkVisits500>,
     GetApiCustomerLinkVisitsQueryResponse,
     typeof queryKey
   >({
@@ -72,7 +73,7 @@ export function useGetApiCustomerLinkVisits<
     query?: Partial<
       QueryObserverOptions<
         GetApiCustomerLinkVisitsQueryResponse,
-        ResponseErrorConfig<GetApiCustomerLinkVisits400>,
+        ResponseErrorConfig<GetApiCustomerLinkVisits400 | GetApiCustomerLinkVisits500>,
         TData,
         TQueryData,
         TQueryKey
@@ -91,7 +92,9 @@ export function useGetApiCustomerLinkVisits<
       ...queryOptions,
     } as unknown as QueryObserverOptions,
     queryClient,
-  ) as UseQueryResult<TData, ResponseErrorConfig<GetApiCustomerLinkVisits400>> & { queryKey: TQueryKey };
+  ) as UseQueryResult<TData, ResponseErrorConfig<GetApiCustomerLinkVisits400 | GetApiCustomerLinkVisits500>> & {
+    queryKey: TQueryKey;
+  };
 
   query.queryKey = queryKey as TQueryKey;
 

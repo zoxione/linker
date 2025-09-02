@@ -25,11 +25,25 @@ export const getApiCustomerLinksIdStats200Schema = z.object({
 /**
  * @description Неверные входные данные
  */
-export const getApiCustomerLinksIdStats400Schema = z.any();
+export const getApiCustomerLinksIdStats400Schema = z.object({
+  statusCode: z.number(),
+  message: z.string(),
+});
 
 /**
- * @description Ссылка не найдена
+ * @description Ресурс не найден
  */
-export const getApiCustomerLinksIdStats404Schema = z.any();
+export const getApiCustomerLinksIdStats404Schema = z.object({
+  statusCode: z.number(),
+  message: z.string(),
+});
+
+/**
+ * @description Неизвестная ошибка
+ */
+export const getApiCustomerLinksIdStats500Schema = z.object({
+  statusCode: z.number(),
+  message: z.string(),
+});
 
 export const getApiCustomerLinksIdStatsQueryResponseSchema = z.lazy(() => getApiCustomerLinksIdStats200Schema);

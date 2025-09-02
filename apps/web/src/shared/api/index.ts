@@ -5,18 +5,22 @@ export type { GetApiCustomerLinksIdStatsQueryKey } from "./hooks/Customer.Link/u
 export type { GetApiCustomerLinksIdStatsSuspenseQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsSuspense";
 export type { GetApiCustomerLinksIdSuspenseQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdSuspense";
 export type { GetApiCustomerLinksSuspenseQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksSuspense";
-export type { GetApiCustomerLinksTokenTrackQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksTokenTrack";
-export type { GetApiCustomerLinksTokenTrackSuspenseQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksTokenTrackSuspense";
+export type { GetApiCustomerLinksTokenVisitQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksTokenVisit";
+export type { GetApiCustomerLinksTokenVisitSuspenseQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksTokenVisitSuspense";
 export type { PostApiCustomerLinksMutationKey } from "./hooks/Customer.Link/usePostApiCustomerLinks";
 export type { PostApiCustomerLinksIdStatusMutationKey } from "./hooks/Customer.Link/usePostApiCustomerLinksIdStatus";
 export type { PutApiCustomerLinksIdMutationKey } from "./hooks/Customer.Link/usePutApiCustomerLinksId";
 export type { GetApiCustomerLinkVisitsQueryKey } from "./hooks/Customer.LinkVisit/useGetApiCustomerLinkVisits";
 export type { GetApiCustomerLinkVisitsSuspenseQueryKey } from "./hooks/Customer.LinkVisit/useGetApiCustomerLinkVisitsSuspense";
+export type { _400 } from "./types/_400";
+export type { _404 } from "./types/_404";
+export type { _500 } from "./types/_500";
 export type {
   DeleteApiCustomerLinksIdPathParams,
   DeleteApiCustomerLinksId204,
   DeleteApiCustomerLinksId400,
   DeleteApiCustomerLinksId404,
+  DeleteApiCustomerLinksId500,
   DeleteApiCustomerLinksIdMutationResponse,
   DeleteApiCustomerLinksIdMutation,
 } from "./types/Customer.Link/DeleteApiCustomerLinksId";
@@ -25,6 +29,7 @@ export type {
   ItemsStatusEnum,
   GetApiCustomerLinks200,
   GetApiCustomerLinks400,
+  GetApiCustomerLinks500,
   GetApiCustomerLinksQueryResponse,
   GetApiCustomerLinksQuery,
 } from "./types/Customer.Link/GetApiCustomerLinks";
@@ -34,6 +39,7 @@ export type {
   GetApiCustomerLinksId200,
   GetApiCustomerLinksId400,
   GetApiCustomerLinksId404,
+  GetApiCustomerLinksId500,
   GetApiCustomerLinksIdQueryResponse,
   GetApiCustomerLinksIdQuery,
 } from "./types/Customer.Link/GetApiCustomerLinksId";
@@ -44,21 +50,24 @@ export type {
   GetApiCustomerLinksIdStats200,
   GetApiCustomerLinksIdStats400,
   GetApiCustomerLinksIdStats404,
+  GetApiCustomerLinksIdStats500,
   GetApiCustomerLinksIdStatsQueryResponse,
   GetApiCustomerLinksIdStatsQuery,
 } from "./types/Customer.Link/GetApiCustomerLinksIdStats";
 export type {
-  GetApiCustomerLinksTokenTrackPathParams,
-  GetApiCustomerLinksTokenTrack302,
-  GetApiCustomerLinksTokenTrack400,
-  GetApiCustomerLinksTokenTrack404,
-  GetApiCustomerLinksTokenTrackQueryResponse,
-  GetApiCustomerLinksTokenTrackQuery,
-} from "./types/Customer.Link/GetApiCustomerLinksTokenTrack";
+  GetApiCustomerLinksTokenVisitPathParams,
+  GetApiCustomerLinksTokenVisit302,
+  GetApiCustomerLinksTokenVisit400,
+  GetApiCustomerLinksTokenVisit404,
+  GetApiCustomerLinksTokenVisit500,
+  GetApiCustomerLinksTokenVisitQueryResponse,
+  GetApiCustomerLinksTokenVisitQuery,
+} from "./types/Customer.Link/GetApiCustomerLinksTokenVisit";
 export type {
   PostApiCustomerLinks200StatusEnum,
   PostApiCustomerLinks200,
   PostApiCustomerLinks400,
+  PostApiCustomerLinks500,
   PostApiCustomerLinksMutationRequest,
   PostApiCustomerLinksMutationResponse,
   PostApiCustomerLinksMutation,
@@ -68,6 +77,8 @@ export type {
   PostApiCustomerLinksIdStatus200StatusEnum,
   PostApiCustomerLinksIdStatus200,
   PostApiCustomerLinksIdStatus400,
+  PostApiCustomerLinksIdStatus404,
+  PostApiCustomerLinksIdStatus500,
   PostApiCustomerLinksIdStatusMutationRequestStatusEnum,
   PostApiCustomerLinksIdStatusMutationRequest,
   PostApiCustomerLinksIdStatusMutationResponse,
@@ -79,6 +90,7 @@ export type {
   PutApiCustomerLinksId200,
   PutApiCustomerLinksId400,
   PutApiCustomerLinksId404,
+  PutApiCustomerLinksId500,
   PutApiCustomerLinksIdMutationRequest,
   PutApiCustomerLinksIdMutationResponse,
   PutApiCustomerLinksIdMutation,
@@ -87,9 +99,13 @@ export type {
   GetApiCustomerLinkVisitsQueryParams,
   GetApiCustomerLinkVisits200,
   GetApiCustomerLinkVisits400,
+  GetApiCustomerLinkVisits500,
   GetApiCustomerLinkVisitsQueryResponse,
   GetApiCustomerLinkVisitsQuery,
 } from "./types/Customer.LinkVisit/GetApiCustomerLinkVisits";
+export type { LinkStatusEnum, Link } from "./types/Link";
+export type { LinkVisit } from "./types/LinkVisit";
+export type { User } from "./types/User";
 export {
   deleteApiCustomerLinksIdMutationKey,
   deleteApiCustomerLinksId,
@@ -132,17 +148,17 @@ export {
   useGetApiCustomerLinksSuspense,
 } from "./hooks/Customer.Link/useGetApiCustomerLinksSuspense";
 export {
-  getApiCustomerLinksTokenTrackQueryKey,
-  getApiCustomerLinksTokenTrack,
-  getApiCustomerLinksTokenTrackQueryOptions,
-  useGetApiCustomerLinksTokenTrack,
-} from "./hooks/Customer.Link/useGetApiCustomerLinksTokenTrack";
+  getApiCustomerLinksTokenVisitQueryKey,
+  getApiCustomerLinksTokenVisit,
+  getApiCustomerLinksTokenVisitQueryOptions,
+  useGetApiCustomerLinksTokenVisit,
+} from "./hooks/Customer.Link/useGetApiCustomerLinksTokenVisit";
 export {
-  getApiCustomerLinksTokenTrackSuspenseQueryKey,
-  getApiCustomerLinksTokenTrackSuspense,
-  getApiCustomerLinksTokenTrackSuspenseQueryOptions,
-  useGetApiCustomerLinksTokenTrackSuspense,
-} from "./hooks/Customer.Link/useGetApiCustomerLinksTokenTrackSuspense";
+  getApiCustomerLinksTokenVisitSuspenseQueryKey,
+  getApiCustomerLinksTokenVisitSuspense,
+  getApiCustomerLinksTokenVisitSuspenseQueryOptions,
+  useGetApiCustomerLinksTokenVisitSuspense,
+} from "./hooks/Customer.Link/useGetApiCustomerLinksTokenVisitSuspense";
 export {
   postApiCustomerLinksMutationKey,
   postApiCustomerLinks,
@@ -170,11 +186,15 @@ export {
   getApiCustomerLinkVisitsSuspenseQueryOptions,
   useGetApiCustomerLinkVisitsSuspense,
 } from "./hooks/Customer.LinkVisit/useGetApiCustomerLinkVisitsSuspense";
+export { _400Schema } from "./zod/_400Schema";
+export { _404Schema } from "./zod/_404Schema";
+export { _500Schema } from "./zod/_500Schema";
 export {
   deleteApiCustomerLinksIdPathParamsSchema,
   deleteApiCustomerLinksId204Schema,
   deleteApiCustomerLinksId400Schema,
   deleteApiCustomerLinksId404Schema,
+  deleteApiCustomerLinksId500Schema,
   deleteApiCustomerLinksIdMutationResponseSchema,
 } from "./zod/Customer.Link/deleteApiCustomerLinksIdSchema";
 export {
@@ -182,6 +202,7 @@ export {
   getApiCustomerLinksId200Schema,
   getApiCustomerLinksId400Schema,
   getApiCustomerLinksId404Schema,
+  getApiCustomerLinksId500Schema,
   getApiCustomerLinksIdQueryResponseSchema,
 } from "./zod/Customer.Link/getApiCustomerLinksIdSchema";
 export {
@@ -190,31 +211,37 @@ export {
   getApiCustomerLinksIdStats200Schema,
   getApiCustomerLinksIdStats400Schema,
   getApiCustomerLinksIdStats404Schema,
+  getApiCustomerLinksIdStats500Schema,
   getApiCustomerLinksIdStatsQueryResponseSchema,
 } from "./zod/Customer.Link/getApiCustomerLinksIdStatsSchema";
 export {
   getApiCustomerLinksQueryParamsSchema,
   getApiCustomerLinks200Schema,
   getApiCustomerLinks400Schema,
+  getApiCustomerLinks500Schema,
   getApiCustomerLinksQueryResponseSchema,
 } from "./zod/Customer.Link/getApiCustomerLinksSchema";
 export {
-  getApiCustomerLinksTokenTrackPathParamsSchema,
-  getApiCustomerLinksTokenTrack302Schema,
-  getApiCustomerLinksTokenTrack400Schema,
-  getApiCustomerLinksTokenTrack404Schema,
-  getApiCustomerLinksTokenTrackQueryResponseSchema,
-} from "./zod/Customer.Link/getApiCustomerLinksTokenTrackSchema";
+  getApiCustomerLinksTokenVisitPathParamsSchema,
+  getApiCustomerLinksTokenVisit302Schema,
+  getApiCustomerLinksTokenVisit400Schema,
+  getApiCustomerLinksTokenVisit404Schema,
+  getApiCustomerLinksTokenVisit500Schema,
+  getApiCustomerLinksTokenVisitQueryResponseSchema,
+} from "./zod/Customer.Link/getApiCustomerLinksTokenVisitSchema";
 export {
   postApiCustomerLinksIdStatusPathParamsSchema,
   postApiCustomerLinksIdStatus200Schema,
   postApiCustomerLinksIdStatus400Schema,
+  postApiCustomerLinksIdStatus404Schema,
+  postApiCustomerLinksIdStatus500Schema,
   postApiCustomerLinksIdStatusMutationRequestSchema,
   postApiCustomerLinksIdStatusMutationResponseSchema,
 } from "./zod/Customer.Link/postApiCustomerLinksIdStatusSchema";
 export {
   postApiCustomerLinks200Schema,
   postApiCustomerLinks400Schema,
+  postApiCustomerLinks500Schema,
   postApiCustomerLinksMutationRequestSchema,
   postApiCustomerLinksMutationResponseSchema,
 } from "./zod/Customer.Link/postApiCustomerLinksSchema";
@@ -223,6 +250,7 @@ export {
   putApiCustomerLinksId200Schema,
   putApiCustomerLinksId400Schema,
   putApiCustomerLinksId404Schema,
+  putApiCustomerLinksId500Schema,
   putApiCustomerLinksIdMutationRequestSchema,
   putApiCustomerLinksIdMutationResponseSchema,
 } from "./zod/Customer.Link/putApiCustomerLinksIdSchema";
@@ -230,5 +258,9 @@ export {
   getApiCustomerLinkVisitsQueryParamsSchema,
   getApiCustomerLinkVisits200Schema,
   getApiCustomerLinkVisits400Schema,
+  getApiCustomerLinkVisits500Schema,
   getApiCustomerLinkVisitsQueryResponseSchema,
 } from "./zod/Customer.LinkVisit/getApiCustomerLinkVisitsSchema";
+export { linkSchema } from "./zod/linkSchema";
+export { linkVisitSchema } from "./zod/linkVisitSchema";
+export { userSchema } from "./zod/userSchema";

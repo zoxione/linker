@@ -100,12 +100,35 @@ export type GetApiCustomerLinkVisits200 = {
 /**
  * @description Неверные входные данные
  */
-export type GetApiCustomerLinkVisits400 = any;
+export type GetApiCustomerLinkVisits400 = {
+  /**
+   * @type number
+   */
+  statusCode: number;
+  /**
+   * @type string
+   */
+  message: string;
+};
+
+/**
+ * @description Неизвестная ошибка
+ */
+export type GetApiCustomerLinkVisits500 = {
+  /**
+   * @type number
+   */
+  statusCode: number;
+  /**
+   * @type string
+   */
+  message: string;
+};
 
 export type GetApiCustomerLinkVisitsQueryResponse = GetApiCustomerLinkVisits200;
 
 export type GetApiCustomerLinkVisitsQuery = {
   Response: GetApiCustomerLinkVisits200;
   QueryParams: GetApiCustomerLinkVisitsQueryParams;
-  Errors: GetApiCustomerLinkVisits400;
+  Errors: GetApiCustomerLinkVisits400 | GetApiCustomerLinkVisits500;
 };

@@ -11,6 +11,7 @@ import type {
   GetApiCustomerLinksIdStatsQueryParams,
   GetApiCustomerLinksIdStats400,
   GetApiCustomerLinksIdStats404,
+  GetApiCustomerLinksIdStats500,
 } from "../../types/Customer.Link/GetApiCustomerLinksIdStats";
 
 export const getApiCustomerLinksIdStatsSuspenseQueryKey = (
@@ -21,7 +22,7 @@ export const getApiCustomerLinksIdStatsSuspenseQueryKey = (
 export type GetApiCustomerLinksIdStatsSuspenseQueryKey = ReturnType<typeof getApiCustomerLinksIdStatsSuspenseQueryKey>;
 
 /**
- * @summary Получить статистику ссылки
+ * @summary Получить статистику ссылки по id
  * {@link /api/customer/links/:id/stats}
  */
 export async function getApiCustomerLinksIdStatsSuspense(
@@ -33,7 +34,7 @@ export async function getApiCustomerLinksIdStatsSuspense(
 
   const res = await request<
     GetApiCustomerLinksIdStatsQueryResponse,
-    ResponseErrorConfig<GetApiCustomerLinksIdStats400 | GetApiCustomerLinksIdStats404>,
+    ResponseErrorConfig<GetApiCustomerLinksIdStats400 | GetApiCustomerLinksIdStats404 | GetApiCustomerLinksIdStats500>,
     unknown
   >({ method: "GET", url: `/api/customer/links/${id}/stats`, params, ...requestConfig });
   return res.data;
@@ -47,7 +48,7 @@ export function getApiCustomerLinksIdStatsSuspenseQueryOptions(
   const queryKey = getApiCustomerLinksIdStatsSuspenseQueryKey(id, params);
   return queryOptions<
     GetApiCustomerLinksIdStatsQueryResponse,
-    ResponseErrorConfig<GetApiCustomerLinksIdStats400 | GetApiCustomerLinksIdStats404>,
+    ResponseErrorConfig<GetApiCustomerLinksIdStats400 | GetApiCustomerLinksIdStats404 | GetApiCustomerLinksIdStats500>,
     GetApiCustomerLinksIdStatsQueryResponse,
     typeof queryKey
   >({
@@ -61,7 +62,7 @@ export function getApiCustomerLinksIdStatsSuspenseQueryOptions(
 }
 
 /**
- * @summary Получить статистику ссылки
+ * @summary Получить статистику ссылки по id
  * {@link /api/customer/links/:id/stats}
  */
 export function useGetApiCustomerLinksIdStatsSuspense<
@@ -74,7 +75,9 @@ export function useGetApiCustomerLinksIdStatsSuspense<
     query?: Partial<
       UseSuspenseQueryOptions<
         GetApiCustomerLinksIdStatsQueryResponse,
-        ResponseErrorConfig<GetApiCustomerLinksIdStats400 | GetApiCustomerLinksIdStats404>,
+        ResponseErrorConfig<
+          GetApiCustomerLinksIdStats400 | GetApiCustomerLinksIdStats404 | GetApiCustomerLinksIdStats500
+        >,
         TData,
         TQueryKey
       >
@@ -94,8 +97,10 @@ export function useGetApiCustomerLinksIdStatsSuspense<
     queryClient,
   ) as UseSuspenseQueryResult<
     TData,
-    ResponseErrorConfig<GetApiCustomerLinksIdStats400 | GetApiCustomerLinksIdStats404>
-  > & { queryKey: TQueryKey };
+    ResponseErrorConfig<GetApiCustomerLinksIdStats400 | GetApiCustomerLinksIdStats404 | GetApiCustomerLinksIdStats500>
+  > & {
+    queryKey: TQueryKey;
+  };
 
   query.queryKey = queryKey as TQueryKey;
 

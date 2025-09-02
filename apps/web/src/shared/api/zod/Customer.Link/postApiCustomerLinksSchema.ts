@@ -21,7 +21,18 @@ export const postApiCustomerLinks200Schema = z.object({
 /**
  * @description Неверные входные данные
  */
-export const postApiCustomerLinks400Schema = z.any();
+export const postApiCustomerLinks400Schema = z.object({
+  statusCode: z.number(),
+  message: z.string(),
+});
+
+/**
+ * @description Неизвестная ошибка
+ */
+export const postApiCustomerLinks500Schema = z.object({
+  statusCode: z.number(),
+  message: z.string(),
+});
 
 export const postApiCustomerLinksMutationRequestSchema = z.object({
   name: z.string().min(3).max(24),

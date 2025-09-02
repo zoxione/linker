@@ -9,6 +9,7 @@ import type {
   GetApiCustomerLinksQueryResponse,
   GetApiCustomerLinksQueryParams,
   GetApiCustomerLinks400,
+  GetApiCustomerLinks500,
 } from "../../types/Customer.Link/GetApiCustomerLinks";
 
 export const getApiCustomerLinksSuspenseQueryKey = (params?: GetApiCustomerLinksQueryParams) =>
@@ -26,7 +27,11 @@ export async function getApiCustomerLinksSuspense(
 ) {
   const { client: request = fetch, ...requestConfig } = config;
 
-  const res = await request<GetApiCustomerLinksQueryResponse, ResponseErrorConfig<GetApiCustomerLinks400>, unknown>({
+  const res = await request<
+    GetApiCustomerLinksQueryResponse,
+    ResponseErrorConfig<GetApiCustomerLinks400 | GetApiCustomerLinks500>,
+    unknown
+  >({
     method: "GET",
     url: `/api/customer/links`,
     params,
@@ -42,7 +47,7 @@ export function getApiCustomerLinksSuspenseQueryOptions(
   const queryKey = getApiCustomerLinksSuspenseQueryKey(params);
   return queryOptions<
     GetApiCustomerLinksQueryResponse,
-    ResponseErrorConfig<GetApiCustomerLinks400>,
+    ResponseErrorConfig<GetApiCustomerLinks400 | GetApiCustomerLinks500>,
     GetApiCustomerLinksQueryResponse,
     typeof queryKey
   >({
@@ -67,13 +72,11 @@ export function useGetApiCustomerLinksSuspense<
     query?: Partial<
       UseSuspenseQueryOptions<
         GetApiCustomerLinksQueryResponse,
-        ResponseErrorConfig<GetApiCustomerLinks400>,
+        ResponseErrorConfig<GetApiCustomerLinks400 | GetApiCustomerLinks500>,
         TData,
         TQueryKey
       >
-    > & {
-      client?: QueryClient;
-    };
+    > & { client?: QueryClient };
     client?: Partial<RequestConfig> & { client?: typeof fetch };
   } = {},
 ) {
@@ -87,7 +90,9 @@ export function useGetApiCustomerLinksSuspense<
       ...queryOptions,
     } as unknown as UseSuspenseQueryOptions,
     queryClient,
-  ) as UseSuspenseQueryResult<TData, ResponseErrorConfig<GetApiCustomerLinks400>> & { queryKey: TQueryKey };
+  ) as UseSuspenseQueryResult<TData, ResponseErrorConfig<GetApiCustomerLinks400 | GetApiCustomerLinks500>> & {
+    queryKey: TQueryKey;
+  };
 
   query.queryKey = queryKey as TQueryKey;
 

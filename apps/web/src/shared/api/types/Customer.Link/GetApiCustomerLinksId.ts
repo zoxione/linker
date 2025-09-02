@@ -61,17 +61,49 @@ export type GetApiCustomerLinksId200 = {
 /**
  * @description Неверные входные данные
  */
-export type GetApiCustomerLinksId400 = any;
+export type GetApiCustomerLinksId400 = {
+  /**
+   * @type number
+   */
+  statusCode: number;
+  /**
+   * @type string
+   */
+  message: string;
+};
 
 /**
- * @description Ссылка не найдена
+ * @description Ресурс не найден
  */
-export type GetApiCustomerLinksId404 = any;
+export type GetApiCustomerLinksId404 = {
+  /**
+   * @type number
+   */
+  statusCode: number;
+  /**
+   * @type string
+   */
+  message: string;
+};
+
+/**
+ * @description Неизвестная ошибка
+ */
+export type GetApiCustomerLinksId500 = {
+  /**
+   * @type number
+   */
+  statusCode: number;
+  /**
+   * @type string
+   */
+  message: string;
+};
 
 export type GetApiCustomerLinksIdQueryResponse = GetApiCustomerLinksId200;
 
 export type GetApiCustomerLinksIdQuery = {
   Response: GetApiCustomerLinksId200;
   PathParams: GetApiCustomerLinksIdPathParams;
-  Errors: GetApiCustomerLinksId400 | GetApiCustomerLinksId404;
+  Errors: GetApiCustomerLinksId400 | GetApiCustomerLinksId404 | GetApiCustomerLinksId500;
 };

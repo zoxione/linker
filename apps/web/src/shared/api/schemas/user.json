@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "id": { "type": "string" },
+    "email": { "type": "string", "format": "email" },
+    "emailVerified": { "type": "boolean" },
+    "name": { "type": "string", "minLength": 3, "maxLength": 24 },
+    "image": { "type": ["string", "null"], "format": "uri" }
+  },
+  "required": ["updatedAt", "createdAt", "id", "email", "name", "image"],
+  "description": "Пользователь",
+  "x-readme-ref-name": "User"
+}

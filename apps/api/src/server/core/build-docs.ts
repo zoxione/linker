@@ -37,6 +37,7 @@ const buildDocs = async (server: Server) => {
             "application/json": {
               schema: {
                 type: "object",
+                required: ["statusCode", "message"],
                 properties: {
                   statusCode: { type: "number", example: 400 },
                   message: { type: "string", example: "Bad Request" },
@@ -51,6 +52,7 @@ const buildDocs = async (server: Server) => {
             "application/json": {
               schema: {
                 type: "object",
+                required: ["statusCode", "message"],
                 properties: {
                   statusCode: { type: "number", example: 404 },
                   message: { type: "string", example: "Not Found" },
@@ -65,6 +67,7 @@ const buildDocs = async (server: Server) => {
             "application/json": {
               schema: {
                 type: "object",
+                required: ["statusCode", "message"],
                 properties: {
                   statusCode: { type: "number", example: 500 },
                   message: { type: "string", example: "Internal Server Error" },

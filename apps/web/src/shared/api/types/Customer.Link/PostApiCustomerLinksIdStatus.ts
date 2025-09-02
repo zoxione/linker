@@ -61,7 +61,44 @@ export type PostApiCustomerLinksIdStatus200 = {
 /**
  * @description Неверные входные данные
  */
-export type PostApiCustomerLinksIdStatus400 = any;
+export type PostApiCustomerLinksIdStatus400 = {
+  /**
+   * @type number
+   */
+  statusCode: number;
+  /**
+   * @type string
+   */
+  message: string;
+};
+
+/**
+ * @description Ресурс не найден
+ */
+export type PostApiCustomerLinksIdStatus404 = {
+  /**
+   * @type number
+   */
+  statusCode: number;
+  /**
+   * @type string
+   */
+  message: string;
+};
+
+/**
+ * @description Неизвестная ошибка
+ */
+export type PostApiCustomerLinksIdStatus500 = {
+  /**
+   * @type number
+   */
+  statusCode: number;
+  /**
+   * @type string
+   */
+  message: string;
+};
 
 export type PostApiCustomerLinksIdStatusMutationRequestStatusEnum = "ENABLE" | "DISABLE";
 
@@ -78,5 +115,5 @@ export type PostApiCustomerLinksIdStatusMutation = {
   Response: PostApiCustomerLinksIdStatus200;
   Request: PostApiCustomerLinksIdStatusMutationRequest;
   PathParams: PostApiCustomerLinksIdStatusPathParams;
-  Errors: PostApiCustomerLinksIdStatus400;
+  Errors: PostApiCustomerLinksIdStatus400 | PostApiCustomerLinksIdStatus404 | PostApiCustomerLinksIdStatus500;
 };

@@ -54,7 +54,30 @@ export type PostApiCustomerLinks200 = {
 /**
  * @description Неверные входные данные
  */
-export type PostApiCustomerLinks400 = any;
+export type PostApiCustomerLinks400 = {
+  /**
+   * @type number
+   */
+  statusCode: number;
+  /**
+   * @type string
+   */
+  message: string;
+};
+
+/**
+ * @description Неизвестная ошибка
+ */
+export type PostApiCustomerLinks500 = {
+  /**
+   * @type number
+   */
+  statusCode: number;
+  /**
+   * @type string
+   */
+  message: string;
+};
 
 export type PostApiCustomerLinksMutationRequest = {
   /**
@@ -74,5 +97,5 @@ export type PostApiCustomerLinksMutationResponse = PostApiCustomerLinks200;
 export type PostApiCustomerLinksMutation = {
   Response: PostApiCustomerLinks200;
   Request: PostApiCustomerLinksMutationRequest;
-  Errors: PostApiCustomerLinks400;
+  Errors: PostApiCustomerLinks400 | PostApiCustomerLinks500;
 };

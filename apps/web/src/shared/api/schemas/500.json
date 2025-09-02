@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "required": ["statusCode", "message"],
+  "properties": {
+    "statusCode": { "type": "number", "example": 500 },
+    "message": { "type": "string", "example": "Internal Server Error" }
+  }
+}

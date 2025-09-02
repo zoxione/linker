@@ -36,6 +36,17 @@ export const getApiCustomerLinks200Schema = z.object({
 /**
  * @description Неверные входные данные
  */
-export const getApiCustomerLinks400Schema = z.any();
+export const getApiCustomerLinks400Schema = z.object({
+  statusCode: z.number(),
+  message: z.string(),
+});
+
+/**
+ * @description Неизвестная ошибка
+ */
+export const getApiCustomerLinks500Schema = z.object({
+  statusCode: z.number(),
+  message: z.string(),
+});
 
 export const getApiCustomerLinksQueryResponseSchema = z.lazy(() => getApiCustomerLinks200Schema);

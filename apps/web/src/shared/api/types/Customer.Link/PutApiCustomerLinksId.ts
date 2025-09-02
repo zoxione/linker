@@ -61,12 +61,44 @@ export type PutApiCustomerLinksId200 = {
 /**
  * @description Неверные входные данные
  */
-export type PutApiCustomerLinksId400 = any;
+export type PutApiCustomerLinksId400 = {
+  /**
+   * @type number
+   */
+  statusCode: number;
+  /**
+   * @type string
+   */
+  message: string;
+};
 
 /**
- * @description Ссылка не найдена
+ * @description Ресурс не найден
  */
-export type PutApiCustomerLinksId404 = any;
+export type PutApiCustomerLinksId404 = {
+  /**
+   * @type number
+   */
+  statusCode: number;
+  /**
+   * @type string
+   */
+  message: string;
+};
+
+/**
+ * @description Неизвестная ошибка
+ */
+export type PutApiCustomerLinksId500 = {
+  /**
+   * @type number
+   */
+  statusCode: number;
+  /**
+   * @type string
+   */
+  message: string;
+};
 
 export type PutApiCustomerLinksIdMutationRequest = {
   /**
@@ -83,5 +115,5 @@ export type PutApiCustomerLinksIdMutation = {
   Response: PutApiCustomerLinksId200;
   Request: PutApiCustomerLinksIdMutationRequest;
   PathParams: PutApiCustomerLinksIdPathParams;
-  Errors: PutApiCustomerLinksId400 | PutApiCustomerLinksId404;
+  Errors: PutApiCustomerLinksId400 | PutApiCustomerLinksId404 | PutApiCustomerLinksId500;
 };

@@ -25,12 +25,26 @@ export const putApiCustomerLinksId200Schema = z.object({
 /**
  * @description Неверные входные данные
  */
-export const putApiCustomerLinksId400Schema = z.any();
+export const putApiCustomerLinksId400Schema = z.object({
+  statusCode: z.number(),
+  message: z.string(),
+});
 
 /**
- * @description Ссылка не найдена
+ * @description Ресурс не найден
  */
-export const putApiCustomerLinksId404Schema = z.any();
+export const putApiCustomerLinksId404Schema = z.object({
+  statusCode: z.number(),
+  message: z.string(),
+});
+
+/**
+ * @description Неизвестная ошибка
+ */
+export const putApiCustomerLinksId500Schema = z.object({
+  statusCode: z.number(),
+  message: z.string(),
+});
 
 export const putApiCustomerLinksIdMutationRequestSchema = z.object({
   name: z.string().min(3).max(24),

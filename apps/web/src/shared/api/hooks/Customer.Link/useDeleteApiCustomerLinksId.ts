@@ -10,6 +10,7 @@ import type {
   DeleteApiCustomerLinksIdPathParams,
   DeleteApiCustomerLinksId400,
   DeleteApiCustomerLinksId404,
+  DeleteApiCustomerLinksId500,
 } from "../../types/Customer.Link/DeleteApiCustomerLinksId";
 
 export const deleteApiCustomerLinksIdMutationKey = () => [{ url: "/api/customer/links/{id}" }] as const;
@@ -28,13 +29,9 @@ export async function deleteApiCustomerLinksId(
 
   const res = await request<
     DeleteApiCustomerLinksIdMutationResponse,
-    ResponseErrorConfig<DeleteApiCustomerLinksId400 | DeleteApiCustomerLinksId404>,
+    ResponseErrorConfig<DeleteApiCustomerLinksId400 | DeleteApiCustomerLinksId404 | DeleteApiCustomerLinksId500>,
     unknown
-  >({
-    method: "DELETE",
-    url: `/api/customer/links/${id}`,
-    ...requestConfig,
-  });
+  >({ method: "DELETE", url: `/api/customer/links/${id}`, ...requestConfig });
   return res.data;
 }
 
@@ -46,7 +43,7 @@ export function useDeleteApiCustomerLinksId<TContext>(
   options: {
     mutation?: UseMutationOptions<
       DeleteApiCustomerLinksIdMutationResponse,
-      ResponseErrorConfig<DeleteApiCustomerLinksId400 | DeleteApiCustomerLinksId404>,
+      ResponseErrorConfig<DeleteApiCustomerLinksId400 | DeleteApiCustomerLinksId404 | DeleteApiCustomerLinksId500>,
       { id: DeleteApiCustomerLinksIdPathParams["id"] },
       TContext
     > & { client?: QueryClient };
@@ -59,7 +56,7 @@ export function useDeleteApiCustomerLinksId<TContext>(
 
   return useMutation<
     DeleteApiCustomerLinksIdMutationResponse,
-    ResponseErrorConfig<DeleteApiCustomerLinksId400 | DeleteApiCustomerLinksId404>,
+    ResponseErrorConfig<DeleteApiCustomerLinksId400 | DeleteApiCustomerLinksId404 | DeleteApiCustomerLinksId500>,
     { id: DeleteApiCustomerLinksIdPathParams["id"] },
     TContext
   >(

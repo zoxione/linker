@@ -10,6 +10,7 @@ import type {
   GetApiCustomerLinksIdPathParams,
   GetApiCustomerLinksId400,
   GetApiCustomerLinksId404,
+  GetApiCustomerLinksId500,
 } from "../../types/Customer.Link/GetApiCustomerLinksId";
 
 export const getApiCustomerLinksIdQueryKey = (id: GetApiCustomerLinksIdPathParams["id"]) =>
@@ -29,13 +30,9 @@ export async function getApiCustomerLinksId(
 
   const res = await request<
     GetApiCustomerLinksIdQueryResponse,
-    ResponseErrorConfig<GetApiCustomerLinksId400 | GetApiCustomerLinksId404>,
+    ResponseErrorConfig<GetApiCustomerLinksId400 | GetApiCustomerLinksId404 | GetApiCustomerLinksId500>,
     unknown
-  >({
-    method: "GET",
-    url: `/api/customer/links/${id}`,
-    ...requestConfig,
-  });
+  >({ method: "GET", url: `/api/customer/links/${id}`, ...requestConfig });
   return res.data;
 }
 
@@ -46,7 +43,7 @@ export function getApiCustomerLinksIdQueryOptions(
   const queryKey = getApiCustomerLinksIdQueryKey(id);
   return queryOptions<
     GetApiCustomerLinksIdQueryResponse,
-    ResponseErrorConfig<GetApiCustomerLinksId400 | GetApiCustomerLinksId404>,
+    ResponseErrorConfig<GetApiCustomerLinksId400 | GetApiCustomerLinksId404 | GetApiCustomerLinksId500>,
     GetApiCustomerLinksIdQueryResponse,
     typeof queryKey
   >({
@@ -73,7 +70,7 @@ export function useGetApiCustomerLinksId<
     query?: Partial<
       QueryObserverOptions<
         GetApiCustomerLinksIdQueryResponse,
-        ResponseErrorConfig<GetApiCustomerLinksId400 | GetApiCustomerLinksId404>,
+        ResponseErrorConfig<GetApiCustomerLinksId400 | GetApiCustomerLinksId404 | GetApiCustomerLinksId500>,
         TData,
         TQueryData,
         TQueryKey
@@ -92,9 +89,10 @@ export function useGetApiCustomerLinksId<
       ...queryOptions,
     } as unknown as QueryObserverOptions,
     queryClient,
-  ) as UseQueryResult<TData, ResponseErrorConfig<GetApiCustomerLinksId400 | GetApiCustomerLinksId404>> & {
-    queryKey: TQueryKey;
-  };
+  ) as UseQueryResult<
+    TData,
+    ResponseErrorConfig<GetApiCustomerLinksId400 | GetApiCustomerLinksId404 | GetApiCustomerLinksId500>
+  > & { queryKey: TQueryKey };
 
   query.queryKey = queryKey as TQueryKey;
 

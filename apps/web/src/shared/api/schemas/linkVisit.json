@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "id": { "type": "string" },
+    "linkId": { "type": "string" },
+    "ip": { "type": ["string", "null"] },
+    "language": { "type": ["string", "null"] },
+    "browser": { "type": ["string", "null"] },
+    "cpu": { "type": ["string", "null"] },
+    "device": { "type": ["string", "null"] },
+    "engine": { "type": ["string", "null"] },
+    "os": { "type": ["string", "null"] },
+    "referer": { "type": ["string", "null"] },
+    "headers": { "type": "string" }
+  },
+  "required": [
+    "updatedAt",
+    "createdAt",
+    "id",
+    "linkId",
+    "ip",
+    "language",
+    "browser",
+    "cpu",
+    "device",
+    "engine",
+    "os",
+    "referer",
+    "headers"
+  ],
+  "description": "Посещение ссылки",
+  "x-readme-ref-name": "LinkVisit"
+}
