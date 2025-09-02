@@ -2,6 +2,7 @@ import { and, desc, eq, getTableColumns, sql } from "drizzle-orm";
 import { HTTPException } from "hono/http-exception";
 import { nanoid } from "nanoid";
 
+import { dayjs } from "../../../lib/dayjs";
 import { transformGetAllResult } from "../../../lib/utils/transform-get-all-result";
 import { db, dbSchema } from "../../../persistence/db";
 import { toCustomerLinkView } from "./customer.link.mappers";
@@ -10,6 +11,8 @@ import { CustomerLinkDelete } from "./dto/customer.link.delete";
 import { CustomerLinkGetAll } from "./dto/customer.link.get-all";
 import { CustomerLinkGetOne } from "./dto/customer.link.get-one";
 import { CustomerLinkList } from "./dto/customer.link.list";
+import { CustomerLinkStats } from "./dto/customer.link.stats";
+import { CustomerLinkStatsResponse } from "./dto/customer.link.stats-response";
 import { CustomerLinkTrack } from "./dto/customer.link.track";
 import { CustomerLinkUpdate } from "./dto/customer.link.update";
 import { CustomerLinkUpdateStatus } from "./dto/customer.link.update-status";
@@ -141,6 +144,36 @@ class CustomerLinkService {
     });
 
     return toCustomerLinkView(link);
+  }
+
+  async stats(dto: CustomerLinkStats): Promise<CustomerLinkStatsResponse> {
+    const { id, userId } = dto;
+    const yesterday = dayjs().subtract(1, "day").endOf("day");
+    const threeMonthsAgo = yesterday.subtract(3, "month").startOf("day").toDate();
+
+    const link = await db.query.link.findFirst({
+      where: this.#byIdAndUser(id, userId),
+    });
+    if (!link) {
+      throw new HTTPException(404, { message: "Ссылка не найдена" });
+    }
+
+    const result = await db
+      .select({
+        date: sql<string>`d::date`,
+        value: sql<number>`coalesce(count(${dbSchema.linkVisit.id}), 0)`,
+      })
+      .from(sql`generate_series(${threeMonthsAgo}::date, ${yesterday}::date, interval '1 day') as d`)
+      .leftJoin(
+        dbSchema.linkVisit,
+        and(eq(dbSchema.linkVisit.linkId, id), sql`${dbSchema.linkVisit.createdAt}::date = d::date`),
+      )
+      .groupBy(sql`d::date`)
+      .orderBy(sql`d::date`);
+
+    return {
+      items: result,
+    };
   }
 }
 

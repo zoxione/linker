@@ -13,6 +13,13 @@ export {
   getApiCustomerLinksIdQueryResponseSchema,
 } from "./Customer.Link/getApiCustomerLinksIdSchema";
 export {
+  getApiCustomerLinksIdStatsQueryParamsSchema,
+  getApiCustomerLinksIdStats200Schema,
+  getApiCustomerLinksIdStats400Schema,
+  getApiCustomerLinksIdStats404Schema,
+  getApiCustomerLinksIdStatsQueryResponseSchema,
+} from "./Customer.Link/getApiCustomerLinksIdStatsSchema";
+export {
   getApiCustomerLinksQueryParamsSchema,
   getApiCustomerLinks200Schema,
   getApiCustomerLinks400Schema,

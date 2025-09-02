@@ -1,6 +1,8 @@
 export type { DeleteApiCustomerLinksIdMutationKey } from "./Customer.Link/useDeleteApiCustomerLinksId";
 export type { GetApiCustomerLinksQueryKey } from "./Customer.Link/useGetApiCustomerLinks";
 export type { GetApiCustomerLinksIdQueryKey } from "./Customer.Link/useGetApiCustomerLinksId";
+export type { GetApiCustomerLinksIdStatsQueryKey } from "./Customer.Link/useGetApiCustomerLinksIdStats";
+export type { GetApiCustomerLinksIdStatsSuspenseQueryKey } from "./Customer.Link/useGetApiCustomerLinksIdStatsSuspense";
 export type { GetApiCustomerLinksIdSuspenseQueryKey } from "./Customer.Link/useGetApiCustomerLinksIdSuspense";
 export type { GetApiCustomerLinksSuspenseQueryKey } from "./Customer.Link/useGetApiCustomerLinksSuspense";
 export type { GetApiCustomerLinksTokenTrackQueryKey } from "./Customer.Link/useGetApiCustomerLinksTokenTrack";
@@ -27,6 +29,18 @@ export {
   getApiCustomerLinksIdQueryOptions,
   useGetApiCustomerLinksId,
 } from "./Customer.Link/useGetApiCustomerLinksId";
+export {
+  getApiCustomerLinksIdStatsQueryKey,
+  getApiCustomerLinksIdStats,
+  getApiCustomerLinksIdStatsQueryOptions,
+  useGetApiCustomerLinksIdStats,
+} from "./Customer.Link/useGetApiCustomerLinksIdStats";
+export {
+  getApiCustomerLinksIdStatsSuspenseQueryKey,
+  getApiCustomerLinksIdStatsSuspense,
+  getApiCustomerLinksIdStatsSuspenseQueryOptions,
+  useGetApiCustomerLinksIdStatsSuspense,
+} from "./Customer.Link/useGetApiCustomerLinksIdStatsSuspense";
 export {
   getApiCustomerLinksIdSuspenseQueryKey,
   getApiCustomerLinksIdSuspense,

@@ -24,6 +24,14 @@ export type {
   GetApiCustomerLinksIdQuery,
 } from "./Customer.Link/GetApiCustomerLinksId";
 export type {
+  GetApiCustomerLinksIdStatsQueryParams,
+  GetApiCustomerLinksIdStats200,
+  GetApiCustomerLinksIdStats400,
+  GetApiCustomerLinksIdStats404,
+  GetApiCustomerLinksIdStatsQueryResponse,
+  GetApiCustomerLinksIdStatsQuery,
+} from "./Customer.Link/GetApiCustomerLinksIdStats";
+export type {
   GetApiCustomerLinksTokenTrackPathParams,
   GetApiCustomerLinksTokenTrack302,
   GetApiCustomerLinksTokenTrack400,
