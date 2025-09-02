@@ -120,7 +120,7 @@ class CustomerLinkService {
     await db.delete(dbSchema.link).where(this.#byIdAndUser(id, userId));
   }
 
-  async track(dto: CustomerLinkTrack): Promise<CustomerLinkView> {
+  async track(dto: CustomerLinkTrack): Promise<CustomerLinkView | null> {
     const { token, ...linkVisitDto } = dto;
 
     const [link] = await db
@@ -131,7 +131,7 @@ class CustomerLinkService {
       .where(and(eq(dbSchema.link.token, token), eq(dbSchema.link.status, "ENABLE")))
       .returning();
     if (!link) {
-      throw new HTTPException(404, { message: "Ссылка не найдена" });
+      return null;
     }
 
     // TODO: в отдельный сервис

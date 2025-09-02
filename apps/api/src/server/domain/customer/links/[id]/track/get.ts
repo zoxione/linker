@@ -57,6 +57,9 @@ const customerLinksIdTrackGetRoute = contracts.serveApi().openapi(contract, asyn
     referer,
     headers: JSON.stringify(Object.fromEntries(Object.entries(c.req.header()))),
   });
+  if (!link) {
+    return c.notFound();
+  }
 
   return c.redirect(link.redirectUrl);
 });
