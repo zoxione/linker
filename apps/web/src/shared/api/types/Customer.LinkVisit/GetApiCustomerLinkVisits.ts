@@ -88,6 +88,12 @@ export type GetApiCustomerLinkVisits200 = {
      * @type string, date-time
      */
     createdAt: string;
+    /**
+     * @minLength 3
+     * @maxLength 24
+     * @type string
+     */
+    linkName: string;
   }[];
 };
 

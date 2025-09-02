@@ -32,6 +32,7 @@ export const getApiCustomerLinkVisits200Schema = z.object({
       headers: z.string(),
       updatedAt: z.string().datetime(),
       createdAt: z.string().datetime(),
+      linkName: z.string().min(3).max(24),
     }),
   ),
 });

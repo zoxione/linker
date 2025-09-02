@@ -3,6 +3,7 @@ import {
   ArrowLeftIcon,
   ArrowRightIcon,
   ArrowUpIcon,
+  ArrowUpRightIcon,
   ChevronDownIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -59,6 +60,7 @@ const Icons = {
   // sidebar
   home: (props: IconProps) => <HouseIcon {...props} />,
   links: (props: IconProps) => <ListIcon {...props} />,
+  linkVisits: (props: IconProps) => <ArrowUpRightIcon {...props} />,
 
   // custom
   github: (props: IconProps) => <GithubIcon {...props} />,

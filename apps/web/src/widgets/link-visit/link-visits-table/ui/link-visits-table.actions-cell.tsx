@@ -10,23 +10,20 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@repo/ui/dropdown-menu";
 import { Icons } from "@repo/ui/icons";
 import { cn } from "@repo/ui/utils/cn";
 
-import { useDialog } from "@/core/providers/dialog-provider";
-import { Link as LinkType } from "@/entities/link/model/link.types";
+import { LinkVisit } from "@/entities/link-visit/model/link-visit.types";
 import { Row } from "@tanstack/react-table";
 
-interface LinksTableActionsCellProps {
-  row: Row<LinkType>;
+interface LinkVisitsTableActionsCellProps {
+  row: Row<LinkVisit>;
 }
 
-const LinksTableActionsCell = ({ row }: LinksTableActionsCellProps) => {
+const LinkVisitsTableActionsCell = ({ row }: LinkVisitsTableActionsCellProps) => {
   const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
-  const { onOpen } = useDialog();
 
   return (
     <DropdownMenu open={isOpenMenu} onOpenChange={setIsOpenMenu}>
@@ -43,32 +40,16 @@ const LinksTableActionsCell = ({ row }: LinksTableActionsCellProps) => {
       <DropdownMenuContent collisionPadding={16}>
         <DropdownMenuLabel>Действия</DropdownMenuLabel>
         <DropdownMenuGroup>
-          <Link href={row.original.url} target="_blank" rel="noopener noreferrer">
+          <Link href={`/dashboard/links/${row.original.linkId}`} target="_blank" rel="noopener noreferrer">
             <DropdownMenuItem>
               <Icons.externalLink />
-              Перейти
+              Перейти к ссылке
             </DropdownMenuItem>
           </Link>
-          <Link href={`/dashboard/links/${row.original.id}`}>
-            <DropdownMenuItem>
-              <Icons.update />
-              Редактировать
-            </DropdownMenuItem>
-          </Link>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuItem
-            variant="destructive"
-            onClick={() => onOpen({ type: "delete-link", props: { link: row.original } })}
-          >
-            <Icons.delete />
-            Удалить
-          </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
   );
 };
 
-export { LinksTableActionsCell };
+export { LinkVisitsTableActionsCell };

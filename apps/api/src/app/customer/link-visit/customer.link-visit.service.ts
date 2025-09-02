@@ -1,4 +1,4 @@
-import { desc, eq, sql } from "drizzle-orm";
+import { desc, eq, getTableColumns, sql } from "drizzle-orm";
 
 import { transformGetAllResult } from "../../../lib/utils/transform-get-all-result";
 import { db, dbSchema } from "../../../persistence/db";
@@ -13,7 +13,13 @@ class CustomerLinkVisitService {
     const { userId, limit, offset } = dto;
 
     const result = await db
-      .select({ row: dbSchema.linkVisit, count: sql<number>`count(*) over()` })
+      .select({
+        count: sql<number>`count(*) over()`,
+        row: {
+          ...getTableColumns(dbSchema.linkVisit),
+          linkName: dbSchema.link.name,
+        },
+      })
       .from(dbSchema.linkVisit)
       .innerJoin(dbSchema.link, eq(dbSchema.link.id, dbSchema.linkVisit.linkId))
       .where(eq(dbSchema.link.userId, userId))

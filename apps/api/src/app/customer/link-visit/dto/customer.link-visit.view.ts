@@ -1,5 +1,6 @@
 import { z } from "@hono/zod-openapi";
 
+import { LINK_SCHEMA } from "../../../shared/entities/link";
 import { LINK_VISIT_SCHEMA } from "../../../shared/entities/link-visit";
 
 const CUSTOMER_LINK_VISIT_VIEW = z.object({
@@ -18,6 +19,7 @@ const CUSTOMER_LINK_VISIT_VIEW = z.object({
     updatedAt: true,
     createdAt: true,
   }).shape,
+  linkName: LINK_SCHEMA.shape.name,
 });
 
 type CustomerLinkVisitView = z.infer<typeof CUSTOMER_LINK_VISIT_VIEW>;
