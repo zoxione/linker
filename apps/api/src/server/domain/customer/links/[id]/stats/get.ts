@@ -12,7 +12,8 @@ const contract = createRoute({
   summary: "Получить статистику ссылки",
   middleware: [contracts.middlewares.auth] as const,
   request: {
-    query: CUSTOMER_LINK_STATS.omit({ userId: true }),
+    params: CUSTOMER_LINK_STATS.pick({ id: true }),
+    query: CUSTOMER_LINK_STATS.omit({ id: true, userId: true }),
   },
   responses: {
     200: {
@@ -34,11 +35,13 @@ const contract = createRoute({
 
 const customerLinksIdStatsGetRoute = contracts.serveApi().openapi(contract, async (c) => {
   const session = c.get("session");
-  const { id } = c.req.valid("query");
+  const { id } = c.req.valid("param");
+  const { range } = c.req.valid("query");
 
   const stats = await app.customer.link.stats({
-    userId: session.userId,
     id,
+    userId: session.userId,
+    range,
   });
 
   return c.json(stats);

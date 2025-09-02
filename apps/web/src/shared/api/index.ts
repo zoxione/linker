@@ -38,6 +38,8 @@ export type {
   GetApiCustomerLinksIdQuery,
 } from "./types/Customer.Link/GetApiCustomerLinksId";
 export type {
+  GetApiCustomerLinksIdStatsPathParams,
+  GetApiCustomerLinksIdStatsQueryParamsRangeEnum,
   GetApiCustomerLinksIdStatsQueryParams,
   GetApiCustomerLinksIdStats200,
   GetApiCustomerLinksIdStats400,
@@ -183,6 +185,7 @@ export {
   getApiCustomerLinksIdQueryResponseSchema,
 } from "./zod/Customer.Link/getApiCustomerLinksIdSchema";
 export {
+  getApiCustomerLinksIdStatsPathParamsSchema,
   getApiCustomerLinksIdStatsQueryParamsSchema,
   getApiCustomerLinksIdStats200Schema,
   getApiCustomerLinksIdStats400Schema,

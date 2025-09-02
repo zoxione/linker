@@ -7,13 +7,16 @@ import fetch from "../../../lib/fetch-client";
 import type { RequestConfig, ResponseErrorConfig } from "../../../lib/fetch-client";
 import type {
   GetApiCustomerLinksIdStatsQueryResponse,
+  GetApiCustomerLinksIdStatsPathParams,
   GetApiCustomerLinksIdStatsQueryParams,
   GetApiCustomerLinksIdStats400,
   GetApiCustomerLinksIdStats404,
 } from "../../types/Customer.Link/GetApiCustomerLinksIdStats";
 
-export const getApiCustomerLinksIdStatsQueryKey = (params: GetApiCustomerLinksIdStatsQueryParams) =>
-  [{ url: "/api/customer/links/:id/stats", params: { id: id } }, ...(params ? [params] : [])] as const;
+export const getApiCustomerLinksIdStatsQueryKey = (
+  id: GetApiCustomerLinksIdStatsPathParams["id"],
+  params: GetApiCustomerLinksIdStatsQueryParams,
+) => [{ url: "/api/customer/links/:id/stats", params: { id: id } }, ...(params ? [params] : [])] as const;
 
 export type GetApiCustomerLinksIdStatsQueryKey = ReturnType<typeof getApiCustomerLinksIdStatsQueryKey>;
 
@@ -22,6 +25,7 @@ export type GetApiCustomerLinksIdStatsQueryKey = ReturnType<typeof getApiCustome
  * {@link /api/customer/links/:id/stats}
  */
 export async function getApiCustomerLinksIdStats(
+  id: GetApiCustomerLinksIdStatsPathParams["id"],
   params: GetApiCustomerLinksIdStatsQueryParams,
   config: Partial<RequestConfig> & { client?: typeof fetch } = {},
 ) {
@@ -36,21 +40,22 @@ export async function getApiCustomerLinksIdStats(
 }
 
 export function getApiCustomerLinksIdStatsQueryOptions(
+  id: GetApiCustomerLinksIdStatsPathParams["id"],
   params: GetApiCustomerLinksIdStatsQueryParams,
   config: Partial<RequestConfig> & { client?: typeof fetch } = {},
 ) {
-  const queryKey = getApiCustomerLinksIdStatsQueryKey(params);
+  const queryKey = getApiCustomerLinksIdStatsQueryKey(id, params);
   return queryOptions<
     GetApiCustomerLinksIdStatsQueryResponse,
     ResponseErrorConfig<GetApiCustomerLinksIdStats400 | GetApiCustomerLinksIdStats404>,
     GetApiCustomerLinksIdStatsQueryResponse,
     typeof queryKey
   >({
-    enabled: !!params,
+    enabled: !!(id && params),
     queryKey,
     queryFn: async ({ signal }) => {
       config.signal = signal;
-      return getApiCustomerLinksIdStats(params, config);
+      return getApiCustomerLinksIdStats(id, params, config);
     },
   });
 }
@@ -64,6 +69,7 @@ export function useGetApiCustomerLinksIdStats<
   TQueryData = GetApiCustomerLinksIdStatsQueryResponse,
   TQueryKey extends QueryKey = GetApiCustomerLinksIdStatsQueryKey,
 >(
+  id: GetApiCustomerLinksIdStatsPathParams["id"],
   params: GetApiCustomerLinksIdStatsQueryParams,
   options: {
     query?: Partial<
@@ -79,11 +85,11 @@ export function useGetApiCustomerLinksIdStats<
   } = {},
 ) {
   const { query: { client: queryClient, ...queryOptions } = {}, client: config = {} } = options ?? {};
-  const queryKey = queryOptions?.queryKey ?? getApiCustomerLinksIdStatsQueryKey(params);
+  const queryKey = queryOptions?.queryKey ?? getApiCustomerLinksIdStatsQueryKey(id, params);
 
   const query = useQuery(
     {
-      ...getApiCustomerLinksIdStatsQueryOptions(params, config),
+      ...getApiCustomerLinksIdStatsQueryOptions(id, params, config),
       queryKey,
       ...queryOptions,
     } as unknown as QueryObserverOptions,

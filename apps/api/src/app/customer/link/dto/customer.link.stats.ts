@@ -7,6 +7,7 @@ const CUSTOMER_LINK_STATS = z.object({
     id: true,
     userId: true,
   }).shape,
+  range: z.enum(["1w", "1m", "3m"]),
 });
 
 type CustomerLinkStats = z.infer<typeof CUSTOMER_LINK_STATS>;

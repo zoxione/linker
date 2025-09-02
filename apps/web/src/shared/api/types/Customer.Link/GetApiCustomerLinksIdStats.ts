@@ -1,11 +1,20 @@
 /* eslint-disable */
 // @ts-nocheck
 
-export type GetApiCustomerLinksIdStatsQueryParams = {
+export type GetApiCustomerLinksIdStatsPathParams = {
   /**
    * @type string
    */
   id: string;
+};
+
+export type GetApiCustomerLinksIdStatsQueryParamsRangeEnum = "1w" | "1m" | "3m";
+
+export type GetApiCustomerLinksIdStatsQueryParams = {
+  /**
+   * @type string
+   */
+  range: GetApiCustomerLinksIdStatsQueryParamsRangeEnum;
 };
 
 /**
@@ -41,6 +50,7 @@ export type GetApiCustomerLinksIdStatsQueryResponse = GetApiCustomerLinksIdStats
 
 export type GetApiCustomerLinksIdStatsQuery = {
   Response: GetApiCustomerLinksIdStats200;
+  PathParams: GetApiCustomerLinksIdStatsPathParams;
   QueryParams: GetApiCustomerLinksIdStatsQueryParams;
   Errors: GetApiCustomerLinksIdStats400 | GetApiCustomerLinksIdStats404;
 };

@@ -13,6 +13,7 @@ export {
   getApiCustomerLinksIdQueryResponseSchema,
 } from "./Customer.Link/getApiCustomerLinksIdSchema";
 export {
+  getApiCustomerLinksIdStatsPathParamsSchema,
   getApiCustomerLinksIdStatsQueryParamsSchema,
   getApiCustomerLinksIdStats200Schema,
   getApiCustomerLinksIdStats400Schema,

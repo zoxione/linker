@@ -147,9 +147,22 @@ class CustomerLinkService {
   }
 
   async stats(dto: CustomerLinkStats): Promise<CustomerLinkStatsResponse> {
-    const { id, userId } = dto;
+    const { id, userId, range } = dto;
     const yesterday = dayjs().subtract(1, "day").endOf("day");
-    const threeMonthsAgo = yesterday.subtract(3, "month").startOf("day").toDate();
+    let from: Date;
+
+    switch (range) {
+      case "1w":
+        from = yesterday.subtract(1, "week").startOf("day").toDate();
+        break;
+      case "1m":
+        from = yesterday.subtract(1, "month").startOf("day").toDate();
+        break;
+      case "3m":
+      default:
+        from = yesterday.subtract(3, "month").startOf("day").toDate();
+        break;
+    }
 
     const link = await db.query.link.findFirst({
       where: this.#byIdAndUser(id, userId),
@@ -163,7 +176,7 @@ class CustomerLinkService {
         date: sql<string>`d::date`,
         value: sql<number>`coalesce(count(${dbSchema.linkVisit.id}), 0)`,
       })
-      .from(sql`generate_series(${threeMonthsAgo}::date, ${yesterday}::date, interval '1 day') as d`)
+      .from(sql`generate_series(${from}::date, ${yesterday}::date, interval '1 day') as d`)
       .leftJoin(
         dbSchema.linkVisit,
         and(eq(dbSchema.linkVisit.linkId, id), sql`${dbSchema.linkVisit.createdAt}::date = d::date`),

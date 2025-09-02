@@ -24,6 +24,8 @@ export type {
   GetApiCustomerLinksIdQuery,
 } from "./Customer.Link/GetApiCustomerLinksId";
 export type {
+  GetApiCustomerLinksIdStatsPathParams,
+  GetApiCustomerLinksIdStatsQueryParamsRangeEnum,
   GetApiCustomerLinksIdStatsQueryParams,
   GetApiCustomerLinksIdStats200,
   GetApiCustomerLinksIdStats400,

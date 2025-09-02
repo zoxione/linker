@@ -36,6 +36,10 @@ const APP_PAGES = APP_SIDEBAR_ITEMS.map((item) => ({
     title: "Ссылка",
     url: "/dashboard/links/:id",
   },
+  {
+    title: "Статистика ссылки",
+    url: "/dashboard/links/:id/statistics",
+  },
 ]);
 
 const QUERY_KEYS = {

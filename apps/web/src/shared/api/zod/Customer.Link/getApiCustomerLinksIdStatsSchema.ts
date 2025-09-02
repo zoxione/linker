@@ -2,8 +2,12 @@
 // @ts-nocheck
 import { z } from "zod";
 
-export const getApiCustomerLinksIdStatsQueryParamsSchema = z.object({
+export const getApiCustomerLinksIdStatsPathParamsSchema = z.object({
   id: z.string(),
+});
+
+export const getApiCustomerLinksIdStatsQueryParamsSchema = z.object({
+  range: z.enum(["1w", "1m", "3m"]),
 });
 
 /**
