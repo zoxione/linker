@@ -15,7 +15,7 @@ const nextConfig = {
       },
       {
         source: "/l/:token",
-        destination: `${process.env.API_APP_URL}/api/customer/links/:token/track`,
+        destination: `${process.env.API_APP_URL}/api/customer/links/:token/visit`,
         permanent: true,
       },
     ];

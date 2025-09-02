@@ -24,7 +24,10 @@ const contract = createRoute({
       },
     },
     400: {
-      description: "Неверные входные данные",
+      $ref: "#/components/responses/400",
+    },
+    500: {
+      $ref: "#/components/responses/500",
     },
   },
 });

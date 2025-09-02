@@ -5,7 +5,7 @@ import { customerLinksIdGetRoute } from "./links/[id]/get";
 import { customerLinksIdPutRoute } from "./links/[id]/put";
 import { customerLinksIdStatsGetRoute } from "./links/[id]/stats/get";
 import { customerLinksIdStatusPostRoute } from "./links/[id]/status/post";
-import { customerLinksIdTrackGetRoute } from "./links/[id]/track/get";
+import { customerLinksTokenVisitGetRoute } from "./links/[token]/visit/get";
 import { customerLinksGetRoute } from "./links/get";
 import { customerLinksPostRoute } from "./links/post";
 
@@ -18,7 +18,7 @@ customerRouter.route("/links", customerLinksIdGetRoute);
 customerRouter.route("/links", customerLinksIdPutRoute);
 customerRouter.route("/links", customerLinksIdStatusPostRoute);
 customerRouter.route("/links", customerLinksIdDeleteRoute);
-customerRouter.route("/links", customerLinksIdTrackGetRoute);
 customerRouter.route("/links", customerLinksIdStatsGetRoute);
+customerRouter.route("/links", customerLinksTokenVisitGetRoute);
 
 export { customerRouter };

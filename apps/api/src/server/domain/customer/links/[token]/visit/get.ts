@@ -4,31 +4,34 @@ import { UAParser } from "ua-parser-js";
 import { createRoute } from "@hono/zod-openapi";
 
 import { app } from "../../../../../../app";
-import { CUSTOMER_LINK_TRACK } from "../../../../../../app/customer/link/dto/customer.link.track";
+import { CUSTOMER_LINK_VISIT } from "../../../../../../app/customer/link/dto/customer.link.visit";
 import { contracts } from "../../../../../contracts";
 
 const contract = createRoute({
   method: "get",
-  path: "/{token}/track",
+  path: "/{token}/visit",
   tags: [contracts.tags.CUSTOMER_LINK],
-  summary: "Отследить переход по ссылке по token",
+  summary: "Посетить ссылку по token",
   request: {
-    params: CUSTOMER_LINK_TRACK.pick({ token: true }),
+    params: CUSTOMER_LINK_VISIT.pick({ token: true }),
   },
   responses: {
     302: {
       description: "Перенаправление на целевую страницу",
     },
     400: {
-      description: "Неверные входные данные",
+      $ref: "#/components/responses/400",
     },
     404: {
-      description: "Ссылка не найдена",
+      $ref: "#/components/responses/404",
+    },
+    500: {
+      $ref: "#/components/responses/500",
     },
   },
 });
 
-const customerLinksIdTrackGetRoute = contracts.serveApi().openapi(contract, async (c) => {
+const customerLinksTokenVisitGetRoute = contracts.serveApi().openapi(contract, async (c) => {
   const { token } = c.req.valid("param");
 
   const ip = c.req.header("x-forwarded-for")?.split(",")[0]?.trim() || c.req.header("x-real-ip") || null;
@@ -45,7 +48,7 @@ const customerLinksIdTrackGetRoute = contracts.serveApi().openapi(contract, asyn
 
   const referer = c.req.header("referer") || null;
 
-  const link = await app.customer.link.track({
+  const link = await app.customer.link.visit({
     token,
     ip,
     language,
@@ -64,4 +67,4 @@ const customerLinksIdTrackGetRoute = contracts.serveApi().openapi(contract, asyn
   return c.redirect(link.redirectUrl);
 });
 
-export { customerLinksIdTrackGetRoute };
+export { customerLinksTokenVisitGetRoute };

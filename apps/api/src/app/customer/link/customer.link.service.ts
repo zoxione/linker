@@ -13,10 +13,10 @@ import { CustomerLinkGetOne } from "./dto/customer.link.get-one";
 import { CustomerLinkList } from "./dto/customer.link.list";
 import { CustomerLinkStats } from "./dto/customer.link.stats";
 import { CustomerLinkStatsResponse } from "./dto/customer.link.stats-response";
-import { CustomerLinkTrack } from "./dto/customer.link.track";
 import { CustomerLinkUpdate } from "./dto/customer.link.update";
 import { CustomerLinkUpdateStatus } from "./dto/customer.link.update-status";
 import { CustomerLinkView } from "./dto/customer.link.view";
+import { CustomerLinkVisit } from "./dto/customer.link.visit";
 
 class CustomerLinkService {
   constructor() {}
@@ -123,7 +123,7 @@ class CustomerLinkService {
     await db.delete(dbSchema.link).where(this.#byIdAndUser(id, userId));
   }
 
-  async track(dto: CustomerLinkTrack): Promise<CustomerLinkView | null> {
+  async visit(dto: CustomerLinkVisit): Promise<CustomerLinkView | null> {
     const { token, ...linkVisitDto } = dto;
 
     const [link] = await db
@@ -137,7 +137,6 @@ class CustomerLinkService {
       return null;
     }
 
-    // TODO: в отдельный сервис
     await db.insert(dbSchema.linkVisit).values({
       linkId: link.id,
       ...linkVisitDto,

@@ -9,7 +9,7 @@ const contract = createRoute({
   method: "get",
   path: "/{id}/stats",
   tags: [contracts.tags.CUSTOMER_LINK],
-  summary: "Получить статистику ссылки",
+  summary: "Получить статистику ссылки по id",
   middleware: [contracts.middlewares.auth] as const,
   request: {
     params: CUSTOMER_LINK_STATS.pick({ id: true }),
@@ -25,10 +25,13 @@ const contract = createRoute({
       },
     },
     400: {
-      description: "Неверные входные данные",
+      $ref: "#/components/responses/400",
     },
     404: {
-      description: "Ссылка не найдена",
+      $ref: "#/components/responses/404",
+    },
+    500: {
+      $ref: "#/components/responses/500",
     },
   },
 });
