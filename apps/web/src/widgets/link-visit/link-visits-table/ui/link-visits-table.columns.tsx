@@ -1,5 +1,6 @@
 "use client";
 
+import countryCodeToFlagEmoji from "country-code-to-flag-emoji";
 import Link from "next/link";
 
 import { Badge } from "@repo/ui/components/badge";
@@ -42,7 +43,7 @@ const linkVisitsTableColumns: ColumnDef<LinkVisit>[] = [
     header: "Язык",
     cell: ({ row }) => {
       const value = row.original.language;
-      return value ? <Badge variant="secondary">{value}</Badge> : <div>Неизвестен</div>;
+      return value ? <Badge variant="secondary">{countryCodeToFlagEmoji(value)}</Badge> : <div>Неизвестен</div>;
     },
   },
   {

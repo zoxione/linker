@@ -120,6 +120,9 @@ importers:
       boring-avatars:
         specifier: 2.0.1
         version: 2.0.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      country-code-to-flag-emoji:
+        specifier: 2.0.0
+        version: 2.0.0
       dayjs:
         specifier: 1.11.13
         version: 1.11.13
@@ -2192,6 +2195,9 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
+
+  country-code-to-flag-emoji@2.0.0:
+    resolution: {integrity: sha512-Mn5DWG5DLF4WfvofdzLGIes2CJYQdONtFuZNzkrbY/z/ohM1p7rLeBM+ElqA0pxjryJIjoKtqLMn5gQAqSj72Q==}
 
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
@@ -6265,6 +6271,8 @@ snapshots:
       parse-json: 5.2.0
     optionalDependencies:
       typescript: 5.8.3
+
+  country-code-to-flag-emoji@2.0.0: {}
 
   cross-spawn@7.0.6:
     dependencies:
