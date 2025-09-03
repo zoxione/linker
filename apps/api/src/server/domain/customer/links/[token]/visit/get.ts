@@ -1,4 +1,4 @@
-import acceptLanguage from "accept-language";
+import ALParser from "accept-language-parser";
 import { UAParser } from "ua-parser-js";
 
 import { createRoute } from "@hono/zod-openapi";
@@ -36,8 +36,8 @@ const customerLinksTokenVisitGetRoute = contracts.serveApi().openapi(contract, a
 
   const ip = c.req.header("x-forwarded-for")?.split(",")[0]?.trim() || c.req.header("x-real-ip") || null;
 
-  acceptLanguage.languages(["ru"]);
-  const language = acceptLanguage.get(c.req.header("accept-language")) || null;
+  const languages = ALParser.parse(c.req.header("accept-language"));
+  const language = languages[0]?.code || null;
 
   const uap = new UAParser(c.req.header("user-agent"));
   const browser = uap.getBrowser().name ? uap.getBrowser().toString() : null;
