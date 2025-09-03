@@ -1,8 +1,8 @@
 export type { DeleteApiCustomerLinksIdMutationKey } from "./Customer.Link/useDeleteApiCustomerLinksId";
 export type { GetApiCustomerLinksQueryKey } from "./Customer.Link/useGetApiCustomerLinks";
 export type { GetApiCustomerLinksIdQueryKey } from "./Customer.Link/useGetApiCustomerLinksId";
-export type { GetApiCustomerLinksIdStatsQueryKey } from "./Customer.Link/useGetApiCustomerLinksIdStats";
-export type { GetApiCustomerLinksIdStatsSuspenseQueryKey } from "./Customer.Link/useGetApiCustomerLinksIdStatsSuspense";
+export type { GetApiCustomerLinksIdStatsVisitsQueryKey } from "./Customer.Link/useGetApiCustomerLinksIdStatsVisits";
+export type { GetApiCustomerLinksIdStatsVisitsSuspenseQueryKey } from "./Customer.Link/useGetApiCustomerLinksIdStatsVisitsSuspense";
 export type { GetApiCustomerLinksIdSuspenseQueryKey } from "./Customer.Link/useGetApiCustomerLinksIdSuspense";
 export type { GetApiCustomerLinksSuspenseQueryKey } from "./Customer.Link/useGetApiCustomerLinksSuspense";
 export type { GetApiCustomerLinksTokenVisitQueryKey } from "./Customer.Link/useGetApiCustomerLinksTokenVisit";
@@ -32,17 +32,17 @@ export {
   useGetApiCustomerLinksId,
 } from "./Customer.Link/useGetApiCustomerLinksId";
 export {
-  getApiCustomerLinksIdStatsQueryKey,
-  getApiCustomerLinksIdStats,
-  getApiCustomerLinksIdStatsQueryOptions,
-  useGetApiCustomerLinksIdStats,
-} from "./Customer.Link/useGetApiCustomerLinksIdStats";
+  getApiCustomerLinksIdStatsVisitsQueryKey,
+  getApiCustomerLinksIdStatsVisits,
+  getApiCustomerLinksIdStatsVisitsQueryOptions,
+  useGetApiCustomerLinksIdStatsVisits,
+} from "./Customer.Link/useGetApiCustomerLinksIdStatsVisits";
 export {
-  getApiCustomerLinksIdStatsSuspenseQueryKey,
-  getApiCustomerLinksIdStatsSuspense,
-  getApiCustomerLinksIdStatsSuspenseQueryOptions,
-  useGetApiCustomerLinksIdStatsSuspense,
-} from "./Customer.Link/useGetApiCustomerLinksIdStatsSuspense";
+  getApiCustomerLinksIdStatsVisitsSuspenseQueryKey,
+  getApiCustomerLinksIdStatsVisitsSuspense,
+  getApiCustomerLinksIdStatsVisitsSuspenseQueryOptions,
+  useGetApiCustomerLinksIdStatsVisitsSuspense,
+} from "./Customer.Link/useGetApiCustomerLinksIdStatsVisitsSuspense";
 export {
   getApiCustomerLinksIdSuspenseQueryKey,
   getApiCustomerLinksIdSuspense,

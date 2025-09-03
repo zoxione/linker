@@ -11,18 +11,20 @@ import { cn } from "@repo/ui/utils/cn";
 
 import { QUERY_KEYS } from "@/core/data/constants";
 import { Link } from "@/entities/link/model/link.types";
-import { GetApiCustomerLinksIdStatsQueryParams, useGetApiCustomerLinksIdStats } from "@/shared/api";
+import { GetApiCustomerLinksIdStatsVisitsQueryParams, useGetApiCustomerLinksIdStatsVisits } from "@/shared/api";
 import { dayjs } from "@/shared/lib/dayjs";
 
-interface LinkStatsChartProps {
+type RangeType = GetApiCustomerLinksIdStatsVisitsQueryParams["range"];
+
+interface LinkStatsVisitsChartProps {
   id: Link["id"];
   className?: string;
 }
 
-const LinkStatsChart = ({ id, className }: LinkStatsChartProps) => {
-  const [range, setRange] = useState<GetApiCustomerLinksIdStatsQueryParams["range"]>("1m");
+const LinkStatsVisitsChart = ({ id, className }: LinkStatsVisitsChartProps) => {
+  const [range, setRange] = useState<RangeType>("1m");
 
-  const linkStatsQuery = useGetApiCustomerLinksIdStats(
+  const linkStatsQuery = useGetApiCustomerLinksIdStatsVisits(
     id,
     { range },
     {
@@ -36,10 +38,7 @@ const LinkStatsChart = ({ id, className }: LinkStatsChartProps) => {
     <Card className={cn("", className)}>
       <CardHeader className="flex items-center justify-between">
         <CardTitle>Статистика переходов</CardTitle>
-        <Select
-          value={range}
-          onValueChange={(value) => setRange(value as GetApiCustomerLinksIdStatsQueryParams["range"])}
-        >
+        <Select value={range} onValueChange={(value) => setRange(value as RangeType)}>
           <SelectTrigger>
             <SelectValue placeholder="Выберите период" />
           </SelectTrigger>
@@ -85,4 +84,4 @@ const LinkStatsChart = ({ id, className }: LinkStatsChartProps) => {
   );
 };
 
-export { LinkStatsChart };
+export { LinkStatsVisitsChart };

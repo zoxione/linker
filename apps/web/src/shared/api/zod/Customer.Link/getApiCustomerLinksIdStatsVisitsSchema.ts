@@ -2,18 +2,18 @@
 // @ts-nocheck
 import { z } from "zod";
 
-export const getApiCustomerLinksIdStatsPathParamsSchema = z.object({
+export const getApiCustomerLinksIdStatsVisitsPathParamsSchema = z.object({
   id: z.string(),
 });
 
-export const getApiCustomerLinksIdStatsQueryParamsSchema = z.object({
+export const getApiCustomerLinksIdStatsVisitsQueryParamsSchema = z.object({
   range: z.enum(["1w", "1m", "3m"]),
 });
 
 /**
  * @description Статистика ссылки
  */
-export const getApiCustomerLinksIdStats200Schema = z.object({
+export const getApiCustomerLinksIdStatsVisits200Schema = z.object({
   items: z.array(
     z.object({
       date: z.string(),
@@ -25,7 +25,7 @@ export const getApiCustomerLinksIdStats200Schema = z.object({
 /**
  * @description Неверные входные данные
  */
-export const getApiCustomerLinksIdStats400Schema = z.object({
+export const getApiCustomerLinksIdStatsVisits400Schema = z.object({
   statusCode: z.number(),
   message: z.string(),
 });
@@ -33,7 +33,7 @@ export const getApiCustomerLinksIdStats400Schema = z.object({
 /**
  * @description Ресурс не найден
  */
-export const getApiCustomerLinksIdStats404Schema = z.object({
+export const getApiCustomerLinksIdStatsVisits404Schema = z.object({
   statusCode: z.number(),
   message: z.string(),
 });
@@ -41,9 +41,11 @@ export const getApiCustomerLinksIdStats404Schema = z.object({
 /**
  * @description Неизвестная ошибка
  */
-export const getApiCustomerLinksIdStats500Schema = z.object({
+export const getApiCustomerLinksIdStatsVisits500Schema = z.object({
   statusCode: z.number(),
   message: z.string(),
 });
 
-export const getApiCustomerLinksIdStatsQueryResponseSchema = z.lazy(() => getApiCustomerLinksIdStats200Schema);
+export const getApiCustomerLinksIdStatsVisitsQueryResponseSchema = z.lazy(
+  () => getApiCustomerLinksIdStatsVisits200Schema,
+);

@@ -18,14 +18,14 @@ export {
   getApiCustomerLinksIdQueryResponseSchema,
 } from "./Customer.Link/getApiCustomerLinksIdSchema";
 export {
-  getApiCustomerLinksIdStatsPathParamsSchema,
-  getApiCustomerLinksIdStatsQueryParamsSchema,
-  getApiCustomerLinksIdStats200Schema,
-  getApiCustomerLinksIdStats400Schema,
-  getApiCustomerLinksIdStats404Schema,
-  getApiCustomerLinksIdStats500Schema,
-  getApiCustomerLinksIdStatsQueryResponseSchema,
-} from "./Customer.Link/getApiCustomerLinksIdStatsSchema";
+  getApiCustomerLinksIdStatsVisitsPathParamsSchema,
+  getApiCustomerLinksIdStatsVisitsQueryParamsSchema,
+  getApiCustomerLinksIdStatsVisits200Schema,
+  getApiCustomerLinksIdStatsVisits400Schema,
+  getApiCustomerLinksIdStatsVisits404Schema,
+  getApiCustomerLinksIdStatsVisits500Schema,
+  getApiCustomerLinksIdStatsVisitsQueryResponseSchema,
+} from "./Customer.Link/getApiCustomerLinksIdStatsVisitsSchema";
 export {
   getApiCustomerLinksQueryParamsSchema,
   getApiCustomerLinks200Schema,

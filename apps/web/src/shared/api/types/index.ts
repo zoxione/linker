@@ -30,16 +30,16 @@ export type {
   GetApiCustomerLinksIdQuery,
 } from "./Customer.Link/GetApiCustomerLinksId";
 export type {
-  GetApiCustomerLinksIdStatsPathParams,
-  GetApiCustomerLinksIdStatsQueryParamsRangeEnum,
-  GetApiCustomerLinksIdStatsQueryParams,
-  GetApiCustomerLinksIdStats200,
-  GetApiCustomerLinksIdStats400,
-  GetApiCustomerLinksIdStats404,
-  GetApiCustomerLinksIdStats500,
-  GetApiCustomerLinksIdStatsQueryResponse,
-  GetApiCustomerLinksIdStatsQuery,
-} from "./Customer.Link/GetApiCustomerLinksIdStats";
+  GetApiCustomerLinksIdStatsVisitsPathParams,
+  GetApiCustomerLinksIdStatsVisitsQueryParamsRangeEnum,
+  GetApiCustomerLinksIdStatsVisitsQueryParams,
+  GetApiCustomerLinksIdStatsVisits200,
+  GetApiCustomerLinksIdStatsVisits400,
+  GetApiCustomerLinksIdStatsVisits404,
+  GetApiCustomerLinksIdStatsVisits500,
+  GetApiCustomerLinksIdStatsVisitsQueryResponse,
+  GetApiCustomerLinksIdStatsVisitsQuery,
+} from "./Customer.Link/GetApiCustomerLinksIdStatsVisits";
 export type {
   GetApiCustomerLinksTokenVisitPathParams,
   GetApiCustomerLinksTokenVisit302,

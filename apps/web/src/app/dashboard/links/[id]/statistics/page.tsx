@@ -1,4 +1,4 @@
-import { LinkStatsChart } from "@/widgets/link/link-stats-chart";
+import { LinkStatsVisitsChart } from "@/widgets/link/link-stats-visits-chart";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -9,7 +9,7 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <div>
-      <LinkStatsChart id={id} />
+      <LinkStatsVisitsChart id={id} />
     </div>
   );
 }

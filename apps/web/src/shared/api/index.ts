@@ -1,8 +1,8 @@
 export type { DeleteApiCustomerLinksIdMutationKey } from "./hooks/Customer.Link/useDeleteApiCustomerLinksId";
 export type { GetApiCustomerLinksQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinks";
 export type { GetApiCustomerLinksIdQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksId";
-export type { GetApiCustomerLinksIdStatsQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStats";
-export type { GetApiCustomerLinksIdStatsSuspenseQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsSuspense";
+export type { GetApiCustomerLinksIdStatsVisitsQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsVisits";
+export type { GetApiCustomerLinksIdStatsVisitsSuspenseQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsVisitsSuspense";
 export type { GetApiCustomerLinksIdSuspenseQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdSuspense";
 export type { GetApiCustomerLinksSuspenseQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksSuspense";
 export type { GetApiCustomerLinksTokenVisitQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksTokenVisit";
@@ -46,16 +46,16 @@ export type {
   GetApiCustomerLinksIdQuery,
 } from "./types/Customer.Link/GetApiCustomerLinksId";
 export type {
-  GetApiCustomerLinksIdStatsPathParams,
-  GetApiCustomerLinksIdStatsQueryParamsRangeEnum,
-  GetApiCustomerLinksIdStatsQueryParams,
-  GetApiCustomerLinksIdStats200,
-  GetApiCustomerLinksIdStats400,
-  GetApiCustomerLinksIdStats404,
-  GetApiCustomerLinksIdStats500,
-  GetApiCustomerLinksIdStatsQueryResponse,
-  GetApiCustomerLinksIdStatsQuery,
-} from "./types/Customer.Link/GetApiCustomerLinksIdStats";
+  GetApiCustomerLinksIdStatsVisitsPathParams,
+  GetApiCustomerLinksIdStatsVisitsQueryParamsRangeEnum,
+  GetApiCustomerLinksIdStatsVisitsQueryParams,
+  GetApiCustomerLinksIdStatsVisits200,
+  GetApiCustomerLinksIdStatsVisits400,
+  GetApiCustomerLinksIdStatsVisits404,
+  GetApiCustomerLinksIdStatsVisits500,
+  GetApiCustomerLinksIdStatsVisitsQueryResponse,
+  GetApiCustomerLinksIdStatsVisitsQuery,
+} from "./types/Customer.Link/GetApiCustomerLinksIdStatsVisits";
 export type {
   GetApiCustomerLinksTokenVisitPathParams,
   GetApiCustomerLinksTokenVisit302,
@@ -133,17 +133,17 @@ export {
   useGetApiCustomerLinksId,
 } from "./hooks/Customer.Link/useGetApiCustomerLinksId";
 export {
-  getApiCustomerLinksIdStatsQueryKey,
-  getApiCustomerLinksIdStats,
-  getApiCustomerLinksIdStatsQueryOptions,
-  useGetApiCustomerLinksIdStats,
-} from "./hooks/Customer.Link/useGetApiCustomerLinksIdStats";
+  getApiCustomerLinksIdStatsVisitsQueryKey,
+  getApiCustomerLinksIdStatsVisits,
+  getApiCustomerLinksIdStatsVisitsQueryOptions,
+  useGetApiCustomerLinksIdStatsVisits,
+} from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsVisits";
 export {
-  getApiCustomerLinksIdStatsSuspenseQueryKey,
-  getApiCustomerLinksIdStatsSuspense,
-  getApiCustomerLinksIdStatsSuspenseQueryOptions,
-  useGetApiCustomerLinksIdStatsSuspense,
-} from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsSuspense";
+  getApiCustomerLinksIdStatsVisitsSuspenseQueryKey,
+  getApiCustomerLinksIdStatsVisitsSuspense,
+  getApiCustomerLinksIdStatsVisitsSuspenseQueryOptions,
+  useGetApiCustomerLinksIdStatsVisitsSuspense,
+} from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsVisitsSuspense";
 export {
   getApiCustomerLinksIdSuspenseQueryKey,
   getApiCustomerLinksIdSuspense,
@@ -227,14 +227,14 @@ export {
   getApiCustomerLinksIdQueryResponseSchema,
 } from "./zod/Customer.Link/getApiCustomerLinksIdSchema";
 export {
-  getApiCustomerLinksIdStatsPathParamsSchema,
-  getApiCustomerLinksIdStatsQueryParamsSchema,
-  getApiCustomerLinksIdStats200Schema,
-  getApiCustomerLinksIdStats400Schema,
-  getApiCustomerLinksIdStats404Schema,
-  getApiCustomerLinksIdStats500Schema,
-  getApiCustomerLinksIdStatsQueryResponseSchema,
-} from "./zod/Customer.Link/getApiCustomerLinksIdStatsSchema";
+  getApiCustomerLinksIdStatsVisitsPathParamsSchema,
+  getApiCustomerLinksIdStatsVisitsQueryParamsSchema,
+  getApiCustomerLinksIdStatsVisits200Schema,
+  getApiCustomerLinksIdStatsVisits400Schema,
+  getApiCustomerLinksIdStatsVisits404Schema,
+  getApiCustomerLinksIdStatsVisits500Schema,
+  getApiCustomerLinksIdStatsVisitsQueryResponseSchema,
+} from "./zod/Customer.Link/getApiCustomerLinksIdStatsVisitsSchema";
 export {
   getApiCustomerLinksQueryParamsSchema,
   getApiCustomerLinks200Schema,
