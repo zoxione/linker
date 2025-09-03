@@ -14,7 +14,7 @@ class CustomerLinkVisitService {
 
     const result = await db
       .select({
-        count: sql<number>`count(*) over()`,
+        count: sql<string>`count(*) over()`,
         row: {
           ...getTableColumns(dbSchema.linkVisit),
           linkName: dbSchema.link.name,

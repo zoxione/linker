@@ -12,6 +12,8 @@ export type { PostApiCustomerLinksIdStatusMutationKey } from "./hooks/Customer.L
 export type { PutApiCustomerLinksIdMutationKey } from "./hooks/Customer.Link/usePutApiCustomerLinksId";
 export type { GetApiCustomerLinkVisitsQueryKey } from "./hooks/Customer.LinkVisit/useGetApiCustomerLinkVisits";
 export type { GetApiCustomerLinkVisitsSuspenseQueryKey } from "./hooks/Customer.LinkVisit/useGetApiCustomerLinkVisitsSuspense";
+export type { GetApiCustomerStatsGlobalQueryKey } from "./hooks/Customer.Stats/useGetApiCustomerStatsGlobal";
+export type { GetApiCustomerStatsGlobalSuspenseQueryKey } from "./hooks/Customer.Stats/useGetApiCustomerStatsGlobalSuspense";
 export type { _400 } from "./types/_400";
 export type { _404 } from "./types/_404";
 export type { _500 } from "./types/_500";
@@ -103,6 +105,13 @@ export type {
   GetApiCustomerLinkVisitsQueryResponse,
   GetApiCustomerLinkVisitsQuery,
 } from "./types/Customer.LinkVisit/GetApiCustomerLinkVisits";
+export type {
+  GetApiCustomerStatsGlobal200,
+  GetApiCustomerStatsGlobal400,
+  GetApiCustomerStatsGlobal500,
+  GetApiCustomerStatsGlobalQueryResponse,
+  GetApiCustomerStatsGlobalQuery,
+} from "./types/Customer.Stats/GetApiCustomerStatsGlobal";
 export type { LinkStatusEnum, Link } from "./types/Link";
 export type { LinkVisit } from "./types/LinkVisit";
 export type { User } from "./types/User";
@@ -186,6 +195,18 @@ export {
   getApiCustomerLinkVisitsSuspenseQueryOptions,
   useGetApiCustomerLinkVisitsSuspense,
 } from "./hooks/Customer.LinkVisit/useGetApiCustomerLinkVisitsSuspense";
+export {
+  getApiCustomerStatsGlobalQueryKey,
+  getApiCustomerStatsGlobal,
+  getApiCustomerStatsGlobalQueryOptions,
+  useGetApiCustomerStatsGlobal,
+} from "./hooks/Customer.Stats/useGetApiCustomerStatsGlobal";
+export {
+  getApiCustomerStatsGlobalSuspenseQueryKey,
+  getApiCustomerStatsGlobalSuspense,
+  getApiCustomerStatsGlobalSuspenseQueryOptions,
+  useGetApiCustomerStatsGlobalSuspense,
+} from "./hooks/Customer.Stats/useGetApiCustomerStatsGlobalSuspense";
 export { _400Schema } from "./zod/_400Schema";
 export { _404Schema } from "./zod/_404Schema";
 export { _500Schema } from "./zod/_500Schema";
@@ -261,6 +282,12 @@ export {
   getApiCustomerLinkVisits500Schema,
   getApiCustomerLinkVisitsQueryResponseSchema,
 } from "./zod/Customer.LinkVisit/getApiCustomerLinkVisitsSchema";
+export {
+  getApiCustomerStatsGlobal200Schema,
+  getApiCustomerStatsGlobal400Schema,
+  getApiCustomerStatsGlobal500Schema,
+  getApiCustomerStatsGlobalQueryResponseSchema,
+} from "./zod/Customer.Stats/getApiCustomerStatsGlobalSchema";
 export { linkSchema } from "./zod/linkSchema";
 export { linkVisitSchema } from "./zod/linkVisitSchema";
 export { userSchema } from "./zod/userSchema";

@@ -4,7 +4,7 @@ const CUSTOMER_LINK_STATS_RESPONSE = z.object({
   items: z.array(
     z.object({
       date: z.string(),
-      value: z.number(),
+      value: z.coerce.number().openapi({ type: "number" }),
     }),
   ),
 });

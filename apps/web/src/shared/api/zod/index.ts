@@ -73,6 +73,12 @@ export {
   getApiCustomerLinkVisits500Schema,
   getApiCustomerLinkVisitsQueryResponseSchema,
 } from "./Customer.LinkVisit/getApiCustomerLinkVisitsSchema";
+export {
+  getApiCustomerStatsGlobal200Schema,
+  getApiCustomerStatsGlobal400Schema,
+  getApiCustomerStatsGlobal500Schema,
+  getApiCustomerStatsGlobalQueryResponseSchema,
+} from "./Customer.Stats/getApiCustomerStatsGlobalSchema";
 export { linkSchema } from "./linkSchema";
 export { linkVisitSchema } from "./linkVisitSchema";
 export { userSchema } from "./userSchema";

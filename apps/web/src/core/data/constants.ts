@@ -46,6 +46,7 @@ const QUERY_KEYS = {
   LINKS: "links",
   LINK_VISITS: "link-visits",
   USERS: "users",
+  STATS: "stats",
 };
 
 export { APP_PAGES, APP_SIDEBAR_ITEMS, DATE_FORMAT, DATE_TIME_FORMAT, LIMIT_DEFAULT, QUERY_KEYS };

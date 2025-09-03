@@ -89,6 +89,13 @@ export type {
   GetApiCustomerLinkVisitsQueryResponse,
   GetApiCustomerLinkVisitsQuery,
 } from "./Customer.LinkVisit/GetApiCustomerLinkVisits";
+export type {
+  GetApiCustomerStatsGlobal200,
+  GetApiCustomerStatsGlobal400,
+  GetApiCustomerStatsGlobal500,
+  GetApiCustomerStatsGlobalQueryResponse,
+  GetApiCustomerStatsGlobalQuery,
+} from "./Customer.Stats/GetApiCustomerStatsGlobal";
 export type { LinkStatusEnum, Link } from "./Link";
 export type { LinkVisit } from "./LinkVisit";
 export type { User } from "./User";

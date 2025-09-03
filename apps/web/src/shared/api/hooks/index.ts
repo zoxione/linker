@@ -12,6 +12,8 @@ export type { PostApiCustomerLinksIdStatusMutationKey } from "./Customer.Link/us
 export type { PutApiCustomerLinksIdMutationKey } from "./Customer.Link/usePutApiCustomerLinksId";
 export type { GetApiCustomerLinkVisitsQueryKey } from "./Customer.LinkVisit/useGetApiCustomerLinkVisits";
 export type { GetApiCustomerLinkVisitsSuspenseQueryKey } from "./Customer.LinkVisit/useGetApiCustomerLinkVisitsSuspense";
+export type { GetApiCustomerStatsGlobalQueryKey } from "./Customer.Stats/useGetApiCustomerStatsGlobal";
+export type { GetApiCustomerStatsGlobalSuspenseQueryKey } from "./Customer.Stats/useGetApiCustomerStatsGlobalSuspense";
 export {
   deleteApiCustomerLinksIdMutationKey,
   deleteApiCustomerLinksId,
@@ -92,3 +94,15 @@ export {
   getApiCustomerLinkVisitsSuspenseQueryOptions,
   useGetApiCustomerLinkVisitsSuspense,
 } from "./Customer.LinkVisit/useGetApiCustomerLinkVisitsSuspense";
+export {
+  getApiCustomerStatsGlobalQueryKey,
+  getApiCustomerStatsGlobal,
+  getApiCustomerStatsGlobalQueryOptions,
+  useGetApiCustomerStatsGlobal,
+} from "./Customer.Stats/useGetApiCustomerStatsGlobal";
+export {
+  getApiCustomerStatsGlobalSuspenseQueryKey,
+  getApiCustomerStatsGlobalSuspense,
+  getApiCustomerStatsGlobalSuspenseQueryOptions,
+  useGetApiCustomerStatsGlobalSuspense,
+} from "./Customer.Stats/useGetApiCustomerStatsGlobalSuspense";

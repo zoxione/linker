@@ -8,6 +8,7 @@ import { customerLinksIdStatusPostRoute } from "./links/[id]/status/post";
 import { customerLinksTokenVisitGetRoute } from "./links/[token]/visit/get";
 import { customerLinksGetRoute } from "./links/get";
 import { customerLinksPostRoute } from "./links/post";
+import { customerStatsGlobalGetRoute } from "./stats/global/get";
 
 const customerRouter = contracts.serveApi();
 
@@ -20,5 +21,6 @@ customerRouter.route("/links", customerLinksIdStatusPostRoute);
 customerRouter.route("/links", customerLinksIdDeleteRoute);
 customerRouter.route("/links", customerLinksIdStatsGetRoute);
 customerRouter.route("/links", customerLinksTokenVisitGetRoute);
+customerRouter.route("/stats", customerStatsGlobalGetRoute);
 
 export { customerRouter };
