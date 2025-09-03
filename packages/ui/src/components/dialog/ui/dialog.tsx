@@ -40,11 +40,13 @@ const DialogContent = ({ className, children, ...props }: React.ComponentProps<t
   return (
     <DialogPortal data-slot="dialog-portal">
       <DialogOverlay />
-      <div className="fixed inset-0 z-50 flex items-center justify-center">
+      <div className="fixed inset-0 z-50 flex items-end justify-center sm:items-center">
         <DialogPrimitive.Content
           data-slot="dialog-content"
           className={cn(
-            "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 relative flex h-full w-full flex-col overflow-hidden border shadow-lg duration-200 sm:h-[90vh] sm:max-h-max sm:max-w-md sm:rounded-xl",
+            "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out relative flex h-[90vh] max-h-max w-full flex-col overflow-hidden rounded-t-xl border shadow-lg duration-200 sm:max-w-md sm:rounded-xl",
+            "data-[state=open]:slide-in-from-bottom data-[state=closed]:slide-out-to-bottom",
+            "data-[state=open]:sm:fade-in-0 data-[state=closed]:sm:fade-out-0 data-[state=open]:sm:zoom-in-95 data-[state=closed]:sm:zoom-out-95 data-[state=open]:sm:slide-in-from-bottom-0 data-[state=closed]:sm:slide-out-to-bottom-0",
             className,
           )}
           // firefox fix height
