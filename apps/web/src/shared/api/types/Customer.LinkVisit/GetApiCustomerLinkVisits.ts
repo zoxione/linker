@@ -13,7 +13,7 @@ export type GetApiCustomerLinkVisitsQueryParams = {
 };
 
 /**
- * @description Список посещений ссылок
+ * @description Список переходов по ссылкам
  */
 export type GetApiCustomerLinkVisits200 = {
   /**

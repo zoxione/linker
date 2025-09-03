@@ -3,7 +3,7 @@
 import { z } from "zod";
 
 /**
- * @description Посещение ссылки
+ * @description Переход по ссылке
  */
 export const linkVisitSchema = z
   .object({
@@ -21,4 +21,4 @@ export const linkVisitSchema = z
     referer: z.string().nullable(),
     headers: z.string(),
   })
-  .describe("Посещение ссылки");
+  .describe("Переход по ссылке");

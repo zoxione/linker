@@ -22,7 +22,7 @@ export const getApiCustomerLinksIdStatsVisitsQueryKey = (
 export type GetApiCustomerLinksIdStatsVisitsQueryKey = ReturnType<typeof getApiCustomerLinksIdStatsVisitsQueryKey>;
 
 /**
- * @summary Получить статистику посещений ссылки по id
+ * @summary Получить статистику переходов по ссылке по id
  * {@link /api/customer/links/:id/stats/visits}
  */
 export async function getApiCustomerLinksIdStatsVisits(
@@ -66,7 +66,7 @@ export function getApiCustomerLinksIdStatsVisitsQueryOptions(
 }
 
 /**
- * @summary Получить статистику посещений ссылки по id
+ * @summary Получить статистику переходов по ссылке по id
  * {@link /api/customer/links/:id/stats/visits}
  */
 export function useGetApiCustomerLinksIdStatsVisits<

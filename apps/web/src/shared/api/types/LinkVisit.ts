@@ -2,7 +2,7 @@
 // @ts-nocheck
 
 /**
- * @description Посещение ссылки
+ * @description Переход по ссылке
  */
 export type LinkVisit = {
   /**

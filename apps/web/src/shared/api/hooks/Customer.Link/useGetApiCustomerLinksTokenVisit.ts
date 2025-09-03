@@ -19,7 +19,7 @@ export const getApiCustomerLinksTokenVisitQueryKey = (token: GetApiCustomerLinks
 export type GetApiCustomerLinksTokenVisitQueryKey = ReturnType<typeof getApiCustomerLinksTokenVisitQueryKey>;
 
 /**
- * @summary Посетить ссылку по token
+ * @summary Перейти по ссылке по token
  * {@link /api/customer/links/:token/visit}
  */
 export async function getApiCustomerLinksTokenVisit(
@@ -61,7 +61,7 @@ export function getApiCustomerLinksTokenVisitQueryOptions(
 }
 
 /**
- * @summary Посетить ссылку по token
+ * @summary Перейти по ссылке по token
  * {@link /api/customer/links/:token/visit}
  */
 export function useGetApiCustomerLinksTokenVisit<

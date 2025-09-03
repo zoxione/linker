@@ -9,7 +9,7 @@ import { Server } from "./build-server";
 const buildDocs = async (server: Server) => {
   server.get("/openapi", async (c) => {
     server.openAPIRegistry.register("Link", LINK_SCHEMA.openapi({ description: "Ссылка" }));
-    server.openAPIRegistry.register("LinkVisit", LINK_VISIT_SCHEMA.openapi({ description: "Посещение ссылки" }));
+    server.openAPIRegistry.register("LinkVisit", LINK_VISIT_SCHEMA.openapi({ description: "Переход по ссылке" }));
     server.openAPIRegistry.register("User", USER_SCHEMA.openapi({ description: "Пользователь" }));
 
     const openApiDoc = server.getOpenAPI31Document({

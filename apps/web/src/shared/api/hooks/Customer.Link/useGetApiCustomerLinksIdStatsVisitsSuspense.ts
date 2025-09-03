@@ -24,7 +24,7 @@ export type GetApiCustomerLinksIdStatsVisitsSuspenseQueryKey = ReturnType<
 >;
 
 /**
- * @summary Получить статистику посещений ссылки по id
+ * @summary Получить статистику переходов по ссылке по id
  * {@link /api/customer/links/:id/stats/visits}
  */
 export async function getApiCustomerLinksIdStatsVisitsSuspense(
@@ -68,7 +68,7 @@ export function getApiCustomerLinksIdStatsVisitsSuspenseQueryOptions(
 }
 
 /**
- * @summary Получить статистику посещений ссылки по id
+ * @summary Получить статистику переходов по ссылке по id
  * {@link /api/customer/links/:id/stats/visits}
  */
 export function useGetApiCustomerLinksIdStatsVisitsSuspense<

@@ -22,7 +22,7 @@ export type GetApiCustomerLinksTokenVisitSuspenseQueryKey = ReturnType<
 >;
 
 /**
- * @summary Посетить ссылку по token
+ * @summary Перейти по ссылке по token
  * {@link /api/customer/links/:token/visit}
  */
 export async function getApiCustomerLinksTokenVisitSuspense(
@@ -64,7 +64,7 @@ export function getApiCustomerLinksTokenVisitSuspenseQueryOptions(
 }
 
 /**
- * @summary Посетить ссылку по token
+ * @summary Перейти по ссылке по token
  * {@link /api/customer/links/:token/visit}
  */
 export function useGetApiCustomerLinksTokenVisitSuspense<

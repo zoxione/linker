@@ -9,7 +9,7 @@ const contract = createRoute({
   method: "get",
   path: "/{id}/stats/visits",
   tags: [contracts.tags.CUSTOMER_LINK],
-  summary: "Получить статистику посещений ссылки по id",
+  summary: "Получить статистику переходов по ссылке по id",
   middleware: [contracts.middlewares.auth] as const,
   request: {
     params: CUSTOMER_STATS_LINK_VISITS.pick({ id: true }),

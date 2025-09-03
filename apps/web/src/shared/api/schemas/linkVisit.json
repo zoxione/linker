@@ -30,6 +30,6 @@
     "referer",
     "headers"
   ],
-  "description": "Посещение ссылки",
+  "description": "Переход по ссылке",
   "x-readme-ref-name": "LinkVisit"
 }

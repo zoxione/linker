@@ -18,7 +18,7 @@ export const getApiCustomerLinkVisitsQueryKey = (params?: GetApiCustomerLinkVisi
 export type GetApiCustomerLinkVisitsQueryKey = ReturnType<typeof getApiCustomerLinkVisitsQueryKey>;
 
 /**
- * @summary Получить посещения ссылок
+ * @summary Получить переходы по ссылкам
  * {@link /api/customer/link-visits}
  */
 export async function getApiCustomerLinkVisits(
@@ -60,7 +60,7 @@ export function getApiCustomerLinkVisitsQueryOptions(
 }
 
 /**
- * @summary Получить посещения ссылок
+ * @summary Получить переходы по ссылкам
  * {@link /api/customer/link-visits}
  */
 export function useGetApiCustomerLinkVisits<

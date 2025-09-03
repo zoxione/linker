@@ -10,7 +10,7 @@ export const getApiCustomerLinkVisitsQueryParamsSchema = z
   .optional();
 
 /**
- * @description Список посещений ссылок
+ * @description Список переходов по ссылкам
  */
 export const getApiCustomerLinkVisits200Schema = z.object({
   limit: z.number(),

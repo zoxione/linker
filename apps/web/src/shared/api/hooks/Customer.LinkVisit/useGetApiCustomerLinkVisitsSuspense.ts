@@ -18,7 +18,7 @@ export const getApiCustomerLinkVisitsSuspenseQueryKey = (params?: GetApiCustomer
 export type GetApiCustomerLinkVisitsSuspenseQueryKey = ReturnType<typeof getApiCustomerLinkVisitsSuspenseQueryKey>;
 
 /**
- * @summary Получить посещения ссылок
+ * @summary Получить переходы по ссылкам
  * {@link /api/customer/link-visits}
  */
 export async function getApiCustomerLinkVisitsSuspense(
@@ -60,7 +60,7 @@ export function getApiCustomerLinkVisitsSuspenseQueryOptions(
 }
 
 /**
- * @summary Получить посещения ссылок
+ * @summary Получить переходы по ссылкам
  * {@link /api/customer/link-visits}
  */
 export function useGetApiCustomerLinkVisitsSuspense<

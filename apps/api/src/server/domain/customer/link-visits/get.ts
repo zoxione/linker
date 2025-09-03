@@ -9,14 +9,14 @@ const contract = createRoute({
   method: "get",
   path: "/",
   tags: [contracts.tags.CUSTOMER_LINK_VISIT],
-  summary: "Получить посещения ссылок",
+  summary: "Получить переходы по ссылкам",
   middleware: [contracts.middlewares.auth] as const,
   request: {
     query: CUSTOMER_LINK_VISIT_GET_ALL.omit({ userId: true }),
   },
   responses: {
     200: {
-      description: "Список посещений ссылок",
+      description: "Список переходов по ссылкам",
       content: {
         "application/json": {
           schema: CUSTOMER_LINK_VISIT_LIST,

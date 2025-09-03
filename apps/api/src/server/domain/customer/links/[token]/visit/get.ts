@@ -11,7 +11,7 @@ const contract = createRoute({
   method: "get",
   path: "/{token}/visit",
   tags: [contracts.tags.CUSTOMER_LINK],
-  summary: "Посетить ссылку по token",
+  summary: "Перейти по ссылке по token",
   request: {
     params: CUSTOMER_LINK_VISIT.pick({ token: true }),
   },
