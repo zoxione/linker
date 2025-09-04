@@ -5,6 +5,8 @@ import { dayjs } from "../../../lib/dayjs";
 import { db, dbSchema } from "../../../persistence/db";
 import { CustomerStatsGlobal } from "./dto/customer.stats.global";
 import { CustomerStatsGlobalResponse } from "./dto/customer.stats.global-response";
+import { CustomerStatsLinkBrowsers } from "./dto/customer.stats.link-browsers";
+import { CustomerStatsLinkBrowsersResponse } from "./dto/customer.stats.link-browsers-response";
 import { CustomerStatsLinkLanguages } from "./dto/customer.stats.link-languages";
 import { CustomerStatsLinkLanguagesResponse } from "./dto/customer.stats.link-languages-response";
 import { CustomerStatsLinkVisits } from "./dto/customer.stats.link-visits";
@@ -121,6 +123,44 @@ class CustomerStatsService {
 
     return {
       items: languagesStats,
+    };
+  }
+
+  async linkBrowsers(dto: CustomerStatsLinkBrowsers): Promise<CustomerStatsLinkBrowsersResponse> {
+    const { id, userId } = dto;
+
+    const link = await db.query.link.findFirst({
+      where: this.#linkByIdAndUser(id, userId),
+    });
+    if (!link) {
+      throw new HTTPException(404, { message: "Ссылка не найдена" });
+    }
+
+    const result = await db
+      .select({
+        browser: dbSchema.linkVisit.browser,
+        value: sql<string>`count(*)`,
+      })
+      .from(dbSchema.linkVisit)
+      .where(eq(dbSchema.linkVisit.linkId, id))
+      .groupBy(dbSchema.linkVisit.browser)
+      .orderBy(sql<string>`count(*) desc`);
+
+    const validBrowsers = result
+      .filter((item): item is { browser: string; value: string } => item.browser !== null && item.browser !== undefined)
+      .map((item) => ({ browser: item.browser!, value: Number(item.value) }));
+    const browsersStats = [...validBrowsers.slice(0, 4)];
+
+    const otherCount = validBrowsers.slice(4).reduce((sum, item) => sum + item.value, 0);
+    if (otherCount > 0) {
+      browsersStats.push({
+        browser: "Другие",
+        value: otherCount,
+      });
+    }
+
+    return {
+      items: browsersStats,
     };
   }
 }

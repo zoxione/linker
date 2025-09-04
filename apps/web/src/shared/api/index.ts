@@ -1,6 +1,8 @@
 export type { DeleteApiCustomerLinksIdMutationKey } from "./hooks/Customer.Link/useDeleteApiCustomerLinksId";
 export type { GetApiCustomerLinksQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinks";
 export type { GetApiCustomerLinksIdQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksId";
+export type { GetApiCustomerLinksIdStatsBrowsersQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsBrowsers";
+export type { GetApiCustomerLinksIdStatsBrowsersSuspenseQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsBrowsersSuspense";
 export type { GetApiCustomerLinksIdStatsLanguagesQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsLanguages";
 export type { GetApiCustomerLinksIdStatsLanguagesSuspenseQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsLanguagesSuspense";
 export type { GetApiCustomerLinksIdStatsVisitsQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsVisits";
@@ -47,6 +49,15 @@ export type {
   GetApiCustomerLinksIdQueryResponse,
   GetApiCustomerLinksIdQuery,
 } from "./types/Customer.Link/GetApiCustomerLinksId";
+export type {
+  GetApiCustomerLinksIdStatsBrowsersPathParams,
+  GetApiCustomerLinksIdStatsBrowsers200,
+  GetApiCustomerLinksIdStatsBrowsers400,
+  GetApiCustomerLinksIdStatsBrowsers404,
+  GetApiCustomerLinksIdStatsBrowsers500,
+  GetApiCustomerLinksIdStatsBrowsersQueryResponse,
+  GetApiCustomerLinksIdStatsBrowsersQuery,
+} from "./types/Customer.Link/GetApiCustomerLinksIdStatsBrowsers";
 export type {
   GetApiCustomerLinksIdStatsLanguagesPathParams,
   GetApiCustomerLinksIdStatsLanguages200,
@@ -143,6 +154,18 @@ export {
   getApiCustomerLinksIdQueryOptions,
   useGetApiCustomerLinksId,
 } from "./hooks/Customer.Link/useGetApiCustomerLinksId";
+export {
+  getApiCustomerLinksIdStatsBrowsersQueryKey,
+  getApiCustomerLinksIdStatsBrowsers,
+  getApiCustomerLinksIdStatsBrowsersQueryOptions,
+  useGetApiCustomerLinksIdStatsBrowsers,
+} from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsBrowsers";
+export {
+  getApiCustomerLinksIdStatsBrowsersSuspenseQueryKey,
+  getApiCustomerLinksIdStatsBrowsersSuspense,
+  getApiCustomerLinksIdStatsBrowsersSuspenseQueryOptions,
+  useGetApiCustomerLinksIdStatsBrowsersSuspense,
+} from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsBrowsersSuspense";
 export {
   getApiCustomerLinksIdStatsLanguagesQueryKey,
   getApiCustomerLinksIdStatsLanguages,
@@ -249,6 +272,14 @@ export {
   getApiCustomerLinksId500Schema,
   getApiCustomerLinksIdQueryResponseSchema,
 } from "./zod/Customer.Link/getApiCustomerLinksIdSchema";
+export {
+  getApiCustomerLinksIdStatsBrowsersPathParamsSchema,
+  getApiCustomerLinksIdStatsBrowsers200Schema,
+  getApiCustomerLinksIdStatsBrowsers400Schema,
+  getApiCustomerLinksIdStatsBrowsers404Schema,
+  getApiCustomerLinksIdStatsBrowsers500Schema,
+  getApiCustomerLinksIdStatsBrowsersQueryResponseSchema,
+} from "./zod/Customer.Link/getApiCustomerLinksIdStatsBrowsersSchema";
 export {
   getApiCustomerLinksIdStatsLanguagesPathParamsSchema,
   getApiCustomerLinksIdStatsLanguages200Schema,

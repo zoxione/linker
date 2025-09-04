@@ -3,6 +3,7 @@ import { customerLinkVisitsGetRoute } from "./link-visits/get";
 import { customerLinksIdDeleteRoute } from "./links/[id]/delete";
 import { customerLinksIdGetRoute } from "./links/[id]/get";
 import { customerLinksIdPutRoute } from "./links/[id]/put";
+import { customerLinksIdStatsBrowsersGetRoute } from "./links/[id]/stats/browsers/get";
 import { customerLinksIdStatsLanguagesGetRoute } from "./links/[id]/stats/languages/get";
 import { customerLinksIdStatsVisitsGetRoute } from "./links/[id]/stats/visits/get";
 import { customerLinksIdStatusPostRoute } from "./links/[id]/status/post";
@@ -23,6 +24,7 @@ customerRouter.route("/links", customerLinksIdStatusPostRoute);
 customerRouter.route("/links", customerLinksIdDeleteRoute);
 customerRouter.route("/links", customerLinksIdStatsVisitsGetRoute);
 customerRouter.route("/links", customerLinksIdStatsLanguagesGetRoute);
+customerRouter.route("/links", customerLinksIdStatsBrowsersGetRoute);
 customerRouter.route("/links", customerLinksTokenVisitGetRoute);
 
 customerRouter.route("/stats", customerStatsGlobalGetRoute);
