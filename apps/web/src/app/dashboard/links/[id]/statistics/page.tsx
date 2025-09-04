@@ -8,6 +8,8 @@ import { LinkStatsLanguagesChart } from "@/widgets/link/link-stats-languages-cha
 import { LinkStatsVisitsChart } from "@/widgets/link/link-stats-visits-chart";
 import { NoStatsNotice } from "@/widgets/shared/no-stats-notice";
 
+export const dynamic = "force-dynamic";
+
 interface PageProps {
   params: Promise<{ id: string }>;
 }

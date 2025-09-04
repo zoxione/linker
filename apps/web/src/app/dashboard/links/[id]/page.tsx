@@ -7,6 +7,8 @@ import { Link, getApiCustomerLinksId } from "@/shared/api";
 import { getCookieHeader } from "@/shared/utils/get-cookie-header";
 import { LinkRedirectCounter } from "@/widgets/link/link-redirect-counter";
 
+export const dynamic = "force-dynamic";
+
 interface PageProps {
   params: Promise<{ id: string }>;
 }
