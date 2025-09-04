@@ -1,8 +1,8 @@
 import { createRoute } from "@hono/zod-openapi";
 
 import { app } from "../../../../../app";
-import { CUSTOMER_STATS_GLOBAL_RESPONSE } from "../../../../../app/customer/stats/dto/customer.stats.global";
-import { CUSTOMER_STATS_GLOBAL } from "../../../../../app/customer/stats/dto/customer.stats.global-response";
+import { CUSTOMER_STATS_GLOBAL } from "../../../../../app/customer/stats/dto/customer.stats.global";
+import { CUSTOMER_STATS_GLOBAL_RESPONSE } from "../../../../../app/customer/stats/dto/customer.stats.global-response";
 import { contracts } from "../../../../contracts";
 
 const contract = createRoute({

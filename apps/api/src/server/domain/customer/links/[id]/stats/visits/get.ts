@@ -2,7 +2,7 @@ import { createRoute } from "@hono/zod-openapi";
 
 import { app } from "../../../../../../../app";
 import { CUSTOMER_STATS_LINK_VISITS } from "../../../../../../../app/customer/stats/dto/customer.stats.link-visits";
-import { CUSTOMER_STATS_LINK_VISITS_RESPONSE } from "../../../../../../../app/customer/stats/dto/customer.stats.link-visits-response copy";
+import { CUSTOMER_STATS_LINK_VISITS_RESPONSE } from "../../../../../../../app/customer/stats/dto/customer.stats.link-visits-response";
 import { contracts } from "../../../../../../contracts";
 
 const contract = createRoute({

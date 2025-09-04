@@ -1,13 +1,10 @@
 import { z } from "@hono/zod-openapi";
 
-import { LINK_SCHEMA } from "../../../shared/entities/link";
-
-const CUSTOMER_STATS_GLOBAL = z.object({
-  ...LINK_SCHEMA.pick({
-    userId: true,
-  }).shape,
+const CUSTOMER_STATS_GLOBAL_RESPONSE = z.object({
+  totalLinks: z.coerce.number().openapi({ type: "number" }),
+  totalLinkVisits: z.coerce.number().openapi({ type: "number" }),
 });
 
-type CustomerStatsGlobal = z.infer<typeof CUSTOMER_STATS_GLOBAL>;
+type CustomerStatsGlobalResponse = z.infer<typeof CUSTOMER_STATS_GLOBAL_RESPONSE>;
 
-export { CUSTOMER_STATS_GLOBAL, type CustomerStatsGlobal };
+export { CUSTOMER_STATS_GLOBAL_RESPONSE, type CustomerStatsGlobalResponse };

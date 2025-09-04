@@ -3,12 +3,12 @@ import { HTTPException } from "hono/http-exception";
 
 import { dayjs } from "../../../lib/dayjs";
 import { db, dbSchema } from "../../../persistence/db";
-import { CustomerStatsGlobalResponse } from "./dto/customer.stats.global";
-import { CustomerStatsGlobal } from "./dto/customer.stats.global-response";
+import { CustomerStatsGlobal } from "./dto/customer.stats.global";
+import { CustomerStatsGlobalResponse } from "./dto/customer.stats.global-response";
 import { CustomerStatsLinkLanguages } from "./dto/customer.stats.link-languages";
 import { CustomerStatsLinkLanguagesResponse } from "./dto/customer.stats.link-languages-response";
 import { CustomerStatsLinkVisits } from "./dto/customer.stats.link-visits";
-import { CustomerStatsLinkVisitsResponse } from "./dto/customer.stats.link-visits-response copy";
+import { CustomerStatsLinkVisitsResponse } from "./dto/customer.stats.link-visits-response";
 
 class CustomerStatsService {
   constructor() {}
