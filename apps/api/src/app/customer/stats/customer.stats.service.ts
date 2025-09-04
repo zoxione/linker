@@ -5,6 +5,8 @@ import { dayjs } from "../../../lib/dayjs";
 import { db, dbSchema } from "../../../persistence/db";
 import { CustomerStatsGlobalResponse } from "./dto/customer.stats.global";
 import { CustomerStatsGlobal } from "./dto/customer.stats.global-response";
+import { CustomerStatsLinkLanguages } from "./dto/customer.stats.link-languages";
+import { CustomerStatsLinkLanguagesResponse } from "./dto/customer.stats.link-languages-response";
 import { CustomerStatsLinkVisits } from "./dto/customer.stats.link-visits";
 import { CustomerStatsLinkVisitsResponse } from "./dto/customer.stats.link-visits-response copy";
 
@@ -79,6 +81,46 @@ class CustomerStatsService {
 
     return {
       items: result,
+    };
+  }
+
+  async linkLanguages(dto: CustomerStatsLinkLanguages): Promise<CustomerStatsLinkLanguagesResponse> {
+    const { id, userId } = dto;
+
+    const link = await db.query.link.findFirst({
+      where: this.#linkByIdAndUser(id, userId),
+    });
+    if (!link) {
+      throw new HTTPException(404, { message: "Ссылка не найдена" });
+    }
+
+    const result = await db
+      .select({
+        language: dbSchema.linkVisit.language,
+        value: sql<string>`count(*)`,
+      })
+      .from(dbSchema.linkVisit)
+      .where(eq(dbSchema.linkVisit.linkId, id))
+      .groupBy(dbSchema.linkVisit.language)
+      .orderBy(sql<string>`count(*) desc`);
+
+    const validLanguages = result
+      .filter(
+        (item): item is { language: string; value: string } => item.language !== null && item.language !== undefined,
+      )
+      .map((item) => ({ language: item.language!, value: Number(item.value) }));
+    const languagesStats = [...validLanguages.slice(0, 4)];
+
+    const otherCount = validLanguages.slice(4).reduce((sum, item) => sum + item.value, 0);
+    if (otherCount > 0) {
+      languagesStats.push({
+        language: "Другие",
+        value: otherCount,
+      });
+    }
+
+    return {
+      items: languagesStats,
     };
   }
 }

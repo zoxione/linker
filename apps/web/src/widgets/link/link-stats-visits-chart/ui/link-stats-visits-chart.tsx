@@ -29,7 +29,7 @@ const LinkStatsVisitsChart = ({ id, className }: LinkStatsVisitsChartProps) => {
     { range },
     {
       query: {
-        queryKey: [QUERY_KEYS.LINKS, id, "stats", range],
+        queryKey: [QUERY_KEYS.LINKS, id, "stats-visits", range],
       },
     },
   );
@@ -55,7 +55,7 @@ const LinkStatsVisitsChart = ({ id, className }: LinkStatsVisitsChartProps) => {
             config={{
               value: {
                 label: "Переходов",
-                color: "#2563eb",
+                color: "var(--primary)",
               },
             }}
             className="h-[250px] w-full"

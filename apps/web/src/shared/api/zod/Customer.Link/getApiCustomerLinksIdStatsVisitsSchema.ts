@@ -11,7 +11,7 @@ export const getApiCustomerLinksIdStatsVisitsQueryParamsSchema = z.object({
 });
 
 /**
- * @description Статистика ссылки
+ * @description Статистика переходов по ссылке
  */
 export const getApiCustomerLinksIdStatsVisits200Schema = z.object({
   items: z.array(

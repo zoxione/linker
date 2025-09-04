@@ -18,7 +18,7 @@ export type GetApiCustomerLinksIdStatsVisitsQueryParams = {
 };
 
 /**
- * @description Статистика ссылки
+ * @description Статистика переходов по ссылке
  */
 export type GetApiCustomerLinksIdStatsVisits200 = {
   /**

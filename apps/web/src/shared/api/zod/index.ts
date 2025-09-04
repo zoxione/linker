@@ -18,6 +18,14 @@ export {
   getApiCustomerLinksIdQueryResponseSchema,
 } from "./Customer.Link/getApiCustomerLinksIdSchema";
 export {
+  getApiCustomerLinksIdStatsLanguagesPathParamsSchema,
+  getApiCustomerLinksIdStatsLanguages200Schema,
+  getApiCustomerLinksIdStatsLanguages400Schema,
+  getApiCustomerLinksIdStatsLanguages404Schema,
+  getApiCustomerLinksIdStatsLanguages500Schema,
+  getApiCustomerLinksIdStatsLanguagesQueryResponseSchema,
+} from "./Customer.Link/getApiCustomerLinksIdStatsLanguagesSchema";
+export {
   getApiCustomerLinksIdStatsVisitsPathParamsSchema,
   getApiCustomerLinksIdStatsVisitsQueryParamsSchema,
   getApiCustomerLinksIdStatsVisits200Schema,

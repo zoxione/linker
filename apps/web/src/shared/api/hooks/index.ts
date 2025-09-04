@@ -1,6 +1,8 @@
 export type { DeleteApiCustomerLinksIdMutationKey } from "./Customer.Link/useDeleteApiCustomerLinksId";
 export type { GetApiCustomerLinksQueryKey } from "./Customer.Link/useGetApiCustomerLinks";
 export type { GetApiCustomerLinksIdQueryKey } from "./Customer.Link/useGetApiCustomerLinksId";
+export type { GetApiCustomerLinksIdStatsLanguagesQueryKey } from "./Customer.Link/useGetApiCustomerLinksIdStatsLanguages";
+export type { GetApiCustomerLinksIdStatsLanguagesSuspenseQueryKey } from "./Customer.Link/useGetApiCustomerLinksIdStatsLanguagesSuspense";
 export type { GetApiCustomerLinksIdStatsVisitsQueryKey } from "./Customer.Link/useGetApiCustomerLinksIdStatsVisits";
 export type { GetApiCustomerLinksIdStatsVisitsSuspenseQueryKey } from "./Customer.Link/useGetApiCustomerLinksIdStatsVisitsSuspense";
 export type { GetApiCustomerLinksIdSuspenseQueryKey } from "./Customer.Link/useGetApiCustomerLinksIdSuspense";
@@ -31,6 +33,18 @@ export {
   getApiCustomerLinksIdQueryOptions,
   useGetApiCustomerLinksId,
 } from "./Customer.Link/useGetApiCustomerLinksId";
+export {
+  getApiCustomerLinksIdStatsLanguagesQueryKey,
+  getApiCustomerLinksIdStatsLanguages,
+  getApiCustomerLinksIdStatsLanguagesQueryOptions,
+  useGetApiCustomerLinksIdStatsLanguages,
+} from "./Customer.Link/useGetApiCustomerLinksIdStatsLanguages";
+export {
+  getApiCustomerLinksIdStatsLanguagesSuspenseQueryKey,
+  getApiCustomerLinksIdStatsLanguagesSuspense,
+  getApiCustomerLinksIdStatsLanguagesSuspenseQueryOptions,
+  useGetApiCustomerLinksIdStatsLanguagesSuspense,
+} from "./Customer.Link/useGetApiCustomerLinksIdStatsLanguagesSuspense";
 export {
   getApiCustomerLinksIdStatsVisitsQueryKey,
   getApiCustomerLinksIdStatsVisits,

@@ -17,7 +17,7 @@ const contract = createRoute({
   },
   responses: {
     200: {
-      description: "Статистика ссылки",
+      description: "Статистика переходов по ссылке",
       content: {
         "application/json": {
           schema: CUSTOMER_STATS_LINK_VISITS_RESPONSE,

@@ -30,6 +30,15 @@ export type {
   GetApiCustomerLinksIdQuery,
 } from "./Customer.Link/GetApiCustomerLinksId";
 export type {
+  GetApiCustomerLinksIdStatsLanguagesPathParams,
+  GetApiCustomerLinksIdStatsLanguages200,
+  GetApiCustomerLinksIdStatsLanguages400,
+  GetApiCustomerLinksIdStatsLanguages404,
+  GetApiCustomerLinksIdStatsLanguages500,
+  GetApiCustomerLinksIdStatsLanguagesQueryResponse,
+  GetApiCustomerLinksIdStatsLanguagesQuery,
+} from "./Customer.Link/GetApiCustomerLinksIdStatsLanguages";
+export type {
   GetApiCustomerLinksIdStatsVisitsPathParams,
   GetApiCustomerLinksIdStatsVisitsQueryParamsRangeEnum,
   GetApiCustomerLinksIdStatsVisitsQueryParams,

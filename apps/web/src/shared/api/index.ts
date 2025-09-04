@@ -1,6 +1,8 @@
 export type { DeleteApiCustomerLinksIdMutationKey } from "./hooks/Customer.Link/useDeleteApiCustomerLinksId";
 export type { GetApiCustomerLinksQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinks";
 export type { GetApiCustomerLinksIdQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksId";
+export type { GetApiCustomerLinksIdStatsLanguagesQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsLanguages";
+export type { GetApiCustomerLinksIdStatsLanguagesSuspenseQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsLanguagesSuspense";
 export type { GetApiCustomerLinksIdStatsVisitsQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsVisits";
 export type { GetApiCustomerLinksIdStatsVisitsSuspenseQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsVisitsSuspense";
 export type { GetApiCustomerLinksIdSuspenseQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdSuspense";
@@ -45,6 +47,15 @@ export type {
   GetApiCustomerLinksIdQueryResponse,
   GetApiCustomerLinksIdQuery,
 } from "./types/Customer.Link/GetApiCustomerLinksId";
+export type {
+  GetApiCustomerLinksIdStatsLanguagesPathParams,
+  GetApiCustomerLinksIdStatsLanguages200,
+  GetApiCustomerLinksIdStatsLanguages400,
+  GetApiCustomerLinksIdStatsLanguages404,
+  GetApiCustomerLinksIdStatsLanguages500,
+  GetApiCustomerLinksIdStatsLanguagesQueryResponse,
+  GetApiCustomerLinksIdStatsLanguagesQuery,
+} from "./types/Customer.Link/GetApiCustomerLinksIdStatsLanguages";
 export type {
   GetApiCustomerLinksIdStatsVisitsPathParams,
   GetApiCustomerLinksIdStatsVisitsQueryParamsRangeEnum,
@@ -132,6 +143,18 @@ export {
   getApiCustomerLinksIdQueryOptions,
   useGetApiCustomerLinksId,
 } from "./hooks/Customer.Link/useGetApiCustomerLinksId";
+export {
+  getApiCustomerLinksIdStatsLanguagesQueryKey,
+  getApiCustomerLinksIdStatsLanguages,
+  getApiCustomerLinksIdStatsLanguagesQueryOptions,
+  useGetApiCustomerLinksIdStatsLanguages,
+} from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsLanguages";
+export {
+  getApiCustomerLinksIdStatsLanguagesSuspenseQueryKey,
+  getApiCustomerLinksIdStatsLanguagesSuspense,
+  getApiCustomerLinksIdStatsLanguagesSuspenseQueryOptions,
+  useGetApiCustomerLinksIdStatsLanguagesSuspense,
+} from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsLanguagesSuspense";
 export {
   getApiCustomerLinksIdStatsVisitsQueryKey,
   getApiCustomerLinksIdStatsVisits,
@@ -226,6 +249,14 @@ export {
   getApiCustomerLinksId500Schema,
   getApiCustomerLinksIdQueryResponseSchema,
 } from "./zod/Customer.Link/getApiCustomerLinksIdSchema";
+export {
+  getApiCustomerLinksIdStatsLanguagesPathParamsSchema,
+  getApiCustomerLinksIdStatsLanguages200Schema,
+  getApiCustomerLinksIdStatsLanguages400Schema,
+  getApiCustomerLinksIdStatsLanguages404Schema,
+  getApiCustomerLinksIdStatsLanguages500Schema,
+  getApiCustomerLinksIdStatsLanguagesQueryResponseSchema,
+} from "./zod/Customer.Link/getApiCustomerLinksIdStatsLanguagesSchema";
 export {
   getApiCustomerLinksIdStatsVisitsPathParamsSchema,
   getApiCustomerLinksIdStatsVisitsQueryParamsSchema,
