@@ -3,15 +3,15 @@
 import { z } from "zod";
 
 export const postApiCustomerLinksIdStatusPathParamsSchema = z.object({
-  id: z.string(),
+  id: z.string().uuid(),
 });
 
 /**
  * @description Объект ссылки
  */
 export const postApiCustomerLinksIdStatus200Schema = z.object({
-  id: z.string(),
-  userId: z.string(),
+  id: z.string().uuid(),
+  userId: z.string().uuid(),
   status: z.enum(["ENABLE", "DISABLE"]),
   name: z.string().min(3).max(24),
   token: z.string(),

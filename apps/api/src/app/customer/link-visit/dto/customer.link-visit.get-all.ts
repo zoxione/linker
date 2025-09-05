@@ -7,6 +7,7 @@ const CUSTOMER_LINK_VISIT_GET_ALL = z.object({
   ...LINK_SCHEMA.pick({
     userId: true,
   }).shape,
+  linkId: LINK_SCHEMA.shape.id.optional(),
   ...PAGINATION_SCHEMA.pick({ limit: true, offset: true }).shape,
 });
 

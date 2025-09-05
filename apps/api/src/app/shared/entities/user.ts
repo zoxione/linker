@@ -4,7 +4,7 @@ import { BASE_ENTITY_SCHEMA } from "../base-entity";
 
 const USER_SCHEMA = z.object({
   ...BASE_ENTITY_SCHEMA.shape,
-  id: z.string({ error: "Поле должно быть строкой" }).trim(),
+  id: z.uuid({ error: "Поле должно быть UUID" }),
   email: z.email({ error: "Неверный формат email" }),
   emailVerified: z.coerce.boolean({ error: "Поле должно быть булевым значением" }).openapi({ type: "boolean" }),
   name: z

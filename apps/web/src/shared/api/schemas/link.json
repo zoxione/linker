@@ -3,8 +3,8 @@
   "properties": {
     "updatedAt": { "type": "string", "format": "date-time" },
     "createdAt": { "type": "string", "format": "date-time" },
-    "id": { "type": "string" },
-    "userId": { "type": "string" },
+    "id": { "type": "string", "format": "uuid" },
+    "userId": { "type": "string", "format": "uuid" },
     "status": { "type": "string", "enum": ["ENABLE", "DISABLE"] },
     "name": { "type": "string", "minLength": 3, "maxLength": 24 },
     "token": { "type": "string" },

@@ -4,8 +4,8 @@ import { BASE_ENTITY_SCHEMA } from "../base-entity";
 
 const LINK_VISIT_SCHEMA = z.object({
   ...BASE_ENTITY_SCHEMA.shape,
-  id: z.string({ error: "Поле должно быть строкой" }).trim(),
-  linkId: z.string({ error: "Поле должно быть строкой" }).trim(),
+  id: z.uuid({ error: "Поле должно быть UUID" }),
+  linkId: z.uuid({ error: "Поле должно быть UUID" }),
   ip: z.string({ error: "Поле должно быть строкой" }).trim().nullable(),
   language: z.string({ error: "Поле должно быть строкой" }).trim().nullable(),
   browser: z.string({ error: "Поле должно быть строкой" }).trim().nullable(),

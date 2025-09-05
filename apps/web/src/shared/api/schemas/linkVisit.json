@@ -3,8 +3,8 @@
   "properties": {
     "updatedAt": { "type": "string", "format": "date-time" },
     "createdAt": { "type": "string", "format": "date-time" },
-    "id": { "type": "string" },
-    "linkId": { "type": "string" },
+    "id": { "type": "string", "format": "uuid" },
+    "linkId": { "type": "string", "format": "uuid" },
     "ip": { "type": ["string", "null"] },
     "language": { "type": ["string", "null"] },
     "browser": { "type": ["string", "null"] },

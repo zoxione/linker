@@ -3,7 +3,7 @@
   "properties": {
     "updatedAt": { "type": "string", "format": "date-time" },
     "createdAt": { "type": "string", "format": "date-time" },
-    "id": { "type": "string" },
+    "id": { "type": "string", "format": "uuid" },
     "email": { "type": "string", "format": "email" },
     "emailVerified": { "type": "boolean" },
     "name": { "type": "string", "minLength": 3, "maxLength": 24 },

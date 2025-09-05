@@ -3,6 +3,10 @@
 
 export type GetApiCustomerLinkVisitsQueryParams = {
   /**
+   * @type string | undefined, uuid
+   */
+  linkId?: string;
+  /**
    * @type number | undefined
    */
   limit?: number;
@@ -37,11 +41,11 @@ export type GetApiCustomerLinkVisits200 = {
    */
   items: {
     /**
-     * @type string
+     * @type string, uuid
      */
     id: string;
     /**
-     * @type string
+     * @type string, uuid
      */
     linkId: string;
     /**

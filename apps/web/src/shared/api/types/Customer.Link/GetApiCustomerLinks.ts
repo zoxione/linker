@@ -39,11 +39,11 @@ export type GetApiCustomerLinks200 = {
    */
   items: {
     /**
-     * @type string
+     * @type string, uuid
      */
     id: string;
     /**
-     * @type string
+     * @type string, uuid
      */
     userId: string;
     /**

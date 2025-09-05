@@ -3,7 +3,7 @@
 
 export type DeleteApiCustomerLinksIdPathParams = {
   /**
-   * @type string
+   * @type string, uuid
    */
   id: string;
 };

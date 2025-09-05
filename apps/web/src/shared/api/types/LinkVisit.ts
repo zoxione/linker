@@ -14,11 +14,11 @@ export type LinkVisit = {
    */
   createdAt: string;
   /**
-   * @type string
+   * @type string, uuid
    */
   id: string;
   /**
-   * @type string
+   * @type string, uuid
    */
   linkId: string;
   /**

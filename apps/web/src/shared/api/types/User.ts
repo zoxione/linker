@@ -14,7 +14,7 @@ export type User = {
    */
   createdAt: string;
   /**
-   * @type string
+   * @type string, uuid
    */
   id: string;
   /**

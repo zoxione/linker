@@ -3,7 +3,7 @@
 
 export type GetApiCustomerLinksIdStatsBrowsersPathParams = {
   /**
-   * @type string
+   * @type string, uuid
    */
   id: string;
 };

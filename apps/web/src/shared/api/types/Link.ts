@@ -16,11 +16,11 @@ export type Link = {
    */
   createdAt: string;
   /**
-   * @type string
+   * @type string, uuid
    */
   id: string;
   /**
-   * @type string
+   * @type string, uuid
    */
   userId: string;
   /**

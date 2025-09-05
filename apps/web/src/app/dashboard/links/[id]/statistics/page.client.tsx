@@ -2,6 +2,7 @@
 
 import { QUERY_KEYS } from "@/core/data/constants";
 import { useGetApiCustomerLinksId } from "@/shared/api";
+import { LinkVisitsTable } from "@/widgets/link-visit/link-visits-table";
 import { LinkStatsBrowsersChart } from "@/widgets/link/link-stats-browsers-chart";
 import { LinkStatsLanguagesChart } from "@/widgets/link/link-stats-languages-chart";
 import { LinkStatsVisitsChart } from "@/widgets/link/link-stats-visits-chart";
@@ -30,6 +31,7 @@ export default function PageClient({ id }: PageClientProps) {
               <LinkStatsLanguagesChart link={linkQuery.data} />
               <LinkStatsBrowsersChart link={linkQuery.data} />
             </div>
+            <LinkVisitsTable linkId={linkQuery.data.id} />
           </div>
         ) : (
           <NoStatsNotice />

@@ -9,8 +9,8 @@ export const linkVisitSchema = z
   .object({
     updatedAt: z.string().datetime(),
     createdAt: z.string().datetime(),
-    id: z.string(),
-    linkId: z.string(),
+    id: z.string().uuid(),
+    linkId: z.string().uuid(),
     ip: z.string().nullable(),
     language: z.string().nullable(),
     browser: z.string().nullable(),

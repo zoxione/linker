@@ -9,8 +9,8 @@ export const linkSchema = z
   .object({
     updatedAt: z.string().datetime(),
     createdAt: z.string().datetime(),
-    id: z.string(),
-    userId: z.string(),
+    id: z.string().uuid(),
+    userId: z.string().uuid(),
     status: z.enum(["ENABLE", "DISABLE"]),
     name: z.string().min(3).max(24),
     token: z.string(),

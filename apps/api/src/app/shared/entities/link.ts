@@ -6,8 +6,8 @@ const LINK_STATUS_SCHEMA = z.enum(["ENABLE", "DISABLE"]);
 
 const LINK_SCHEMA = z.object({
   ...BASE_ENTITY_SCHEMA.shape,
-  id: z.string({ error: "Поле должно быть строкой" }).trim(),
-  userId: z.string({ error: "Поле должно быть строкой" }).trim(),
+  id: z.uuid({ error: "Поле должно быть UUID" }),
+  userId: z.uuid({ error: "Поле должно быть UUID" }),
   status: LINK_STATUS_SCHEMA,
   name: z
     .string({ error: "Поле должно быть строкой" })

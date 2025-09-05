@@ -3,7 +3,7 @@
 
 export type PostApiCustomerLinksIdStatusPathParams = {
   /**
-   * @type string
+   * @type string, uuid
    */
   id: string;
 };
@@ -15,11 +15,11 @@ export type PostApiCustomerLinksIdStatus200StatusEnum = "ENABLE" | "DISABLE";
  */
 export type PostApiCustomerLinksIdStatus200 = {
   /**
-   * @type string
+   * @type string, uuid
    */
   id: string;
   /**
-   * @type string
+   * @type string, uuid
    */
   userId: string;
   /**

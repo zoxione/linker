@@ -4,6 +4,7 @@ import { z } from "zod";
 
 export const getApiCustomerLinkVisitsQueryParamsSchema = z
   .object({
+    linkId: z.string().uuid().optional(),
     limit: z.coerce.number().optional(),
     offset: z.coerce.number().optional(),
   })
@@ -19,8 +20,8 @@ export const getApiCustomerLinkVisits200Schema = z.object({
   total: z.number(),
   items: z.array(
     z.object({
-      id: z.string(),
-      linkId: z.string(),
+      id: z.string().uuid(),
+      linkId: z.string().uuid(),
       ip: z.string().nullable(),
       language: z.string().nullable(),
       browser: z.string().nullable(),

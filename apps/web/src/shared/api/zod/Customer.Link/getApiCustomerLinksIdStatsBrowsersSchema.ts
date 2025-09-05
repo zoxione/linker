@@ -3,7 +3,7 @@
 import { z } from "zod";
 
 export const getApiCustomerLinksIdStatsBrowsersPathParamsSchema = z.object({
-  id: z.string(),
+  id: z.string().uuid(),
 });
 
 /**

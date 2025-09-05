@@ -1,4 +1,4 @@
-import { desc, eq, getTableColumns, sql } from "drizzle-orm";
+import { and, desc, eq, getTableColumns, sql } from "drizzle-orm";
 
 import { transformGetAllResult } from "../../../lib/utils/transform-get-all-result";
 import { db, dbSchema } from "../../../persistence/db";
@@ -10,7 +10,7 @@ class CustomerLinkVisitService {
   constructor() {}
 
   async getAll(dto: CustomerLinkVisitGetAll): Promise<CustomerLinkVisitList> {
-    const { userId, limit, offset } = dto;
+    const { userId, linkId, limit, offset } = dto;
 
     const result = await db
       .select({
@@ -22,7 +22,7 @@ class CustomerLinkVisitService {
       })
       .from(dbSchema.linkVisit)
       .innerJoin(dbSchema.link, eq(dbSchema.link.id, dbSchema.linkVisit.linkId))
-      .where(eq(dbSchema.link.userId, userId))
+      .where(and(eq(dbSchema.link.userId, userId), linkId ? eq(dbSchema.link.id, linkId) : undefined))
       .orderBy(desc(dbSchema.linkVisit.createdAt))
       .limit(limit)
       .offset(offset);
