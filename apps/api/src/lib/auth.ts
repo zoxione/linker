@@ -17,6 +17,20 @@ const auth = betterAuth({
       verification: dbSchema.verification,
     },
   }),
+  databaseHooks: {
+    user: {
+      create: {
+        before: async (user) => {
+          return {
+            data: {
+              ...user,
+              name: user.name || user.email.split("@")[0],
+            },
+          };
+        },
+      },
+    },
+  },
   plugins: [
     emailOTP({
       otpLength: OTP_LENGTH,
@@ -33,6 +47,9 @@ const auth = betterAuth({
     }),
   ],
   advanced: {
+    database: {
+      generateId: false,
+    },
     crossSubDomainCookies: {
       enabled: true,
       domain: config.domainUrl,
