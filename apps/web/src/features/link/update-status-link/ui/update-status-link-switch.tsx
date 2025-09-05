@@ -20,7 +20,13 @@ const UpdateStatusLinkSwitch = ({ id, status }: UpdateStatusLinkSwitchProps) => 
   const [loading, setLoading] = useState<boolean>(false);
   const queryClient = useQueryClient();
 
-  const { mutateAsync: updateStatusLink } = usePostApiCustomerLinksIdStatus();
+  const { mutateAsync: updateStatusLink } = usePostApiCustomerLinksIdStatus({
+    mutation: {
+      onSuccess: async () => {
+        await queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.LINKS] });
+      },
+    },
+  });
 
   const onUpdateStatus = async (value: boolean) => {
     try {
@@ -32,7 +38,6 @@ const UpdateStatusLinkSwitch = ({ id, status }: UpdateStatusLinkSwitchProps) => 
         },
       });
       toast.success({ description: "Статус обновлен" });
-      await queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.LINKS] });
     } catch (error) {
       await displayError(error);
     } finally {

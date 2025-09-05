@@ -7,9 +7,9 @@ import { authClient } from "@/shared/lib/auth-client";
 import { UpdateUserForm } from "./update-user-form";
 import { UpdateUserFormSkeleton } from "./update-user-form.skeleton";
 
-interface UpdateUserBlockProps {}
+interface UpdateUserCardProps {}
 
-const UpdateUserBlock = ({}: UpdateUserBlockProps) => {
+const UpdateUserCard = ({}: UpdateUserCardProps) => {
   const { data: session } = authClient.useSession();
 
   return (
@@ -22,4 +22,4 @@ const UpdateUserBlock = ({}: UpdateUserBlockProps) => {
   );
 };
 
-export { UpdateUserBlock };
+export { UpdateUserCard };

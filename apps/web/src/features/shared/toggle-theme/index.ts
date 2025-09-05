@@ -1,1 +1,1 @@
-export * from "./ui/toggle-theme-block";
+export * from "./ui/toggle-theme-card";

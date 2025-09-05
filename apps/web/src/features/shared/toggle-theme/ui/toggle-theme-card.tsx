@@ -2,9 +2,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@repo/ui/components/ca
 
 import { ToggleThemeSelect } from "./toggle-theme-select";
 
-interface ToggleThemeBlockProps {}
+interface ToggleThemeCardProps {}
 
-const ToggleThemeBlock = ({}: ToggleThemeBlockProps) => {
+const ToggleThemeCard = ({}: ToggleThemeCardProps) => {
   return (
     <Card className="h-fit">
       <CardHeader>
@@ -17,4 +17,4 @@ const ToggleThemeBlock = ({}: ToggleThemeBlockProps) => {
   );
 };
 
-export { ToggleThemeBlock };
+export { ToggleThemeCard };

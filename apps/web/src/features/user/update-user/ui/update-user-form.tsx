@@ -3,22 +3,21 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-import { User } from "@repo/api";
 import { Button } from "@repo/ui/button";
 import { Icons } from "@repo/ui/components/icons";
 import { toast } from "@repo/ui/components/toast";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@repo/ui/form";
 import { Input } from "@repo/ui/input";
 
-import { QUERY_KEYS } from "@/core/data/constants";
+import { User } from "@/entities/user/model/user.types";
 import { SimpleError } from "@/shared/errors/simple-error";
 import { authClient } from "@/shared/lib/auth-client";
 import { Avatar } from "@/shared/ui/avatar";
 import { displayError } from "@/shared/utils/display-error";
 import { getAuthError } from "@/shared/utils/get-auth-error";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useQueryClient } from "@tanstack/react-query";
 
+import { toUpdateUserAPI, toUpdateUserValues } from "../model/update-user.mappers";
 import { UpdateUserFormSchema, updateUserFormSchema } from "../model/update-user.schemas";
 
 interface UpdateUserFormProps {
@@ -27,28 +26,21 @@ interface UpdateUserFormProps {
 
 const UpdateUserForm = ({ user }: UpdateUserFormProps) => {
   const [loading, setLoading] = useState<boolean>(false);
-  const queryClient = useQueryClient();
 
   const form = useForm<UpdateUserFormSchema>({
     resolver: zodResolver(updateUserFormSchema),
-    defaultValues: {
-      email: user.email,
-      name: user.name,
-    },
+    defaultValues: toUpdateUserValues(user),
   });
 
   const onSubmit = async (values: UpdateUserFormSchema) => {
     try {
       setLoading(true);
-      const { error } = await authClient.updateUser({
-        name: values.name,
-      });
+      const { error } = await authClient.updateUser(toUpdateUserAPI(values));
       if (error) {
         throw new SimpleError(getAuthError(error.code) ?? "Не удалось обновить профиль");
       }
-      form.reset({ name: values.name, email: values.email });
+      form.reset(toUpdateUserValues({ ...user, ...values }));
       toast.success({ description: "Профиль обновлен" });
-      await queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.USERS] });
     } catch (error) {
       await displayError(error);
     } finally {

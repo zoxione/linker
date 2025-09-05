@@ -16,6 +16,7 @@ import { displayError } from "@/shared/utils/display-error";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useQueryClient } from "@tanstack/react-query";
 
+import { toUpdateLinkAPI, toUpdateLinkValues } from "../model/update-link.mappers";
 import { UpdateLinkFormSchema, updateLinkFormSchema } from "../model/update-link.schemas";
 
 interface UpdateLinkFormProps {
@@ -26,16 +27,17 @@ const UpdateLinkForm = ({ link }: UpdateLinkFormProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const queryClient = useQueryClient();
 
-  const { mutateAsync: updateLink } = usePutApiCustomerLinksId();
+  const { mutateAsync: updateLink } = usePutApiCustomerLinksId({
+    mutation: {
+      onSuccess: async () => {
+        await queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.LINKS] });
+      },
+    },
+  });
 
   const form = useForm<UpdateLinkFormSchema>({
     resolver: zodResolver(updateLinkFormSchema),
-    defaultValues: {
-      name: link.name,
-      redirectUrl: link.redirectUrl,
-      url: link.url,
-      createdAt: link.createdAt,
-    },
+    defaultValues: toUpdateLinkValues(link),
   });
 
   const onSubmit = async (values: UpdateLinkFormSchema) => {
@@ -43,19 +45,10 @@ const UpdateLinkForm = ({ link }: UpdateLinkFormProps) => {
       setLoading(true);
       const res = await updateLink({
         id: link.id,
-        data: {
-          name: values.name,
-        },
+        data: toUpdateLinkAPI(values),
       });
-      // TODO: добавить мапперы
-      form.reset({
-        name: res.name,
-        redirectUrl: res.redirectUrl,
-        url: res.url,
-        createdAt: res.createdAt,
-      });
+      form.reset(toUpdateLinkValues(res));
       toast.success({ description: "Ссылка обновлена" });
-      await queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.LINKS] });
     } catch (error) {
       await displayError(error);
     } finally {

@@ -1,1 +1,1 @@
-export * from "./ui/update-user-block";
+export * from "./ui/update-user-card";

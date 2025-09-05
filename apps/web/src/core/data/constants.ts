@@ -45,7 +45,6 @@ const APP_PAGES = APP_SIDEBAR_ITEMS.map((item) => ({
 const QUERY_KEYS = {
   LINKS: "links",
   LINK_VISITS: "link-visits",
-  USERS: "users",
   STATS: "stats",
 };
 

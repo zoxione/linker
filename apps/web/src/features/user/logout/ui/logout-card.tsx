@@ -12,9 +12,9 @@ import { authClient } from "@/shared/lib/auth-client";
 import { displayError } from "@/shared/utils/display-error";
 import { getAuthError } from "@/shared/utils/get-auth-error";
 
-interface LogoutBlockProps {}
+interface LogoutCardProps {}
 
-const LogoutBlock = ({}: LogoutBlockProps) => {
+const LogoutCard = ({}: LogoutCardProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
   const { data: session } = authClient.useSession();
@@ -26,7 +26,7 @@ const LogoutBlock = ({}: LogoutBlockProps) => {
       if (error) {
         throw new SimpleError(getAuthError(error.code) ?? "Не удалось выполнить выход");
       }
-      router.push("/");
+      router.push("/auth");
     } catch (error) {
       await displayError(error);
     } finally {
@@ -53,4 +53,4 @@ const LogoutBlock = ({}: LogoutBlockProps) => {
   );
 };
 
-export { LogoutBlock };
+export { LogoutCard };

@@ -14,39 +14,39 @@ import { displayError } from "@/shared/utils/display-error";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useQueryClient } from "@tanstack/react-query";
 
+import { toCreateLinkAPI, toCreateLinkValues } from "../model/create-link.mappers";
 import { createLinkFormSchema, CreateLinkFormSchema } from "../model/create-link.schemas";
 
 interface CreateLinkFormProps {
-  onSuccess: () => void;
+  onSuccess?: () => void;
 }
 
 const CreateLinkForm = ({ onSuccess }: CreateLinkFormProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const queryClient = useQueryClient();
 
-  const { mutateAsync: createLink } = usePostApiCustomerLinks();
+  const { mutateAsync: createLink } = usePostApiCustomerLinks({
+    mutation: {
+      onSuccess: async () => {
+        await queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.LINKS] });
+      },
+    },
+  });
 
   const form = useForm<CreateLinkFormSchema>({
     resolver: zodResolver(createLinkFormSchema),
-    defaultValues: {
-      name: "",
-      redirectUrl: "",
-    },
+    defaultValues: toCreateLinkValues(),
   });
 
   const onSubmit = async (values: CreateLinkFormSchema) => {
     try {
       setLoading(true);
       await createLink({
-        data: {
-          name: values.name,
-          redirectUrl: values.redirectUrl,
-        },
+        data: toCreateLinkAPI(values),
       });
-      form.reset();
+      form.reset(toCreateLinkValues());
       toast.success({ description: "Ссылка создана" });
-      await queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.LINKS] });
-      onSuccess();
+      onSuccess?.();
     } catch (error) {
       await displayError(error);
     } finally {

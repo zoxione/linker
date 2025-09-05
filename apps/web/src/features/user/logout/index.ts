@@ -1,1 +1,1 @@
-export * from "./ui/logout-block";
+export * from "./ui/logout-card";

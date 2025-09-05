@@ -31,7 +31,13 @@ const DeleteLinkDialog = ({ openDialog, setOpenDialog, link, onSuccess }: Delete
   const [loading, setLoading] = useState<boolean>(false);
   const queryClient = useQueryClient();
 
-  const { mutateAsync: deleteLink } = useDeleteApiCustomerLinksId();
+  const { mutateAsync: deleteLink } = useDeleteApiCustomerLinksId({
+    mutation: {
+      onSuccess: async () => {
+        await queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.LINKS] });
+      },
+    },
+  });
 
   const onDelete = async () => {
     try {
@@ -41,7 +47,6 @@ const DeleteLinkDialog = ({ openDialog, setOpenDialog, link, onSuccess }: Delete
       });
       setOpenDialog(false);
       toast.success({ description: "Ссылка удалена" });
-      await queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.LINKS] });
       onSuccess?.();
     } catch (error) {
       await displayError(error);
