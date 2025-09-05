@@ -1,1 +1,1 @@
-export * from "./ui/update-link-block";
+export * from "./ui/update-link-card";

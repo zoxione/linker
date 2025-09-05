@@ -18,14 +18,14 @@ import {
 } from "../model/link-stats-browsers-chart.utils";
 
 interface LinkStatsBrowsersChartProps {
-  id: Link["id"];
+  link: Link;
   className?: string;
 }
 
-const LinkStatsBrowsersChart = ({ id, className }: LinkStatsBrowsersChartProps) => {
-  const linkStatsQuery = useGetApiCustomerLinksIdStatsBrowsers(id, {
+const LinkStatsBrowsersChart = ({ link, className }: LinkStatsBrowsersChartProps) => {
+  const linkStatsQuery = useGetApiCustomerLinksIdStatsBrowsers(link.id, {
     query: {
-      queryKey: [QUERY_KEYS.LINKS, id, "stats-browsers"],
+      queryKey: [QUERY_KEYS.LINKS, link.id, "stats-browsers"],
     },
   });
 

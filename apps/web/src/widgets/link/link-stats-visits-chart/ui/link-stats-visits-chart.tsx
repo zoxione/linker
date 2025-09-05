@@ -17,19 +17,19 @@ import { dayjs } from "@/shared/lib/dayjs";
 type RangeType = GetApiCustomerLinksIdStatsVisitsQueryParams["range"];
 
 interface LinkStatsVisitsChartProps {
-  id: Link["id"];
+  link: Link;
   className?: string;
 }
 
-const LinkStatsVisitsChart = ({ id, className }: LinkStatsVisitsChartProps) => {
+const LinkStatsVisitsChart = ({ link, className }: LinkStatsVisitsChartProps) => {
   const [range, setRange] = useState<RangeType>("1m");
 
   const linkStatsQuery = useGetApiCustomerLinksIdStatsVisits(
-    id,
+    link.id,
     { range },
     {
       query: {
-        queryKey: [QUERY_KEYS.LINKS, id, "stats-visits", range],
+        queryKey: [QUERY_KEYS.LINKS, link.id, "stats-visits", range],
       },
     },
   );

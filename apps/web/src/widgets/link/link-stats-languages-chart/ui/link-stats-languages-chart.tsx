@@ -18,14 +18,14 @@ import {
 } from "../model/link-stats-languages-chart.utils";
 
 interface LinkStatsLanguagesChartProps {
-  id: Link["id"];
+  link: Link;
   className?: string;
 }
 
-const LinkStatsLanguagesChart = ({ id, className }: LinkStatsLanguagesChartProps) => {
-  const linkStatsQuery = useGetApiCustomerLinksIdStatsLanguages(id, {
+const LinkStatsLanguagesChart = ({ link, className }: LinkStatsLanguagesChartProps) => {
+  const linkStatsQuery = useGetApiCustomerLinksIdStatsLanguages(link.id, {
     query: {
-      queryKey: [QUERY_KEYS.LINKS, id, "stats-languages"],
+      queryKey: [QUERY_KEYS.LINKS, link.id, "stats-languages"],
     },
   });
 
