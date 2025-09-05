@@ -8,6 +8,12 @@ const logger = pino({
       return { level: label.toUpperCase() };
     },
   },
+  transport: {
+    target: "hono-pino/debug-log",
+    options: {
+      colorEnabled: true,
+    },
+  },
 });
 
 export { logger };

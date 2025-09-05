@@ -1,6 +1,7 @@
 import { serve } from "@hono/node-server";
 
 import { config } from "../config";
+import { logger } from "../lib/logger";
 import { buildServer } from "./core/build-server";
 
 const startApiServer = async () => {
@@ -12,7 +13,7 @@ const startApiServer = async () => {
       port: config.apiAppPort,
     },
     (info) => {
-      console.log(`Server is running on ${info.port} port`);
+      logger.info(`Server is running on ${info.port} port`);
     },
   );
 };

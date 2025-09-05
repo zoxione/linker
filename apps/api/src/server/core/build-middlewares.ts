@@ -1,4 +1,4 @@
-import { pinoLogger } from "hono-pino-logger";
+import { pinoLogger } from "hono-pino";
 import { cors } from "hono/cors";
 
 import { config } from "../../config";
@@ -7,7 +7,7 @@ import { logger } from "../../lib/logger";
 import { Server } from "./build-server";
 
 const buildMiddlewares = async (server: Server) => {
-  server.use("*", pinoLogger(logger));
+  server.use("*", pinoLogger({ pino: logger }));
 
   server.use(
     "*",
