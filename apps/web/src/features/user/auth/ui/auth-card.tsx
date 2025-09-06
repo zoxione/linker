@@ -6,7 +6,11 @@ import { Button } from "@repo/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@repo/ui/card";
 import { Icons } from "@repo/ui/icons";
 
+import { config } from "@/core/config";
+import { SimpleError } from "@/shared/errors/simple-error";
+import { authClient } from "@/shared/lib/auth-client";
 import { displayError } from "@/shared/utils/display-error";
+import { getAuthError } from "@/shared/utils/get-auth-error";
 
 import { useAuth } from "../model/use-auth";
 import { AuthEmailForm } from "./auth-email-form";
@@ -20,8 +24,14 @@ const AuthCard = ({}: AuthCardProps) => {
 
   const onAuthProvider = async (provider: string) => {
     try {
-      console.debug({ provider });
-      setLoading(true);
+      const { error } = await authClient.signIn.social({
+        provider,
+        callbackURL: `${config.webAppUrl}/dashboard`,
+        errorCallbackURL: `${config.webAppUrl}/auth/error`,
+      });
+      if (error) {
+        throw new SimpleError(getAuthError(error.code) ?? "Не удалось выполнить вход");
+      }
     } catch (error) {
       await displayError(error);
     } finally {
@@ -61,15 +71,6 @@ const AuthCard = ({}: AuthCardProps) => {
               className="flex-1"
             >
               <Icons.google />
-            </Button>
-            <Button
-              onClick={() => onAuthProvider("vk")}
-              loading={loading}
-              type="button"
-              variant="outline"
-              className="flex-1"
-            >
-              <Icons.vk />
             </Button>
           </div>
         </>

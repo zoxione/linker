@@ -14,6 +14,12 @@ const CONFIG_SCHEMA = z.object({
   databaseUrl: z.string(),
 
   betterAuthSecret: z.string(),
+
+  githubClientId: z.string(),
+  githubClientSecret: z.string(),
+
+  googleClientId: z.string(),
+  googleClientSecret: z.string(),
 });
 
 type Config = z.infer<typeof CONFIG_SCHEMA>;

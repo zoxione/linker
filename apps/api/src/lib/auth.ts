@@ -8,6 +8,16 @@ import { db, dbSchema } from "../persistence/db";
 import { OTP_LENGTH } from "./constants";
 
 const auth = betterAuth({
+  socialProviders: {
+    github: {
+      clientId: config.githubClientId,
+      clientSecret: config.githubClientSecret,
+    },
+    google: {
+      clientId: config.googleClientId,
+      clientSecret: config.googleClientSecret,
+    },
+  },
   database: drizzleAdapter(db, {
     provider: "pg",
     schema: {
@@ -29,6 +39,11 @@ const auth = betterAuth({
           };
         },
       },
+    },
+  },
+  account: {
+    accountLinking: {
+      enabled: false,
     },
   },
   plugins: [

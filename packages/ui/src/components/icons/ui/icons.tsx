@@ -20,13 +20,13 @@ import {
   PlusIcon,
   RotateCcwIcon,
   SendHorizonalIcon,
+  ShieldXIcon,
   Trash2Icon,
   UserCircle2Icon,
 } from "lucide-react";
 
 import { GithubIcon } from "./custom-icons/github";
 import { GoogleIcon } from "./custom-icons/google";
-import { VkIcon } from "./custom-icons/vk";
 
 interface IconProps {
   className?: string;
@@ -56,6 +56,7 @@ const Icons = {
   success: (props: IconProps) => <CircleCheckIcon {...props} />,
   info: (props: IconProps) => <CircleAlertIcon {...props} />,
   error: (props: IconProps) => <CircleXIcon {...props} />,
+  shield: (props: IconProps) => <ShieldXIcon {...props} />,
 
   // sidebar
   home: (props: IconProps) => <HouseIcon {...props} />,
@@ -65,7 +66,6 @@ const Icons = {
   // custom
   github: (props: IconProps) => <GithubIcon {...props} />,
   google: (props: IconProps) => <GoogleIcon {...props} />,
-  vk: (props: IconProps) => <VkIcon {...props} />,
 };
 
 export { Icons, type IconProps };
