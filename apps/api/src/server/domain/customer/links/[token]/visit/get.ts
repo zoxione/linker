@@ -5,6 +5,7 @@ import { createRoute } from "@hono/zod-openapi";
 
 import { app } from "../../../../../../app";
 import { CUSTOMER_LINK_VISIT } from "../../../../../../app/customer/link/dto/customer.link.visit";
+import { config } from "../../../../../../config";
 import { contracts } from "../../../../../contracts";
 
 const contract = createRoute({
@@ -60,11 +61,8 @@ const customerLinksTokenVisitGetRoute = contracts.serveApi().openapi(contract, a
     referer,
     headers: JSON.stringify(Object.fromEntries(Object.entries(c.req.header()))),
   });
-  if (!link) {
-    return c.notFound();
-  }
 
-  return c.redirect(link.redirectUrl);
+  return c.redirect(link ? link.redirectUrl : `${config.webAppUrl}/not-found`);
 });
 
 export { customerLinksTokenVisitGetRoute };
