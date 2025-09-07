@@ -22,7 +22,7 @@ const AuthCard = ({}: AuthCardProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const { step } = useAuth();
 
-  const onAuthProvider = async (provider: string) => {
+  const handleOauth = async (provider: string) => {
     try {
       const { error } = await authClient.signIn.social({
         provider,
@@ -55,7 +55,7 @@ const AuthCard = ({}: AuthCardProps) => {
           </div>
           <div className="flex items-center justify-center gap-1">
             <Button
-              onClick={() => onAuthProvider("github")}
+              onClick={() => handleOauth("github")}
               loading={loading}
               type="button"
               variant="outline"
@@ -64,7 +64,7 @@ const AuthCard = ({}: AuthCardProps) => {
               <Icons.github />
             </Button>
             <Button
-              onClick={() => onAuthProvider("google")}
+              onClick={() => handleOauth("google")}
               loading={loading}
               type="button"
               variant="outline"

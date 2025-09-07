@@ -29,7 +29,7 @@ const DeleteUserDialog = ({ openDialog, setOpenDialog }: DeleteUserDialogProps) 
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
 
-  const onDelete = async () => {
+  const handleDelete = async () => {
     try {
       setLoading(true);
       const { error } = await authClient.deleteUser();
@@ -63,7 +63,7 @@ const DeleteUserDialog = ({ openDialog, setOpenDialog }: DeleteUserDialogProps) 
               Отмена
             </Button>
           </DialogClose>
-          <Button onClick={onDelete} loading={loading}>
+          <Button onClick={handleDelete} loading={loading}>
             Удалить
           </Button>
         </DialogFooter>

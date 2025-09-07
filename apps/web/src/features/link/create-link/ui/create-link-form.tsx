@@ -38,7 +38,7 @@ const CreateLinkForm = ({ onSuccess }: CreateLinkFormProps) => {
     defaultValues: toCreateLinkValues(),
   });
 
-  const onSubmit = async (values: CreateLinkFormSchema) => {
+  const handleSubmit = async (values: CreateLinkFormSchema) => {
     try {
       setLoading(true);
       await createLink({
@@ -56,7 +56,7 @@ const CreateLinkForm = ({ onSuccess }: CreateLinkFormProps) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4">
+      <form onSubmit={form.handleSubmit(handleSubmit)} className="flex flex-col gap-4">
         <FormField
           control={form.control}
           name="name"

@@ -34,7 +34,7 @@ const AuthOtpForm = ({}: AuthOtpFormProps) => {
     },
   });
 
-  const onSubmit = async (values: AuthOtpFormSchema) => {
+  const handleSubmit = async (values: AuthOtpFormSchema) => {
     try {
       setLoading(true);
       const { error } = await authClient.signIn.emailOtp({
@@ -55,7 +55,7 @@ const AuthOtpForm = ({}: AuthOtpFormProps) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4">
+      <form onSubmit={form.handleSubmit(handleSubmit)} className="flex flex-col gap-4">
         <FormField
           control={form.control}
           name="otp"
@@ -70,7 +70,7 @@ const AuthOtpForm = ({}: AuthOtpFormProps) => {
                   onChange={(value) => {
                     field.onChange(value);
                     if (value.length === OTP_LENGTH) {
-                      form.handleSubmit(onSubmit)();
+                      form.handleSubmit(handleSubmit)();
                     }
                   }}
                 >

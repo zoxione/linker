@@ -32,7 +32,7 @@ const UpdateUserForm = ({ user }: UpdateUserFormProps) => {
     defaultValues: toUpdateUserValues(user),
   });
 
-  const onSubmit = async (values: UpdateUserFormSchema) => {
+  const handleSubmit = async (values: UpdateUserFormSchema) => {
     try {
       setLoading(true);
       const { error } = await authClient.updateUser(toUpdateUserAPI(values));
@@ -50,7 +50,7 @@ const UpdateUserForm = ({ user }: UpdateUserFormProps) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4">
+      <form onSubmit={form.handleSubmit(handleSubmit)} className="flex flex-col gap-4">
         <Avatar name={user.email} className="size-40" />
         <FormField
           control={form.control}

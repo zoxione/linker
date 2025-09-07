@@ -29,7 +29,7 @@ const AuthEmailForm = ({}: AuthEmailFormProps) => {
     },
   });
 
-  const onSubmit = async (values: AuthEmailFormSchema) => {
+  const handleSubmit = async (values: AuthEmailFormSchema) => {
     try {
       setLoading(true);
       const { error } = await authClient.emailOtp.sendVerificationOtp({
@@ -50,7 +50,7 @@ const AuthEmailForm = ({}: AuthEmailFormProps) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4">
+      <form onSubmit={form.handleSubmit(handleSubmit)} className="flex flex-col gap-4">
         <FormField
           control={form.control}
           name="email"

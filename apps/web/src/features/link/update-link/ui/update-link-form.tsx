@@ -40,7 +40,7 @@ const UpdateLinkForm = ({ link }: UpdateLinkFormProps) => {
     defaultValues: toUpdateLinkValues(link),
   });
 
-  const onSubmit = async (values: UpdateLinkFormSchema) => {
+  const handleSubmit = async (values: UpdateLinkFormSchema) => {
     try {
       setLoading(true);
       const res = await updateLink({
@@ -58,7 +58,7 @@ const UpdateLinkForm = ({ link }: UpdateLinkFormProps) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4">
+      <form onSubmit={form.handleSubmit(handleSubmit)} className="flex flex-col gap-4">
         <FormField
           control={form.control}
           name="name"

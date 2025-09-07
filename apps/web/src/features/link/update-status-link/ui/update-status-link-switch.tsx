@@ -28,7 +28,7 @@ const UpdateStatusLinkSwitch = ({ id, status }: UpdateStatusLinkSwitchProps) => 
     },
   });
 
-  const onUpdateStatus = async (value: boolean) => {
+  const handleUpdateStatus = async (value: boolean) => {
     try {
       setLoading(true);
       await updateStatusLink({
@@ -45,7 +45,7 @@ const UpdateStatusLinkSwitch = ({ id, status }: UpdateStatusLinkSwitchProps) => 
     }
   };
 
-  return <Switch checked={status === "ENABLE"} onCheckedChange={onUpdateStatus} disabled={loading} />;
+  return <Switch checked={status === "ENABLE"} onCheckedChange={handleUpdateStatus} disabled={loading} />;
 };
 
 export { UpdateStatusLinkSwitch };

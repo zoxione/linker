@@ -39,7 +39,7 @@ const DeleteLinkDialog = ({ openDialog, setOpenDialog, link, onSuccess }: Delete
     },
   });
 
-  const onDelete = async () => {
+  const handleDelete = async () => {
     try {
       setLoading(true);
       await deleteLink({
@@ -72,7 +72,7 @@ const DeleteLinkDialog = ({ openDialog, setOpenDialog, link, onSuccess }: Delete
               Отмена
             </Button>
           </DialogClose>
-          <Button onClick={onDelete} loading={loading}>
+          <Button onClick={handleDelete} loading={loading}>
             Удалить
           </Button>
         </DialogFooter>
