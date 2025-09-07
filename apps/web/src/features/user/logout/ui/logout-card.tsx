@@ -45,7 +45,7 @@ const LogoutCard = ({}: LogoutCardProps) => {
         )}
       </CardHeader>
       <CardContent>
-        <Button onClick={handleLogout} loading={loading} variant="destructive">
+        <Button onClick={handleLogout} loading={loading} variant="secondary">
           Выйти из аккаунта
         </Button>
       </CardContent>

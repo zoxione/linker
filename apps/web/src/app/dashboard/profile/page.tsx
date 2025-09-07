@@ -1,4 +1,5 @@
 import { ToggleThemeCard } from "@/features/shared/toggle-theme";
+import { DeleteUserCard } from "@/features/user/delete-user";
 import { LogoutCard } from "@/features/user/logout";
 import { UpdateUserCard } from "@/features/user/update-user";
 
@@ -12,6 +13,7 @@ export default function Page({}: PageProps) {
         <ToggleThemeCard />
       </div>
       <LogoutCard />
+      <DeleteUserCard className="col-start-1" />
     </div>
   );
 }

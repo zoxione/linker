@@ -46,6 +46,11 @@ const auth = betterAuth({
       enabled: false,
     },
   },
+  user: {
+    deleteUser: {
+      enabled: true,
+    },
+  },
   plugins: [
     emailOTP({
       otpLength: OTP_LENGTH,
