@@ -18,6 +18,7 @@ import {
   MoreVerticalIcon,
   PencilIcon,
   PlusIcon,
+  QrCodeIcon,
   RotateCcwIcon,
   SendHorizonalIcon,
   ShieldXIcon,
@@ -57,6 +58,7 @@ const Icons = {
   info: (props: IconProps) => <CircleAlertIcon {...props} />,
   error: (props: IconProps) => <CircleXIcon {...props} />,
   shield: (props: IconProps) => <ShieldXIcon {...props} />,
+  qrcode: (props: IconProps) => <QrCodeIcon {...props} />,
 
   // sidebar
   home: (props: IconProps) => <HouseIcon {...props} />,

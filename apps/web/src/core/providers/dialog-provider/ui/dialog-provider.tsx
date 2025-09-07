@@ -7,10 +7,12 @@ import { DialogContext } from "../model/dialog.context";
 
 const CreateLinkDialog = dynamic(() => import("@/features/link/create-link").then((mod) => mod.CreateLinkDialog));
 const DeleteLinkDialog = dynamic(() => import("@/features/link/delete-link").then((mod) => mod.DeleteLinkDialog));
+const LinkQrcodeDialog = dynamic(() => import("@/widgets/link/link-qrcode-dialog").then((mod) => mod.LinkQrcodeDialog));
 
 const dialogs = {
   "create-link": CreateLinkDialog,
   "delete-link": DeleteLinkDialog,
+  "link-qrcode": LinkQrcodeDialog,
 } as const;
 
 type DialogState =

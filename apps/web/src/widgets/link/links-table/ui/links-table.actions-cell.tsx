@@ -55,6 +55,10 @@ const LinksTableActionsCell = ({ row }: LinksTableActionsCellProps) => {
               Редактировать
             </DropdownMenuItem>
           </Link>
+          <DropdownMenuItem onClick={() => onOpen({ type: "link-qrcode", props: { link: row.original } })}>
+            <Icons.qrcode />
+            QR код
+          </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
