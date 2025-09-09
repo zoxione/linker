@@ -1,8 +1,6 @@
 import { Metadata } from "next";
 import { ReactNode } from "react";
 
-import "@repo/ui/globals.css";
-
 import { ClientProvider } from "@/core/providers/client-provider";
 
 import { inter } from "../core/styles/font";

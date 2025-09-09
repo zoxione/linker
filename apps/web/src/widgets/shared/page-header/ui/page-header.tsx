@@ -5,12 +5,15 @@ import { match } from "path-to-regexp";
 
 import { Separator } from "@repo/ui/components/separator";
 import { SidebarTrigger } from "@repo/ui/components/sidebar";
+import { cn } from "@repo/ui/utils/cn";
 
 import { APP_PAGES } from "@/core/data/constants";
 
-interface PageHeaderProps {}
+interface PageHeaderProps {
+  className?: string;
+}
 
-const PageHeader = ({}: PageHeaderProps) => {
+const PageHeader = ({ className }: PageHeaderProps) => {
   const pathname = usePathname();
 
   const currentPage = APP_PAGES.find((page) => {
@@ -19,7 +22,7 @@ const PageHeader = ({}: PageHeaderProps) => {
   });
 
   return (
-    <div className="flex items-center gap-2">
+    <div className={cn("bg-background/70 flex items-center gap-2 backdrop-blur", className)}>
       <SidebarTrigger />
       <Separator orientation="vertical" className="mr-2 data-[orientation=vertical]:h-4" />
       {currentPage ? <h1 className="text-lg font-medium">{currentPage.title}</h1> : null}
