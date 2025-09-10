@@ -1,9 +1,14 @@
 @import "@repo/ui/globals.css";
 
+/** Variables **/
+@theme inline {
+  --font-inter: var(--font-inter);
+}
+
 /** Global Styles **/
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-ring/50 font-inter;
   }
   body {
     @apply bg-background text-foreground;

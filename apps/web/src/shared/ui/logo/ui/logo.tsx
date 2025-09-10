@@ -9,16 +9,7 @@ interface LogoProps {
 }
 
 const Logo = ({ type = "color", size = 16 }: LogoProps) => {
-  return (
-    <Image
-      src={type === "color" ? LogoColor : LogoMonochrome}
-      alt="Logo"
-      width={size}
-      height={size}
-      quality={100}
-      priority
-    />
-  );
+  return <Image src={type === "color" ? LogoColor : LogoMonochrome} alt="Logo" width={size} height={size} />;
 };
 
 export { Logo };

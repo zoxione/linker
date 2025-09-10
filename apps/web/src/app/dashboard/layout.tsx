@@ -14,7 +14,7 @@ export default async function Layout({ children }: LayoutProps) {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset className="overflow-hidden">
-        <section className="max-h-[calc(100svh-16px)] flex-1 overflow-y-auto">
+        <section className="max-h-svh flex-1 overflow-y-auto md:max-h-[calc(100svh-16px)]">
           <PageHeader className="sticky top-0 z-50 p-4" />
           <div className="px-4 pb-4">{children}</div>
         </section>
