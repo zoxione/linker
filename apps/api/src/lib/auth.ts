@@ -8,6 +8,10 @@ import { db, dbSchema } from "../persistence/db";
 import { OTP_LENGTH } from "./constants";
 
 const auth = betterAuth({
+  appName: "Linker",
+  baseURL: config.apiAppUrl,
+  trustedOrigins: [config.apiAppUrl, config.webAppUrl],
+  secret: config.betterAuthSecret,
   socialProviders: {
     github: {
       clientId: config.githubClientId,
@@ -66,6 +70,9 @@ const auth = betterAuth({
       },
     }),
   ],
+  rateLimit: {
+    enabled: false,
+  },
   advanced: {
     database: {
       generateId: false,
@@ -81,7 +88,6 @@ const auth = betterAuth({
       partitioned: true,
     },
   },
-  trustedOrigins: [config.apiAppUrl, config.webAppUrl],
 });
 
 type Auth = typeof auth;

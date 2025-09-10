@@ -19,7 +19,7 @@
     "@hono/zod-openapi": "1.1.0",
     "@scalar/hono-api-reference": "0.9.16",
     "accept-language-parser": "1.5.0",
-    "better-auth": "1.3.8",
+    "better-auth": "1.3.9",
     "dayjs": "1.11.18",
     "drizzle-orm": "0.44.5",
     "hono": "4.9.6",

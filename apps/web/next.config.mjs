@@ -10,7 +10,7 @@ const nextConfig = {
     return [
       {
         source: "/",
-        destination: "/dashboard",
+        destination: "/auth", // TODO: заменить на /dashboard
         permanent: true,
       },
       {
