@@ -45,7 +45,7 @@ const AuthOtpForm = ({}: AuthOtpFormProps) => {
         throw new SimpleError(getAuthError(error.code) ?? "Не удалось выполнить вход");
       }
       setFormData({ ...formData, ...values });
-      router.push("/");
+      router.push("/dashboard");
     } catch (error) {
       await displayError(error);
     } finally {
