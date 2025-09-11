@@ -3,6 +3,7 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { emailOTP } from "better-auth/plugins";
 import { customAlphabet } from "nanoid";
 
+import { app } from "../app";
 import { config } from "../config";
 import { db, dbSchema } from "../persistence/db";
 import { OTP_LENGTH } from "./constants";
@@ -65,8 +66,8 @@ const auth = betterAuth({
         const otp = customAlphabet("1234567890", OTP_LENGTH)();
         return otp;
       },
-      async sendVerificationOTP({ email, otp, type }) {
-        // TODO
+      async sendVerificationOTP({ email, otp }) {
+        await app.system.email.sendVerification({ email, otp });
       },
     }),
   ],

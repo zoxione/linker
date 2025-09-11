@@ -20,6 +20,12 @@ const CONFIG_SCHEMA = z.object({
 
   googleClientId: z.string(),
   googleClientSecret: z.string(),
+
+  smtpHost: z.string(),
+  smtpPort: z.string(),
+  smtpUser: z.string(),
+  smtpPassword: z.string(),
+  smtpFromEmail: z.string(),
 });
 
 type Config = z.infer<typeof CONFIG_SCHEMA>;

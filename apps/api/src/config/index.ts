@@ -20,6 +20,12 @@ const parsedConfig = parseConfig({
 
   googleClientId: process.env.GOOGLE_CLIENT_ID,
   googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
+
+  smtpHost: process.env.SMTP_HOST,
+  smtpPort: process.env.SMTP_PORT,
+  smtpUser: process.env.SMTP_USER,
+  smtpPassword: process.env.SMTP_PASSWORD,
+  smtpFromEmail: process.env.SMTP_FROM_EMAIL,
 });
 
 const config = {
@@ -27,6 +33,7 @@ const config = {
   production: parsedConfig.production === "1",
   apiAppPort: parseInt(parsedConfig.apiAppPort, 10),
   webAppPort: parseInt(parsedConfig.webAppPort, 10),
+  smtpPort: parseInt(parsedConfig.smtpPort, 10),
 };
 
 export { config };
