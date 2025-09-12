@@ -21,6 +21,7 @@ type QueryResponse<TData> = UseQueryResult<ApiResponse<TData> | undefined>;
 type QueryHook<TData> = (
   params: QueryParams,
   options: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     query?: Partial<QueryObserverOptions<any>>;
     client?: Partial<RequestConfig> & { client?: typeof fetchClient };
   },

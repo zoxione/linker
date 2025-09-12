@@ -9,7 +9,6 @@ import { Icons } from "@repo/ui/icons";
 import { cn } from "@repo/ui/utils/cn";
 
 import { DATE_FORMAT } from "@/core/data/constants";
-import { useDialog } from "@/core/providers/dialog-provider";
 import { Link } from "@/entities/link/model/link.types";
 import { UpdateStatusLinkSwitch } from "@/features/link/update-status-link";
 import { dayjs } from "@/shared/lib/dayjs";
@@ -21,7 +20,6 @@ interface LinkCardProps {
 }
 
 const LinkCard = ({ link, className }: LinkCardProps) => {
-  const { onOpen } = useDialog();
   const [, copy] = useCopyToClipboard();
 
   const handleCopy = async (text: string) => {
