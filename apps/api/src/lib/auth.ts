@@ -67,6 +67,9 @@ const auth = betterAuth({
         return otp;
       },
       async sendVerificationOTP({ email, otp }) {
+        if (!config.production) {
+          return;
+        }
         await app.system.email.sendVerification({ email, otp });
       },
     }),
