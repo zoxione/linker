@@ -1,17 +1,21 @@
 "use client";
 
+import { useMemo } from "react";
+
 import { QUERY_KEYS } from "@/core/data/constants";
 import { Link } from "@/entities/link/model/link.types";
 import { DataTable } from "@/features/shared/data-table";
 import { useGetApiCustomerLinkVisits } from "@/shared/api";
 
-import { linkVisitsTableColumns } from "./link-visits-table.columns";
+import { createLinkVisitsTableColumns } from "./link-visits-table.columns";
 
 interface LinkVisitsTableProps {
   linkId?: Link["id"];
 }
 
 const LinkVisitsTable = ({ linkId }: LinkVisitsTableProps) => {
+  const linkVisitsTableColumns = useMemo(() => createLinkVisitsTableColumns({}), []);
+
   return (
     <DataTable
       columns={linkVisitsTableColumns}
@@ -22,6 +26,8 @@ const LinkVisitsTable = ({ linkId }: LinkVisitsTableProps) => {
       filter={{
         linkId,
       }}
+      manualFiltering
+      manualSorting
       defaultLimit={100}
     />
   );

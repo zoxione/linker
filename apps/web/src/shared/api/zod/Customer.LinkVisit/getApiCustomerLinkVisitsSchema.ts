@@ -5,6 +5,8 @@ import { z } from "zod/v4";
 export const getApiCustomerLinkVisitsQueryParamsSchema = z
   .object({
     linkId: z.uuid().optional(),
+    sortBy: z.enum(["createdAt"]).optional(),
+    sortOrder: z.enum(["asc", "desc"]).optional(),
     limit: z.coerce.number().optional(),
     offset: z.coerce.number().optional(),
   })

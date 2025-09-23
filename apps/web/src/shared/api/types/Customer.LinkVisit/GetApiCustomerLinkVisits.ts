@@ -1,11 +1,23 @@
 /* eslint-disable */
 // @ts-nocheck
 
+export type GetApiCustomerLinkVisitsQueryParamsSortByEnum = "createdAt";
+
+export type GetApiCustomerLinkVisitsQueryParamsSortOrderEnum = "asc" | "desc";
+
 export type GetApiCustomerLinkVisitsQueryParams = {
   /**
    * @type string | undefined, uuid
    */
   linkId?: string;
+  /**
+   * @type string | undefined
+   */
+  sortBy?: GetApiCustomerLinkVisitsQueryParamsSortByEnum;
+  /**
+   * @type string | undefined
+   */
+  sortOrder?: GetApiCustomerLinkVisitsQueryParamsSortOrderEnum;
   /**
    * @type number | undefined
    */

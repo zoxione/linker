@@ -103,6 +103,8 @@ export type {
   PutApiCustomerLinksIdMutation,
 } from "./Customer.Link/PutApiCustomerLinksId";
 export type {
+  GetApiCustomerLinkVisitsQueryParamsSortByEnum,
+  GetApiCustomerLinkVisitsQueryParamsSortOrderEnum,
   GetApiCustomerLinkVisitsQueryParams,
   GetApiCustomerLinkVisits200,
   GetApiCustomerLinkVisits400,

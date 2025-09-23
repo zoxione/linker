@@ -34,13 +34,15 @@ const contract = createRoute({
 
 const customerLinkVisitsGetRoute = contracts.serveApi().openapi(contract, async (c) => {
   const session = c.get("session");
-  const { linkId, limit, offset } = c.req.valid("query");
+  const { linkId, limit, offset, sortBy, sortOrder } = c.req.valid("query");
 
   const linkVisits = await app.customer.linkVisit.getAll({
     userId: session.userId,
     linkId,
     limit,
     offset,
+    sortBy,
+    sortOrder,
   });
 
   return c.json(linkVisits);

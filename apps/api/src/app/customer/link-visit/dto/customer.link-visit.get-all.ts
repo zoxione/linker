@@ -8,6 +8,8 @@ const CUSTOMER_LINK_VISIT_GET_ALL = z.object({
     userId: true,
   }).shape,
   linkId: LINK_SCHEMA.shape.id.optional(),
+  sortBy: z.enum(["createdAt"]).optional(),
+  sortOrder: z.enum(["asc", "desc"]).optional(),
   ...PAGINATION_SCHEMA.pick({ limit: true, offset: true }).shape,
 });
 
