@@ -1,4 +1,4 @@
-import { and, desc, eq, getTableColumns, sql } from "drizzle-orm";
+import { and, asc, desc, eq, getTableColumns, sql } from "drizzle-orm";
 import { HTTPException } from "hono/http-exception";
 import { nanoid } from "nanoid";
 
@@ -28,7 +28,15 @@ class CustomerLinkService {
   }
 
   async getAll(dto: CustomerLinkGetAll): Promise<CustomerLinkList> {
-    const { userId, limit, offset } = dto;
+    const { userId, limit, offset, sortBy, sortOrder, status } = dto;
+
+    const whereQuery = and(eq(dbSchema.link.userId, userId), status ? eq(dbSchema.link.status, status) : undefined);
+    const orderByQuery =
+      sortBy && sortOrder
+        ? sortOrder === "asc"
+          ? asc(dbSchema.link[sortBy])
+          : desc(dbSchema.link[sortBy])
+        : desc(dbSchema.link.createdAt);
 
     const result = await db
       .select({
@@ -36,8 +44,8 @@ class CustomerLinkService {
         row: getTableColumns(dbSchema.link),
       })
       .from(dbSchema.link)
-      .where(eq(dbSchema.link.userId, userId))
-      .orderBy(desc(dbSchema.link.createdAt))
+      .where(whereQuery)
+      .orderBy(orderByQuery)
       .limit(limit)
       .offset(offset);
 

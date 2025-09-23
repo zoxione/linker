@@ -31,12 +31,7 @@ export async function getApiCustomerLinkVisitsSuspense(
     GetApiCustomerLinkVisitsQueryResponse,
     ResponseErrorConfig<GetApiCustomerLinkVisits400 | GetApiCustomerLinkVisits500>,
     unknown
-  >({
-    method: "GET",
-    url: `/api/customer/link-visits`,
-    params,
-    ...requestConfig,
-  });
+  >({ method: "GET", url: `/api/customer/link-visits`, params, ...requestConfig });
   return res.data;
 }
 
@@ -80,7 +75,8 @@ export function useGetApiCustomerLinkVisitsSuspense<
     client?: Partial<RequestConfig> & { client?: typeof fetch };
   } = {},
 ) {
-  const { query: { client: queryClient, ...queryOptions } = {}, client: config = {} } = options ?? {};
+  const { query: queryConfig = {}, client: config = {} } = options ?? {};
+  const { client: queryClient, ...queryOptions } = queryConfig;
   const queryKey = queryOptions?.queryKey ?? getApiCustomerLinkVisitsSuspenseQueryKey(params);
 
   const query = useSuspenseQuery(

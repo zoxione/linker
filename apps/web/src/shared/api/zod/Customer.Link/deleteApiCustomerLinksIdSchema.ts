@@ -1,9 +1,9 @@
 /* eslint-disable */
 // @ts-nocheck
-import { z } from "zod";
+import { z } from "zod/v4";
 
 export const deleteApiCustomerLinksIdPathParamsSchema = z.object({
-  id: z.string().uuid(),
+  id: z.uuid(),
 });
 
 /**
@@ -35,4 +35,4 @@ export const deleteApiCustomerLinksId500Schema = z.object({
   message: z.string(),
 });
 
-export const deleteApiCustomerLinksIdMutationResponseSchema = z.lazy(() => deleteApiCustomerLinksId204Schema);
+export const deleteApiCustomerLinksIdMutationResponseSchema = deleteApiCustomerLinksId204Schema;

@@ -11,6 +11,9 @@ export type {
   DeleteApiCustomerLinksIdMutation,
 } from "./Customer.Link/DeleteApiCustomerLinksId";
 export type {
+  GetApiCustomerLinksQueryParamsSortByEnum,
+  GetApiCustomerLinksQueryParamsSortOrderEnum,
+  GetApiCustomerLinksQueryParamsStatusEnum,
   GetApiCustomerLinksQueryParams,
   ItemsStatusEnum,
   GetApiCustomerLinks200,

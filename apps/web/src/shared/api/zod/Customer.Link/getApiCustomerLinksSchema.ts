@@ -1,9 +1,12 @@
 /* eslint-disable */
 // @ts-nocheck
-import { z } from "zod";
+import { z } from "zod/v4";
 
 export const getApiCustomerLinksQueryParamsSchema = z
   .object({
+    sortBy: z.enum(["name", "redirectCount", "createdAt"]).optional(),
+    sortOrder: z.enum(["asc", "desc"]).optional(),
+    status: z.enum(["ENABLE", "DISABLE"]).optional(),
     limit: z.coerce.number().optional(),
     offset: z.coerce.number().optional(),
   })
@@ -19,14 +22,14 @@ export const getApiCustomerLinks200Schema = z.object({
   total: z.number(),
   items: z.array(
     z.object({
-      id: z.string().uuid(),
-      userId: z.string().uuid(),
+      id: z.uuid(),
+      userId: z.uuid(),
       status: z.enum(["ENABLE", "DISABLE"]),
       name: z.string().min(3).max(24),
       token: z.string(),
-      redirectUrl: z.string().url(),
+      redirectUrl: z.url(),
       redirectCount: z.number(),
-      url: z.string().url(),
+      url: z.url(),
       updatedAt: z.string().datetime(),
       createdAt: z.string().datetime(),
     }),
@@ -49,4 +52,4 @@ export const getApiCustomerLinks500Schema = z.object({
   message: z.string(),
 });
 
-export const getApiCustomerLinksQueryResponseSchema = z.lazy(() => getApiCustomerLinks200Schema);
+export const getApiCustomerLinksQueryResponseSchema = getApiCustomerLinks200Schema;

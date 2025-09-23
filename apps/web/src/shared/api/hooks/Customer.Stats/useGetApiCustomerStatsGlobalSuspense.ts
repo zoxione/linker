@@ -28,11 +28,7 @@ export async function getApiCustomerStatsGlobalSuspense(
     GetApiCustomerStatsGlobalQueryResponse,
     ResponseErrorConfig<GetApiCustomerStatsGlobal400 | GetApiCustomerStatsGlobal500>,
     unknown
-  >({
-    method: "GET",
-    url: `/api/customer/stats/global`,
-    ...requestConfig,
-  });
+  >({ method: "GET", url: `/api/customer/stats/global`, ...requestConfig });
   return res.data;
 }
 
@@ -74,7 +70,8 @@ export function useGetApiCustomerStatsGlobalSuspense<
     client?: Partial<RequestConfig> & { client?: typeof fetch };
   } = {},
 ) {
-  const { query: { client: queryClient, ...queryOptions } = {}, client: config = {} } = options ?? {};
+  const { query: queryConfig = {}, client: config = {} } = options ?? {};
+  const { client: queryClient, ...queryOptions } = queryConfig;
   const queryKey = queryOptions?.queryKey ?? getApiCustomerStatsGlobalSuspenseQueryKey();
 
   const query = useSuspenseQuery(

@@ -1,6 +1,6 @@
 /* eslint-disable */
 // @ts-nocheck
-import { z } from "zod";
+import { z } from "zod/v4";
 
 /**
  * @description Глобальная статистика
@@ -26,4 +26,4 @@ export const getApiCustomerStatsGlobal500Schema = z.object({
   message: z.string(),
 });
 
-export const getApiCustomerStatsGlobalQueryResponseSchema = z.lazy(() => getApiCustomerStatsGlobal200Schema);
+export const getApiCustomerStatsGlobalQueryResponseSchema = getApiCustomerStatsGlobal200Schema;

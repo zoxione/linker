@@ -1,6 +1,6 @@
 /* eslint-disable */
 // @ts-nocheck
-import { z } from "zod";
+import { z } from "zod/v4";
 
 /**
  * @description Переход по ссылке
@@ -9,8 +9,8 @@ export const linkVisitSchema = z
   .object({
     updatedAt: z.string().datetime(),
     createdAt: z.string().datetime(),
-    id: z.string().uuid(),
-    linkId: z.string().uuid(),
+    id: z.uuid(),
+    linkId: z.uuid(),
     ip: z.string().nullable(),
     language: z.string().nullable(),
     browser: z.string().nullable(),

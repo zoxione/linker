@@ -27,6 +27,7 @@ export async function postApiCustomerLinks(
   const { client: request = fetch, ...requestConfig } = config;
 
   const requestData = data;
+
   const res = await request<
     PostApiCustomerLinksMutationResponse,
     ResponseErrorConfig<PostApiCustomerLinks400 | PostApiCustomerLinks500>,

@@ -4,8 +4,8 @@ import { QueryObserverOptions, UseQueryResult } from "@tanstack/react-query";
 interface QueryParams {
   limit?: number;
   offset?: number;
-  sort_by?: string;
-  desc?: string;
+  sortBy?: string;
+  sortOrder?: string;
 }
 
 interface ApiResponse<TData> {

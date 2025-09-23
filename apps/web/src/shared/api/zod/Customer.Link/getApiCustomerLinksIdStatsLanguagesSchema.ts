@@ -1,9 +1,9 @@
 /* eslint-disable */
 // @ts-nocheck
-import { z } from "zod";
+import { z } from "zod/v4";
 
 export const getApiCustomerLinksIdStatsLanguagesPathParamsSchema = z.object({
-  id: z.string().uuid(),
+  id: z.uuid(),
 });
 
 /**
@@ -42,6 +42,4 @@ export const getApiCustomerLinksIdStatsLanguages500Schema = z.object({
   message: z.string(),
 });
 
-export const getApiCustomerLinksIdStatsLanguagesQueryResponseSchema = z.lazy(
-  () => getApiCustomerLinksIdStatsLanguages200Schema,
-);
+export const getApiCustomerLinksIdStatsLanguagesQueryResponseSchema = getApiCustomerLinksIdStatsLanguages200Schema;

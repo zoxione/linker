@@ -14,7 +14,7 @@ import type {
   PostApiCustomerLinksIdStatus500,
 } from "../../types/Customer.Link/PostApiCustomerLinksIdStatus";
 
-export const postApiCustomerLinksIdStatusMutationKey = () => [{ url: "/api/customer/links/{id}/status" }] as const;
+export const postApiCustomerLinksIdStatusMutationKey = () => [{ url: "/api/customer/links/:id/status" }] as const;
 
 export type PostApiCustomerLinksIdStatusMutationKey = ReturnType<typeof postApiCustomerLinksIdStatusMutationKey>;
 
@@ -30,6 +30,7 @@ export async function postApiCustomerLinksIdStatus(
   const { client: request = fetch, ...requestConfig } = config;
 
   const requestData = data;
+
   const res = await request<
     PostApiCustomerLinksIdStatusMutationResponse,
     ResponseErrorConfig<

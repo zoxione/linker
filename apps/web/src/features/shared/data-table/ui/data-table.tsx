@@ -60,8 +60,8 @@ const DataTable = <TData,>({
       limit,
       offset: (page - 1) * limit,
       ...filter,
-      sort_by: manualSorting && sorting.length > 0 && sorting[0] ? sorting[0].id : undefined,
-      desc: manualSorting && sorting.length > 0 && sorting[0] ? String(sorting[0].desc) : undefined,
+      sortBy: manualSorting && sorting.length > 0 && sorting[0] ? sorting[0].id : undefined,
+      sortOrder: manualSorting && sorting.length > 0 && sorting[0] ? (sorting[0].desc ? "desc" : "asc") : undefined,
       ...(manualFiltering && columnFilters.length > 0
         ? columnFilters.reduce((acc, filter) => ({ ...acc, [filter.id]: filter.value }), {})
         : undefined),

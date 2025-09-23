@@ -1,9 +1,9 @@
 /* eslint-disable */
 // @ts-nocheck
-import { z } from "zod";
+import { z } from "zod/v4";
 
 export const getApiCustomerLinksIdStatsBrowsersPathParamsSchema = z.object({
-  id: z.string().uuid(),
+  id: z.uuid(),
 });
 
 /**
@@ -42,6 +42,4 @@ export const getApiCustomerLinksIdStatsBrowsers500Schema = z.object({
   message: z.string(),
 });
 
-export const getApiCustomerLinksIdStatsBrowsersQueryResponseSchema = z.lazy(
-  () => getApiCustomerLinksIdStatsBrowsers200Schema,
-);
+export const getApiCustomerLinksIdStatsBrowsersQueryResponseSchema = getApiCustomerLinksIdStatsBrowsers200Schema;

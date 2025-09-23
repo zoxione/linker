@@ -77,7 +77,8 @@ export function useGetApiCustomerLinksIdSuspense<
     client?: Partial<RequestConfig> & { client?: typeof fetch };
   } = {},
 ) {
-  const { query: { client: queryClient, ...queryOptions } = {}, client: config = {} } = options ?? {};
+  const { query: queryConfig = {}, client: config = {} } = options ?? {};
+  const { client: queryClient, ...queryOptions } = queryConfig;
   const queryKey = queryOptions?.queryKey ?? getApiCustomerLinksIdSuspenseQueryKey(id);
 
   const query = useSuspenseQuery(
@@ -90,9 +91,7 @@ export function useGetApiCustomerLinksIdSuspense<
   ) as UseSuspenseQueryResult<
     TData,
     ResponseErrorConfig<GetApiCustomerLinksId400 | GetApiCustomerLinksId404 | GetApiCustomerLinksId500>
-  > & {
-    queryKey: TQueryKey;
-  };
+  > & { queryKey: TQueryKey };
 
   query.queryKey = queryKey as TQueryKey;
 

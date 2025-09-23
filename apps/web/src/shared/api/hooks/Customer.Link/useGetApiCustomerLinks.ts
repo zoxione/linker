@@ -31,12 +31,7 @@ export async function getApiCustomerLinks(
     GetApiCustomerLinksQueryResponse,
     ResponseErrorConfig<GetApiCustomerLinks400 | GetApiCustomerLinks500>,
     unknown
-  >({
-    method: "GET",
-    url: `/api/customer/links`,
-    params,
-    ...requestConfig,
-  });
+  >({ method: "GET", url: `/api/customer/links`, params, ...requestConfig });
   return res.data;
 }
 
@@ -82,7 +77,8 @@ export function useGetApiCustomerLinks<
     client?: Partial<RequestConfig> & { client?: typeof fetch };
   } = {},
 ) {
-  const { query: { client: queryClient, ...queryOptions } = {}, client: config = {} } = options ?? {};
+  const { query: queryConfig = {}, client: config = {} } = options ?? {};
+  const { client: queryClient, ...queryOptions } = queryConfig;
   const queryKey = queryOptions?.queryKey ?? getApiCustomerLinksQueryKey(params);
 
   const query = useQuery(

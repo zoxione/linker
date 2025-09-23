@@ -7,6 +7,8 @@ import * as SelectPrimitive from "@radix-ui/react-select";
 
 import { cn } from "../../../utils/cn";
 
+const SELECT_DEFAULT_VALUE = "SELECT_DEFAULT_VALUE";
+
 const Select = ({ ...props }: React.ComponentProps<typeof SelectPrimitive.Root>) => {
   return <SelectPrimitive.Root data-slot="select" {...props} />;
 };
@@ -149,6 +151,7 @@ const SelectScrollDownButton = ({
 
 export {
   Select,
+  SELECT_DEFAULT_VALUE,
   SelectContent,
   SelectGroup,
   SelectItem,

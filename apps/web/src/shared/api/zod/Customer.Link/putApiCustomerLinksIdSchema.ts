@@ -1,23 +1,23 @@
 /* eslint-disable */
 // @ts-nocheck
-import { z } from "zod";
+import { z } from "zod/v4";
 
 export const putApiCustomerLinksIdPathParamsSchema = z.object({
-  id: z.string().uuid(),
+  id: z.uuid(),
 });
 
 /**
  * @description Объект ссылки
  */
 export const putApiCustomerLinksId200Schema = z.object({
-  id: z.string().uuid(),
-  userId: z.string().uuid(),
+  id: z.uuid(),
+  userId: z.uuid(),
   status: z.enum(["ENABLE", "DISABLE"]),
   name: z.string().min(3).max(24),
   token: z.string(),
-  redirectUrl: z.string().url(),
+  redirectUrl: z.url(),
   redirectCount: z.number(),
-  url: z.string().url(),
+  url: z.url(),
   updatedAt: z.string().datetime(),
   createdAt: z.string().datetime(),
 });
@@ -50,4 +50,4 @@ export const putApiCustomerLinksIdMutationRequestSchema = z.object({
   name: z.string().min(3).max(24),
 });
 
-export const putApiCustomerLinksIdMutationResponseSchema = z.lazy(() => putApiCustomerLinksId200Schema);
+export const putApiCustomerLinksIdMutationResponseSchema = putApiCustomerLinksId200Schema;

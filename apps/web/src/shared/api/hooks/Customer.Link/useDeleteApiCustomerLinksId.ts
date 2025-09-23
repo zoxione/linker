@@ -13,7 +13,7 @@ import type {
   DeleteApiCustomerLinksId500,
 } from "../../types/Customer.Link/DeleteApiCustomerLinksId";
 
-export const deleteApiCustomerLinksIdMutationKey = () => [{ url: "/api/customer/links/{id}" }] as const;
+export const deleteApiCustomerLinksIdMutationKey = () => [{ url: "/api/customer/links/:id" }] as const;
 
 export type DeleteApiCustomerLinksIdMutationKey = ReturnType<typeof deleteApiCustomerLinksIdMutationKey>;
 

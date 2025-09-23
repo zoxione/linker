@@ -1,7 +1,25 @@
 /* eslint-disable */
 // @ts-nocheck
 
+export type GetApiCustomerLinksQueryParamsSortByEnum = "name" | "redirectCount" | "createdAt";
+
+export type GetApiCustomerLinksQueryParamsSortOrderEnum = "asc" | "desc";
+
+export type GetApiCustomerLinksQueryParamsStatusEnum = "ENABLE" | "DISABLE";
+
 export type GetApiCustomerLinksQueryParams = {
+  /**
+   * @type string | undefined
+   */
+  sortBy?: GetApiCustomerLinksQueryParamsSortByEnum;
+  /**
+   * @type string | undefined
+   */
+  sortOrder?: GetApiCustomerLinksQueryParamsSortOrderEnum;
+  /**
+   * @type string | undefined
+   */
+  status?: GetApiCustomerLinksQueryParamsStatusEnum;
   /**
    * @type number | undefined
    */

@@ -93,7 +93,8 @@ export function useGetApiCustomerLinksIdStatsVisitsSuspense<
     client?: Partial<RequestConfig> & { client?: typeof fetch };
   } = {},
 ) {
-  const { query: { client: queryClient, ...queryOptions } = {}, client: config = {} } = options ?? {};
+  const { query: queryConfig = {}, client: config = {} } = options ?? {};
+  const { client: queryClient, ...queryOptions } = queryConfig;
   const queryKey = queryOptions?.queryKey ?? getApiCustomerLinksIdStatsVisitsSuspenseQueryKey(id, params);
 
   const query = useSuspenseQuery(

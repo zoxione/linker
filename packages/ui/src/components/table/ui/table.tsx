@@ -4,6 +4,9 @@ import * as React from "react";
 
 import { cn } from "@repo/ui/utils/cn";
 
+import { Icons } from "../../icons";
+import { Select, SELECT_DEFAULT_VALUE, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../select";
+
 const Table = ({ className, ...props }: React.ComponentProps<"table">) => {
   return (
     <div data-slot="table-container" className="relative w-full overflow-x-auto">
@@ -72,4 +75,75 @@ const TableCaption = ({ className, ...props }: React.ComponentProps<"caption">) 
   );
 };
 
-export { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow };
+interface TableHeadSortProps extends React.HTMLAttributes<HTMLButtonElement> {
+  order: "asc" | "desc" | false;
+}
+
+const TableHeadSort = ({ order, children, className, ...props }: TableHeadSortProps) => {
+  return (
+    <button className={cn("flex cursor-pointer items-center gap-1", className)} {...props}>
+      {children}
+      {order === "asc" ? (
+        <Icons.sortAsc className={cn("size-4", order === "asc" ? "text-primary" : "")} />
+      ) : (
+        <Icons.sortDesc className={cn("size-4", order === "desc" ? "text-primary" : "")} />
+      )}
+    </button>
+  );
+};
+
+interface TableHeadFilterProps extends React.ComponentPropsWithRef<typeof SelectTrigger> {
+  label: string;
+  defaultValue: string;
+  onValueChange: (value: string) => void;
+  options: {
+    label: string;
+    value: string;
+  }[];
+}
+
+const TableHeadFilter = ({
+  label,
+  defaultValue,
+  onValueChange,
+  options,
+  children,
+  className,
+  ...props
+}: TableHeadFilterProps) => {
+  return (
+    <Select defaultValue={defaultValue} onValueChange={onValueChange}>
+      <SelectTrigger
+        className={cn(
+          "cursor-pointer justify-start gap-1 border-0 bg-transparent p-0 shadow-none focus:ring-0 [&_svg]:opacity-100",
+          defaultValue !== SELECT_DEFAULT_VALUE ? "[&_svg]:!text-primary" : "",
+          className,
+        )}
+        {...props}
+      >
+        <SelectValue />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value={SELECT_DEFAULT_VALUE}>{label}</SelectItem>
+        {options.map((op) => (
+          <SelectItem key={op.value} value={op.value}>
+            {op.label}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  );
+};
+
+export {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableHeadFilter,
+  TableHeadSort,
+  TableRow,
+};

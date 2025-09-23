@@ -1,19 +1,19 @@
 /* eslint-disable */
 // @ts-nocheck
-import { z } from "zod";
+import { z } from "zod/v4";
 
 /**
  * @description Объект ссылки
  */
 export const postApiCustomerLinks200Schema = z.object({
-  id: z.string().uuid(),
-  userId: z.string().uuid(),
+  id: z.uuid(),
+  userId: z.uuid(),
   status: z.enum(["ENABLE", "DISABLE"]),
   name: z.string().min(3).max(24),
   token: z.string(),
-  redirectUrl: z.string().url(),
+  redirectUrl: z.url(),
   redirectCount: z.number(),
-  url: z.string().url(),
+  url: z.url(),
   updatedAt: z.string().datetime(),
   createdAt: z.string().datetime(),
 });
@@ -36,7 +36,7 @@ export const postApiCustomerLinks500Schema = z.object({
 
 export const postApiCustomerLinksMutationRequestSchema = z.object({
   name: z.string().min(3).max(24),
-  redirectUrl: z.string().url(),
+  redirectUrl: z.url(),
 });
 
-export const postApiCustomerLinksMutationResponseSchema = z.lazy(() => postApiCustomerLinks200Schema);
+export const postApiCustomerLinksMutationResponseSchema = postApiCustomerLinks200Schema;

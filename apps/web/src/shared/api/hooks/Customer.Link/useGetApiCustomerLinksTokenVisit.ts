@@ -85,7 +85,8 @@ export function useGetApiCustomerLinksTokenVisit<
     client?: Partial<RequestConfig> & { client?: typeof fetch };
   } = {},
 ) {
-  const { query: { client: queryClient, ...queryOptions } = {}, client: config = {} } = options ?? {};
+  const { query: queryConfig = {}, client: config = {} } = options ?? {};
+  const { client: queryClient, ...queryOptions } = queryConfig;
   const queryKey = queryOptions?.queryKey ?? getApiCustomerLinksTokenVisitQueryKey(token);
 
   const query = useQuery(
@@ -100,9 +101,7 @@ export function useGetApiCustomerLinksTokenVisit<
     ResponseErrorConfig<
       GetApiCustomerLinksTokenVisit400 | GetApiCustomerLinksTokenVisit404 | GetApiCustomerLinksTokenVisit500
     >
-  > & {
-    queryKey: TQueryKey;
-  };
+  > & { queryKey: TQueryKey };
 
   query.queryKey = queryKey as TQueryKey;
 

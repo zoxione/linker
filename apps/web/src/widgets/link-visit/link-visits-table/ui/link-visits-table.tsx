@@ -15,7 +15,7 @@ const LinkVisitsTable = ({ linkId }: LinkVisitsTableProps) => {
   return (
     <DataTable
       columns={linkVisitsTableColumns}
-      // TODO: Убрать never
+      // TODO: Убрать any
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       useQuery={useGetApiCustomerLinkVisits as any}
       queryKey={[QUERY_KEYS.LINK_VISITS]}

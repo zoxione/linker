@@ -1,10 +1,10 @@
 /* eslint-disable */
 // @ts-nocheck
-import { z } from "zod";
+import { z } from "zod/v4";
 
 export const getApiCustomerLinkVisitsQueryParamsSchema = z
   .object({
-    linkId: z.string().uuid().optional(),
+    linkId: z.uuid().optional(),
     limit: z.coerce.number().optional(),
     offset: z.coerce.number().optional(),
   })
@@ -20,8 +20,8 @@ export const getApiCustomerLinkVisits200Schema = z.object({
   total: z.number(),
   items: z.array(
     z.object({
-      id: z.string().uuid(),
-      linkId: z.string().uuid(),
+      id: z.uuid(),
+      linkId: z.uuid(),
       ip: z.string().nullable(),
       language: z.string().nullable(),
       browser: z.string().nullable(),
@@ -54,4 +54,4 @@ export const getApiCustomerLinkVisits500Schema = z.object({
   message: z.string(),
 });
 
-export const getApiCustomerLinkVisitsQueryResponseSchema = z.lazy(() => getApiCustomerLinkVisits200Schema);
+export const getApiCustomerLinkVisitsQueryResponseSchema = getApiCustomerLinkVisits200Schema;

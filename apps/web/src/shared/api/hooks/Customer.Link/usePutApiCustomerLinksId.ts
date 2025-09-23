@@ -14,7 +14,7 @@ import type {
   PutApiCustomerLinksId500,
 } from "../../types/Customer.Link/PutApiCustomerLinksId";
 
-export const putApiCustomerLinksIdMutationKey = () => [{ url: "/api/customer/links/{id}" }] as const;
+export const putApiCustomerLinksIdMutationKey = () => [{ url: "/api/customer/links/:id" }] as const;
 
 export type PutApiCustomerLinksIdMutationKey = ReturnType<typeof putApiCustomerLinksIdMutationKey>;
 
@@ -30,6 +30,7 @@ export async function putApiCustomerLinksId(
   const { client: request = fetch, ...requestConfig } = config;
 
   const requestData = data;
+
   const res = await request<
     PutApiCustomerLinksIdMutationResponse,
     ResponseErrorConfig<PutApiCustomerLinksId400 | PutApiCustomerLinksId404 | PutApiCustomerLinksId500>,

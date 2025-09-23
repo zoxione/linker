@@ -1,8 +1,10 @@
 import {
   ArrowDownIcon,
+  ArrowDownWideNarrow,
   ArrowLeftIcon,
   ArrowRightIcon,
   ArrowUpIcon,
+  ArrowUpNarrowWide,
   ArrowUpRightIcon,
   ChevronDownIcon,
   ChevronLeftIcon,
@@ -59,6 +61,8 @@ const Icons = {
   error: (props: IconProps) => <CircleXIcon {...props} />,
   shield: (props: IconProps) => <ShieldXIcon {...props} />,
   qrcode: (props: IconProps) => <QrCodeIcon {...props} />,
+  sortAsc: (props: IconProps) => <ArrowUpNarrowWide {...props} />,
+  sortDesc: (props: IconProps) => <ArrowDownWideNarrow {...props} />,
 
   // sidebar
   home: (props: IconProps) => <HouseIcon {...props} />,
