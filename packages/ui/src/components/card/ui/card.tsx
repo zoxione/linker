@@ -1,8 +1,8 @@
-import * as React from "react";
+import { ComponentProps } from "react";
 
 import { cn } from "../../../utils/cn";
 
-const Card = ({ className, ...props }: React.ComponentProps<"div">) => {
+const Card = ({ className, ...props }: ComponentProps<"div">) => {
   return (
     <div
       data-slot="card"
@@ -15,7 +15,7 @@ const Card = ({ className, ...props }: React.ComponentProps<"div">) => {
   );
 };
 
-const CardHeader = ({ className, ...props }: React.ComponentProps<"div">) => {
+const CardHeader = ({ className, ...props }: ComponentProps<"div">) => {
   return (
     <div
       data-slot="card-header"
@@ -28,15 +28,15 @@ const CardHeader = ({ className, ...props }: React.ComponentProps<"div">) => {
   );
 };
 
-const CardTitle = ({ className, ...props }: React.ComponentProps<"div">) => {
+const CardTitle = ({ className, ...props }: ComponentProps<"div">) => {
   return <div data-slot="card-title" className={cn("font-semibold leading-none", className)} {...props} />;
 };
 
-const CardDescription = ({ className, ...props }: React.ComponentProps<"div">) => {
+const CardDescription = ({ className, ...props }: ComponentProps<"div">) => {
   return <div data-slot="card-description" className={cn("text-muted-foreground text-sm", className)} {...props} />;
 };
 
-const CardAction = ({ className, ...props }: React.ComponentProps<"div">) => {
+const CardAction = ({ className, ...props }: ComponentProps<"div">) => {
   return (
     <div
       data-slot="card-action"
@@ -46,11 +46,11 @@ const CardAction = ({ className, ...props }: React.ComponentProps<"div">) => {
   );
 };
 
-const CardContent = ({ className, ...props }: React.ComponentProps<"div">) => {
+const CardContent = ({ className, ...props }: ComponentProps<"div">) => {
   return <div data-slot="card-content" className={cn("px-6", className)} {...props} />;
 };
 
-const CardFooter = ({ className, ...props }: React.ComponentProps<"div">) => {
+const CardFooter = ({ className, ...props }: ComponentProps<"div">) => {
   return (
     <div data-slot="card-footer" className={cn("[.border-t]:pt-6 flex items-center px-6", className)} {...props} />
   );

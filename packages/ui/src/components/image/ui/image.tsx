@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState } from "react";
 
 import { cn } from "../../../utils/cn";
 
@@ -24,7 +24,7 @@ interface ImageProps {
 }
 
 const Image = ({ src, alt, width, height, fill, lazy = true, className }: ImageProps) => {
-  const [isLoaded, setIsLoaded] = React.useState<boolean>(false);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   return (
     <img

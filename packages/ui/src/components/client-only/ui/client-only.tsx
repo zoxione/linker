@@ -1,16 +1,16 @@
 "use client";
 
-import * as React from "react";
+import { ReactNode, useLayoutEffect, useState } from "react";
 
 interface ClientOnlyProps {
-  children: React.ReactNode;
-  fallback?: React.ReactNode;
+  children: ReactNode;
+  fallback?: ReactNode;
 }
 
 const ClientOnly = ({ children, fallback = null }: ClientOnlyProps) => {
-  const [mounted, setMounted] = React.useState(false);
+  const [mounted, setMounted] = useState<boolean>(false);
 
-  React.useLayoutEffect(() => {
+  useLayoutEffect(() => {
     setMounted(true);
   }, []);
 

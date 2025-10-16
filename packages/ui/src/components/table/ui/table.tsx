@@ -1,13 +1,13 @@
 "use client";
 
-import * as React from "react";
+import { ComponentProps, ComponentPropsWithRef, HTMLAttributes } from "react";
 
 import { cn } from "@repo/ui/utils/cn";
 
 import { Icons } from "../../icons";
 import { SELECT_DEFAULT_VALUE, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../select";
 
-const Table = ({ className, ...props }: React.ComponentProps<"table">) => {
+const Table = ({ className, ...props }: ComponentProps<"table">) => {
   return (
     <div data-slot="table-container" className="relative w-full overflow-x-auto">
       <table data-slot="table" className={cn("w-full caption-bottom text-sm", className)} {...props} />
@@ -15,15 +15,15 @@ const Table = ({ className, ...props }: React.ComponentProps<"table">) => {
   );
 };
 
-const TableHeader = ({ className, ...props }: React.ComponentProps<"thead">) => {
+const TableHeader = ({ className, ...props }: ComponentProps<"thead">) => {
   return <thead data-slot="table-header" className={cn("[&_tr]:border-b", className)} {...props} />;
 };
 
-const TableBody = ({ className, ...props }: React.ComponentProps<"tbody">) => {
+const TableBody = ({ className, ...props }: ComponentProps<"tbody">) => {
   return <tbody data-slot="table-body" className={cn("[&_tr:last-child]:border-0", className)} {...props} />;
 };
 
-const TableFooter = ({ className, ...props }: React.ComponentProps<"tfoot">) => {
+const TableFooter = ({ className, ...props }: ComponentProps<"tfoot">) => {
   return (
     <tfoot
       data-slot="table-footer"
@@ -33,7 +33,7 @@ const TableFooter = ({ className, ...props }: React.ComponentProps<"tfoot">) => 
   );
 };
 
-const TableRow = ({ className, ...props }: React.ComponentProps<"tr">) => {
+const TableRow = ({ className, ...props }: ComponentProps<"tr">) => {
   return (
     <tr
       data-slot="table-row"
@@ -43,7 +43,7 @@ const TableRow = ({ className, ...props }: React.ComponentProps<"tr">) => {
   );
 };
 
-const TableHead = ({ className, ...props }: React.ComponentProps<"th">) => {
+const TableHead = ({ className, ...props }: ComponentProps<"th">) => {
   return (
     <th
       data-slot="table-head"
@@ -56,7 +56,7 @@ const TableHead = ({ className, ...props }: React.ComponentProps<"th">) => {
   );
 };
 
-const TableCell = ({ className, ...props }: React.ComponentProps<"td">) => {
+const TableCell = ({ className, ...props }: ComponentProps<"td">) => {
   return (
     <td
       data-slot="table-cell"
@@ -69,13 +69,13 @@ const TableCell = ({ className, ...props }: React.ComponentProps<"td">) => {
   );
 };
 
-const TableCaption = ({ className, ...props }: React.ComponentProps<"caption">) => {
+const TableCaption = ({ className, ...props }: ComponentProps<"caption">) => {
   return (
     <caption data-slot="table-caption" className={cn("text-muted-foreground mt-4 text-sm", className)} {...props} />
   );
 };
 
-interface TableHeadSortProps extends React.HTMLAttributes<HTMLButtonElement> {
+interface TableHeadSortProps extends HTMLAttributes<HTMLButtonElement> {
   order: "asc" | "desc" | false;
 }
 
@@ -92,7 +92,7 @@ const TableHeadSort = ({ order, children, className, ...props }: TableHeadSortPr
   );
 };
 
-interface TableHeadFilterProps extends React.ComponentPropsWithRef<typeof SelectTrigger> {
+interface TableHeadFilterProps extends ComponentPropsWithRef<typeof SelectTrigger> {
   label: string;
   defaultValue: string;
   onValueChange: (value: string) => void;
@@ -142,8 +142,8 @@ export {
   TableCell,
   TableFooter,
   TableHead,
-  TableHeader,
   TableHeadFilter,
   TableHeadSort,
+  TableHeader,
   TableRow,
 };

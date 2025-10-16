@@ -1,5 +1,5 @@
 import { type VariantProps, cva } from "class-variance-authority";
-import * as React from "react";
+import { ComponentProps } from "react";
 
 import { cn } from "../../../utils/cn";
 import { Icons } from "../../icons";
@@ -32,7 +32,7 @@ const buttonVariants = cva(
   },
 );
 
-interface ButtonProps extends React.ComponentProps<"button">, VariantProps<typeof buttonVariants> {
+interface ButtonProps extends ComponentProps<"button">, VariantProps<typeof buttonVariants> {
   loading?: boolean;
 }
 

@@ -2,27 +2,27 @@
 
 import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { XIcon } from "lucide-react";
-import * as React from "react";
+import { ComponentProps } from "react";
 
 import { cn } from "../../../utils/cn";
 
-const Sheet = ({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) => {
+const Sheet = ({ ...props }: ComponentProps<typeof SheetPrimitive.Root>) => {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />;
 };
 
-const SheetTrigger = ({ ...props }: React.ComponentProps<typeof SheetPrimitive.Trigger>) => {
+const SheetTrigger = ({ ...props }: ComponentProps<typeof SheetPrimitive.Trigger>) => {
   return <SheetPrimitive.Trigger data-slot="sheet-trigger" {...props} />;
 };
 
-const SheetClose = ({ ...props }: React.ComponentProps<typeof SheetPrimitive.Close>) => {
+const SheetClose = ({ ...props }: ComponentProps<typeof SheetPrimitive.Close>) => {
   return <SheetPrimitive.Close data-slot="sheet-close" {...props} />;
 };
 
-const SheetPortal = ({ ...props }: React.ComponentProps<typeof SheetPrimitive.Portal>) => {
+const SheetPortal = ({ ...props }: ComponentProps<typeof SheetPrimitive.Portal>) => {
   return <SheetPrimitive.Portal data-slot="sheet-portal" {...props} />;
 };
 
-const SheetOverlay = ({ className, ...props }: React.ComponentProps<typeof SheetPrimitive.Overlay>) => {
+const SheetOverlay = ({ className, ...props }: ComponentProps<typeof SheetPrimitive.Overlay>) => {
   return (
     <SheetPrimitive.Overlay
       data-slot="sheet-overlay"
@@ -40,7 +40,7 @@ const SheetContent = ({
   children,
   side = "right",
   ...props
-}: React.ComponentProps<typeof SheetPrimitive.Content> & {
+}: ComponentProps<typeof SheetPrimitive.Content> & {
   side?: "top" | "right" | "bottom" | "left";
 }) => {
   return (
@@ -72,15 +72,15 @@ const SheetContent = ({
   );
 };
 
-const SheetHeader = ({ className, ...props }: React.ComponentProps<"div">) => {
+const SheetHeader = ({ className, ...props }: ComponentProps<"div">) => {
   return <div data-slot="sheet-header" className={cn("flex flex-col gap-1.5 p-4", className)} {...props} />;
 };
 
-const SheetFooter = ({ className, ...props }: React.ComponentProps<"div">) => {
+const SheetFooter = ({ className, ...props }: ComponentProps<"div">) => {
   return <div data-slot="sheet-footer" className={cn("mt-auto flex flex-col gap-2 p-4", className)} {...props} />;
 };
 
-const SheetTitle = ({ className, ...props }: React.ComponentProps<typeof SheetPrimitive.Title>) => {
+const SheetTitle = ({ className, ...props }: ComponentProps<typeof SheetPrimitive.Title>) => {
   return (
     <SheetPrimitive.Title
       data-slot="sheet-title"
@@ -90,7 +90,7 @@ const SheetTitle = ({ className, ...props }: React.ComponentProps<typeof SheetPr
   );
 };
 
-const SheetDescription = ({ className, ...props }: React.ComponentProps<typeof SheetPrimitive.Description>) => {
+const SheetDescription = ({ className, ...props }: ComponentProps<typeof SheetPrimitive.Description>) => {
   return (
     <SheetPrimitive.Description
       data-slot="sheet-description"
