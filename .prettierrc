@@ -20,6 +20,7 @@
   "vueIndentScriptAndStyle": false,
   "plugins": ["@trivago/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
   "tailwindFunctions": ["clsx", "cn", "twmerge", "cva"],
-  "importOrder": ["<THIRD_PARTY_MODULES>", "^@repo/", "^@", "^[./]"],
-  "importOrderSeparation": true
+  "importOrder": ["<THIRD_PARTY_MODULES>", "^@repo/", "^@/", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }

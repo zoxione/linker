@@ -1,5 +1,6 @@
 "use client";
 
+import { ColumnDef } from "@tanstack/react-table";
 import Link from "next/link";
 
 import { Badge } from "@repo/ui/components/badge";
@@ -12,7 +13,6 @@ import { Link as LinkType } from "@/entities/link/model/link.types";
 import { UpdateStatusLinkSwitch } from "@/features/link/update-status-link";
 import { dayjs } from "@/shared/lib/dayjs";
 import { UrlBadge } from "@/shared/ui/url-badge";
-import { ColumnDef } from "@tanstack/react-table";
 
 import { LinksTableActionsCell } from "./links-table.actions-cell";
 

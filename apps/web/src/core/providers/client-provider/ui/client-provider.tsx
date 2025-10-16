@@ -1,5 +1,7 @@
 "use client";
 
+import { QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { ReactNode } from "react";
 
@@ -7,8 +9,6 @@ import { Toaster } from "@repo/ui/components/toast";
 import { TooltipProvider } from "@repo/ui/components/tooltip";
 
 import { queryClient } from "@/shared/lib/query-client";
-import { QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import { DialogProvider } from "../../dialog-provider";
 

@@ -1,16 +1,16 @@
 /* eslint-disable */
 // @ts-nocheck
-import type { QueryKey, QueryClient, QueryObserverOptions, UseQueryResult } from "@tanstack/react-query";
+import type { QueryClient, QueryKey, QueryObserverOptions, UseQueryResult } from "@tanstack/react-query";
 import { queryOptions, useQuery } from "@tanstack/react-query";
 
 import fetch from "../../../lib/fetch-client";
 import type { RequestConfig, ResponseErrorConfig } from "../../../lib/fetch-client";
 import type {
-  GetApiCustomerLinksIdQueryResponse,
-  GetApiCustomerLinksIdPathParams,
   GetApiCustomerLinksId400,
   GetApiCustomerLinksId404,
   GetApiCustomerLinksId500,
+  GetApiCustomerLinksIdPathParams,
+  GetApiCustomerLinksIdQueryResponse,
 } from "../../types/Customer.Link/GetApiCustomerLinksId";
 
 export const getApiCustomerLinksIdQueryKey = (id: GetApiCustomerLinksIdPathParams["id"]) =>

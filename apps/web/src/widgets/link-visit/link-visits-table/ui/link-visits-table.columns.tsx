@@ -1,5 +1,6 @@
 "use client";
 
+import { ColumnDef } from "@tanstack/react-table";
 import countryCodeToFlagEmoji from "country-code-to-flag-emoji";
 import Link from "next/link";
 
@@ -9,7 +10,6 @@ import { TableHeadSort } from "@repo/ui/components/table";
 import { DATE_TIME_FORMAT } from "@/core/data/constants";
 import { LinkVisit } from "@/entities/link-visit/model/link-visit.types";
 import { dayjs } from "@/shared/lib/dayjs";
-import { ColumnDef } from "@tanstack/react-table";
 
 import { LinkVisitsTableActionsCell } from "./link-visits-table.actions-cell";
 

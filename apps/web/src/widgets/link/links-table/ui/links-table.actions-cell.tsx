@@ -1,5 +1,6 @@
 "use client";
 
+import { Row } from "@tanstack/react-table";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -18,7 +19,6 @@ import { cn } from "@repo/ui/utils/cn";
 
 import { useDialog } from "@/core/providers/dialog-provider";
 import { Link as LinkType } from "@/entities/link/model/link.types";
-import { Row } from "@tanstack/react-table";
 
 interface LinksTableActionsCellProps {
   row: Row<LinkType>;

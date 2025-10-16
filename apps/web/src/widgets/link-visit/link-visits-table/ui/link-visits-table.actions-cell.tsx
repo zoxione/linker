@@ -1,5 +1,6 @@
 "use client";
 
+import { Row } from "@tanstack/react-table";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -16,7 +17,6 @@ import { Icons } from "@repo/ui/icons";
 import { cn } from "@repo/ui/utils/cn";
 
 import { LinkVisit } from "@/entities/link-visit/model/link-visit.types";
-import { Row } from "@tanstack/react-table";
 
 interface LinkVisitsTableActionsCellProps {
   row: Row<LinkVisit>;

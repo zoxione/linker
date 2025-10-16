@@ -1,10 +1,9 @@
 "use client";
 
-import { cva, VariantProps } from "class-variance-authority";
+import { Slot } from "@radix-ui/react-slot";
+import { VariantProps, cva } from "class-variance-authority";
 import { PanelLeftIcon } from "lucide-react";
 import * as React from "react";
-
-import { Slot } from "@radix-ui/react-slot";
 
 import { useIsMobile } from "../../../hooks/use-is-mobile";
 import { cn } from "../../../utils/cn";

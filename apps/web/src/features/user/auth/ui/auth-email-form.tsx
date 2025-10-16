@@ -1,5 +1,6 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -11,9 +12,8 @@ import { SimpleError } from "@/shared/errors/simple-error";
 import { authClient } from "@/shared/lib/auth-client";
 import { displayError } from "@/shared/utils/display-error";
 import { getAuthError } from "@/shared/utils/get-auth-error";
-import { zodResolver } from "@hookform/resolvers/zod";
 
-import { authEmailFormSchema, AuthEmailFormSchema } from "../model/auth.schemas";
+import { AuthEmailFormSchema, authEmailFormSchema } from "../model/auth.schemas";
 import { useAuth } from "../model/use-auth";
 
 interface AuthEmailFormProps {}

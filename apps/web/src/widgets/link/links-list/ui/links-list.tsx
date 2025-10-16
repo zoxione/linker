@@ -1,5 +1,7 @@
 "use client";
 
+import { useInfiniteQuery } from "@tanstack/react-query";
+
 import { Button } from "@repo/ui/components/button";
 import { InfiniteScrollContainer } from "@repo/ui/components/infinite-scroll-container";
 import { cn } from "@repo/ui/utils/cn";
@@ -11,7 +13,6 @@ import { LinkCardSkeleton } from "@/entities/link/ui/link-card/ui/link-card.skel
 import { getApiCustomerLinks } from "@/shared/api";
 import { genArray } from "@/shared/utils/gen-array";
 import { plural } from "@/shared/utils/plural";
-import { useInfiniteQuery } from "@tanstack/react-query";
 
 interface LinksListProps {
   className?: string;

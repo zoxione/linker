@@ -5,7 +5,7 @@ import * as React from "react";
 import { cn } from "@repo/ui/utils/cn";
 
 import { Icons } from "../../icons";
-import { Select, SELECT_DEFAULT_VALUE, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../select";
+import { SELECT_DEFAULT_VALUE, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../select";
 
 const Table = ({ className, ...props }: React.ComponentProps<"table">) => {
   return (

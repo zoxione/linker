@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { ComponentPropsWithoutRef, createElement, ReactNode, Suspense, useState } from "react";
+import { ComponentPropsWithoutRef, ReactNode, Suspense, createElement, useState } from "react";
 
 import { DialogContext } from "../model/dialog.context";
 

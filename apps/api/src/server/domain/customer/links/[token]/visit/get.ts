@@ -1,7 +1,6 @@
+import { createRoute } from "@hono/zod-openapi";
 import ALParser from "accept-language-parser";
 import { UAParser } from "ua-parser-js";
-
-import { createRoute } from "@hono/zod-openapi";
 
 import { app } from "../../../../../../app";
 import { CUSTOMER_LINK_VISIT } from "../../../../../../app/customer/link/dto/customer.link.visit";

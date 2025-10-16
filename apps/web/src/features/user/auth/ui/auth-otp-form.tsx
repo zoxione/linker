@@ -1,5 +1,6 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
 import { REGEXP_ONLY_DIGITS } from "input-otp";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -15,9 +16,8 @@ import { authClient } from "@/shared/lib/auth-client";
 import { displayError } from "@/shared/utils/display-error";
 import { genArray } from "@/shared/utils/gen-array";
 import { getAuthError } from "@/shared/utils/get-auth-error";
-import { zodResolver } from "@hookform/resolvers/zod";
 
-import { authOtpFormSchema, AuthOtpFormSchema } from "../model/auth.schemas";
+import { AuthOtpFormSchema, authOtpFormSchema } from "../model/auth.schemas";
 import { useAuth } from "../model/use-auth";
 
 interface AuthOtpFormProps {}

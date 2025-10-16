@@ -1,5 +1,6 @@
 "use client";
 
+import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 
 import { toast } from "@repo/ui/components/toast";
@@ -9,7 +10,6 @@ import { QUERY_KEYS } from "@/core/data/constants";
 import { Link } from "@/entities/link/model/link.types";
 import { usePostApiCustomerLinksIdStatus } from "@/shared/api";
 import { displayError } from "@/shared/utils/display-error";
-import { useQueryClient } from "@tanstack/react-query";
 
 interface UpdateStatusLinkSwitchProps {
   id: Link["id"];

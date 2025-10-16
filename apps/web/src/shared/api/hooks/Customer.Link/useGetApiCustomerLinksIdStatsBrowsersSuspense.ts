@@ -1,16 +1,16 @@
 /* eslint-disable */
 // @ts-nocheck
-import type { QueryKey, QueryClient, UseSuspenseQueryOptions, UseSuspenseQueryResult } from "@tanstack/react-query";
+import type { QueryClient, QueryKey, UseSuspenseQueryOptions, UseSuspenseQueryResult } from "@tanstack/react-query";
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 
 import fetch from "../../../lib/fetch-client";
 import type { RequestConfig, ResponseErrorConfig } from "../../../lib/fetch-client";
 import type {
-  GetApiCustomerLinksIdStatsBrowsersQueryResponse,
-  GetApiCustomerLinksIdStatsBrowsersPathParams,
   GetApiCustomerLinksIdStatsBrowsers400,
   GetApiCustomerLinksIdStatsBrowsers404,
   GetApiCustomerLinksIdStatsBrowsers500,
+  GetApiCustomerLinksIdStatsBrowsersPathParams,
+  GetApiCustomerLinksIdStatsBrowsersQueryResponse,
 } from "../../types/Customer.Link/GetApiCustomerLinksIdStatsBrowsers";
 
 export const getApiCustomerLinksIdStatsBrowsersSuspenseQueryKey = (

@@ -1,5 +1,15 @@
 "use client";
 
+import {
+  ColumnDef,
+  ColumnFiltersState,
+  SortingState,
+  flexRender,
+  getCoreRowModel,
+  getFilteredRowModel,
+  getSortedRowModel,
+  useReactTable,
+} from "@tanstack/react-table";
 import { useState } from "react";
 
 import { Button } from "@repo/ui/components/button";
@@ -7,17 +17,6 @@ import { Skeleton } from "@repo/ui/components/skeleton";
 import { Icons } from "@repo/ui/icons";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@repo/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@repo/ui/table";
-
-import {
-  ColumnDef,
-  ColumnFiltersState,
-  flexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getSortedRowModel,
-  SortingState,
-  useReactTable,
-} from "@tanstack/react-table";
 
 import { LIMIT_VALUES } from "../model/data-table.constants";
 import { QueryHook } from "../model/data-table.types";

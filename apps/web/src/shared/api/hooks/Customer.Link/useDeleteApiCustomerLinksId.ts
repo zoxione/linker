@@ -1,16 +1,16 @@
 /* eslint-disable */
 // @ts-nocheck
-import type { UseMutationOptions, QueryClient } from "@tanstack/react-query";
+import type { QueryClient, UseMutationOptions } from "@tanstack/react-query";
 import { useMutation } from "@tanstack/react-query";
 
 import fetch from "../../../lib/fetch-client";
 import type { RequestConfig, ResponseErrorConfig } from "../../../lib/fetch-client";
 import type {
-  DeleteApiCustomerLinksIdMutationResponse,
-  DeleteApiCustomerLinksIdPathParams,
   DeleteApiCustomerLinksId400,
   DeleteApiCustomerLinksId404,
   DeleteApiCustomerLinksId500,
+  DeleteApiCustomerLinksIdMutationResponse,
+  DeleteApiCustomerLinksIdPathParams,
 } from "../../types/Customer.Link/DeleteApiCustomerLinksId";
 
 export const deleteApiCustomerLinksIdMutationKey = () => [{ url: "/api/customer/links/:id" }] as const;

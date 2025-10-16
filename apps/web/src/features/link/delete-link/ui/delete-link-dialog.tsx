@@ -1,5 +1,6 @@
 "use client";
 
+import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 
 import { Button } from "@repo/ui/button";
@@ -18,7 +19,6 @@ import { QUERY_KEYS } from "@/core/data/constants";
 import { Link } from "@/entities/link/model/link.types";
 import { useDeleteApiCustomerLinksId } from "@/shared/api";
 import { displayError } from "@/shared/utils/display-error";
-import { useQueryClient } from "@tanstack/react-query";
 
 interface DeleteLinkDialogProps {
   openDialog: boolean;

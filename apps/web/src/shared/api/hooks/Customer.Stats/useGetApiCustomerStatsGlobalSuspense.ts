@@ -1,14 +1,14 @@
 /* eslint-disable */
 // @ts-nocheck
-import type { QueryKey, QueryClient, UseSuspenseQueryOptions, UseSuspenseQueryResult } from "@tanstack/react-query";
+import type { QueryClient, QueryKey, UseSuspenseQueryOptions, UseSuspenseQueryResult } from "@tanstack/react-query";
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 
 import fetch from "../../../lib/fetch-client";
 import type { RequestConfig, ResponseErrorConfig } from "../../../lib/fetch-client";
 import type {
-  GetApiCustomerStatsGlobalQueryResponse,
   GetApiCustomerStatsGlobal400,
   GetApiCustomerStatsGlobal500,
+  GetApiCustomerStatsGlobalQueryResponse,
 } from "../../types/Customer.Stats/GetApiCustomerStatsGlobal";
 
 export const getApiCustomerStatsGlobalSuspenseQueryKey = () => [{ url: "/api/customer/stats/global" }] as const;

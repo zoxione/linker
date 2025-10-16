@@ -1,15 +1,15 @@
 /* eslint-disable */
 // @ts-nocheck
-import type { UseMutationOptions, QueryClient } from "@tanstack/react-query";
+import type { QueryClient, UseMutationOptions } from "@tanstack/react-query";
 import { useMutation } from "@tanstack/react-query";
 
 import fetch from "../../../lib/fetch-client";
 import type { RequestConfig, ResponseErrorConfig } from "../../../lib/fetch-client";
 import type {
-  PostApiCustomerLinksMutationRequest,
-  PostApiCustomerLinksMutationResponse,
   PostApiCustomerLinks400,
   PostApiCustomerLinks500,
+  PostApiCustomerLinksMutationRequest,
+  PostApiCustomerLinksMutationResponse,
 } from "../../types/Customer.Link/PostApiCustomerLinks";
 
 export const postApiCustomerLinksMutationKey = () => [{ url: "/api/customer/links" }] as const;

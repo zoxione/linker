@@ -1,5 +1,6 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -15,7 +16,6 @@ import { authClient } from "@/shared/lib/auth-client";
 import { Avatar } from "@/shared/ui/avatar";
 import { displayError } from "@/shared/utils/display-error";
 import { getAuthError } from "@/shared/utils/get-auth-error";
-import { zodResolver } from "@hookform/resolvers/zod";
 
 import { toUpdateUserAPI, toUpdateUserValues } from "../model/update-user.mappers";
 import { UpdateUserFormSchema, updateUserFormSchema } from "../model/update-user.schemas";

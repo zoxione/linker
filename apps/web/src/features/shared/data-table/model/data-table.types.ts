@@ -1,5 +1,6 @@
-import { RequestConfig, fetchClient } from "@/shared/lib/fetch-client";
 import { QueryObserverOptions, UseQueryResult } from "@tanstack/react-query";
+
+import { RequestConfig, fetchClient } from "@/shared/lib/fetch-client";
 
 interface QueryParams {
   limit?: number;
