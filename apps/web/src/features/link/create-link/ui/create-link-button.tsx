@@ -14,7 +14,7 @@ const CreateLinkButton = ({}: CreateLinkButtonProps) => {
     <Button
       onClick={() => onOpen({ type: "create-link", props: {} })}
       size="icon"
-      className="fixed bottom-6 right-6 rounded-full"
+      className="fixed right-6 bottom-6 rounded-full"
     >
       <Icons.add />
     </Button>

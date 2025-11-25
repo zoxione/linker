@@ -4,11 +4,11 @@ import { z } from "zod/v4";
 
 export const getApiCustomerLinkVisitsQueryParamsSchema = z
   .object({
-    linkId: z.uuid().optional(),
-    sortBy: z.enum(["createdAt"]).optional(),
-    sortOrder: z.enum(["asc", "desc"]).optional(),
-    limit: z.coerce.number().optional(),
-    offset: z.coerce.number().optional(),
+    linkId: z.optional(z.uuid()),
+    sortBy: z.optional(z.enum(["createdAt"])),
+    sortOrder: z.optional(z.enum(["asc", "desc"])),
+    limit: z.optional(z.coerce.number()),
+    offset: z.optional(z.coerce.number()),
   })
   .optional();
 
@@ -24,14 +24,14 @@ export const getApiCustomerLinkVisits200Schema = z.object({
     z.object({
       id: z.uuid(),
       linkId: z.uuid(),
-      ip: z.string().nullable(),
-      language: z.string().nullable(),
-      browser: z.string().nullable(),
-      cpu: z.string().nullable(),
-      device: z.string().nullable(),
-      engine: z.string().nullable(),
-      os: z.string().nullable(),
-      referer: z.string().nullable(),
+      ip: z.nullable(z.string()),
+      language: z.nullable(z.string()),
+      browser: z.nullable(z.string()),
+      cpu: z.nullable(z.string()),
+      device: z.nullable(z.string()),
+      engine: z.nullable(z.string()),
+      os: z.nullable(z.string()),
+      referer: z.nullable(z.string()),
       headers: z.string(),
       updatedAt: z.string().datetime(),
       createdAt: z.string().datetime(),

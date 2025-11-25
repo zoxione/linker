@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
-import type { QueryClient, UseMutationOptions } from "@tanstack/react-query";
-import { useMutation } from "@tanstack/react-query";
+import type { QueryClient, UseMutationOptions, UseMutationResult } from "@tanstack/react-query";
+import { mutationOptions, useMutation } from "@tanstack/react-query";
 
 import fetch from "../../../lib/fetch-client";
 import type { RequestConfig, ResponseErrorConfig } from "../../../lib/fetch-client";
@@ -35,6 +35,23 @@ export async function deleteApiCustomerLinksId(
   return res.data;
 }
 
+export function deleteApiCustomerLinksIdMutationOptions(
+  config: Partial<RequestConfig> & { client?: typeof fetch } = {},
+) {
+  const mutationKey = deleteApiCustomerLinksIdMutationKey();
+  return mutationOptions<
+    DeleteApiCustomerLinksIdMutationResponse,
+    ResponseErrorConfig<DeleteApiCustomerLinksId400 | DeleteApiCustomerLinksId404 | DeleteApiCustomerLinksId500>,
+    { id: DeleteApiCustomerLinksIdPathParams["id"] },
+    typeof mutationKey
+  >({
+    mutationKey,
+    mutationFn: async ({ id }) => {
+      return deleteApiCustomerLinksId(id, config);
+    },
+  });
+}
+
 /**
  * @summary Удалить ссылку по id
  * {@link /api/customer/links/:id}
@@ -54,6 +71,13 @@ export function useDeleteApiCustomerLinksId<TContext>(
   const { client: queryClient, ...mutationOptions } = mutation;
   const mutationKey = mutationOptions.mutationKey ?? deleteApiCustomerLinksIdMutationKey();
 
+  const baseOptions = deleteApiCustomerLinksIdMutationOptions(config) as UseMutationOptions<
+    DeleteApiCustomerLinksIdMutationResponse,
+    ResponseErrorConfig<DeleteApiCustomerLinksId400 | DeleteApiCustomerLinksId404 | DeleteApiCustomerLinksId500>,
+    { id: DeleteApiCustomerLinksIdPathParams["id"] },
+    TContext
+  >;
+
   return useMutation<
     DeleteApiCustomerLinksIdMutationResponse,
     ResponseErrorConfig<DeleteApiCustomerLinksId400 | DeleteApiCustomerLinksId404 | DeleteApiCustomerLinksId500>,
@@ -61,12 +85,15 @@ export function useDeleteApiCustomerLinksId<TContext>(
     TContext
   >(
     {
-      mutationFn: async ({ id }) => {
-        return deleteApiCustomerLinksId(id, config);
-      },
+      ...baseOptions,
       mutationKey,
       ...mutationOptions,
     },
     queryClient,
-  );
+  ) as UseMutationResult<
+    DeleteApiCustomerLinksIdMutationResponse,
+    ResponseErrorConfig<DeleteApiCustomerLinksId400 | DeleteApiCustomerLinksId404 | DeleteApiCustomerLinksId500>,
+    { id: DeleteApiCustomerLinksIdPathParams["id"] },
+    TContext
+  >;
 }

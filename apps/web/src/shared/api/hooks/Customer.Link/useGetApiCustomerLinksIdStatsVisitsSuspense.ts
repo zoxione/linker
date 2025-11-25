@@ -3,8 +3,8 @@
 import type { QueryClient, QueryKey, UseSuspenseQueryOptions, UseSuspenseQueryResult } from "@tanstack/react-query";
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 
-import type { RequestConfig, ResponseErrorConfig } from "../../../lib/fetch-client";
 import fetch from "../../../lib/fetch-client";
+import type { RequestConfig, ResponseErrorConfig } from "../../../lib/fetch-client";
 import type {
   GetApiCustomerLinksIdStatsVisits400,
   GetApiCustomerLinksIdStatsVisits404,

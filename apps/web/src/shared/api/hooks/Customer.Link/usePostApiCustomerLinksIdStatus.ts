@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
-import type { QueryClient, UseMutationOptions } from "@tanstack/react-query";
-import { useMutation } from "@tanstack/react-query";
+import type { QueryClient, UseMutationOptions, UseMutationResult } from "@tanstack/react-query";
+import { mutationOptions, useMutation } from "@tanstack/react-query";
 
 import fetch from "../../../lib/fetch-client";
 import type { RequestConfig, ResponseErrorConfig } from "../../../lib/fetch-client";
@@ -41,6 +41,25 @@ export async function postApiCustomerLinksIdStatus(
   return res.data;
 }
 
+export function postApiCustomerLinksIdStatusMutationOptions(
+  config: Partial<RequestConfig<PostApiCustomerLinksIdStatusMutationRequest>> & { client?: typeof fetch } = {},
+) {
+  const mutationKey = postApiCustomerLinksIdStatusMutationKey();
+  return mutationOptions<
+    PostApiCustomerLinksIdStatusMutationResponse,
+    ResponseErrorConfig<
+      PostApiCustomerLinksIdStatus400 | PostApiCustomerLinksIdStatus404 | PostApiCustomerLinksIdStatus500
+    >,
+    { id: PostApiCustomerLinksIdStatusPathParams["id"]; data: PostApiCustomerLinksIdStatusMutationRequest },
+    typeof mutationKey
+  >({
+    mutationKey,
+    mutationFn: async ({ id, data }) => {
+      return postApiCustomerLinksIdStatus(id, data, config);
+    },
+  });
+}
+
 /**
  * @summary Обновить статус ссылки по id
  * {@link /api/customer/links/:id/status}
@@ -62,6 +81,15 @@ export function usePostApiCustomerLinksIdStatus<TContext>(
   const { client: queryClient, ...mutationOptions } = mutation;
   const mutationKey = mutationOptions.mutationKey ?? postApiCustomerLinksIdStatusMutationKey();
 
+  const baseOptions = postApiCustomerLinksIdStatusMutationOptions(config) as UseMutationOptions<
+    PostApiCustomerLinksIdStatusMutationResponse,
+    ResponseErrorConfig<
+      PostApiCustomerLinksIdStatus400 | PostApiCustomerLinksIdStatus404 | PostApiCustomerLinksIdStatus500
+    >,
+    { id: PostApiCustomerLinksIdStatusPathParams["id"]; data: PostApiCustomerLinksIdStatusMutationRequest },
+    TContext
+  >;
+
   return useMutation<
     PostApiCustomerLinksIdStatusMutationResponse,
     ResponseErrorConfig<
@@ -71,12 +99,17 @@ export function usePostApiCustomerLinksIdStatus<TContext>(
     TContext
   >(
     {
-      mutationFn: async ({ id, data }) => {
-        return postApiCustomerLinksIdStatus(id, data, config);
-      },
+      ...baseOptions,
       mutationKey,
       ...mutationOptions,
     },
     queryClient,
-  );
+  ) as UseMutationResult<
+    PostApiCustomerLinksIdStatusMutationResponse,
+    ResponseErrorConfig<
+      PostApiCustomerLinksIdStatus400 | PostApiCustomerLinksIdStatus404 | PostApiCustomerLinksIdStatus500
+    >,
+    { id: PostApiCustomerLinksIdStatusPathParams["id"]; data: PostApiCustomerLinksIdStatusMutationRequest },
+    TContext
+  >;
 }

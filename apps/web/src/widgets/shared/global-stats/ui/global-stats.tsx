@@ -28,7 +28,7 @@ const GlobalStats = ({ className }: GlobalStatsProps) => {
         <CardHeader>
           <CardDescription>Всего ссылок</CardDescription>
           {statsGlobalQuery.status === "success" ? (
-            <CardTitle className="@3xs/card:text-3xl text-2xl">
+            <CardTitle className="text-2xl @3xs/card:text-3xl">
               {formatNumber(statsGlobalQuery.data.totalLinks)}
             </CardTitle>
           ) : (
@@ -49,7 +49,7 @@ const GlobalStats = ({ className }: GlobalStatsProps) => {
         <CardHeader>
           <CardDescription>Всего переходов</CardDescription>
           {statsGlobalQuery.status === "success" ? (
-            <CardTitle className="@3xs/card:text-3xl text-2xl">
+            <CardTitle className="text-2xl @3xs/card:text-3xl">
               {formatNumber(statsGlobalQuery.data.totalLinkVisits)}
             </CardTitle>
           ) : (

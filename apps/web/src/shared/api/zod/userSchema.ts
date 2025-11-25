@@ -11,8 +11,8 @@ export const userSchema = z
     createdAt: z.string().datetime(),
     id: z.uuid(),
     email: z.email(),
-    emailVerified: z.boolean().optional(),
+    emailVerified: z.optional(z.boolean()),
     name: z.string().min(3).max(24),
-    image: z.url().nullable(),
+    image: z.nullable(z.url()),
   })
   .describe("Пользователь");

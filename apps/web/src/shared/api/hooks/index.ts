@@ -18,119 +18,83 @@ export type { GetApiCustomerLinkVisitsQueryKey } from "./Customer.LinkVisit/useG
 export type { GetApiCustomerLinkVisitsSuspenseQueryKey } from "./Customer.LinkVisit/useGetApiCustomerLinkVisitsSuspense";
 export type { GetApiCustomerStatsGlobalQueryKey } from "./Customer.Stats/useGetApiCustomerStatsGlobal";
 export type { GetApiCustomerStatsGlobalSuspenseQueryKey } from "./Customer.Stats/useGetApiCustomerStatsGlobalSuspense";
-export {
-  deleteApiCustomerLinksIdMutationKey,
-  deleteApiCustomerLinksId,
-  useDeleteApiCustomerLinksId,
-} from "./Customer.Link/useDeleteApiCustomerLinksId";
-export {
-  getApiCustomerLinksQueryKey,
-  getApiCustomerLinks,
-  getApiCustomerLinksQueryOptions,
-  useGetApiCustomerLinks,
-} from "./Customer.Link/useGetApiCustomerLinks";
-export {
-  getApiCustomerLinksIdQueryKey,
-  getApiCustomerLinksId,
-  getApiCustomerLinksIdQueryOptions,
-  useGetApiCustomerLinksId,
-} from "./Customer.Link/useGetApiCustomerLinksId";
-export {
-  getApiCustomerLinksIdStatsBrowsersQueryKey,
-  getApiCustomerLinksIdStatsBrowsers,
-  getApiCustomerLinksIdStatsBrowsersQueryOptions,
-  useGetApiCustomerLinksIdStatsBrowsers,
-} from "./Customer.Link/useGetApiCustomerLinksIdStatsBrowsers";
-export {
-  getApiCustomerLinksIdStatsBrowsersSuspenseQueryKey,
-  getApiCustomerLinksIdStatsBrowsersSuspense,
-  getApiCustomerLinksIdStatsBrowsersSuspenseQueryOptions,
-  useGetApiCustomerLinksIdStatsBrowsersSuspense,
-} from "./Customer.Link/useGetApiCustomerLinksIdStatsBrowsersSuspense";
-export {
-  getApiCustomerLinksIdStatsLanguagesQueryKey,
-  getApiCustomerLinksIdStatsLanguages,
-  getApiCustomerLinksIdStatsLanguagesQueryOptions,
-  useGetApiCustomerLinksIdStatsLanguages,
-} from "./Customer.Link/useGetApiCustomerLinksIdStatsLanguages";
-export {
-  getApiCustomerLinksIdStatsLanguagesSuspenseQueryKey,
-  getApiCustomerLinksIdStatsLanguagesSuspense,
-  getApiCustomerLinksIdStatsLanguagesSuspenseQueryOptions,
-  useGetApiCustomerLinksIdStatsLanguagesSuspense,
-} from "./Customer.Link/useGetApiCustomerLinksIdStatsLanguagesSuspense";
-export {
-  getApiCustomerLinksIdStatsVisitsQueryKey,
-  getApiCustomerLinksIdStatsVisits,
-  getApiCustomerLinksIdStatsVisitsQueryOptions,
-  useGetApiCustomerLinksIdStatsVisits,
-} from "./Customer.Link/useGetApiCustomerLinksIdStatsVisits";
-export {
-  getApiCustomerLinksIdStatsVisitsSuspenseQueryKey,
-  getApiCustomerLinksIdStatsVisitsSuspense,
-  getApiCustomerLinksIdStatsVisitsSuspenseQueryOptions,
-  useGetApiCustomerLinksIdStatsVisitsSuspense,
-} from "./Customer.Link/useGetApiCustomerLinksIdStatsVisitsSuspense";
-export {
-  getApiCustomerLinksIdSuspenseQueryKey,
-  getApiCustomerLinksIdSuspense,
-  getApiCustomerLinksIdSuspenseQueryOptions,
-  useGetApiCustomerLinksIdSuspense,
-} from "./Customer.Link/useGetApiCustomerLinksIdSuspense";
-export {
-  getApiCustomerLinksSuspenseQueryKey,
-  getApiCustomerLinksSuspense,
-  getApiCustomerLinksSuspenseQueryOptions,
-  useGetApiCustomerLinksSuspense,
-} from "./Customer.Link/useGetApiCustomerLinksSuspense";
-export {
-  getApiCustomerLinksTokenVisitQueryKey,
-  getApiCustomerLinksTokenVisit,
-  getApiCustomerLinksTokenVisitQueryOptions,
-  useGetApiCustomerLinksTokenVisit,
-} from "./Customer.Link/useGetApiCustomerLinksTokenVisit";
-export {
-  getApiCustomerLinksTokenVisitSuspenseQueryKey,
-  getApiCustomerLinksTokenVisitSuspense,
-  getApiCustomerLinksTokenVisitSuspenseQueryOptions,
-  useGetApiCustomerLinksTokenVisitSuspense,
-} from "./Customer.Link/useGetApiCustomerLinksTokenVisitSuspense";
-export {
-  postApiCustomerLinksMutationKey,
-  postApiCustomerLinks,
-  usePostApiCustomerLinks,
-} from "./Customer.Link/usePostApiCustomerLinks";
-export {
-  postApiCustomerLinksIdStatusMutationKey,
-  postApiCustomerLinksIdStatus,
-  usePostApiCustomerLinksIdStatus,
-} from "./Customer.Link/usePostApiCustomerLinksIdStatus";
-export {
-  putApiCustomerLinksIdMutationKey,
-  putApiCustomerLinksId,
-  usePutApiCustomerLinksId,
-} from "./Customer.Link/usePutApiCustomerLinksId";
-export {
-  getApiCustomerLinkVisitsQueryKey,
-  getApiCustomerLinkVisits,
-  getApiCustomerLinkVisitsQueryOptions,
-  useGetApiCustomerLinkVisits,
-} from "./Customer.LinkVisit/useGetApiCustomerLinkVisits";
-export {
-  getApiCustomerLinkVisitsSuspenseQueryKey,
-  getApiCustomerLinkVisitsSuspense,
-  getApiCustomerLinkVisitsSuspenseQueryOptions,
-  useGetApiCustomerLinkVisitsSuspense,
-} from "./Customer.LinkVisit/useGetApiCustomerLinkVisitsSuspense";
-export {
-  getApiCustomerStatsGlobalQueryKey,
-  getApiCustomerStatsGlobal,
-  getApiCustomerStatsGlobalQueryOptions,
-  useGetApiCustomerStatsGlobal,
-} from "./Customer.Stats/useGetApiCustomerStatsGlobal";
-export {
-  getApiCustomerStatsGlobalSuspenseQueryKey,
-  getApiCustomerStatsGlobalSuspense,
-  getApiCustomerStatsGlobalSuspenseQueryOptions,
-  useGetApiCustomerStatsGlobalSuspense,
-} from "./Customer.Stats/useGetApiCustomerStatsGlobalSuspense";
+export { deleteApiCustomerLinksIdMutationKey } from "./Customer.Link/useDeleteApiCustomerLinksId";
+export { deleteApiCustomerLinksId } from "./Customer.Link/useDeleteApiCustomerLinksId";
+export { deleteApiCustomerLinksIdMutationOptions } from "./Customer.Link/useDeleteApiCustomerLinksId";
+export { useDeleteApiCustomerLinksId } from "./Customer.Link/useDeleteApiCustomerLinksId";
+export { getApiCustomerLinksQueryKey } from "./Customer.Link/useGetApiCustomerLinks";
+export { getApiCustomerLinks } from "./Customer.Link/useGetApiCustomerLinks";
+export { getApiCustomerLinksQueryOptions } from "./Customer.Link/useGetApiCustomerLinks";
+export { useGetApiCustomerLinks } from "./Customer.Link/useGetApiCustomerLinks";
+export { getApiCustomerLinksIdQueryKey } from "./Customer.Link/useGetApiCustomerLinksId";
+export { getApiCustomerLinksId } from "./Customer.Link/useGetApiCustomerLinksId";
+export { getApiCustomerLinksIdQueryOptions } from "./Customer.Link/useGetApiCustomerLinksId";
+export { useGetApiCustomerLinksId } from "./Customer.Link/useGetApiCustomerLinksId";
+export { getApiCustomerLinksIdStatsBrowsersQueryKey } from "./Customer.Link/useGetApiCustomerLinksIdStatsBrowsers";
+export { getApiCustomerLinksIdStatsBrowsers } from "./Customer.Link/useGetApiCustomerLinksIdStatsBrowsers";
+export { getApiCustomerLinksIdStatsBrowsersQueryOptions } from "./Customer.Link/useGetApiCustomerLinksIdStatsBrowsers";
+export { useGetApiCustomerLinksIdStatsBrowsers } from "./Customer.Link/useGetApiCustomerLinksIdStatsBrowsers";
+export { getApiCustomerLinksIdStatsBrowsersSuspenseQueryKey } from "./Customer.Link/useGetApiCustomerLinksIdStatsBrowsersSuspense";
+export { getApiCustomerLinksIdStatsBrowsersSuspense } from "./Customer.Link/useGetApiCustomerLinksIdStatsBrowsersSuspense";
+export { getApiCustomerLinksIdStatsBrowsersSuspenseQueryOptions } from "./Customer.Link/useGetApiCustomerLinksIdStatsBrowsersSuspense";
+export { useGetApiCustomerLinksIdStatsBrowsersSuspense } from "./Customer.Link/useGetApiCustomerLinksIdStatsBrowsersSuspense";
+export { getApiCustomerLinksIdStatsLanguagesQueryKey } from "./Customer.Link/useGetApiCustomerLinksIdStatsLanguages";
+export { getApiCustomerLinksIdStatsLanguages } from "./Customer.Link/useGetApiCustomerLinksIdStatsLanguages";
+export { getApiCustomerLinksIdStatsLanguagesQueryOptions } from "./Customer.Link/useGetApiCustomerLinksIdStatsLanguages";
+export { useGetApiCustomerLinksIdStatsLanguages } from "./Customer.Link/useGetApiCustomerLinksIdStatsLanguages";
+export { getApiCustomerLinksIdStatsLanguagesSuspenseQueryKey } from "./Customer.Link/useGetApiCustomerLinksIdStatsLanguagesSuspense";
+export { getApiCustomerLinksIdStatsLanguagesSuspense } from "./Customer.Link/useGetApiCustomerLinksIdStatsLanguagesSuspense";
+export { getApiCustomerLinksIdStatsLanguagesSuspenseQueryOptions } from "./Customer.Link/useGetApiCustomerLinksIdStatsLanguagesSuspense";
+export { useGetApiCustomerLinksIdStatsLanguagesSuspense } from "./Customer.Link/useGetApiCustomerLinksIdStatsLanguagesSuspense";
+export { getApiCustomerLinksIdStatsVisitsQueryKey } from "./Customer.Link/useGetApiCustomerLinksIdStatsVisits";
+export { getApiCustomerLinksIdStatsVisits } from "./Customer.Link/useGetApiCustomerLinksIdStatsVisits";
+export { getApiCustomerLinksIdStatsVisitsQueryOptions } from "./Customer.Link/useGetApiCustomerLinksIdStatsVisits";
+export { useGetApiCustomerLinksIdStatsVisits } from "./Customer.Link/useGetApiCustomerLinksIdStatsVisits";
+export { getApiCustomerLinksIdStatsVisitsSuspenseQueryKey } from "./Customer.Link/useGetApiCustomerLinksIdStatsVisitsSuspense";
+export { getApiCustomerLinksIdStatsVisitsSuspense } from "./Customer.Link/useGetApiCustomerLinksIdStatsVisitsSuspense";
+export { getApiCustomerLinksIdStatsVisitsSuspenseQueryOptions } from "./Customer.Link/useGetApiCustomerLinksIdStatsVisitsSuspense";
+export { useGetApiCustomerLinksIdStatsVisitsSuspense } from "./Customer.Link/useGetApiCustomerLinksIdStatsVisitsSuspense";
+export { getApiCustomerLinksIdSuspenseQueryKey } from "./Customer.Link/useGetApiCustomerLinksIdSuspense";
+export { getApiCustomerLinksIdSuspense } from "./Customer.Link/useGetApiCustomerLinksIdSuspense";
+export { getApiCustomerLinksIdSuspenseQueryOptions } from "./Customer.Link/useGetApiCustomerLinksIdSuspense";
+export { useGetApiCustomerLinksIdSuspense } from "./Customer.Link/useGetApiCustomerLinksIdSuspense";
+export { getApiCustomerLinksSuspenseQueryKey } from "./Customer.Link/useGetApiCustomerLinksSuspense";
+export { getApiCustomerLinksSuspense } from "./Customer.Link/useGetApiCustomerLinksSuspense";
+export { getApiCustomerLinksSuspenseQueryOptions } from "./Customer.Link/useGetApiCustomerLinksSuspense";
+export { useGetApiCustomerLinksSuspense } from "./Customer.Link/useGetApiCustomerLinksSuspense";
+export { getApiCustomerLinksTokenVisitQueryKey } from "./Customer.Link/useGetApiCustomerLinksTokenVisit";
+export { getApiCustomerLinksTokenVisit } from "./Customer.Link/useGetApiCustomerLinksTokenVisit";
+export { getApiCustomerLinksTokenVisitQueryOptions } from "./Customer.Link/useGetApiCustomerLinksTokenVisit";
+export { useGetApiCustomerLinksTokenVisit } from "./Customer.Link/useGetApiCustomerLinksTokenVisit";
+export { getApiCustomerLinksTokenVisitSuspenseQueryKey } from "./Customer.Link/useGetApiCustomerLinksTokenVisitSuspense";
+export { getApiCustomerLinksTokenVisitSuspense } from "./Customer.Link/useGetApiCustomerLinksTokenVisitSuspense";
+export { getApiCustomerLinksTokenVisitSuspenseQueryOptions } from "./Customer.Link/useGetApiCustomerLinksTokenVisitSuspense";
+export { useGetApiCustomerLinksTokenVisitSuspense } from "./Customer.Link/useGetApiCustomerLinksTokenVisitSuspense";
+export { postApiCustomerLinksMutationKey } from "./Customer.Link/usePostApiCustomerLinks";
+export { postApiCustomerLinks } from "./Customer.Link/usePostApiCustomerLinks";
+export { postApiCustomerLinksMutationOptions } from "./Customer.Link/usePostApiCustomerLinks";
+export { usePostApiCustomerLinks } from "./Customer.Link/usePostApiCustomerLinks";
+export { postApiCustomerLinksIdStatusMutationKey } from "./Customer.Link/usePostApiCustomerLinksIdStatus";
+export { postApiCustomerLinksIdStatus } from "./Customer.Link/usePostApiCustomerLinksIdStatus";
+export { postApiCustomerLinksIdStatusMutationOptions } from "./Customer.Link/usePostApiCustomerLinksIdStatus";
+export { usePostApiCustomerLinksIdStatus } from "./Customer.Link/usePostApiCustomerLinksIdStatus";
+export { putApiCustomerLinksIdMutationKey } from "./Customer.Link/usePutApiCustomerLinksId";
+export { putApiCustomerLinksId } from "./Customer.Link/usePutApiCustomerLinksId";
+export { putApiCustomerLinksIdMutationOptions } from "./Customer.Link/usePutApiCustomerLinksId";
+export { usePutApiCustomerLinksId } from "./Customer.Link/usePutApiCustomerLinksId";
+export { getApiCustomerLinkVisitsQueryKey } from "./Customer.LinkVisit/useGetApiCustomerLinkVisits";
+export { getApiCustomerLinkVisits } from "./Customer.LinkVisit/useGetApiCustomerLinkVisits";
+export { getApiCustomerLinkVisitsQueryOptions } from "./Customer.LinkVisit/useGetApiCustomerLinkVisits";
+export { useGetApiCustomerLinkVisits } from "./Customer.LinkVisit/useGetApiCustomerLinkVisits";
+export { getApiCustomerLinkVisitsSuspenseQueryKey } from "./Customer.LinkVisit/useGetApiCustomerLinkVisitsSuspense";
+export { getApiCustomerLinkVisitsSuspense } from "./Customer.LinkVisit/useGetApiCustomerLinkVisitsSuspense";
+export { getApiCustomerLinkVisitsSuspenseQueryOptions } from "./Customer.LinkVisit/useGetApiCustomerLinkVisitsSuspense";
+export { useGetApiCustomerLinkVisitsSuspense } from "./Customer.LinkVisit/useGetApiCustomerLinkVisitsSuspense";
+export { getApiCustomerStatsGlobalQueryKey } from "./Customer.Stats/useGetApiCustomerStatsGlobal";
+export { getApiCustomerStatsGlobal } from "./Customer.Stats/useGetApiCustomerStatsGlobal";
+export { getApiCustomerStatsGlobalQueryOptions } from "./Customer.Stats/useGetApiCustomerStatsGlobal";
+export { useGetApiCustomerStatsGlobal } from "./Customer.Stats/useGetApiCustomerStatsGlobal";
+export { getApiCustomerStatsGlobalSuspenseQueryKey } from "./Customer.Stats/useGetApiCustomerStatsGlobalSuspense";
+export { getApiCustomerStatsGlobalSuspense } from "./Customer.Stats/useGetApiCustomerStatsGlobalSuspense";
+export { getApiCustomerStatsGlobalSuspenseQueryOptions } from "./Customer.Stats/useGetApiCustomerStatsGlobalSuspense";
+export { useGetApiCustomerStatsGlobalSuspense } from "./Customer.Stats/useGetApiCustomerStatsGlobalSuspense";

@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
-import type { QueryClient, UseMutationOptions } from "@tanstack/react-query";
-import { useMutation } from "@tanstack/react-query";
+import type { QueryClient, UseMutationOptions, UseMutationResult } from "@tanstack/react-query";
+import { mutationOptions, useMutation } from "@tanstack/react-query";
 
 import fetch from "../../../lib/fetch-client";
 import type { RequestConfig, ResponseErrorConfig } from "../../../lib/fetch-client";
@@ -36,6 +36,23 @@ export async function postApiCustomerLinks(
   return res.data;
 }
 
+export function postApiCustomerLinksMutationOptions(
+  config: Partial<RequestConfig<PostApiCustomerLinksMutationRequest>> & { client?: typeof fetch } = {},
+) {
+  const mutationKey = postApiCustomerLinksMutationKey();
+  return mutationOptions<
+    PostApiCustomerLinksMutationResponse,
+    ResponseErrorConfig<PostApiCustomerLinks400 | PostApiCustomerLinks500>,
+    { data: PostApiCustomerLinksMutationRequest },
+    typeof mutationKey
+  >({
+    mutationKey,
+    mutationFn: async ({ data }) => {
+      return postApiCustomerLinks(data, config);
+    },
+  });
+}
+
 /**
  * @summary Создать ссылку
  * {@link /api/customer/links}
@@ -55,6 +72,13 @@ export function usePostApiCustomerLinks<TContext>(
   const { client: queryClient, ...mutationOptions } = mutation;
   const mutationKey = mutationOptions.mutationKey ?? postApiCustomerLinksMutationKey();
 
+  const baseOptions = postApiCustomerLinksMutationOptions(config) as UseMutationOptions<
+    PostApiCustomerLinksMutationResponse,
+    ResponseErrorConfig<PostApiCustomerLinks400 | PostApiCustomerLinks500>,
+    { data: PostApiCustomerLinksMutationRequest },
+    TContext
+  >;
+
   return useMutation<
     PostApiCustomerLinksMutationResponse,
     ResponseErrorConfig<PostApiCustomerLinks400 | PostApiCustomerLinks500>,
@@ -62,12 +86,15 @@ export function usePostApiCustomerLinks<TContext>(
     TContext
   >(
     {
-      mutationFn: async ({ data }) => {
-        return postApiCustomerLinks(data, config);
-      },
+      ...baseOptions,
       mutationKey,
       ...mutationOptions,
     },
     queryClient,
-  );
+  ) as UseMutationResult<
+    PostApiCustomerLinksMutationResponse,
+    ResponseErrorConfig<PostApiCustomerLinks400 | PostApiCustomerLinks500>,
+    { data: PostApiCustomerLinksMutationRequest },
+    TContext
+  >;
 }

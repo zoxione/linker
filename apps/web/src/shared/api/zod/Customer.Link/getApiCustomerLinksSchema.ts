@@ -4,11 +4,11 @@ import { z } from "zod/v4";
 
 export const getApiCustomerLinksQueryParamsSchema = z
   .object({
-    sortBy: z.enum(["name", "redirectCount", "createdAt"]).optional(),
-    sortOrder: z.enum(["asc", "desc"]).optional(),
-    status: z.enum(["ENABLE", "DISABLE"]).optional(),
-    limit: z.coerce.number().optional(),
-    offset: z.coerce.number().optional(),
+    sortBy: z.optional(z.enum(["name", "redirectCount", "createdAt"])),
+    sortOrder: z.optional(z.enum(["asc", "desc"])),
+    status: z.optional(z.enum(["ENABLE", "DISABLE"])),
+    limit: z.optional(z.coerce.number()),
+    offset: z.optional(z.coerce.number()),
   })
   .optional();
 

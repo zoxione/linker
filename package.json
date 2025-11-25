@@ -11,17 +11,16 @@
     "start": "dotenv -- turbo start",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{js,jsx,mjs,ts,tsx,mts,md,mdx,json}\"",
-    "typecheck": "turbo typecheck",
     "typegen": "dotenv -- turbo typegen && pnpm run format",
     "auth:generate": "dotenv -- turbo auth:generate",
     "db:generate": "dotenv -- turbo db:generate",
     "db:migrate": "dotenv -- turbo db:migrate"
   },
   "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "5.2.2",
+    "@trivago/prettier-plugin-sort-imports": "6.0.0",
     "dotenv-cli": "github:motdotla/dotenv-cli",
     "prettier": "3.6.2",
-    "prettier-plugin-tailwindcss": "0.7.0",
-    "turbo": "2.5.8"
+    "prettier-plugin-tailwindcss": "0.7.1",
+    "turbo": "2.6.1"
   }
 }

@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
-import type { QueryClient, UseMutationOptions } from "@tanstack/react-query";
-import { useMutation } from "@tanstack/react-query";
+import type { QueryClient, UseMutationOptions, UseMutationResult } from "@tanstack/react-query";
+import { mutationOptions, useMutation } from "@tanstack/react-query";
 
 import fetch from "../../../lib/fetch-client";
 import type { RequestConfig, ResponseErrorConfig } from "../../../lib/fetch-client";
@@ -39,6 +39,23 @@ export async function putApiCustomerLinksId(
   return res.data;
 }
 
+export function putApiCustomerLinksIdMutationOptions(
+  config: Partial<RequestConfig<PutApiCustomerLinksIdMutationRequest>> & { client?: typeof fetch } = {},
+) {
+  const mutationKey = putApiCustomerLinksIdMutationKey();
+  return mutationOptions<
+    PutApiCustomerLinksIdMutationResponse,
+    ResponseErrorConfig<PutApiCustomerLinksId400 | PutApiCustomerLinksId404 | PutApiCustomerLinksId500>,
+    { id: PutApiCustomerLinksIdPathParams["id"]; data: PutApiCustomerLinksIdMutationRequest },
+    typeof mutationKey
+  >({
+    mutationKey,
+    mutationFn: async ({ id, data }) => {
+      return putApiCustomerLinksId(id, data, config);
+    },
+  });
+}
+
 /**
  * @summary Обновить ссылку по id
  * {@link /api/customer/links/:id}
@@ -58,6 +75,13 @@ export function usePutApiCustomerLinksId<TContext>(
   const { client: queryClient, ...mutationOptions } = mutation;
   const mutationKey = mutationOptions.mutationKey ?? putApiCustomerLinksIdMutationKey();
 
+  const baseOptions = putApiCustomerLinksIdMutationOptions(config) as UseMutationOptions<
+    PutApiCustomerLinksIdMutationResponse,
+    ResponseErrorConfig<PutApiCustomerLinksId400 | PutApiCustomerLinksId404 | PutApiCustomerLinksId500>,
+    { id: PutApiCustomerLinksIdPathParams["id"]; data: PutApiCustomerLinksIdMutationRequest },
+    TContext
+  >;
+
   return useMutation<
     PutApiCustomerLinksIdMutationResponse,
     ResponseErrorConfig<PutApiCustomerLinksId400 | PutApiCustomerLinksId404 | PutApiCustomerLinksId500>,
@@ -65,12 +89,15 @@ export function usePutApiCustomerLinksId<TContext>(
     TContext
   >(
     {
-      mutationFn: async ({ id, data }) => {
-        return putApiCustomerLinksId(id, data, config);
-      },
+      ...baseOptions,
       mutationKey,
       ...mutationOptions,
     },
     queryClient,
-  );
+  ) as UseMutationResult<
+    PutApiCustomerLinksIdMutationResponse,
+    ResponseErrorConfig<PutApiCustomerLinksId400 | PutApiCustomerLinksId404 | PutApiCustomerLinksId500>,
+    { id: PutApiCustomerLinksIdPathParams["id"]; data: PutApiCustomerLinksIdMutationRequest },
+    TContext
+  >;
 }

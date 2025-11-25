@@ -142,122 +142,86 @@ export type {
 export type { LinkStatusEnum, Link } from "./types/Link";
 export type { LinkVisit } from "./types/LinkVisit";
 export type { User } from "./types/User";
-export {
-  deleteApiCustomerLinksIdMutationKey,
-  deleteApiCustomerLinksId,
-  useDeleteApiCustomerLinksId,
-} from "./hooks/Customer.Link/useDeleteApiCustomerLinksId";
-export {
-  getApiCustomerLinksQueryKey,
-  getApiCustomerLinks,
-  getApiCustomerLinksQueryOptions,
-  useGetApiCustomerLinks,
-} from "./hooks/Customer.Link/useGetApiCustomerLinks";
-export {
-  getApiCustomerLinksIdQueryKey,
-  getApiCustomerLinksId,
-  getApiCustomerLinksIdQueryOptions,
-  useGetApiCustomerLinksId,
-} from "./hooks/Customer.Link/useGetApiCustomerLinksId";
-export {
-  getApiCustomerLinksIdStatsBrowsersQueryKey,
-  getApiCustomerLinksIdStatsBrowsers,
-  getApiCustomerLinksIdStatsBrowsersQueryOptions,
-  useGetApiCustomerLinksIdStatsBrowsers,
-} from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsBrowsers";
-export {
-  getApiCustomerLinksIdStatsBrowsersSuspenseQueryKey,
-  getApiCustomerLinksIdStatsBrowsersSuspense,
-  getApiCustomerLinksIdStatsBrowsersSuspenseQueryOptions,
-  useGetApiCustomerLinksIdStatsBrowsersSuspense,
-} from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsBrowsersSuspense";
-export {
-  getApiCustomerLinksIdStatsLanguagesQueryKey,
-  getApiCustomerLinksIdStatsLanguages,
-  getApiCustomerLinksIdStatsLanguagesQueryOptions,
-  useGetApiCustomerLinksIdStatsLanguages,
-} from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsLanguages";
-export {
-  getApiCustomerLinksIdStatsLanguagesSuspenseQueryKey,
-  getApiCustomerLinksIdStatsLanguagesSuspense,
-  getApiCustomerLinksIdStatsLanguagesSuspenseQueryOptions,
-  useGetApiCustomerLinksIdStatsLanguagesSuspense,
-} from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsLanguagesSuspense";
-export {
-  getApiCustomerLinksIdStatsVisitsQueryKey,
-  getApiCustomerLinksIdStatsVisits,
-  getApiCustomerLinksIdStatsVisitsQueryOptions,
-  useGetApiCustomerLinksIdStatsVisits,
-} from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsVisits";
-export {
-  getApiCustomerLinksIdStatsVisitsSuspenseQueryKey,
-  getApiCustomerLinksIdStatsVisitsSuspense,
-  getApiCustomerLinksIdStatsVisitsSuspenseQueryOptions,
-  useGetApiCustomerLinksIdStatsVisitsSuspense,
-} from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsVisitsSuspense";
-export {
-  getApiCustomerLinksIdSuspenseQueryKey,
-  getApiCustomerLinksIdSuspense,
-  getApiCustomerLinksIdSuspenseQueryOptions,
-  useGetApiCustomerLinksIdSuspense,
-} from "./hooks/Customer.Link/useGetApiCustomerLinksIdSuspense";
-export {
-  getApiCustomerLinksSuspenseQueryKey,
-  getApiCustomerLinksSuspense,
-  getApiCustomerLinksSuspenseQueryOptions,
-  useGetApiCustomerLinksSuspense,
-} from "./hooks/Customer.Link/useGetApiCustomerLinksSuspense";
-export {
-  getApiCustomerLinksTokenVisitQueryKey,
-  getApiCustomerLinksTokenVisit,
-  getApiCustomerLinksTokenVisitQueryOptions,
-  useGetApiCustomerLinksTokenVisit,
-} from "./hooks/Customer.Link/useGetApiCustomerLinksTokenVisit";
-export {
-  getApiCustomerLinksTokenVisitSuspenseQueryKey,
-  getApiCustomerLinksTokenVisitSuspense,
-  getApiCustomerLinksTokenVisitSuspenseQueryOptions,
-  useGetApiCustomerLinksTokenVisitSuspense,
-} from "./hooks/Customer.Link/useGetApiCustomerLinksTokenVisitSuspense";
-export {
-  postApiCustomerLinksMutationKey,
-  postApiCustomerLinks,
-  usePostApiCustomerLinks,
-} from "./hooks/Customer.Link/usePostApiCustomerLinks";
-export {
-  postApiCustomerLinksIdStatusMutationKey,
-  postApiCustomerLinksIdStatus,
-  usePostApiCustomerLinksIdStatus,
-} from "./hooks/Customer.Link/usePostApiCustomerLinksIdStatus";
-export {
-  putApiCustomerLinksIdMutationKey,
-  putApiCustomerLinksId,
-  usePutApiCustomerLinksId,
-} from "./hooks/Customer.Link/usePutApiCustomerLinksId";
-export {
-  getApiCustomerLinkVisitsQueryKey,
-  getApiCustomerLinkVisits,
-  getApiCustomerLinkVisitsQueryOptions,
-  useGetApiCustomerLinkVisits,
-} from "./hooks/Customer.LinkVisit/useGetApiCustomerLinkVisits";
-export {
-  getApiCustomerLinkVisitsSuspenseQueryKey,
-  getApiCustomerLinkVisitsSuspense,
-  getApiCustomerLinkVisitsSuspenseQueryOptions,
-  useGetApiCustomerLinkVisitsSuspense,
-} from "./hooks/Customer.LinkVisit/useGetApiCustomerLinkVisitsSuspense";
-export {
-  getApiCustomerStatsGlobalQueryKey,
-  getApiCustomerStatsGlobal,
-  getApiCustomerStatsGlobalQueryOptions,
-  useGetApiCustomerStatsGlobal,
-} from "./hooks/Customer.Stats/useGetApiCustomerStatsGlobal";
-export {
-  getApiCustomerStatsGlobalSuspenseQueryKey,
-  getApiCustomerStatsGlobalSuspense,
-  getApiCustomerStatsGlobalSuspenseQueryOptions,
-  useGetApiCustomerStatsGlobalSuspense,
-} from "./hooks/Customer.Stats/useGetApiCustomerStatsGlobalSuspense";
+export { deleteApiCustomerLinksIdMutationKey } from "./hooks/Customer.Link/useDeleteApiCustomerLinksId";
+export { deleteApiCustomerLinksId } from "./hooks/Customer.Link/useDeleteApiCustomerLinksId";
+export { deleteApiCustomerLinksIdMutationOptions } from "./hooks/Customer.Link/useDeleteApiCustomerLinksId";
+export { useDeleteApiCustomerLinksId } from "./hooks/Customer.Link/useDeleteApiCustomerLinksId";
+export { getApiCustomerLinksQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinks";
+export { getApiCustomerLinks } from "./hooks/Customer.Link/useGetApiCustomerLinks";
+export { getApiCustomerLinksQueryOptions } from "./hooks/Customer.Link/useGetApiCustomerLinks";
+export { useGetApiCustomerLinks } from "./hooks/Customer.Link/useGetApiCustomerLinks";
+export { getApiCustomerLinksIdQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksId";
+export { getApiCustomerLinksId } from "./hooks/Customer.Link/useGetApiCustomerLinksId";
+export { getApiCustomerLinksIdQueryOptions } from "./hooks/Customer.Link/useGetApiCustomerLinksId";
+export { useGetApiCustomerLinksId } from "./hooks/Customer.Link/useGetApiCustomerLinksId";
+export { getApiCustomerLinksIdStatsBrowsersQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsBrowsers";
+export { getApiCustomerLinksIdStatsBrowsers } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsBrowsers";
+export { getApiCustomerLinksIdStatsBrowsersQueryOptions } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsBrowsers";
+export { useGetApiCustomerLinksIdStatsBrowsers } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsBrowsers";
+export { getApiCustomerLinksIdStatsBrowsersSuspenseQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsBrowsersSuspense";
+export { getApiCustomerLinksIdStatsBrowsersSuspense } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsBrowsersSuspense";
+export { getApiCustomerLinksIdStatsBrowsersSuspenseQueryOptions } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsBrowsersSuspense";
+export { useGetApiCustomerLinksIdStatsBrowsersSuspense } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsBrowsersSuspense";
+export { getApiCustomerLinksIdStatsLanguagesQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsLanguages";
+export { getApiCustomerLinksIdStatsLanguages } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsLanguages";
+export { getApiCustomerLinksIdStatsLanguagesQueryOptions } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsLanguages";
+export { useGetApiCustomerLinksIdStatsLanguages } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsLanguages";
+export { getApiCustomerLinksIdStatsLanguagesSuspenseQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsLanguagesSuspense";
+export { getApiCustomerLinksIdStatsLanguagesSuspense } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsLanguagesSuspense";
+export { getApiCustomerLinksIdStatsLanguagesSuspenseQueryOptions } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsLanguagesSuspense";
+export { useGetApiCustomerLinksIdStatsLanguagesSuspense } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsLanguagesSuspense";
+export { getApiCustomerLinksIdStatsVisitsQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsVisits";
+export { getApiCustomerLinksIdStatsVisits } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsVisits";
+export { getApiCustomerLinksIdStatsVisitsQueryOptions } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsVisits";
+export { useGetApiCustomerLinksIdStatsVisits } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsVisits";
+export { getApiCustomerLinksIdStatsVisitsSuspenseQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsVisitsSuspense";
+export { getApiCustomerLinksIdStatsVisitsSuspense } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsVisitsSuspense";
+export { getApiCustomerLinksIdStatsVisitsSuspenseQueryOptions } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsVisitsSuspense";
+export { useGetApiCustomerLinksIdStatsVisitsSuspense } from "./hooks/Customer.Link/useGetApiCustomerLinksIdStatsVisitsSuspense";
+export { getApiCustomerLinksIdSuspenseQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksIdSuspense";
+export { getApiCustomerLinksIdSuspense } from "./hooks/Customer.Link/useGetApiCustomerLinksIdSuspense";
+export { getApiCustomerLinksIdSuspenseQueryOptions } from "./hooks/Customer.Link/useGetApiCustomerLinksIdSuspense";
+export { useGetApiCustomerLinksIdSuspense } from "./hooks/Customer.Link/useGetApiCustomerLinksIdSuspense";
+export { getApiCustomerLinksSuspenseQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksSuspense";
+export { getApiCustomerLinksSuspense } from "./hooks/Customer.Link/useGetApiCustomerLinksSuspense";
+export { getApiCustomerLinksSuspenseQueryOptions } from "./hooks/Customer.Link/useGetApiCustomerLinksSuspense";
+export { useGetApiCustomerLinksSuspense } from "./hooks/Customer.Link/useGetApiCustomerLinksSuspense";
+export { getApiCustomerLinksTokenVisitQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksTokenVisit";
+export { getApiCustomerLinksTokenVisit } from "./hooks/Customer.Link/useGetApiCustomerLinksTokenVisit";
+export { getApiCustomerLinksTokenVisitQueryOptions } from "./hooks/Customer.Link/useGetApiCustomerLinksTokenVisit";
+export { useGetApiCustomerLinksTokenVisit } from "./hooks/Customer.Link/useGetApiCustomerLinksTokenVisit";
+export { getApiCustomerLinksTokenVisitSuspenseQueryKey } from "./hooks/Customer.Link/useGetApiCustomerLinksTokenVisitSuspense";
+export { getApiCustomerLinksTokenVisitSuspense } from "./hooks/Customer.Link/useGetApiCustomerLinksTokenVisitSuspense";
+export { getApiCustomerLinksTokenVisitSuspenseQueryOptions } from "./hooks/Customer.Link/useGetApiCustomerLinksTokenVisitSuspense";
+export { useGetApiCustomerLinksTokenVisitSuspense } from "./hooks/Customer.Link/useGetApiCustomerLinksTokenVisitSuspense";
+export { postApiCustomerLinksMutationKey } from "./hooks/Customer.Link/usePostApiCustomerLinks";
+export { postApiCustomerLinks } from "./hooks/Customer.Link/usePostApiCustomerLinks";
+export { postApiCustomerLinksMutationOptions } from "./hooks/Customer.Link/usePostApiCustomerLinks";
+export { usePostApiCustomerLinks } from "./hooks/Customer.Link/usePostApiCustomerLinks";
+export { postApiCustomerLinksIdStatusMutationKey } from "./hooks/Customer.Link/usePostApiCustomerLinksIdStatus";
+export { postApiCustomerLinksIdStatus } from "./hooks/Customer.Link/usePostApiCustomerLinksIdStatus";
+export { postApiCustomerLinksIdStatusMutationOptions } from "./hooks/Customer.Link/usePostApiCustomerLinksIdStatus";
+export { usePostApiCustomerLinksIdStatus } from "./hooks/Customer.Link/usePostApiCustomerLinksIdStatus";
+export { putApiCustomerLinksIdMutationKey } from "./hooks/Customer.Link/usePutApiCustomerLinksId";
+export { putApiCustomerLinksId } from "./hooks/Customer.Link/usePutApiCustomerLinksId";
+export { putApiCustomerLinksIdMutationOptions } from "./hooks/Customer.Link/usePutApiCustomerLinksId";
+export { usePutApiCustomerLinksId } from "./hooks/Customer.Link/usePutApiCustomerLinksId";
+export { getApiCustomerLinkVisitsQueryKey } from "./hooks/Customer.LinkVisit/useGetApiCustomerLinkVisits";
+export { getApiCustomerLinkVisits } from "./hooks/Customer.LinkVisit/useGetApiCustomerLinkVisits";
+export { getApiCustomerLinkVisitsQueryOptions } from "./hooks/Customer.LinkVisit/useGetApiCustomerLinkVisits";
+export { useGetApiCustomerLinkVisits } from "./hooks/Customer.LinkVisit/useGetApiCustomerLinkVisits";
+export { getApiCustomerLinkVisitsSuspenseQueryKey } from "./hooks/Customer.LinkVisit/useGetApiCustomerLinkVisitsSuspense";
+export { getApiCustomerLinkVisitsSuspense } from "./hooks/Customer.LinkVisit/useGetApiCustomerLinkVisitsSuspense";
+export { getApiCustomerLinkVisitsSuspenseQueryOptions } from "./hooks/Customer.LinkVisit/useGetApiCustomerLinkVisitsSuspense";
+export { useGetApiCustomerLinkVisitsSuspense } from "./hooks/Customer.LinkVisit/useGetApiCustomerLinkVisitsSuspense";
+export { getApiCustomerStatsGlobalQueryKey } from "./hooks/Customer.Stats/useGetApiCustomerStatsGlobal";
+export { getApiCustomerStatsGlobal } from "./hooks/Customer.Stats/useGetApiCustomerStatsGlobal";
+export { getApiCustomerStatsGlobalQueryOptions } from "./hooks/Customer.Stats/useGetApiCustomerStatsGlobal";
+export { useGetApiCustomerStatsGlobal } from "./hooks/Customer.Stats/useGetApiCustomerStatsGlobal";
+export { getApiCustomerStatsGlobalSuspenseQueryKey } from "./hooks/Customer.Stats/useGetApiCustomerStatsGlobalSuspense";
+export { getApiCustomerStatsGlobalSuspense } from "./hooks/Customer.Stats/useGetApiCustomerStatsGlobalSuspense";
+export { getApiCustomerStatsGlobalSuspenseQueryOptions } from "./hooks/Customer.Stats/useGetApiCustomerStatsGlobalSuspense";
+export { useGetApiCustomerStatsGlobalSuspense } from "./hooks/Customer.Stats/useGetApiCustomerStatsGlobalSuspense";
 export { _400Schema } from "./zod/_400Schema";
 export { _404Schema } from "./zod/_404Schema";
 export { _500Schema } from "./zod/_500Schema";

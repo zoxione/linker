@@ -3,8 +3,8 @@
 import type { QueryClient, QueryKey, QueryObserverOptions, UseQueryResult } from "@tanstack/react-query";
 import { queryOptions, useQuery } from "@tanstack/react-query";
 
-import type { RequestConfig, ResponseErrorConfig } from "../../../lib/fetch-client";
 import fetch from "../../../lib/fetch-client";
+import type { RequestConfig, ResponseErrorConfig } from "../../../lib/fetch-client";
 import type {
   GetApiCustomerStatsGlobal400,
   GetApiCustomerStatsGlobal500,
