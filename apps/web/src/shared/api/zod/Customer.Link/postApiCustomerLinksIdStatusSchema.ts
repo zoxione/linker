@@ -50,4 +50,4 @@ export const postApiCustomerLinksIdStatusMutationRequestSchema = z.object({
   status: z.enum(["ENABLE", "DISABLE"]),
 });
 
-export const postApiCustomerLinksIdStatusMutationResponseSchema = postApiCustomerLinksIdStatus200Schema;
+export const postApiCustomerLinksIdStatusMutationResponseSchema = z.lazy(() => postApiCustomerLinksIdStatus200Schema);

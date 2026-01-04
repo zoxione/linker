@@ -52,4 +52,4 @@ export const getApiCustomerLinks500Schema = z.object({
   message: z.string(),
 });
 
-export const getApiCustomerLinksQueryResponseSchema = getApiCustomerLinks200Schema;
+export const getApiCustomerLinksQueryResponseSchema = z.lazy(() => getApiCustomerLinks200Schema);

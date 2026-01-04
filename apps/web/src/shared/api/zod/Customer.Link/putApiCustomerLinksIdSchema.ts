@@ -50,4 +50,4 @@ export const putApiCustomerLinksIdMutationRequestSchema = z.object({
   name: z.string().min(3).max(24),
 });
 
-export const putApiCustomerLinksIdMutationResponseSchema = putApiCustomerLinksId200Schema;
+export const putApiCustomerLinksIdMutationResponseSchema = z.lazy(() => putApiCustomerLinksId200Schema);

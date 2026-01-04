@@ -39,4 +39,4 @@ export const postApiCustomerLinksMutationRequestSchema = z.object({
   redirectUrl: z.url(),
 });
 
-export const postApiCustomerLinksMutationResponseSchema = postApiCustomerLinks200Schema;
+export const postApiCustomerLinksMutationResponseSchema = z.lazy(() => postApiCustomerLinks200Schema);

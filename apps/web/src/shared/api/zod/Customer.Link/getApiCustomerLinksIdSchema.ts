@@ -46,4 +46,4 @@ export const getApiCustomerLinksId500Schema = z.object({
   message: z.string(),
 });
 
-export const getApiCustomerLinksIdQueryResponseSchema = getApiCustomerLinksId200Schema;
+export const getApiCustomerLinksIdQueryResponseSchema = z.lazy(() => getApiCustomerLinksId200Schema);

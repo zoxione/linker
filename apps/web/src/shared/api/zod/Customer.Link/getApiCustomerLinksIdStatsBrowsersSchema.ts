@@ -42,4 +42,6 @@ export const getApiCustomerLinksIdStatsBrowsers500Schema = z.object({
   message: z.string(),
 });
 
-export const getApiCustomerLinksIdStatsBrowsersQueryResponseSchema = getApiCustomerLinksIdStatsBrowsers200Schema;
+export const getApiCustomerLinksIdStatsBrowsersQueryResponseSchema = z.lazy(
+  () => getApiCustomerLinksIdStatsBrowsers200Schema,
+);

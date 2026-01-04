@@ -26,4 +26,4 @@ export const getApiCustomerStatsGlobal500Schema = z.object({
   message: z.string(),
 });
 
-export const getApiCustomerStatsGlobalQueryResponseSchema = getApiCustomerStatsGlobal200Schema;
+export const getApiCustomerStatsGlobalQueryResponseSchema = z.lazy(() => getApiCustomerStatsGlobal200Schema);

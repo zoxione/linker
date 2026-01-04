@@ -42,4 +42,6 @@ export const getApiCustomerLinksIdStatsLanguages500Schema = z.object({
   message: z.string(),
 });
 
-export const getApiCustomerLinksIdStatsLanguagesQueryResponseSchema = getApiCustomerLinksIdStatsLanguages200Schema;
+export const getApiCustomerLinksIdStatsLanguagesQueryResponseSchema = z.lazy(
+  () => getApiCustomerLinksIdStatsLanguages200Schema,
+);

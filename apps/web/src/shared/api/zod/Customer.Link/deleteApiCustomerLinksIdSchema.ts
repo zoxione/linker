@@ -35,4 +35,4 @@ export const deleteApiCustomerLinksId500Schema = z.object({
   message: z.string(),
 });
 
-export const deleteApiCustomerLinksIdMutationResponseSchema = deleteApiCustomerLinksId204Schema;
+export const deleteApiCustomerLinksIdMutationResponseSchema = z.lazy(() => deleteApiCustomerLinksId204Schema);
