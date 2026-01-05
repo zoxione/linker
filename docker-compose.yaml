@@ -1,6 +1,5 @@
 services:
   api:
-    container_name: api
     build:
       context: .
       dockerfile: ./apps/api/Dockerfile
@@ -43,10 +42,7 @@ services:
       - SMTP_USER=${SMTP_USER}
       - SMTP_PASSWORD=${SMTP_PASSWORD}
       - SMTP_FROM_EMAIL=${SMTP_FROM_EMAIL}
-    networks:
-      - app_network
   web:
-    container_name: web
     build:
       context: .
       dockerfile: ./apps/web/Dockerfile
@@ -61,9 +57,3 @@ services:
       - PRODUCTION=${PRODUCTION}
       - API_APP_URL=${API_APP_URL}
       - WEB_APP_URL=${WEB_APP_URL}
-    networks:
-      - app_network
-
-networks:
-  app_network:
-    external: true
