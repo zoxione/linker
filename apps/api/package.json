@@ -9,6 +9,7 @@
     "dev": "tsx watch src/server/index.ts",
     "build": "tsc -p tsconfig.json",
     "start": "tsx dist/server/index.js",
+    "lint": "eslint .",
     "auth:generate": "pnpm dlx @better-auth/cli generate --y",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate"
@@ -38,6 +39,7 @@
     "@types/nodemailer": "7.0.4",
     "@types/pg": "8.16.0",
     "drizzle-kit": "0.31.8",
+    "eslint": "9.39.2",
     "tsx": "4.21.0",
     "typescript": "5.9.3"
   }

@@ -1,5 +1,6 @@
 {
   "name": "@repo/ui",
+  "type": "module",
   "private": true,
   "exports": {
     "./globals.css": "./src/styles/globals.css",
