@@ -6,7 +6,7 @@ import { Button } from "@repo/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@repo/ui/card";
 import { Icons } from "@repo/ui/icons";
 
-import { config } from "@/core/config";
+import { clientConfig } from "@/core/config/client-config";
 import { SimpleError } from "@/shared/errors/simple-error";
 import { authClient } from "@/shared/lib/auth-client";
 import { displayError } from "@/shared/utils/display-error";
@@ -26,8 +26,8 @@ const AuthCard = ({}: AuthCardProps) => {
     try {
       const { error } = await authClient.signIn.social({
         provider,
-        callbackURL: `${config.webAppUrl}/dashboard`,
-        errorCallbackURL: `${config.webAppUrl}/auth/error`,
+        callbackURL: `${clientConfig.webAppUrl}/dashboard`,
+        errorCallbackURL: `${clientConfig.webAppUrl}/auth/error`,
       });
       if (error) {
         throw new SimpleError(getAuthError(error.code) ?? "Не удалось выполнить вход");

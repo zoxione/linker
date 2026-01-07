@@ -1,6 +1,6 @@
-import { parseConfig } from "./parse-config";
+import { CONFIG_SCHEMA } from "./config.schema";
 
-const parsedConfig = parseConfig({
+const parsedConfig = CONFIG_SCHEMA.parse({
   production: process.env.PRODUCTION,
 
   domainUrl: process.env.DOMAIN_URL,

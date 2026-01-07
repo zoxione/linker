@@ -3,10 +3,10 @@ import { createAuthClient } from "better-auth/react";
 
 import { Auth } from "@repo/api";
 
-import { config } from "@/core/config";
+import { clientConfig } from "@/core/config/client-config";
 
 const authClient = createAuthClient({
-  baseURL: config.apiAppUrl,
+  baseURL: clientConfig.apiAppUrl,
   plugins: [inferAdditionalFields<Auth>(), emailOTPClient()],
 });
 

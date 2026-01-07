@@ -4,13 +4,13 @@ import { pluginReactQuery } from "@kubb/plugin-react-query";
 import { pluginTs } from "@kubb/plugin-ts";
 import { pluginZod } from "@kubb/plugin-zod";
 
-import { config } from "./src/core/config";
+import { clientConfig } from "./src/core/config/client-config";
 
 const kubbConfig = defineConfig(() => {
   return {
     root: ".",
     input: {
-      path: `${config.apiAppUrl}/openapi`,
+      path: `${clientConfig.apiAppUrl}/openapi`,
     },
     output: {
       path: "./src/shared/api",
