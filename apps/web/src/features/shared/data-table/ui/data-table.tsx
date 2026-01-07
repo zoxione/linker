@@ -12,10 +12,10 @@ import {
 } from "@tanstack/react-table";
 import { useState } from "react";
 
-import { Button } from "@repo/ui/components/button";
-import { Skeleton } from "@repo/ui/components/skeleton";
+import { Button } from "@repo/ui/button";
 import { Icons } from "@repo/ui/icons";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@repo/ui/select";
+import { Skeleton } from "@repo/ui/skeleton";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@repo/ui/table";
 
 import { LIMIT_VALUES } from "../model/data-table.constants";

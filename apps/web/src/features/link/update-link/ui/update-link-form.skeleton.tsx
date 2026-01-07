@@ -1,4 +1,4 @@
-import { Skeleton } from "@repo/ui/components/skeleton";
+import { Skeleton } from "@repo/ui/skeleton";
 
 interface UpdateLinkFormSkeletonProps {}
 

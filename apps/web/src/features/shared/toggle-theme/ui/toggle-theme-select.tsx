@@ -2,7 +2,7 @@
 
 import { useTheme } from "next-themes";
 
-import { ClientOnly } from "@repo/ui/components/client-only";
+import { ClientOnly } from "@repo/ui/client-only";
 import {
   Select,
   SelectContent,
@@ -11,8 +11,8 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@repo/ui/components/select";
-import { Skeleton } from "@repo/ui/components/skeleton";
+} from "@repo/ui/select";
+import { Skeleton } from "@repo/ui/skeleton";
 
 interface ToggleThemeSelectProps {}
 

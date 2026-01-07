@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import { Button } from "@repo/ui/button";
-import { toast } from "@repo/ui/components/toast";
 import {
   Dialog,
   DialogClose,
@@ -14,6 +13,7 @@ import {
   DialogMain,
   DialogTitle,
 } from "@repo/ui/dialog";
+import { toast } from "@repo/ui/toast";
 
 import { SimpleError } from "@/shared/errors/simple-error";
 import { authClient } from "@/shared/lib/auth-client";

@@ -3,8 +3,8 @@
 import { usePathname } from "next/navigation";
 import { match } from "path-to-regexp";
 
-import { Separator } from "@repo/ui/components/separator";
-import { SidebarTrigger } from "@repo/ui/components/sidebar";
+import { Separator } from "@repo/ui/separator";
+import { SidebarTrigger } from "@repo/ui/sidebar";
 import { cn } from "@repo/ui/utils/cn";
 
 import { APP_PAGES } from "@/core/data/constants";

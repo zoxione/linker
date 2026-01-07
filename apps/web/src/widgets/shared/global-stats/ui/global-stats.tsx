@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 
-import { buttonVariants } from "@repo/ui/components/button";
-import { Card, CardDescription, CardHeader, CardTitle } from "@repo/ui/components/card";
-import { Skeleton } from "@repo/ui/components/skeleton";
+import { buttonVariants } from "@repo/ui/button";
+import { Card, CardDescription, CardHeader, CardTitle } from "@repo/ui/card";
+import { Skeleton } from "@repo/ui/skeleton";
 import { cn } from "@repo/ui/utils/cn";
 
 import { QUERY_KEYS } from "@/core/data/constants";

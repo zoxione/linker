@@ -3,9 +3,9 @@
 import { useMemo } from "react";
 import { LabelList, Pie, PieChart } from "recharts";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@repo/ui/components/card";
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@repo/ui/components/chart";
-import { Skeleton } from "@repo/ui/components/skeleton";
+import { Card, CardContent, CardHeader, CardTitle } from "@repo/ui/card";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@repo/ui/chart";
+import { Skeleton } from "@repo/ui/skeleton";
 import { cn } from "@repo/ui/utils/cn";
 
 import { QUERY_KEYS } from "@/core/data/constants";

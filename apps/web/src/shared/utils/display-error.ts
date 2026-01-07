@@ -1,6 +1,6 @@
 import { HTTPError } from "ky";
 
-import { toast } from "@repo/ui/components/toast";
+import { toast } from "@repo/ui/toast";
 
 import { SimpleError } from "../errors/simple-error";
 import { HTTPErrorData } from "../types/http-error-data";

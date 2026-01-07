@@ -3,10 +3,10 @@
 import { useState } from "react";
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@repo/ui/components/card";
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@repo/ui/components/chart";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@repo/ui/components/select";
-import { Skeleton } from "@repo/ui/components/skeleton";
+import { Card, CardContent, CardHeader, CardTitle } from "@repo/ui/card";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@repo/ui/chart";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@repo/ui/select";
+import { Skeleton } from "@repo/ui/skeleton";
 import { cn } from "@repo/ui/utils/cn";
 
 import { QUERY_KEYS } from "@/core/data/constants";

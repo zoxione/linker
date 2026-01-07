@@ -3,9 +3,9 @@
 import { ColumnDef } from "@tanstack/react-table";
 import Link from "next/link";
 
-import { Badge } from "@repo/ui/components/badge";
-import { SELECT_DEFAULT_VALUE } from "@repo/ui/components/select";
-import { TableHeadFilter, TableHeadSort } from "@repo/ui/components/table";
+import { Badge } from "@repo/ui/badge";
+import { SELECT_DEFAULT_VALUE } from "@repo/ui/select";
+import { TableHeadFilter, TableHeadSort } from "@repo/ui/table";
 
 import { DATE_TIME_FORMAT } from "@/core/data/constants";
 import { LINK_STATUS_OPTIONS } from "@/entities/link/model/link.constants";

@@ -15,7 +15,7 @@ import {
   SidebarMenuItem,
   SidebarMenuSkeleton,
   SidebarSeparator,
-} from "@repo/ui/components/sidebar";
+} from "@repo/ui/sidebar";
 
 import { APP_SIDEBAR_ITEMS } from "@/core/data/constants";
 import { authClient } from "@/shared/lib/auth-client";

@@ -4,8 +4,8 @@ import { useCopyToClipboard } from "usehooks-ts";
 
 import { Badge } from "@repo/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@repo/ui/card";
-import { toast } from "@repo/ui/components/toast";
 import { Icons } from "@repo/ui/icons";
+import { toast } from "@repo/ui/toast";
 import { cn } from "@repo/ui/utils/cn";
 
 import { DATE_FORMAT } from "@/core/data/constants";

@@ -4,7 +4,6 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 
 import { Button } from "@repo/ui/button";
-import { toast } from "@repo/ui/components/toast";
 import {
   Dialog,
   DialogClose,
@@ -14,6 +13,7 @@ import {
   DialogMain,
   DialogTitle,
 } from "@repo/ui/dialog";
+import { toast } from "@repo/ui/toast";
 
 import { QUERY_KEYS } from "@/core/data/constants";
 import { Link } from "@/entities/link/model/link.types";

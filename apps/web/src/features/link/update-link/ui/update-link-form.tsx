@@ -6,10 +6,10 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { Button } from "@repo/ui/button";
-import { Icons } from "@repo/ui/components/icons";
-import { toast } from "@repo/ui/components/toast";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@repo/ui/form";
+import { Icons } from "@repo/ui/icons";
 import { Input } from "@repo/ui/input";
+import { toast } from "@repo/ui/toast";
 
 import { QUERY_KEYS } from "@/core/data/constants";
 import { Link } from "@/entities/link/model/link.types";

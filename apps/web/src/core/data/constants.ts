@@ -1,4 +1,4 @@
-import { Icons } from "@repo/ui/components/icons";
+import { Icons } from "@repo/ui/icons";
 
 const DATE_FORMAT = "DD.MM.YYYY";
 

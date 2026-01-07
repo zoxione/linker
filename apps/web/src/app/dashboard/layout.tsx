@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { SidebarInset, SidebarProvider } from "@repo/ui/components/sidebar";
+import { SidebarInset, SidebarProvider } from "@repo/ui/sidebar";
 
 import { AppSidebar } from "@/widgets/shared/app-sidebar";
 import { PageHeader } from "@/widgets/shared/page-header";

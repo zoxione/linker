@@ -2,8 +2,8 @@
 
 import { useInfiniteQuery } from "@tanstack/react-query";
 
-import { Button } from "@repo/ui/components/button";
-import { InfiniteScrollContainer } from "@repo/ui/components/infinite-scroll-container";
+import { Button } from "@repo/ui/button";
+import { InfiniteScrollContainer } from "@repo/ui/infinite-scroll-container";
 import { cn } from "@repo/ui/utils/cn";
 
 import { LIMIT_DEFAULT, QUERY_KEYS } from "@/core/data/constants";

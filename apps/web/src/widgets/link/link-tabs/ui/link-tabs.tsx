@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { Tabs, TabsList, TabsTrigger } from "@repo/ui/components/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@repo/ui/tabs";
 import { cn } from "@repo/ui/utils/cn";
 
 import { Link as LinkType } from "@/entities/link/model/link.types";

@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@repo/ui/components/button";
-import { Icons } from "@repo/ui/components/icons";
+import { Button } from "@repo/ui/button";
+import { Icons } from "@repo/ui/icons";
 
 import { useDialog } from "@/core/providers/dialog-provider";
 

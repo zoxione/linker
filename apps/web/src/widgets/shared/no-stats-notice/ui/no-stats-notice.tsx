@@ -1,5 +1,5 @@
-import { Alert, AlertDescription, AlertTitle } from "@repo/ui/components/alert";
-import { Icons } from "@repo/ui/components/icons";
+import { Alert, AlertDescription, AlertTitle } from "@repo/ui/alert";
+import { Icons } from "@repo/ui/icons";
 import { cn } from "@repo/ui/utils/cn";
 
 interface NoStatsNoticeProps {

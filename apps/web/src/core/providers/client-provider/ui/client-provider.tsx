@@ -5,8 +5,8 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { ReactNode } from "react";
 
-import { Toaster } from "@repo/ui/components/toast";
-import { TooltipProvider } from "@repo/ui/components/tooltip";
+import { Toaster } from "@repo/ui/toast";
+import { TooltipProvider } from "@repo/ui/tooltip";
 
 import { queryClient } from "@/shared/lib/query-client";
 

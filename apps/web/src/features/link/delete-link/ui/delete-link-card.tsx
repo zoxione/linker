@@ -2,8 +2,8 @@
 
 import { useRouter } from "next/navigation";
 
-import { Button } from "@repo/ui/components/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@repo/ui/components/card";
+import { Button } from "@repo/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@repo/ui/card";
 
 import { useDialog } from "@/core/providers/dialog-provider";
 import { Link } from "@/entities/link/model/link.types";

@@ -2,9 +2,9 @@
 
 import { useCopyToClipboard } from "usehooks-ts";
 
-import { Badge } from "@repo/ui/components/badge";
-import { toast } from "@repo/ui/components/toast";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@repo/ui/components/tooltip";
+import { Badge } from "@repo/ui/badge";
+import { toast } from "@repo/ui/toast";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@repo/ui/tooltip";
 
 import { displayError } from "@/shared/utils/display-error";
 

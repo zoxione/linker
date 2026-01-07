@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { buttonVariants } from "@repo/ui/button";
-import { Icons } from "@repo/ui/components/icons";
+import { Icons } from "@repo/ui/icons";
 import { cn } from "@repo/ui/utils/cn";
 
 interface PageProps {

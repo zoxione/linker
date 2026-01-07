@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@repo/ui/components/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@repo/ui/card";
 
 import { LINK_STATUS_PRETTY } from "@/entities/link/model/link.constants";
 import { Link } from "@/entities/link/model/link.types";

@@ -4,8 +4,8 @@ import { ColumnDef } from "@tanstack/react-table";
 import countryCodeToFlagEmoji from "country-code-to-flag-emoji";
 import Link from "next/link";
 
-import { Badge } from "@repo/ui/components/badge";
-import { TableHeadSort } from "@repo/ui/components/table";
+import { Badge } from "@repo/ui/badge";
+import { TableHeadSort } from "@repo/ui/table";
 
 import { DATE_TIME_FORMAT } from "@/core/data/constants";
 import { LinkVisit } from "@/entities/link-visit/model/link-visit.types";

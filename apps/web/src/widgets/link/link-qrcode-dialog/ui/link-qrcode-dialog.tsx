@@ -3,7 +3,7 @@
 import { QRCodeCanvas } from "qrcode.react";
 import { useRef, useState } from "react";
 
-import { Button } from "@repo/ui/components/button";
+import { Button } from "@repo/ui/button";
 import {
   Dialog,
   DialogClose,
@@ -12,7 +12,7 @@ import {
   DialogHeader,
   DialogMain,
   DialogTitle,
-} from "@repo/ui/components/dialog";
+} from "@repo/ui/dialog";
 
 import { Link } from "@/entities/link/model/link.types";
 import { displayError } from "@/shared/utils/display-error";

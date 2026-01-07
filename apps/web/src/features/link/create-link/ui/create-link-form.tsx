@@ -6,9 +6,9 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { Button } from "@repo/ui/button";
-import { toast } from "@repo/ui/components/toast";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@repo/ui/form";
 import { Input } from "@repo/ui/input";
+import { toast } from "@repo/ui/toast";
 
 import { QUERY_KEYS } from "@/core/data/constants";
 import { usePostApiCustomerLinks } from "@/shared/api";
